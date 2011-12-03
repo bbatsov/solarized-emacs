@@ -19,10 +19,10 @@ _solarized-dark_ or _solarized-light_.
 
 ## Stand-alone installation
 
-Download `solarized-core.el`, `solarized-dark-theme.el` and
+Download `solarized-theme.el`, `solarized-dark-theme.el` and
 `solarized-light-theme.el`.
 
-Place `solarized-core.el` is a folder that's on your Emacs' `load-path`.
+Place `solarized-theme.el` is a folder that's on your Emacs' `load-path`.
 Afterward place `solarized-dark-theme.el` and
 `solarized-light-theme.el` in `~/.emacs.d/themes` (or some other
 folder if you prefer so). Add this your
@@ -31,6 +31,16 @@ folder if you prefer so). Add this your
 `(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")`
 
 Now you can load the theme with the interactive function `load-theme`.
+
+## Marmalade
+
+Solarized for Emacs is available for installation via the Marmalade
+repo:
+
+`M-x package-install solarized-theme`
+
+Afterwards - business as usual, just load one of the theme variants
+with `M-x load-theme`. 
 
 # Bugs & Improvements
 
