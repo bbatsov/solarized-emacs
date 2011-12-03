@@ -458,6 +458,6 @@
 ;; no-byte-compile: t
 ;; End:
 
-(provide 'solarized-core)
+(provide 'solarized-theme)
 
 ;;; solarized-core.el ends here.
