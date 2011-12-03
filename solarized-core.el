@@ -114,14 +114,14 @@
      `(lazy-highlight ((,class (:foreground ,yellow :background ,solarized-hl))))
 
      `(menu ((,class (:foreground ,solarized-fg :background ,solarized-bg))))
-     `(minibuffer-prompt ((,class (:foreground ,yellow))))
+     `(minibuffer-prompt ((,class (:foreground ,solarized-emph))))
      `(mode-line
-       ((,class (:foreground ,green
+       ((,class (:foreground ,solarized-fg
                              :background ,solarized-hl
                              :box (:line-width -1 :style released-button)))))
-     `(mode-line-buffer-id ((,class (:foreground ,yellow :weight bold))))
+     `(mode-line-buffer-id ((,class (:foreground ,solarized-emph :weight bold))))
      `(mode-line-inactive
-       ((,class (:foreground ,green
+       ((,class (:foreground ,solarized-fg
                              :background ,solarized-bg
                              :box (:line-width -1 :style released-button)))))
      `(region ((,class (:background ,solarized-hl))))
