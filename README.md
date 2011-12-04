@@ -34,8 +34,8 @@ Now you can load the theme with the interactive function `load-theme`.
 
 ## Marmalade
 
-Solarized for Emacs is available for installation via the Marmalade
-repo:
+Solarized for Emacs is available for installation via the [Marmalade
+repo](http://marmalade-repo.org/):
 
 `M-x package-install solarized-theme`
 
