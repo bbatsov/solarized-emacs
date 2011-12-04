@@ -134,7 +134,7 @@
      `(font-lock-comment-face ((,class (:foreground ,solarized-comments))))
      `(font-lock-comment-delimiter-face ((,class (:foreground ,solarized-comments))))
      `(font-lock-constant-face ((,class (:foreground ,blue))))
-     `(font-lock-doc-face ((,class (:foreground ,green))))
+     `(font-lock-doc-face ((,class (:foreground ,cyan))))
      `(font-lock-doc-string-face ((,class (:foreground ,blue))))
      `(font-lock-function-name-face ((,class (:foreground ,blue))))
      `(font-lock-keyword-face ((,class (:foreground ,green :weight bold))))
