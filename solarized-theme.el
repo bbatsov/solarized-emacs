@@ -409,7 +409,7 @@
      `(whitespace-trailing ((,class (:foreground ,red :background ,solarized-bg))))
      `(whitespace-line ((,class (:background ,solarized-bg :foreground ,magenta))))
      `(whitespace-space-before-tab ((,class (:background ,orange :foreground ,orange))))
-     `(whitespace-indentation ((,class (:background ,yellow, :foreground ,red))))
+     `(whitespace-indentation ((,class (:background ,yellow :foreground ,red))))
      `(whitespace-empty ((,class (:background ,yellow :foreground ,red))))
      `(whitespace-space-after-tab ((,class (:background ,yellow :foreground ,red))))
 
