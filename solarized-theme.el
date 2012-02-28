@@ -448,7 +448,10 @@
   (custom-theme-set-variables
    (if (eq variant 'light) 'solarized-light 'solarized-dark)
    '(ansi-color-names-vector [solarized-bg red green yellow
-                                           blue magenta cyan solarized-fg])))
+                                           blue magenta cyan solarized-fg])
+
+   ;; fill-column-indicator
+   `(fci-rule-color ,solarized-hl)))
 
 ;;;###autoload
 (when load-file-name
