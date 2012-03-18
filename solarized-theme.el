@@ -443,15 +443,15 @@
      `(wl-highlight-summary-displaying-face ((,class (:underline t :weight bold))))
 
      ;; which-func-mode
-     `(which-func ((,class (:foreground ,green))))))
+     `(which-func ((,class (:foreground ,green)))))
 
-  (custom-theme-set-variables
-   (if (eq variant 'light) 'solarized-light 'solarized-dark)
-   '(ansi-color-names-vector [solarized-bg red green yellow
-                                           blue magenta cyan solarized-fg])
+    (custom-theme-set-variables
+     (if (eq variant 'light) 'solarized-light 'solarized-dark)
+     '(ansi-color-names-vector [solarized-bg red green yellow
+                                             blue magenta cyan solarized-fg])
 
-   ;; fill-column-indicator
-   `(fci-rule-color ,solarized-hl)))
+     ;; fill-column-indicator
+     `(fci-rule-color ,solarized-hl))))
 
 ;;;###autoload
 (when load-file-name
