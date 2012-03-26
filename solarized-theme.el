@@ -327,11 +327,11 @@
 
      ;; org-mode
      `(org-agenda-date-today
-       ((,class (:foreground "white" :slant italic :weight bold))) t)
+       ((,class (:foreground ,solarized-fg :slant italic :weight bold))) t)
      `(org-agenda-structure
        ((,class (:inherit font-lock-comment-face))))
      `(org-archived ((,class (:foreground ,solarized-fg :weight bold))))
-     `(org-checkbox ((,class (:background ,solarized-bg :foreground "white"
+     `(org-checkbox ((,class (:background ,solarized-bg :foreground ,solarized-fg
                                           :box (:line-width 1 :style released-button)))))
      `(org-date ((,class (:foreground ,blue :underline t))))
      `(org-deadline-announce ((,class (:foreground ,red))))
