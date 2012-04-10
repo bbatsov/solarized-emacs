@@ -124,7 +124,7 @@
        ((,class (:foreground ,solarized-fg
                              :background ,solarized-bg
                              :box (:line-width -1 :style released-button)))))
-     `(region ((,class (:background ,solarized-hl))))
+     `(region ((,class (:foreground ,solarized-bg :background ,solarized-emph))))
      `(secondary-selection ((,class (:background ,solarized-bg))))
      `(trailing-whitespace ((,class (:background ,red))))
      `(vertical-border ((,class (:foreground ,solarized-fg))))
