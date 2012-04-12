@@ -326,10 +326,10 @@
      `(nav-face-hfile ((,class (:foreground ,red))))
 
      ;; org-mode
-     `(org-agenda-date-today
-       ((,class (:foreground ,solarized-fg :slant italic :weight bold))) t)
      `(org-agenda-structure
        ((,class (:inherit font-lock-comment-face :foreground ,solarized-fg))))
+     `(org-agenda-date-today
+       ((,class (:slant italic :weight bold))) t)
      `(org-archived ((,class (:foreground ,solarized-fg :weight bold))))
      `(org-checkbox ((,class (:background ,solarized-bg :foreground ,solarized-fg
                                           :box (:line-width 1 :style released-button)))))
