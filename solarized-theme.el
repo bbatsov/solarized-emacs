@@ -327,11 +327,11 @@
 
      ;; org-mode
      `(org-agenda-date-today
-       ((,class (:foreground "white" :slant italic :weight bold))) t)
+       ((,class (:foreground ,solarized-fg :slant italic :weight bold))) t)
      `(org-agenda-structure
        ((,class (:inherit font-lock-comment-face))))
      `(org-archived ((,class (:foreground ,solarized-fg :weight bold))))
-     `(org-checkbox ((,class (:background ,solarized-bg :foreground "white"
+     `(org-checkbox ((,class (:background ,solarized-bg :foreground ,solarized-fg
                                           :box (:line-width 1 :style released-button)))))
      `(org-date ((,class (:foreground ,blue :underline t))))
      `(org-deadline-announce ((,class (:foreground ,red))))
@@ -358,6 +358,19 @@
      `(org-todo ((,class (:bold t :foreground ,red :weight bold))))
      `(org-upcoming-deadline ((,class (:inherit font-lock-keyword-face))))
      `(org-warning ((,class (:bold t :foreground ,red :weight bold))))
+     ;; org-habit
+     `(org-habit-clear-face ((,class ,(if (eq variant 'light)
+                                       `(:foreground ,base02 :background "#bbbbff")
+                                       `(:foreground ,base01 :background "blue")))))
+     `(org-habit-clear-future-face ((,class (:foreground ,(if (eq variant 'light) base02 base00)))))
+     `(org-habit-ready-face ((,class ,(if (eq variant 'light)
+                                        `(:foreground ,base02 :background "#aaffbb")
+                                        `(:foreground ,base02 :background "forestgreen")))))
+     `(org-habit-ready-future-face ((,class (:foreground ,base01))))
+     `(org-habit-alert-face ((,class (:foreground ,base01))))
+     `(org-habit-alert-future-face ((,class (:foreground ,base02))))
+     `(org-habit-overdue-face ((,class (:foreground ,base01))))
+     `(org-habit-overdue-future-face ((,class (:foreground ,base01))))
 
      ;; outline
      `(outline-8 ((,class (:inherit default))))
