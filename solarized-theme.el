@@ -327,9 +327,14 @@
 
      ;; org-mode
      `(org-agenda-structure
-       ((,class (:inherit font-lock-comment-face :foreground ,solarized-fg))))
+       ((,class (:inherit font-lock-comment-face :foreground ,magenta :inverse-video t))))
+     `(org-agenda-date
+       ((,class (:foreground ,solarized-fg :background ,solarized-hl :weight bold
+                             :box (:line-width 4 :color ,solarized-hl) ))) t)
+     `(org-agenda-date-weekend ((,class (:inherit org-agenda-date :slant italic))) t)
      `(org-agenda-date-today
-       ((,class (:slant italic :weight bold))) t)
+       ((,class (:inherit org-agenda-date :slant italic underline: t))) t)
+     `(org-agenda-done ((,class (:foreground ,green))) t)
      `(org-archived ((,class (:foreground ,solarized-fg :weight bold))))
      `(org-checkbox ((,class (:background ,solarized-bg :foreground ,solarized-fg
                                           :box (:line-width 1 :style released-button)))))
