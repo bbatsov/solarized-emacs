@@ -340,6 +340,7 @@
      `(org-block-begin-line ((,class (:foreground ,solarized-comments :slant italic))))
      `(org-checkbox ((,class (:background ,solarized-bg :foreground ,solarized-fg
                                           :box (:line-width 1 :style released-button)))))
+     `(org-code ((,class (:foreground ,solarized-comments))))
      `(org-date ((,class (:foreground ,blue :underline t))))
      `(org-done ((,class (:bold t :weight bold :foreground ,green))))
      `(org-ellipsis ((,class (:foreground ,solarized-comments))))
