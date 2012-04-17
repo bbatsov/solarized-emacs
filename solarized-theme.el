@@ -464,7 +464,12 @@
      `(wl-highlight-summary-displaying-face ((,class (:underline t :weight bold))))
 
      ;; which-func-mode
-     `(which-func ((,class (:foreground ,green)))))
+     `(which-func ((,class (:foreground ,green))))
+
+     ;; yascroll
+     `(yascroll:thumb-text-area ((,class (:foreground ,solarized-comments :background ,solarized-comments))))
+     `(yascroll:thumb-fringe ((,class (:foreground ,solarized-comments :background ,solarized-comments)))))
+
 
     (custom-theme-set-variables
      (if (eq variant 'light) 'solarized-light 'solarized-dark)
