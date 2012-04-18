@@ -149,6 +149,12 @@
 
      ;;; external
 
+     ;; ace-jump-mode
+     `(ace-jump-face-background
+       ((,class (:foreground ,solarized-comments :background ,solarized-bg :inverse-video nil))))
+     `(ace-jump-face-foreground
+       ((,class (:foreground ,red :background ,solarized-bg :inverse-video nil))))
+
      ;; diff
      `(diff-added ((,class (:foreground ,green))))
      `(diff-changed ((,class (:foreground ,yellow))))
