@@ -147,7 +147,7 @@
      `(grep-error-face ((,class (:foreground ,red :weight bold :underline t))))
      `(grep-hit-face ((,class (:foreground ,blue))))
      `(grep-match-face ((,class (:foreground ,orange :weight bold))))
-     `(match ((,class (:background ,solarized-hl :foreground ,orange :weight bold))))
+     `(match ((,class (:background ,solarized-hl :foreground ,solarized-emph :weight bold))))
 
      ;; faces used by isearch
      `(isearch ((,class (:foreground ,yellow :background ,solarized-hl))))
