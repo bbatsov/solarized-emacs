@@ -1,8 +1,8 @@
 ;;; solarized-theme.el --- Solarized for Emacs.
 
-;; Copyright (C) 2011 Bozhidar Batsov
+;; Copyright (C) 2011,2012 Bozhidar Batsov
 
-;; Author: Bozhidar Batsov <bozhidar.batsov@gmail.com>
+;; Authors: Bozhidar Batsov <bozhidar.batsov@gmail.com>, Thomas Frössman <thomasf@jossystem.se>
 ;; URL: http://github.com/bbatsov/solarized-emacs
 ;; Version: 0.3.0
 
@@ -147,7 +147,7 @@
      `(grep-error-face ((,class (:foreground ,red :weight bold :underline t))))
      `(grep-hit-face ((,class (:foreground ,blue))))
      `(grep-match-face ((,class (:foreground ,orange :weight bold))))
-     `(match ((,class (:background ,solarized-hl :foreground ,orange :weight bold))))
+     `(match ((,class (:background ,solarized-hl :foreground ,solarized-emph :weight bold))))
 
      ;; faces used by isearch
      `(isearch ((,class (:foreground ,yellow :background ,solarized-hl))))
@@ -196,6 +196,12 @@
      `(ace-jump-face-foreground
        ((,class (:foreground ,red :background ,solarized-bg :inverse-video nil))))
 
+     ;; custom
+     `(custom-variable-tag ((,class (:foreground ,cyan))))
+     `(custom-comment-tag ((,class (:foreground ,solarized-comments))))
+     `(custom-group-tag ((,class (:foreground ,blue))))
+     `(custom-state ((,class (:foreground ,green))))
+
      ;; diff
      `(diff-added ((,class (:foreground ,green))))
      `(diff-changed ((,class (:foreground ,yellow))))
@@ -218,8 +224,9 @@
      `(eshell-ls-symlink ((,class (:foreground ,cyan :weight bold))))
 
      ;; flymake
-     `(flymake-errline ((,class (:foreground ,red :weight bold :underline t))))
-     `(flymake-warnline ((,class (:foreground ,yellow :weight bold :underline t))))
+     `(flymake-errline ((,class (:foreground ,red-hc :background ,red-lc  :weight bold :underline t))))
+     `(flymake-infoline ((,class (:foreground ,green-hc :background ,green-lc))))
+     `(flymake-warnline ((,class (:foreground ,yellow-hc :background ,yellow-lc :weight bold :underline t))))
 
      ;; flyspell
      `(flyspell-duplicate ((,class (:foreground ,yellow :weight bold :underline t))))
@@ -307,6 +314,17 @@
      `(gnus-group-news-low-empty-face ((,class (:foreground ,solarized-bg))))
      `(gnus-signature-face ((,class (:foreground ,yellow))))
      `(gnus-x-face ((,class (:background ,solarized-fg :foreground ,solarized-bg))))
+
+     ;; hi-lock-mode
+     `(hi-yellow ((,class (:foreground ,yellow-lc :background ,yellow-hc))))
+     `(hi-pink ((,class (:foreground ,magenta-lc :background ,magenta-hc))))
+     `(hi-green ((,class (:foreground ,green-lc :background ,green-hc))))
+     `(hi-blue ((,class (:foreground ,blue-lc :background ,blue-hc))))
+     `(hi-black-b ((,class (:foreground ,solarized-emph :background ,solarized-bg :weight bold))))
+     `(hi-blue-b ((,class (:foreground ,blue-lc :weight bold))))
+     `(hi-green-b ((,class (:foreground ,green-lc :weight bold))))
+     `(hi-red-b ((,class (:foreground ,red :weight bold))))
+     `(hi-black-hb ((,class (:foreground ,solarized-emph :background ,solarized-bg :weight bold))))
 
      ;; hl-line-mode
      `(hl-line-face ((,class (:background ,solarized-bg))))
@@ -403,6 +421,7 @@
      `(org-level-7 ((,class (:foreground ,red))))
      `(org-level-8 ((,class (:foreground ,blue))))
      `(org-link ((,class (:foreground ,yellow :underline t))))
+     `(org-sexp-date ((,class (:foreground ,violet))))
      `(org-scheduled ((,class (:foreground ,green))))
      `(org-scheduled-previously ((,class (:foreground ,orange))))
      `(org-scheduled-today ((,class (:bold t :foreground ,blue :weight bold))))
@@ -418,9 +437,9 @@
      `(org-habit-clear-future-face ((,class (:background ,blue-lc))))
      `(org-habit-ready-face ((,class (:background ,green-lc :foreground ,green))))
      `(org-habit-ready-future-face ((,class (:background ,green-lc))))
-     `(org-habit-alert-face ((,class (:background ,yellow-hc :foreground ,yellow-lc))))
+     `(org-habit-alert-face ((,class (:background ,yellow :foreground ,yellow-lc))))
      `(org-habit-alert-future-face ((,class (:background ,yellow-lc))))
-     `(org-habit-overdue-face ((,class (:background ,red-hc :foreground ,red-lc))))
+     `(org-habit-overdue-face ((,class (:background ,red :foreground ,red-lc))))
      `(org-habit-overdue-future-face ((,class (:background ,red-lc))))
 
      ;; outline

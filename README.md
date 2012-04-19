@@ -51,4 +51,6 @@ GitHub pull request.
 
 # Contributors
 
-So far - none. You could be the first. :-)
+- [Thomas Frössman](http://t.jossystem.se)
+
+(Add yourself to the list)
