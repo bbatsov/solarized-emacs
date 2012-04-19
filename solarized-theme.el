@@ -58,6 +58,8 @@
          (base2     "#eee8d5")
          ;; background light
          (base3     "#fdf6e3")
+
+         ;; Solarized accented colors
          (yellow    "#b58900")
          (orange    "#cb4b16")
          (red       "#dc322f")
@@ -67,11 +69,50 @@
          (cyan      "#2aa198")
          (green     "#859900")
 
+         ;; Darker and lighter accented colors
+         ;; Only use these in exceptional circumstances!
+         (yellow-d  "#7B5800")
+         (yellow-l  "#F1BE46")
+         (orange-d  "#8D0F00")
+         (orange-l  "#FF8149")
+         (red-d     "#9C0001")
+         (red-l     "#FF6F5E")
+         (magenta-d "#970051")
+         (magenta-l "#FF72B7")
+         (violet-d  "#34418E")
+         (violet-l  "#A3A5FD")
+         (blue-d    "#00599B")
+         (blue-l    "#70C0FF")
+         (cyan-d    "#006D65")
+         (cyan-l    "#6BD8CE")
+         (green-d   "#4F6600")
+         (green-l   "#BECF48")
+
+         ;; Light/Dark adaptive solarized colors
          (solarized-fg (if (eq variant 'light) base00 base0))
          (solarized-bg (if (eq variant 'light) base3 base03))
          (solarized-hl (if (eq variant 'light) base2 base02))
          (solarized-emph (if (eq variant 'light) base01 base1))
-         (solarized-comments (if (eq variant 'light) base1 base01)))
+         (solarized-comments (if (eq variant 'light) base1 base01))
+
+         ;; Light/Dark adaptive higher/lower contrast accented colors
+         ;; Only use these in exceptional cirmumstances!
+         (yellow-hc (if (eq variant 'light) yellow-d yellow-l))
+         (yellow-lc (if (eq variant 'light) yellow-l yellow-d))
+         (orange-hc (if (eq variant 'light) orange-d orange-l))
+         (orange-lc (if (eq variant 'light) orange-l orange-d))
+         (red-hc (if (eq variant 'light) red-d red-l))
+         (red-lc (if (eq variant 'light) red-l red-d))
+         (magenta-hc (if (eq variant 'light) magenta-d magenta-l))
+         (magenta-lc (if (eq variant 'light) magenta-l magenta-d))
+         (violet-hc (if (eq variant 'light) violet-d violet-l))
+         (violet-lc (if (eq variant 'light) violet-l violet-d))
+         (blue-hc (if (eq variant 'light) blue-d blue-l))
+         (blue-lc (if (eq variant 'light) blue-l blue-d))
+         (cyan-hc (if (eq variant 'light) cyan-d cyan-l))
+         (cyan-lc (if (eq variant 'light) cyan-l cyan-d))
+         (green-hc (if (eq variant 'light) green-d green-l))
+         (green-lc (if (eq variant 'light) green-l green-d)))
     (custom-theme-set-faces
      (if (eq variant 'light) 'solarized-light 'solarized-dark)
      '(button ((t (:underline t))))
