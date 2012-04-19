@@ -308,6 +308,17 @@
      `(gnus-signature-face ((,class (:foreground ,yellow))))
      `(gnus-x-face ((,class (:background ,solarized-fg :foreground ,solarized-bg))))
 
+     ;; hi-lock-mode
+     `(hi-yellow ((,class (:foreground ,yellow-lc :background ,yellow-hc))))
+     `(hi-pink ((,class (:foreground ,magenta-lc :background ,magenta-hc))))
+     `(hi-green ((,class (:foreground ,green-lc :background ,green-hc))))
+     `(hi-blue ((,class (:foreground ,blue-lc :background ,blue-hc))))
+     `(hi-black-b ((,class (:foreground ,solarized-emph :background ,solarized-bg :weight bold))))
+     `(hi-blue-b ((,class (:foreground ,blue-lc :weight bold))))
+     `(hi-green-b ((,class (:foreground ,green-lc :weight bold))))
+     `(hi-red-b ((,class (:foreground ,red :weight bold))))
+     `(hi-black-hb ((,class (:foreground ,solarized-emph :background ,solarized-bg :weight bold))))
+
      ;; hl-line-mode
      `(hl-line-face ((,class (:background ,solarized-bg))))
 
