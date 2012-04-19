@@ -437,9 +437,9 @@
      `(org-habit-clear-future-face ((,class (:background ,blue-lc))))
      `(org-habit-ready-face ((,class (:background ,green-lc :foreground ,green))))
      `(org-habit-ready-future-face ((,class (:background ,green-lc))))
-     `(org-habit-alert-face ((,class (:background ,yellow-hc :foreground ,yellow-lc))))
+     `(org-habit-alert-face ((,class (:background ,yellow :foreground ,yellow-lc))))
      `(org-habit-alert-future-face ((,class (:background ,yellow-lc))))
-     `(org-habit-overdue-face ((,class (:background ,red-hc :foreground ,red-lc))))
+     `(org-habit-overdue-face ((,class (:background ,red :foreground ,red-lc))))
      `(org-habit-overdue-future-face ((,class (:background ,red-lc))))
 
      ;; outline
