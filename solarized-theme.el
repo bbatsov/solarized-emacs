@@ -1,8 +1,8 @@
 ;;; solarized-theme.el --- Solarized for Emacs.
 
-;; Copyright (C) 2011 Bozhidar Batsov
+;; Copyright (C) 2011,2012 Bozhidar Batsov
 
-;; Author: Bozhidar Batsov <bozhidar.batsov@gmail.com>
+;; Authors: Bozhidar Batsov <bozhidar.batsov@gmail.com>, Thomas Frössman <thomasf@jossystem.se>
 ;; URL: http://github.com/bbatsov/solarized-emacs
 ;; Version: 0.3.0
 
