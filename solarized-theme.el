@@ -196,6 +196,12 @@
      `(ace-jump-face-foreground
        ((,class (:foreground ,red :background ,solarized-bg :inverse-video nil))))
 
+     ;; custom
+     `(custom-variable-tag ((,class (:foreground ,cyan))))
+     `(custom-comment-tag ((,class (:foreground ,solarized-comments))))
+     `(custom-group-tag ((,class (:foreground ,blue))))
+     `(custom-state ((,class (:foreground ,green))))
+
      ;; diff
      `(diff-added ((,class (:foreground ,green))))
      `(diff-changed ((,class (:foreground ,yellow))))
