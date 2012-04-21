@@ -42,7 +42,7 @@
 ;;
 ;;; Code
 
-(defun create-solarized-theme (variant)
+(defun create-solarized-theme (variant &optional childtheme)
   (let* ((class '((class color) (min-colors 89)))
          ;; Solarized palette
          (base03    "#002b36")
@@ -539,7 +539,10 @@
                                              blue magenta cyan solarized-fg])
 
      ;; fill-column-indicator
-     `(fci-rule-color ,solarized-hl))))
+     `(fci-rule-color ,solarized-hl))
+
+    ;; call chained theme function
+    (when childtheme (funcall childtheme))))
 
 ;;;###autoload
 (when load-file-name
