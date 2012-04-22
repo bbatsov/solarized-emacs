@@ -42,7 +42,7 @@
 ;;
 ;;; Code
 
-(defun create-solarized-theme (variant &optional childtheme)
+(defun create-solarized-theme (variant theme-name &optional childtheme)
   (let* ((class '((class color) (min-colors 89)))
          ;; Solarized palette
          (base03    "#002b36")
@@ -114,7 +114,7 @@
          (green-hc (if (eq variant 'light) green-d green-l))
          (green-lc (if (eq variant 'light) green-l green-d)))
     (custom-theme-set-faces
-     (if (eq variant 'light) 'solarized-light 'solarized-dark)
+     theme-name
      '(button ((t (:underline t))))
      `(link ((,class (:foreground ,yellow :underline t :weight bold))))
      `(link-visited ((,class (:foreground ,yellow :underline t :weight normal))))
@@ -534,7 +534,7 @@
 
 
     (custom-theme-set-variables
-     (if (eq variant 'light) 'solarized-light 'solarized-dark)
+     theme-name
      '(ansi-color-names-vector [solarized-bg red green yellow
                                              blue magenta cyan solarized-fg])
 
