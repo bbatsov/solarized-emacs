@@ -196,6 +196,15 @@
      `(ace-jump-face-foreground
        ((,class (:foreground ,red :background ,solarized-bg :inverse-video nil))))
 
+     ;; auto highlight symbol
+     `(ahs-definition-face ((,class (:foreground ,solarized-bg :background ,blue :underline t))))
+     `(ahs-edit-mode-face ((,class (:foreground ,solarized-bg :background ,yellow))))
+     `(ahs-face ((,class (:foreground ,solarized-bg :background ,blue))))
+     `(ahs-plugin-bod-face ((,class (:foreground ,solarized-bg :background ,blue))))
+     `(ahs-plugin-defalt-face ((,class (:foreground ,solarized-bg :background ,cyan))))
+     `(ahs-plugin-whole-buffer-face ((,class (:foreground ,solarized-bg :background ,green))))
+     `(ahs-warning-face ((,class (:foreground ,red :bold t))))
+
      ;; custom
      `(custom-variable-tag ((,class (:foreground ,cyan))))
      `(custom-comment-tag ((,class (:foreground ,solarized-comments))))
