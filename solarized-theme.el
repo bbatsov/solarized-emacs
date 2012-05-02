@@ -224,9 +224,11 @@
      `(eshell-ls-symlink ((,class (:foreground ,cyan :weight bold))))
 
      ;; flymake
-     `(flymake-errline ((,class (:foreground ,red-hc :background ,red-lc  :weight bold :underline t))))
+     `(flymake-errline
+       ((,class (:foreground ,red-hc :background ,red-lc  :weight bold :underline t))))
      `(flymake-infoline ((,class (:foreground ,green-hc :background ,green-lc))))
-     `(flymake-warnline ((,class (:foreground ,yellow-hc :background ,yellow-lc :weight bold :underline t))))
+     `(flymake-warnline
+       ((,class (:foreground ,yellow-hc :background ,yellow-lc :weight bold :underline t))))
 
      ;; flyspell
      `(flyspell-duplicate ((,class (:foreground ,yellow :weight bold :underline t))))
@@ -529,8 +531,10 @@
      `(which-func ((,class (:foreground ,green))))
 
      ;; yascroll
-     `(yascroll:thumb-text-area ((,class (:foreground ,solarized-comments :background ,solarized-comments))))
-     `(yascroll:thumb-fringe ((,class (:foreground ,solarized-comments :background ,solarized-comments)))))
+     `(yascroll:thumb-text-area
+       ((,class (:foreground ,solarized-comments :background ,solarized-comments))))
+     `(yascroll:thumb-fringe
+       ((,class (:foreground ,solarized-comments :background ,solarized-comments)))))
 
 
     (custom-theme-set-variables
