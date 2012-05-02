@@ -465,6 +465,8 @@
      `(rainbow-delimiters-depth-10-face ((,class (:foreground ,green))))
      `(rainbow-delimiters-depth-11-face ((,class (:foreground ,blue))))
      `(rainbow-delimiters-depth-12-face ((,class (:foreground ,red))))
+     `(rainbow-delimiters-unmatched-face
+       ((,class (:foreground ,solarized-fg :background ,solarized-bg :inverse-video t))))
 
      ;; rpm-mode
      `(rpm-spec-dir-face ((,class (:foreground ,green))))
@@ -478,8 +480,10 @@
      `(rpm-spec-var-face ((,class (:foreground ,red))))
 
      ;; show-paren
-     `(show-paren-mismatch ((,class (:foreground ,red :background ,solarized-bg :weight bold))))
-     `(show-paren-match ((,class (:foreground ,blue :background ,solarized-bg :weight bold))))
+     `(show-paren-match
+       ((,class (:foreground ,cyan :background ,solarized-bg :weight normal :inverse-video t))))
+     `(show-paren-mismatch
+       ((,class (:foreground ,red :background ,solarized-bg :weight normal :inverse-video t))))
 
      ;; SLIME
      `(slime-repl-inputed-output-face ((,class (:foreground ,red))))
