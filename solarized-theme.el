@@ -444,7 +444,7 @@
      `(org-upcoming-deadline ((,class (:bold t :foreground ,yellow ))))
      `(org-warning ((,class (:bold t :foreground ,orange :weight bold :underline t))))
      ;; org-habit (clear=blue, ready=green, alert=yellow, overdue=red. future=lower contrast)
-     `(org-habit-clear-face ((,class (:background ,blue-lc, :foreground ,blue-hc))))
+     `(org-habit-clear-face ((,class (:background ,blue-lc :foreground ,blue-hc))))
      `(org-habit-clear-future-face ((,class (:background ,blue-lc))))
      `(org-habit-ready-face ((,class (:background ,green-lc :foreground ,green))))
      `(org-habit-ready-future-face ((,class (:background ,green-lc))))
