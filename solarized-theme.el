@@ -444,7 +444,7 @@
      `(org-upcoming-deadline ((,class (:bold t :foreground ,yellow ))))
      `(org-warning ((,class (:bold t :foreground ,orange :weight bold :underline t))))
      ;; org-habit (clear=blue, ready=green, alert=yellow, overdue=red. future=lower contrast)
-     `(org-habit-clear-face ((,class (:background ,blue-lc, :foreground ,blue-hc))))
+     `(org-habit-clear-face ((,class (:background ,blue-lc :foreground ,blue-hc))))
      `(org-habit-clear-future-face ((,class (:background ,blue-lc))))
      `(org-habit-ready-face ((,class (:background ,green-lc :foreground ,green))))
      `(org-habit-ready-future-face ((,class (:background ,green-lc))))
@@ -562,7 +562,7 @@
     (when childtheme (funcall childtheme))))
 
 ;;;###autoload
-(when load-file-name
+(when (and (boundp 'custom-theme-load-path) load-file-name)
   (add-to-list 'custom-theme-load-path
                (file-name-as-directory (file-name-directory load-file-name))))
 
