@@ -436,7 +436,7 @@
      `(org-scheduled ((,class (:foreground ,green))))
      `(org-scheduled-previously ((,class (:foreground ,orange))))
      `(org-scheduled-today ((,class (:bold t :foreground ,blue :weight bold))))
-     `(org-special-keyword ((,class (:foreground ,yellow))))
+     `(org-special-keyword ((,class (:foreground ,solarized-comments :weigth bold :bold t))))
      `(org-table ((,class (:foreground ,green))))
      `(org-tag ((,class (:bold t :weight bold))))
      `(org-time-grid ((,class (:foreground ,cyan))))
