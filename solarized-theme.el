@@ -171,11 +171,11 @@
      `(vertical-border ((,class (:foreground ,solarized-fg))))
 
      ;; font lock
-     `(font-lock-builtin-face ((,class (:foreground ,blue))))
-     `(font-lock-comment-face ((,class (:foreground ,solarized-comments))))
+     `(font-lock-builtin-face ((,class (:foreground ,blue :slant italic))))
      `(font-lock-comment-delimiter-face ((,class (:foreground ,solarized-comments))))
-     `(font-lock-constant-face ((,class (:foreground ,blue))))
-     `(font-lock-doc-face ((,class (:foreground ,cyan))))
+     `(font-lock-comment-face ((,class (:foreground ,solarized-comments))))
+     `(font-lock-constant-face ((,class (:foreground ,blue :weight bold))))
+     `(font-lock-doc-face ((,class (:foreground ,cyan :slant italic))))
      `(font-lock-doc-string-face ((,class (:foreground ,blue))))
      `(font-lock-function-name-face ((,class (:foreground ,blue))))
      `(font-lock-keyword-face ((,class (:foreground ,green :weight bold))))
@@ -184,7 +184,7 @@
      `(font-lock-string-face ((,class (:foreground ,cyan))))
      `(font-lock-type-face ((,class (:foreground ,yellow))))
      `(font-lock-variable-name-face ((,class (:foreground ,blue))))
-     `(font-lock-warning-face ((,class (:foreground ,yellow :weight bold :underline t))))
+     `(font-lock-warning-face ((,class (:foreground ,red :weight bold :underline t))))
 
      `(c-annotation-face ((,class (:inherit font-lock-constant-face))))
 
