@@ -490,6 +490,11 @@
      `(rpm-spec-tag-face ((,class (:foreground ,blue))))
      `(rpm-spec-var-face ((,class (:foreground ,red))))
 
+     ;; sh-mode
+     `(sh-quoted-exec ((,class (:foreground ,violet :weigth bold :bold t))))
+     `(sh-escaped-newline ((,class (:foreground ,yellow :weigth bold :bold t))))
+     `(sh-heredoc ((,class (:foreground ,yellow :weigth bold :bold t))))
+
      ;; show-paren
      `(show-paren-match
        ((,class (:foreground ,cyan :background ,solarized-bg :weight normal :inverse-video t))))
