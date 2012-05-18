@@ -171,11 +171,11 @@
      `(vertical-border ((,class (:foreground ,solarized-fg))))
 
      ;; font lock
-     `(font-lock-builtin-face ((,class (:foreground ,blue))))
-     `(font-lock-comment-face ((,class (:foreground ,solarized-comments))))
+     `(font-lock-builtin-face ((,class (:foreground ,blue :slant italic))))
      `(font-lock-comment-delimiter-face ((,class (:foreground ,solarized-comments))))
-     `(font-lock-constant-face ((,class (:foreground ,blue))))
-     `(font-lock-doc-face ((,class (:foreground ,cyan))))
+     `(font-lock-comment-face ((,class (:foreground ,solarized-comments))))
+     `(font-lock-constant-face ((,class (:foreground ,blue :weight bold))))
+     `(font-lock-doc-face ((,class (:foreground ,cyan :slant italic))))
      `(font-lock-doc-string-face ((,class (:foreground ,blue))))
      `(font-lock-function-name-face ((,class (:foreground ,blue))))
      `(font-lock-keyword-face ((,class (:foreground ,green :weight bold))))
@@ -184,7 +184,7 @@
      `(font-lock-string-face ((,class (:foreground ,cyan))))
      `(font-lock-type-face ((,class (:foreground ,yellow))))
      `(font-lock-variable-name-face ((,class (:foreground ,blue))))
-     `(font-lock-warning-face ((,class (:foreground ,yellow :weight bold :underline t))))
+     `(font-lock-warning-face ((,class (:foreground ,red :weight bold :underline t))))
 
      `(c-annotation-face ((,class (:inherit font-lock-constant-face))))
 
@@ -436,7 +436,7 @@
      `(org-scheduled ((,class (:foreground ,green))))
      `(org-scheduled-previously ((,class (:foreground ,orange))))
      `(org-scheduled-today ((,class (:bold t :foreground ,blue :weight bold))))
-     `(org-special-keyword ((,class (:foreground ,yellow))))
+     `(org-special-keyword ((,class (:foreground ,solarized-comments :weigth bold :bold t))))
      `(org-table ((,class (:foreground ,green))))
      `(org-tag ((,class (:bold t :weight bold))))
      `(org-time-grid ((,class (:foreground ,cyan))))
@@ -490,6 +490,11 @@
      `(rpm-spec-tag-face ((,class (:foreground ,blue))))
      `(rpm-spec-var-face ((,class (:foreground ,red))))
 
+     ;; sh-mode
+     `(sh-quoted-exec ((,class (:foreground ,violet :weigth bold :bold t))))
+     `(sh-escaped-newline ((,class (:foreground ,yellow :weigth bold :bold t))))
+     `(sh-heredoc ((,class (:foreground ,yellow :weigth bold :bold t))))
+
      ;; show-paren
      `(show-paren-match
        ((,class (:foreground ,cyan :background ,solarized-bg :weight normal :inverse-video t))))
@@ -499,17 +504,44 @@
      ;; SLIME
      `(slime-repl-inputed-output-face ((,class (:foreground ,red))))
 
+     ;; undo-tree
+     `(undo-tree-visualizer-default-face
+       ((,class (:foreground ,solarized-comments :background ,solarized-bg))))
+     `(undo-tree-visualizer-current-face ((,class (:foreground ,cyan :inverse-video t))))
+     `(undo-tree-visualizer-active-branch-face
+       ((,class (:foreground ,solarized-emph :background ,solarized-bg :weigth bold))))
+     `(undo-tree-visualizer-register-face ((,class (:foreground ,yellow))))
+
+     ;; table
+     `(table-cell ((,class (:foreground ,solarized-fg :background ,solarized-hl))))
+
+     ;; tooltip. (NOTE: This setting has no effect on the os widgets for me
+     ;; zencoding uses this)
+     `(tooltip ((,class (:background ,yellow-lc :foreground ,yellow-hc
+                                     :inherit variable-pitch))))
+     ;; volatile highlights
+     `(vhl/default-face ((,class (:background ,green-lc :foreground ,green-hc))))
+
      ;; whitespace-mode
-     `(whitespace-space ((,class (:background ,solarized-bg :foreground ,solarized-comments))))
-     `(whitespace-hspace ((,class (:background ,solarized-bg :foreground ,solarized-comments))))
-     `(whitespace-tab ((,class (:background ,solarized-bg :foreground ,red))))
+     `(whitespace-space ((,class (:background ,solarized-bg :foreground ,yellow-lc
+                                              :inverse-video t))))
+     `(whitespace-hspace ((,class (:background ,solarized-bg :foreground ,red-lc
+                                               :inverse-video t))))
+     `(whitespace-tab ((,class (:background ,solarized-bg :foreground ,orange-lc
+                                            :inverse-video t))))
      `(whitespace-newline ((,class (:foreground ,solarized-comments))))
-     `(whitespace-trailing ((,class (:foreground ,red :background ,solarized-bg))))
-     `(whitespace-line ((,class (:background ,solarized-bg :foreground ,magenta))))
-     `(whitespace-space-before-tab ((,class (:background ,orange :foreground ,orange))))
-     `(whitespace-indentation ((,class (:background ,yellow :foreground ,red))))
-     `(whitespace-empty ((,class (:background ,yellow :foreground ,red))))
-     `(whitespace-space-after-tab ((,class (:background ,yellow :foreground ,red))))
+     `(whitespace-trailing ((,class (:foreground ,blue-lc :background ,solarized-bg
+                                                 :inverse-video t))))
+                                        ; removing inverse video on this
+     `(whitespace-line ((,class (:background ,solarized-bg :foreground ,magenta
+                                             :inverse-video nil))))
+     `(whitespace-space-before-tab ((,class (:background ,solarized-bg :foreground ,green-lc
+                                                         :inverse-video t))))
+     `(whitespace-indentation ((,class (:background ,solarized-bg :foreground ,magenta-lc
+                                                    :inverse-video t))))
+     `(whitespace-empty ((,class (:background ,solarized-fg :foreground ,red-lc :inverse-video t))))
+     `(whitespace-space-after-tab ((,class (:background ,solarized-bg  :foreground ,violet-lc
+                                                        :inverse-video t))))
 
      ;; wanderlust
      `(wl-highlight-folder-few-face ((,class (:foreground ,red))))
@@ -549,6 +581,8 @@
      `(yascroll:thumb-fringe
        ((,class (:foreground ,solarized-comments :background ,solarized-comments)))))
 
+    ;; zencoding
+    `(zencoding-preview-input ((,class (:background ,solarized-hl :box ,solarized-emph ))))
 
     (custom-theme-set-variables
      theme-name
