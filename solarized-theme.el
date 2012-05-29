@@ -2,9 +2,10 @@
 
 ;; Copyright (C) 2011,2012 Bozhidar Batsov
 
-;; Authors: Bozhidar Batsov <bozhidar.batsov@gmail.com>, Thomas Frössman <thomasf@jossystem.se>
+;; Author: Bozhidar Batsov <bozhidar.batsov@gmail.com>
+;; Author: Thomas Frössman <thomasf@jossystem.se>
 ;; URL: http://github.com/bbatsov/solarized-emacs
-;; Version: 0.3.0
+;; Version: 0.5.0
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
