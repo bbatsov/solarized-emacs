@@ -521,6 +521,37 @@
      ;; SLIME
      `(slime-repl-inputed-output-face ((,class (:foreground ,red))))
 
+     ;; sunrise commander headings
+     `(sr-active-path-face ((,class (:background ,blue :foreground ,solarized-bg
+                                                 :height 100  :weight bold))))
+     `(sr-editing-path-face ((,class (:background ,yellow :foreground ,solarized-bg
+                                                  :weight bold :height 100))))
+     `(sr-highlight-path-face ((,class (:background ,green :foreground ,solarized-bg
+                                                    :weight bold :height 100))))
+     `(sr-passive-path-face ((,class (:background ,solarized-comments :foreground ,solarized-bg
+                                                  :weight bold :height 100))))
+     ;; sunrise commander marked
+     `(sr-marked-dir-face ((,class (:inherit dired-marked))))
+     `(sr-marked-file-face ((,class (:inherit dired-marked))))
+     `(sr-alt-marked-dir-face ((,class (:background ,magenta :foreground ,solarized-bg
+                                                    :weight bold))))
+     `(sr-alt-marked-file-face ((,class (:background ,magenta :foreground ,solarized-bg
+                                                     :weight bold))))
+     ;; sunrise commander fstat
+     `(sr-directory-face ((,class (:inherit dired-directory :weigth normal))))
+     `(sr-symlink-directory-face ((,class (:inherit dired-directory :slant italic :weight normal))))
+     `(sr-symlink-face ((,class (:inherit dired-symlink :slant italic :weight normal))))
+     `(sr-broken-link-face ((,class (:inherit dired-warning :slant italic :weight normal))))
+     ;; sunrise commander file types
+     `(sr-compressed-face ((,class (:foreground ,solarized-fg))))
+     `(sr-encrypted-face ((,class (:foreground ,solarized-fg))))
+     `(sr-log-face ((,class (:foreground ,solarized-fg))))
+     `(sr-packaged-face ((,class (:foreground ,solarized-fg))))
+     `(sr-html-face ((,class (:foreground ,solarized-fg))))
+     `(sr-xml-face ((,class (:foreground ,solarized-fg))))
+     ;; sunrise commander misc
+     `(sr-clex-hotchar-face ((,class (:background ,red  :foreground ,solarized-bg :weight bold))))
+
      ;; undo-tree
      `(undo-tree-visualizer-default-face
        ((,class (:foreground ,solarized-comments :background ,solarized-bg))))
