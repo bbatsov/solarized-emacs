@@ -201,7 +201,7 @@
      `(font-lock-string-face ((,class (:foreground ,cyan))))
      `(font-lock-type-face ((,class (:foreground ,yellow))))
      `(font-lock-variable-name-face ((,class (:foreground ,blue))))
-     `(font-lock-warning-face ((,class (:foreground ,red :weight bold :underline t))))
+     `(font-lock-warning-face ((,class (:foreground ,orange :weight bold :underline t))))
 
      `(c-annotation-face ((,class (:inherit font-lock-constant-face))))
 
