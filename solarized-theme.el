@@ -117,11 +117,11 @@
     (custom-theme-set-faces
      theme-name
      '(button ((t (:underline t))))
-     `(link ((,class (:foreground ,yellow :underline t :weight bold))))
-     `(link-visited ((,class (:foreground ,yellow :underline t :weight normal))))
 
      ;; basic coloring
      `(default ((,class (:foreground ,solarized-fg :background ,solarized-bg))))
+     `(shadow ((,class (:foreground ,solarized-comments))))
+     `(match ((,class (:background ,solarized-hl :foreground ,solarized-emph :weight bold))))
      `(cursor ((,class (:foreground ,solarized-bg :background ,solarized-fg :inverse-video t))))
      `(escape-glyph-face ((,class (:foreground ,red))))
      `(fringe ((,class (:foreground ,solarized-fg :background ,solarized-hl))))
@@ -129,6 +129,12 @@
                                          :background ,solarized-hl
                                          :box (:line-width -1 :style released-button)))))
      `(highlight ((,class (:background ,solarized-hl))))
+     `(link ((,class (:foreground ,yellow :underline t :weight bold))))
+     `(link-visited ((,class (:foreground ,yellow :underline t :weight normal))))
+     `(success  ((,class (:foreground ,green ))))
+     `(warning  ((,class (:foreground ,yellow ))))
+     `(error  ((,class (:foreground ,orange))))
+
 
      ;; compilation
      `(compilation-column-face ((,class (:foreground ,yellow))))
@@ -148,7 +154,6 @@
      `(grep-error-face ((,class (:foreground ,red :weight bold :underline t))))
      `(grep-hit-face ((,class (:foreground ,blue))))
      `(grep-match-face ((,class (:foreground ,orange :weight bold))))
-     `(match ((,class (:background ,solarized-hl :foreground ,solarized-emph :weight bold))))
 
      ;; faces used by isearch
      `(isearch ((,class (:foreground ,yellow :background ,solarized-hl))))
