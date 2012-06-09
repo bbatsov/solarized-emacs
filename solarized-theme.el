@@ -149,6 +149,17 @@
      `(compilation-message-face ((,class (:foreground ,blue))))
      `(compilation-warning-face ((,class (:foreground ,yellow :weight bold :underline t))))
 
+     ;; dired
+     `(dired-directory ((,class (:foreground ,blue :weight normal))))
+     `(dired-flagged ((,class (:foreground ,red))))
+     `(dired-header ((,class (:foreground ,solarized-bg :background ,blue))))
+     `(dired-ignored ((,class (:inherit shadow))))
+     `(dired-mark ((,class (:foreground ,yellow :weigth bold))))
+     `(dired-marked ((,class (:foreground ,magenta :weigth bold))))
+     `(dired-perm-write ((,class (:foreground ,solarized-fg :underline t))))
+     `(dired-symlink ((,class (:foreground ,cyan :weigth normal :slant italic))))
+     `(dired-warning ((,class (:foreground ,orange :underline t))))
+
      ;; grep
      `(grep-context-face ((,class (:foreground ,solarized-fg))))
      `(grep-error-face ((,class (:foreground ,red :weight bold :underline t))))
