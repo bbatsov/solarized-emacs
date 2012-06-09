@@ -515,6 +515,9 @@
      `(outline-2 ((,class (:inherit outline-3 :height 1.0))))
      `(outline-1 ((,class (:inherit outline-2 :height 1.0))))
 
+     ;; pretty-mode
+     `(pretty-mode-symbol-face  ((,class (:foreground ,green))))
+
      ;; rainbow-delimiters
      `(rainbow-delimiters-depth-1-face ((,class (:foreground ,cyan))))
      `(rainbow-delimiters-depth-2-face ((,class (:foreground ,yellow))))
