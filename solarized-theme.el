@@ -690,18 +690,18 @@
 
      ;; yascroll
      `(yascroll:thumb-text-area
-       ((,class (:foreground ,solarized-comments :background ,solarized-comments)))))
-    `(yascroll:thumb-fringe
-      ((,class (:foreground ,solarized-comments :background ,solarized-comments))))
+       ((,class (:foreground ,solarized-comments :background ,solarized-comments))))
+     `(yascroll:thumb-fringe
+       ((,class (:foreground ,solarized-comments :background ,solarized-comments))))
 
-    ;; zencoding
-    `(zencoding-preview-input ((,class (:background ,solarized-hl :box ,solarized-emph ))))
+     ;; zencoding
+     `(zencoding-preview-input ((,class (:background ,solarized-hl :box ,solarized-emph)))))
+
 
     (custom-theme-set-variables
      theme-name
      '(ansi-color-names-vector [solarized-bg red green yellow
                                              blue magenta cyan solarized-fg])
-
      ;; fill-column-indicator
      `(fci-rule-color ,solarized-hl))
 
