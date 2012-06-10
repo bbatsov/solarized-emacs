@@ -394,9 +394,9 @@
 
      ;; ido-mode
      `(ido-first-match ((,class (:foreground ,green :weight bold))))
-     `(ido-only-match ((,class (:foreground ,orange :weight bold))))
+     `(ido-only-match ((,class (:foreground ,solarized-bg :background ,green :weight bold))))
      `(ido-subdir ((,class (:foreground ,blue))))
-     `(ido-incomplete-regexp ((,class (:inherit font-lock-warning-face))))
+     `(ido-incomplete-regexp ((,class (:foreground ,red :weight bold ))))
      `(ido-indicator ((,class (:background ,red :foreground ,solarized-bg :width condensed))))
      `(ido-virtual ((,class (:foreground ,cyan))))
 
