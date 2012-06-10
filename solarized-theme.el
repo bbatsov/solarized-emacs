@@ -134,7 +134,7 @@
      `(success  ((,class (:foreground ,green ))))
      `(warning  ((,class (:foreground ,yellow ))))
      `(error  ((,class (:foreground ,orange))))
-
+     `(lazy-highlight ((,class (:foreground ,yellow :background ,solarized-hl))))
 
      ;; compilation
      `(compilation-column-face ((,class (:foreground ,yellow))))
@@ -169,8 +169,8 @@
      ;; faces used by isearch
      `(isearch ((,class (:foreground ,yellow :background ,solarized-hl))))
      `(isearch-fail ((,class (:foreground ,solarized-fg :background ,red))))
-     `(lazy-highlight ((,class (:foreground ,yellow :background ,solarized-hl))))
 
+     ;; misc faces
      `(menu ((,class (:foreground ,solarized-fg :background ,solarized-bg))))
      `(minibuffer-prompt ((,class (:foreground ,solarized-emph))))
      `(mode-line
@@ -251,7 +251,7 @@
 
      ;; flymake
      `(flymake-errline
-       ((,class (:foreground ,red-hc :background ,red-lc  :weight bold :underline t))))
+       ((,class (:foreground ,red-hc :background ,red-lc :weight bold :underline t))))
      `(flymake-infoline ((,class (:foreground ,green-hc :background ,green-lc))))
      `(flymake-warnline
        ((,class (:foreground ,yellow-hc :background ,yellow-lc :weight bold :underline t))))
@@ -663,9 +663,9 @@
 
      ;; yascroll
      `(yascroll:thumb-text-area
-       ((,class (:foreground ,solarized-comments :background ,solarized-comments))))
-     `(yascroll:thumb-fringe
        ((,class (:foreground ,solarized-comments :background ,solarized-comments)))))
+    `(yascroll:thumb-fringe
+      ((,class (:foreground ,solarized-comments :background ,solarized-comments))))
 
     ;; zencoding
     `(zencoding-preview-input ((,class (:background ,solarized-hl :box ,solarized-emph ))))
