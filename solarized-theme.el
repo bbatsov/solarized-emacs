@@ -403,6 +403,16 @@
      ;; magit
      `(magit-section-title ((,class (:foreground ,yellow :weight bold))))
      `(magit-branch ((,class (:foreground ,orange :weight bold))))
+     `(magit-log-graph ((,class (:foreground ,solarized-comments))))
+     `(magit-log-head-label-bisect-bad ((,class (:background ,red-hc :foreground ,red-lc :box 1))))
+     `(magit-log-head-label-bisect-good ((,class (:background ,green-hc :foreground ,green-lc
+                                                              :box 1))))
+     `(magit-log-head-label-default ((,class (:background ,solarized-hl :box 1))))
+     `(magit-log-head-label-local ((,class (:background ,blue-lc :foreground ,blue-hc :box 1))))
+     `(magit-log-head-label-patches ((,class (:background ,red-lc :foreground ,red-hc :box 1))))
+     `(magit-log-head-label-remote ((,class (:background ,green-lc :foreground ,green-hc :box 1))))
+     `(magit-log-head-label-tags ((,class (:background ,yellow-lc :foreground ,yellow-hc :box 1))))
+     `(magit-log-sha1 ((,class (:foreground ,yellow))))
 
      ;; message-mode
      `(message-cited-text-face ((,class (:inherit font-lock-comment))))
