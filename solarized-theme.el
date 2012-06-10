@@ -504,6 +504,20 @@
      `(org-habit-alert-future-face ((,class (:background ,yellow-lc))))
      `(org-habit-overdue-face ((,class (:background ,red :foreground ,red-lc))))
      `(org-habit-overdue-future-face ((,class (:background ,red-lc))))
+     ;; latest additions
+     `(org-agenda-dimmed-todo-face ((,class (:foreground ,solarized-comments))))
+     `(org-agenda-restriction-lock ((,class (:background ,yellow))))
+     `(org-clock-overlay ((,class (:background ,yellow))))
+     `(org-column ((,class (:background ,solarized-hl :strike-through nil
+                                        :underline nil :slant normal :weight normal))))
+     `(org-column-title ((,class (:background ,solarized-hl :underline t :weight bold))))
+     `(org-date-selected ((,class (:foreground ,red :inverse-video t))))
+     `(org-document-info ((,class (:foreground ,solarized-fg))))
+     `(org-document-title ((,class (:foreground ,solarized-emph  :weight bold :height 1.44))))
+     `(org-drawer ((,class (:foreground ,cyan))))
+     `(org-footnote ((,class (:foreground ,magenta :underline t))))
+     `(org-latex-and-export-specials ((,class (:foreground ,orange))))
+     `(org-mode-line-clock-overrun ((,class (:inherit modeline :background ,red))))
 
      ;; outline
      `(outline-8 ((,class (:inherit default))))
