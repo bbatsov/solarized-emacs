@@ -396,6 +396,9 @@
      `(ido-first-match ((,class (:foreground ,yellow :weight bold))))
      `(ido-only-match ((,class (:foreground ,orange :weight bold))))
      `(ido-subdir ((,class (:foreground ,yellow))))
+     `(ido-incomplete-regexp ((,class (:inherit font-lock-warning-face))))
+     `(ido-indicator ((,class (:background ,red :foreground ,solarized-bg :width condensed))))
+     `(ido-virtual ((,class (:foreground ,cyan))))
 
      ;; linum-mode
      `(linum ((,class (:foreground ,solarized-fg :background ,solarized-bg))))
