@@ -131,10 +131,12 @@
      `(highlight ((,class (:background ,solarized-hl))))
      `(link ((,class (:foreground ,yellow :underline t :weight bold))))
      `(link-visited ((,class (:foreground ,yellow :underline t :weight normal))))
-     `(success  ((,class (:foreground ,green ))))
-     `(warning  ((,class (:foreground ,yellow ))))
-     `(error  ((,class (:foreground ,orange))))
-     `(lazy-highlight ((,class (:foreground ,yellow :background ,solarized-hl))))
+     `(success ((,class (:foreground ,green ))))
+     `(warning ((,class (:foreground ,yellow ))))
+     `(error ((,class (:foreground ,orange))))
+     `(lazy-highlight ((,class (:foreground ,solarized-emph :background ,solarized-hl :bold t))))
+     `(escape-glyph ((,class (:foreground ,violet))))
+
 
      ;; compilation
      `(compilation-column-face ((,class (:foreground ,yellow))))
@@ -167,8 +169,8 @@
      `(grep-match-face ((,class (:foreground ,orange :weight bold))))
 
      ;; faces used by isearch
-     `(isearch ((,class (:foreground ,yellow :background ,solarized-hl))))
-     `(isearch-fail ((,class (:foreground ,solarized-fg :background ,red))))
+     `(isearch ((,class (:foreground ,yellow :background ,solarized-hl :bold t))))
+     `(isearch-fail ((,class (:foreground ,red :background ,solarized-bg :bold t))))
 
      ;; misc faces
      `(menu ((,class (:foreground ,solarized-fg :background ,solarized-bg))))
@@ -344,39 +346,45 @@
      `(gnus-x-face ((,class (:background ,solarized-fg :foreground ,solarized-bg))))
 
      ;; helm (these probably needs tweaking)
+     `(helm-apt-deinstalled ((,class (:foreground ,solarized-comments))))
+     `(helm-apt-installed ((,class (:foreground ,green))))
      `(helm-bookmark-directory ((,class (:inherit helm-ff-directory))))
-     `(helm-bookmark-file ((,class (:foreground ,cyan))))
-     `(helm-bookmark-gnus ((,class (:foreground ,magenta))))
+     `(helm-bookmark-file ((,class (:foreground ,solarized-fg))))
+     `(helm-bookmark-gnus ((,class (:foreground ,cyan))))
      `(helm-bookmark-info ((,class (:foreground ,green))))
-     `(helm-bookmark-man ((,class (:foreground ,orange))))
+     `(helm-bookmark-man ((,class (:foreground ,violet))))
      `(helm-bookmark-w3m ((,class (:foreground ,yellow))))
-     `(helm-bookmarks-su ((,class (:foreground ,red))))
+     `(helm-bookmarks-su ((,class (:foreground ,orange))))
      `(helm-buffer-not-saved ((,class (:foreground ,orange))))
      `(helm-buffer-saved-out ((,class (:foreground ,solarized-bg :background ,red))))
-     `(helm-candidate-number ((,class (:background ,solarized-bg :foreground ,yellow))))
-     `(helm-ff-directory ((,class (:background ,solarized-bg  :foreground ,red))))
+     `(helm-candidate-number ((,class (:background ,solarized-hl :foreground ,solarized-emph
+                                                   :bold t))))
+     `(helm-ff-directory ((,class (:background ,solarized-bg  :foreground ,blue))))
      `(helm-ff-executable ((,class (:foreground ,green))))
-     `(helm-ff-file ((,class (:inherit font-lock-builtin-face))))
-     `(helm-ff-invalid-symlink ((,class (:background ,red :foreground ,solarized-bg))))
+     `(helm-ff-file ((,class (:background ,solarized-bg :foreground ,solarized-fg))))
+     `(helm-ff-invalid-symlink ((,class (:background ,solarized-bg :foreground ,orange
+                                                     :slant italic))))
      `(helm-ff-prefix ((,class (:background ,yellow :foreground ,solarized-bg))))
-     `(helm-ff-symlink ((,class (:foreground ,orange))))
+     `(helm-ff-symlink ((,class (:foreground ,cyan))))
      `(helm-grep-file ((,class (:foreground ,cyan :underline t))))
      `(helm-grep-finish ((,class (:foreground ,green))))
      `(helm-grep-lineno ((,class (:foreground ,orange))))
      `(helm-grep-match ((,class (:inherit match))))
      `(helm-grep-running ((,class (:foreground ,red))))
      `(helm-header ((,class (:inherit header-line))))
+     `(helm-lisp-completion-info ((,class (:foreground ,solarized-fg))))
+     `(helm-lisp-show-completion ((,class (:foreground ,yellow  :background ,solarized-hl
+                                                       :bold t))))
      `(helm-match ((,class (:inherit match))))
      `(helm-selection ((,class (:background ,solarized-hl :underline t))))
-     `(helm-selection-line ((,class (:background ,red :underline t))))
+     `(helm-selection-line ((,class (:background ,solarized-hl :foreground ,solarized-emph
+                                                 :underline nil))))
      `(helm-separator ((,class (:foreground ,red))))
      `(helm-source-header ((,class (:background ,blue-lc :foreground ,solarized-bg
                                                 :underline nil))))
      `(helm-time-zone-current ((,class (:foreground ,green))))
      `(helm-time-zone-home ((,class (:foreground ,red))))
-     `(helm-visible-mark ((,class (:background ,green))))
-     `(helm-apt-deinstalled ((,class (:foreground ,solarized-comments))))
-     `(helm-apt-installed ((,class (:foreground ,green))))
+     `(helm-visible-mark ((,class (:background ,solarized-bg :foreground ,magenta :bold t))))
 
      ;; hi-lock-mode
      `(hi-yellow ((,class (:foreground ,yellow-lc :background ,yellow-hc))))
@@ -457,6 +465,14 @@
      `(mew-face-mark-unread ((,class (:foreground ,red))))
      `(mew-face-eof-message ((,class (:foreground ,green))))
      `(mew-face-eof-part ((,class (:foreground ,yellow))))
+
+     ;; mingus
+     `(mingus-directory-face ((,class (:foreground ,blue))))
+     `(mingus-pausing-face ((,class (:foreground ,magenta))))
+     `(mingus-playing-face ((,class (:foreground ,cyan))))
+     `(mingus-playlist-face ((,class (:foreground ,cyan ))))
+     `(mingus-song-file-face ((,class (:foreground ,yellow))))
+     `(mingus-stopped-face ((,class (:foreground ,red))))
 
      ;; nav
      `(nav-face-heading ((,class (:foreground ,yellow))))
@@ -561,6 +577,14 @@
      `(rainbow-delimiters-unmatched-face
        ((,class (:foreground ,solarized-fg :background ,solarized-bg :inverse-video t))))
 
+     ;; rst-mode
+     `(rst-level-1-face ((,class (:background ,yellow   :foreground ,solarized-bg))))
+     `(rst-level-2-face ((,class (:background ,cyan    :foreground ,solarized-bg))))
+     `(rst-level-3-face ((,class (:background ,blue    :foreground ,solarized-bg))))
+     `(rst-level-4-face ((,class (:background ,violet  :foreground ,solarized-bg))))
+     `(rst-level-5-face ((,class (:background ,magenta :foreground ,solarized-bg))))
+     `(rst-level-6-face ((,class (:background ,red     :foreground ,solarized-bg))))
+
      ;; rpm-mode
      `(rpm-spec-dir-face ((,class (:foreground ,green))))
      `(rpm-spec-doc-face ((,class (:foreground ,green))))
@@ -585,6 +609,17 @@
 
      ;; SLIME
      `(slime-repl-inputed-output-face ((,class (:foreground ,red))))
+
+     ;; speedbar
+     `(speedbar-button-face ((,class (:inherit variable-pitch :foreground ,solarized-comments))))
+     `(speedbar-directory-face ((,class (:inherit variable-pitch :foreground ,blue))))
+     `(speedbar-file-face ((,class (:inherit variable-pitch :foreground ,solarized-fg))))
+     `(speedbar-highlight-face ((,class (:inherit variable-pitch :background ,solarized-hl))))
+     `(speedbar-selected-face ((,class (:inherit variable-pitch :foreground ,yellow :underline t))))
+     `(speedbar-separator-face ((,class (:inherit variable-pitch
+                                                  :background ,blue :foreground ,solarized-bg
+                                                  :overline ,cyan-lc))))
+     `(speedbar-tag-face ((,class (:inherit variable-pitch :foreground ,green))))
 
      ;; sunrise commander headings
      `(sr-active-path-face ((,class (:background ,blue :foreground ,solarized-bg
