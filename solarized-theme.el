@@ -610,6 +610,14 @@
      `(show-paren-mismatch
        ((,class (:foreground ,red :background ,solarized-bg :weight normal :inverse-video t))))
 
+     ;; mic-paren
+     `(paren-face-match
+       ((,class (:foreground ,cyan :background ,solarized-bg :weight normal :inverse-video t))))
+     `(paren-face-mismatch
+       ((,class (:foreground ,red :background ,solarized-bg :weight normal :inverse-video t))))
+     `(paren-face-no-match
+       ((,class (:foreground ,red :background ,solarized-bg :weight normal :inverse-video t))))
+     
      ;; SLIME
      `(slime-repl-inputed-output-face ((,class (:foreground ,red))))
 
