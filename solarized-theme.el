@@ -477,6 +477,9 @@
      `(mingus-song-file-face ((,class (:foreground ,yellow))))
      `(mingus-stopped-face ((,class (:foreground ,red))))
 
+     ;; mumamo
+     `(mumamo-background-chunk-submode1 ((,class (:background ,solarized-hl))))
+
      ;; nav
      `(nav-face-heading ((,class (:foreground ,yellow))))
      `(nav-face-button-num ((,class (:foreground ,cyan))))
