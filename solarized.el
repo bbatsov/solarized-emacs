@@ -780,6 +780,6 @@
 ;; no-byte-compile: t
 ;; End:
 
-(provide 'solarized-theme)
+(provide 'solarized)
 
 ;;; solarized-theme.el ends here.
