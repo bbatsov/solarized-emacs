@@ -1,4 +1,4 @@
-(require 'solarized-theme)
+(require 'solarized)
 
 (deftheme solarized-light "The light variant of the Solarized colour theme")
 
