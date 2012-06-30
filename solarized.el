@@ -603,9 +603,9 @@
      `(rpm-spec-var-face ((,class (:foreground ,red))))
 
      ;; sh-mode
-     `(sh-quoted-exec ((,class (:foreground ,violet :weigth bold))))
-     `(sh-escaped-newline ((,class (:foreground ,yellow :weigth bold))))
-     `(sh-heredoc ((,class (:foreground ,yellow :weigth bold))))
+     `(sh-quoted-exec ((,class (:foreground ,violet :weight bold))))
+     `(sh-escaped-newline ((,class (:foreground ,yellow :weight bold))))
+     `(sh-heredoc ((,class (:foreground ,yellow :weight bold))))
 
      ;; show-paren
      `(show-paren-match
