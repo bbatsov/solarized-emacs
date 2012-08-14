@@ -151,6 +151,9 @@
      `(compilation-message-face ((,class (:foreground ,blue))))
      `(compilation-warning-face ((,class (:foreground ,yellow :weight bold :underline t))))
 
+     ;; diary
+     `(diary ((,class (:foreground ,yellow))))
+
      ;; dired
      `(dired-directory ((,class (:foreground ,blue :weight normal))))
      `(dired-flagged ((,class (:foreground ,red))))
@@ -474,6 +477,9 @@
      `(mingus-song-file-face ((,class (:foreground ,yellow))))
      `(mingus-stopped-face ((,class (:foreground ,red))))
 
+     ;; mumamo
+     `(mumamo-background-chunk-submode1 ((,class (:background ,solarized-hl))))
+
      ;; nav
      `(nav-face-heading ((,class (:foreground ,yellow))))
      `(nav-face-button-num ((,class (:foreground ,cyan))))
@@ -597,9 +603,9 @@
      `(rpm-spec-var-face ((,class (:foreground ,red))))
 
      ;; sh-mode
-     `(sh-quoted-exec ((,class (:foreground ,violet :weigth bold))))
-     `(sh-escaped-newline ((,class (:foreground ,yellow :weigth bold))))
-     `(sh-heredoc ((,class (:foreground ,yellow :weigth bold))))
+     `(sh-quoted-exec ((,class (:foreground ,violet :weight bold))))
+     `(sh-escaped-newline ((,class (:foreground ,yellow :weight bold))))
+     `(sh-heredoc ((,class (:foreground ,yellow :weight bold))))
 
      ;; show-paren
      `(show-paren-match
@@ -607,6 +613,14 @@
      `(show-paren-mismatch
        ((,class (:foreground ,red :background ,solarized-bg :weight normal :inverse-video t))))
 
+     ;; mic-paren
+     `(paren-face-match
+       ((,class (:foreground ,cyan :background ,solarized-bg :weight normal :inverse-video t))))
+     `(paren-face-mismatch
+       ((,class (:foreground ,red :background ,solarized-bg :weight normal :inverse-video t))))
+     `(paren-face-no-match
+       ((,class (:foreground ,red :background ,solarized-bg :weight normal :inverse-video t))))
+     
      ;; SLIME
      `(slime-repl-inputed-output-face ((,class (:foreground ,red))))
 
@@ -669,6 +683,19 @@
                                      :inherit variable-pitch))))
      ;; volatile highlights
      `(vhl/default-face ((,class (:background ,green-lc :foreground ,green-hc))))
+
+     ;; w3m
+     `(w3m-anchor ((,class (:inherit link))))
+     `(w3m-arrived-anchor ((,class (:inherit link-visited))))
+     `(w3m-form ((,class (:background ,base03 :foreground ,solarized-fg))))
+     `(w3m-header-line-location-title ((,class (:background ,base02 :foreground ,yellow))))
+     `(w3m-header-line-location-content ((,class (:background ,base02 :foreground ,solarized-fg))))
+     `(w3m-bold ((,class (:foreground ,solarized-emph :weight bold))))
+     `(w3m-image-anchor ((,class (:background ,solarized-bg :foreground ,cyan :inherit link))))
+     `(w3m-image ((,class (:background ,solarized-bg :foreground ,cyan))))
+     `(w3m-lnum-minibuffer-prompt ((,class (:foreground ,solarized-emph))))
+     `(w3m-lnum-match ((,class (:background ,solarized-hl))))
+     `(w3m-lnum ((,class (:underline nil :bold nil :foreground ,red))))
 
      ;; whitespace-mode
      `(whitespace-space ((,class (:background ,solarized-bg :foreground ,yellow-lc
@@ -735,8 +762,9 @@
 
     (custom-theme-set-variables
      theme-name
-     '(ansi-color-names-vector [solarized-bg red green yellow
-                                             blue magenta cyan solarized-fg])
+     `(ansi-color-names-vector [,solarized-bg ,red ,green ,yellow
+                                             ,blue ,magenta ,cyan ,solarized-fg])
+     `(ansi-term-color-vector [unspecific ,base01 ,red ,green ,yellow ,blue ,magenta ,cyan ,base03])
      ;; fill-column-indicator
      `(fci-rule-color ,solarized-hl))
 
@@ -752,6 +780,6 @@
 ;; no-byte-compile: t
 ;; End:
 
-(provide 'solarized-theme)
+(provide 'solarized)
 
 ;;; solarized-theme.el ends here.
