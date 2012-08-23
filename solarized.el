@@ -666,6 +666,22 @@
      ;; sunrise commander misc
      `(sr-clex-hotchar-face ((,class (:background ,red  :foreground ,solarized-bg :weight bold))))
 
+     ;; table
+     `(table-cell ((,class (:foreground ,solarized-fg :background ,solarized-hl))))
+
+     ;; tooltip. (NOTE: This setting has no effect on the os widgets for me
+     ;; zencoding uses this)
+     `(tooltip ((,class (:background ,yellow-lc :foreground ,yellow-hc
+                                     :inherit variable-pitch))))
+
+     ;; tuareg
+     `(tuareg-font-lock-governing-face ((,class (:foreground ,magenta :weight bold))))
+     `(tuareg-font-lock-multistage-face ((,class (:foreground ,blue :background ,solarized-hl :weight bold))))
+     `(tuareg-font-lock-operator-face ((,class (:foreground ,solarized-emph))))
+     `(tuareg-font-lock-error-face ((,class (:foreground ,yellow :background ,red :weight bold))))
+     `(tuareg-font-lock-interactive-output-face ((,class (:foreground ,cyan))))
+     `(tuareg-font-lock-interactive-error-face ((,class (:foreground ,red))))
+
      ;; undo-tree
      `(undo-tree-visualizer-default-face
        ((,class (:foreground ,solarized-comments :background ,solarized-bg))))
@@ -674,13 +690,6 @@
        ((,class (:foreground ,solarized-emph :background ,solarized-bg :weigth bold))))
      `(undo-tree-visualizer-register-face ((,class (:foreground ,yellow))))
 
-     ;; table
-     `(table-cell ((,class (:foreground ,solarized-fg :background ,solarized-hl))))
-
-     ;; tooltip. (NOTE: This setting has no effect on the os widgets for me
-     ;; zencoding uses this)
-     `(tooltip ((,class (:background ,yellow-lc :foreground ,yellow-hc
-                                     :inherit variable-pitch))))
      ;; volatile highlights
      `(vhl/default-face ((,class (:background ,green-lc :foreground ,green-hc))))
 
