@@ -13,16 +13,16 @@ customizations and `deftheme` and does not require the
 ## Emacs Prelude
 
 Solarized for Emacs is already bundled into
-[Emacs Prelude](https://github.com/bbatsov/emacs-prelude). If you're a
+[Emacs Prelude](https://github.com/bbatsov/prelude). If you're a
 Prelude user, just do a `M-x load-theme` and pick either
 _solarized-dark_ or _solarized-light_.
 
 ## Stand-alone installation
 
-Download `solarized-theme.el`, `solarized-dark-theme.el` and
+Download `solarized.el`, `solarized-dark-theme.el` and
 `solarized-light-theme.el`.
 
-Place `solarized-theme.el` is a folder that's on your Emacs' `load-path`.
+Place `solarized.el` is a folder that's on your Emacs' `load-path`.
 Afterward place `solarized-dark-theme.el` and
 `solarized-light-theme.el` in `~/.emacs.d/themes` (or some other
 folder if you prefer so). Add this your
@@ -32,10 +32,13 @@ folder if you prefer so). Add this your
 
 Now you can load the theme with the interactive function `load-theme`.
 
-## Marmalade
+## MELPA & Marmalade
 
-Solarized for Emacs is available for installation via the [Marmalade
-repo](http://marmalade-repo.org/):
+Solarized for Emacs is available for installation via the
+[MELPA](http://melpa.milkbox.net) and
+[Marmalade](http://marmalade-repo.org/) `package.el`
+repositories. Assuming you've set one of the them up (I recommend
+MELPA) you can install solarized like this:
 
 `M-x package-install solarized-theme`
 
