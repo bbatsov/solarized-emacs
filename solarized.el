@@ -227,6 +227,12 @@
      `(ahs-plugin-whole-buffer-face ((,class (:foreground ,solarized-bg :background ,green))))
      `(ahs-warning-face ((,class (:foreground ,red :weight bold))))
 
+     ;; bm
+     `(bm-face ((,class (:background ,yellow-lc :foreground ,solarized-bg))))
+     `(bm-fringe-face ((,class (:background ,yellow-lc :foreground ,solarized-bg))))
+     `(bm-fringe-persistent-face ((,class (:background ,green-lc :foreground ,solarized-bg))))
+     `(bm-persistent-face ((,class (:background ,green-lc :foreground ,solarized-bg))))
+
      ;; custom
      `(custom-variable-tag ((,class (:foreground ,cyan))))
      `(custom-comment-tag ((,class (:foreground ,solarized-comments))))
@@ -360,6 +366,7 @@
      `(helm-bookmarks-su ((,class (:foreground ,orange))))
      `(helm-buffer-not-saved ((,class (:foreground ,orange))))
      `(helm-buffer-saved-out ((,class (:foreground ,solarized-bg :background ,red))))
+     `(helm-buffer-size ((,class (:foreground ,solarized-comments))))
      `(helm-candidate-number ((,class (:background ,solarized-hl :foreground ,solarized-emph
                                                    :bold t))))
      `(helm-ff-directory ((,class (:background ,solarized-bg  :foreground ,blue))))
@@ -378,6 +385,7 @@
      `(helm-lisp-completion-info ((,class (:foreground ,solarized-fg))))
      `(helm-lisp-show-completion ((,class (:foreground ,yellow  :background ,solarized-hl
                                                        :bold t))))
+     `(helm-M-x-key ((,class (:foreground ,orange :underline t))))
      `(helm-match ((,class (:inherit match))))
      `(helm-selection ((,class (:background ,solarized-hl :underline t))))
      `(helm-selection-line ((,class (:background ,solarized-hl :foreground ,solarized-emph
@@ -476,6 +484,19 @@
      `(mingus-playlist-face ((,class (:foreground ,cyan ))))
      `(mingus-song-file-face ((,class (:foreground ,yellow))))
      `(mingus-stopped-face ((,class (:foreground ,red))))
+
+     ;; moccur
+     `(moccur-current-line-face ((,class (:underline t))))
+     `(moccur-edit-done-face ((,class
+			       (:foreground ,solarized-comments
+					    :background ,solarized-bg
+					    :slant italic))))
+     `(moccur-edit-face
+       ((,class (:background ,yellow :foreground ,solarized-bg))))
+     `(moccur-edit-file-face ((,class (:background ,solarized-hl))))
+     `(moccur-edit-reject-face ((,class (:foreground ,red))))
+     `(moccur-face ((,class (:background ,solarized-hl :foreground ,solarized-emph
+					 :weight bold))))
 
      ;; mumamo
      `(mumamo-background-chunk-submode1 ((,class (:background ,solarized-hl))))
@@ -620,7 +641,7 @@
        ((,class (:foreground ,red :background ,solarized-bg :weight normal :inverse-video t))))
      `(paren-face-no-match
        ((,class (:foreground ,red :background ,solarized-bg :weight normal :inverse-video t))))
-     
+
      ;; SLIME
      `(slime-repl-inputed-output-face ((,class (:foreground ,red))))
 
