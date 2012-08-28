@@ -1,4 +1,4 @@
-;;; solarized-theme.el --- Solarized for Emacs.
+;;; solarized.el --- Solarized for Emacs.
 
 ;; Copyright (C) 2011,2012 Bozhidar Batsov
 
@@ -812,4 +812,4 @@
 
 (provide 'solarized)
 
-;;; solarized-theme.el ends here.
+;;; solarized.el ends here.
