@@ -63,8 +63,7 @@ in the format of solarized-theme.el."
                        (if (get face 'theme-face)
                            (format " ;; Already set by current theme!")
                          "")))))
-          faces))
-  )
+	  faces)))
 
 
 
