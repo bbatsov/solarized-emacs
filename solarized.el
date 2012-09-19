@@ -510,7 +510,7 @@
      `(nav-face-hfile ((,class (:foreground ,red))))
 
      ;; nav-flash
-     `(nav-flash-face ((,class (:foreground ,solarized-bg :background ,orange))))
+     `(nav-flash-face ((,class (:foreground ,orange :background ,solarized-hl))))
 
      ;; org-mode
      `(org-agenda-structure
