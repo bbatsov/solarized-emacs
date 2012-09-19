@@ -509,6 +509,9 @@
      `(nav-face-file ((,class (:foreground ,solarized-fg))))
      `(nav-face-hfile ((,class (:foreground ,red))))
 
+     ;; nav-flash
+     `(nav-flash-face ((,class (:foreground ,solarized-bg :background ,orange))))
+
      ;; org-mode
      `(org-agenda-structure
        ((,class (:inherit font-lock-comment-face :foreground ,magenta :inverse-video t))))
@@ -780,6 +783,9 @@
      ;; which-func-mode
      `(which-func ((,class (:foreground ,green))))
 
+     ;; window-number-mode
+     `(window-number-face ((,class (:foreground ,green))))
+
      ;; yascroll
      `(yascroll:thumb-text-area
        ((,class (:foreground ,solarized-comments :background ,solarized-comments))))
@@ -796,7 +802,11 @@
                                              ,blue ,magenta ,cyan ,solarized-fg])
      `(ansi-term-color-vector [unspecific ,base01 ,red ,green ,yellow ,blue ,magenta ,cyan ,base03])
      ;; fill-column-indicator
-     `(fci-rule-color ,solarized-hl))
+     `(fci-rule-color ,solarized-hl)
+
+     `(highlight-tail-colors
+       '((,solarized-hl . 0)(,green-lc . 20)(,cyan-lc . 30)(,blue-lc . 50)
+         (,yellow-lc . 60)(,orange-lc . 70)(,magenta-lc . 85)(,solarized-hl . 100))))
 
     ;; call chained theme function
     (when childtheme (funcall childtheme))))
