@@ -137,7 +137,6 @@
      `(lazy-highlight ((,class (:foreground ,solarized-emph :background ,solarized-hl :bold t))))
      `(escape-glyph ((,class (:foreground ,violet))))
 
-
      ;; compilation
      `(compilation-column-face ((,class (:foreground ,yellow))))
      `(compilation-enter-directory-face ((,class (:foreground ,green))))
@@ -150,6 +149,12 @@
      `(compilation-line-number ((,class (:foreground ,yellow))))
      `(compilation-message-face ((,class (:foreground ,blue))))
      `(compilation-warning-face ((,class (:foreground ,yellow :weight bold :underline t))))
+
+     ;; cua
+     `(cua-global-mark ((,class (:background ,yellow :foreground ,solarized-bg))))
+     `(cua-rectangle ((,class (:inherit region :background ,magenta :foreground ,solarized-bg))))
+     `(cua-rectangle-noselect ((,class (:inherit region :background ,solarized-hl
+                                                 :foreground ,solarized-comments))))
 
      ;; diary
      `(diary ((,class (:foreground ,yellow))))
@@ -407,6 +412,10 @@
      `(hi-green-b ((,class (:foreground ,green-lc :weight bold))))
      `(hi-red-b ((,class (:foreground ,red :weight bold))))
      `(hi-black-hb ((,class (:foreground ,solarized-emph :background ,solarized-bg :weight bold))))
+
+     ;; highlight-changes
+     `(highlight-changes ((,class (:foreground ,orange))))
+     `(highlight-changes-delete ((,class (:foreground ,red :underline t))))
 
      ;; hl-line-mode
      `(hl-line-face ((,class (:background ,solarized-bg))))
@@ -804,6 +813,10 @@
      ;; fill-column-indicator
      `(fci-rule-color ,solarized-hl)
 
+     ;; highlight-changes
+     `(highlight-changes-colors '(,magenta ,violet))
+
+     ;; highlight-tail
      `(highlight-tail-colors
        '((,solarized-hl . 0)(,green-lc . 20)(,cyan-lc . 30)(,blue-lc . 50)
          (,yellow-lc . 60)(,orange-lc . 70)(,magenta-lc . 85)(,solarized-hl . 100))))
