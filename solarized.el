@@ -164,10 +164,10 @@
      `(dired-flagged ((,class (:foreground ,red))))
      `(dired-header ((,class (:foreground ,solarized-bg :background ,blue))))
      `(dired-ignored ((,class (:inherit shadow))))
-     `(dired-mark ((,class (:foreground ,yellow :weigth bold))))
-     `(dired-marked ((,class (:foreground ,magenta :weigth bold))))
+     `(dired-mark ((,class (:foreground ,yellow :weight bold))))
+     `(dired-marked ((,class (:foreground ,magenta :weight bold))))
      `(dired-perm-write ((,class (:foreground ,solarized-fg :underline t))))
-     `(dired-symlink ((,class (:foreground ,cyan :weigth normal :slant italic))))
+     `(dired-symlink ((,class (:foreground ,cyan :weight normal :slant italic))))
      `(dired-warning ((,class (:foreground ,orange :underline t))))
 
      ;; grep
@@ -289,7 +289,7 @@
      `(erc-input-face ((,class (:foreground ,yellow))))
      `(erc-keyword-face ((,class (:foreground ,blue :weight bold))))
      `(erc-nick-default-face ((,class (:foreground ,yellow :weight bold))))
-     `(erc-my-nick-face ((,class (:foreground ,red :weigth bold))))
+     `(erc-my-nick-face ((,class (:foreground ,red :weight bold))))
      `(erc-nick-msg-face ((,class (:inherit erc-default))))
      `(erc-notice-face ((,class (:foreground ,green))))
      `(erc-pal-face ((,class (:foreground ,orange :weight bold))))
@@ -497,15 +497,15 @@
      ;; moccur
      `(moccur-current-line-face ((,class (:underline t))))
      `(moccur-edit-done-face ((,class
-			       (:foreground ,solarized-comments
-					    :background ,solarized-bg
-					    :slant italic))))
+                               (:foreground ,solarized-comments
+                                            :background ,solarized-bg
+                                            :slant italic))))
      `(moccur-edit-face
        ((,class (:background ,yellow :foreground ,solarized-bg))))
      `(moccur-edit-file-face ((,class (:background ,solarized-hl))))
      `(moccur-edit-reject-face ((,class (:foreground ,red))))
      `(moccur-face ((,class (:background ,solarized-hl :foreground ,solarized-emph
-					 :weight bold))))
+                                         :weight bold))))
 
      ;; mumamo
      `(mumamo-background-chunk-submode1 ((,class (:background ,solarized-hl))))
@@ -685,7 +685,7 @@
      `(sr-alt-marked-file-face ((,class (:background ,magenta :foreground ,solarized-bg
                                                      :weight bold))))
      ;; sunrise commander fstat
-     `(sr-directory-face ((,class (:inherit dired-directory :weigth normal))))
+     `(sr-directory-face ((,class (:inherit dired-directory :weight normal))))
      `(sr-symlink-directory-face ((,class (:inherit dired-directory :slant italic :weight normal))))
      `(sr-symlink-face ((,class (:inherit dired-symlink :slant italic :weight normal))))
      `(sr-broken-link-face ((,class (:inherit dired-warning :slant italic :weight normal))))
@@ -720,7 +720,7 @@
        ((,class (:foreground ,solarized-comments :background ,solarized-bg))))
      `(undo-tree-visualizer-current-face ((,class (:foreground ,cyan :inverse-video t))))
      `(undo-tree-visualizer-active-branch-face
-       ((,class (:foreground ,solarized-emph :background ,solarized-bg :weigth bold))))
+       ((,class (:foreground ,solarized-emph :background ,solarized-bg :weight bold))))
      `(undo-tree-visualizer-register-face ((,class (:foreground ,yellow))))
 
      ;; volatile highlights
