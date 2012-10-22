@@ -506,6 +506,18 @@
      `(moccur-face ((,class (:background ,solarized-hl :foreground ,solarized-emph
                                          :weight bold))))
 
+     ;; mu4e
+     `(mu4e-cited-1-face ((,class (:foreground ,green :slant italic :weight normal))))
+     `(mu4e-cited-2-face ((,class (:foreground ,blue :slant italic :weight normal))))
+     `(mu4e-cited-3-face ((,class (:foreground ,orange :slant italic :weight normal))))
+     `(mu4e-cited-4-face ((,class (:foreground ,yellow :slant italic :weight normal))))
+     `(mu4e-cited-5-face ((,class (:foreground ,cyan :slant italic :weight normal))))
+     `(mu4e-cited-6-face ((,class (:foreground ,green :slant italic :weight normal))))
+     `(mu4e-cited-7-face ((,class (:foreground ,blue :slant italic :weight normal))))
+     `(mu4e-flagged-face ((,class (:foreground ,magenta :weight bold))))
+     `(mu4e-view-url-number-face ((,class (:foreground ,orange :weight bold))))
+     `(mu4e-warning-face ((,class (:foreground ,red :slant normal :weight bold))))
+
      ;; mumamo
      `(mumamo-background-chunk-submode1 ((,class (:background ,solarized-hl))))
 
