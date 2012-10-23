@@ -418,7 +418,8 @@
      `(highlight-changes-delete ((,class (:foreground ,red :underline t))))
 
      ;; hl-line-mode
-     `(hl-line-face ((,class (:background ,solarized-bg))))
+     `(hl-line ((,class (:background ,solarized-hl))))
+     `(hl-line-face ((,class (:background ,solarized-hl))))
 
      ;; ido-mode
      `(ido-first-match ((,class (:foreground ,green :weight bold))))
