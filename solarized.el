@@ -567,7 +567,7 @@
      `(org-link ((,class (:foreground ,yellow :underline t))))
      `(org-sexp-date ((,class (:foreground ,violet))))
      `(org-scheduled ((,class (:foreground ,green))))
-     `(org-scheduled-previously ((,class (:foreground ,orange))))
+     `(org-scheduled-previously ((,class (:foreground ,yellow))))
      `(org-scheduled-today ((,class (:foreground ,blue :weight bold))))
      `(org-special-keyword ((,class (:foreground ,solarized-comments :weight bold))))
      `(org-table ((,class (:foreground ,green))))
