@@ -370,7 +370,8 @@
      `(helm-bookmark-w3m ((,class (:foreground ,yellow))))
      `(helm-bookmarks-su ((,class (:foreground ,orange))))
      `(helm-buffer-not-saved ((,class (:foreground ,orange))))
-     `(helm-buffer-saved-out ((,class (:foreground ,solarized-bg :background ,red))))
+     `(helm-buffer-saved-out ((,class (:foreground ,red :background ,solarized-bg
+                                                   :inverse-video t))))
      `(helm-buffer-size ((,class (:foreground ,solarized-comments))))
      `(helm-candidate-number ((,class (:background ,solarized-hl :foreground ,solarized-emph
                                                    :bold t))))
