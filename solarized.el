@@ -430,6 +430,21 @@
      `(ido-indicator ((,class (:background ,red :foreground ,solarized-bg :width condensed))))
      `(ido-virtual ((,class (:foreground ,cyan))))
 
+     ;; js2-mode colors
+     `(js2-error-face ((,class (:foreground ,red))))
+     `(js2-external-variable-face ((,class (:foreground ,orange))))
+     `(js2-function-param-face ((,class (:foreground ,green))))
+     `(js2-instance-member-face ((,class (:foreground ,magenta))))
+     `(js2-jsdoc-html-tag-delimiter-face ((,class (:foreground ,cyan))))
+     `(js2-jsdoc-html-tag-name-face ((,class (:foreground ,orange))))
+     `(js2-jsdoc-tag-face ((,class (:foreground ,cyan))))
+     `(js2-jsdoc-type-face ((,class (:foreground ,blue))))
+     `(js2-jsdoc-value-face ((,class (:foreground ,violet))))
+     `(js2-magic-paren-face ((,class (:underline t))))
+     `(js2-private-function-call-face ((,class (:foreground ,yellow))))
+     `(js2-private-member-face ((,class (:foreground ,blue))))
+     `(js2-warning-face ((,class (:underline ,orange))))
+
      ;; linum-mode
      `(linum ((,class (:foreground ,solarized-fg :background ,solarized-bg))))
 
