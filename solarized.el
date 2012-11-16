@@ -249,6 +249,26 @@
      `(bm-fringe-persistent-face ((,class (:background ,green-lc :foreground ,solarized-bg))))
      `(bm-persistent-face ((,class (:background ,green-lc :foreground ,solarized-bg))))
 
+     ;; calfw
+     `(cfw:face-day-title ((,class (:background ,solarized-hl))))
+     `(cfw:face-annotation ((,class (:inherit cfw:face-day-title :foreground ,yellow))))
+     `(cfw:face-default-content ((,class (:foreground ,green))))
+     `(cfw:face-default-day ((,class (:inherit cfw:face-day-title :weight bold))))
+     `(cfw:face-disable ((,class (:inherit cfw:face-day-title :foreground ,solarized-comments))))
+     `(cfw:face-grid ((,class (:foreground ,solarized-comments))))
+     `(cfw:face-header ((,class (:foreground ,blue-hc :background ,blue-lc :weight bold))))
+     `(cfw:face-holiday ((,class (:background nil :foreground ,red :weight bold))))
+     `(cfw:face-periods ((,class (:foreground ,magenta))))
+     `(cfw:face-select ((,class (:background ,magenta-lc :foreground ,magenta-hc))))
+     `(cfw:face-saturday ((,class (:foreground ,cyan-hc :background ,cyan-lc))))
+     `(cfw:face-sunday ((,class (:foreground ,red-hc :background ,red-lc :weight bold))))
+     `(cfw:face-title ((,class (:inherit variable-pitch :foreground ,yellow :weight bold :height 2.0))))
+     `(cfw:face-today ((,class (:weight bold :background ,solarized-hl :foreground nil))))
+     `(cfw:face-today-title ((,class (:background ,yellow-lc :foreground ,yellow-hc :weight bold))))
+     `(cfw:face-toolbar ((,class (:background ,solarized-hl :foreground ,solarized-fg))))
+     `(cfw:face-toolbar-button-off ((,class (:background ,yellow-lc :foreground ,yellow-hc :weight bold))))
+     `(cfw:face-toolbar-button-on ((,class (:background ,yellow-hc :foreground ,yellow-lc :weight bold))))
+
      ;; custom
      `(custom-variable-tag ((,class (:foreground ,cyan))))
      `(custom-comment-tag ((,class (:foreground ,solarized-comments))))
