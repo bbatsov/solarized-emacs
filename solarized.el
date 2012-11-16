@@ -147,6 +147,10 @@
      `(compilation-leave-directory-face ((,class (:foreground ,green))))
      `(compilation-line-face ((,class (:foreground ,yellow))))
      `(compilation-line-number ((,class (:foreground ,yellow))))
+     `(compilation-mode-line-exit
+       ((,class (:inherit compilation-info :foreground ,green :weight bold))))
+     `(compilation-mode-line-fail
+       ((,class (:inherit compilation-error :foreground ,red :weight bold))))
      `(compilation-message-face ((,class (:foreground ,blue))))
      `(compilation-warning-face ((,class (:foreground ,yellow :weight bold :underline t))))
 
