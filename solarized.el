@@ -232,6 +232,13 @@
      `(ahs-plugin-whole-buffer-face ((,class (:foreground ,solarized-bg :background ,green))))
      `(ahs-warning-face ((,class (:foreground ,red :weight bold))))
 
+     ;; android mode
+     `(android-mode-debug-face ((,class (:foreground ,green))))
+     `(android-mode-error-face ((,class (:foreground ,orange :weight bold))))
+     `(android-mode-info-face ((,class (:foreground ,solarized-fg))))
+     `(android-mode-verbose-face ((,class (:foreground ,solarized-comments))))
+     `(android-mode-warning-face ((,class (:foreground ,yellow))))
+
      ;; bm
      `(bm-face ((,class (:background ,yellow-lc :foreground ,solarized-bg))))
      `(bm-fringe-face ((,class (:background ,yellow-lc :foreground ,solarized-bg))))
