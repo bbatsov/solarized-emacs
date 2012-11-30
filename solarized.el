@@ -227,6 +227,16 @@
      `(ace-jump-face-foreground
        ((,class (:foreground ,red :background ,solarized-bg :inverse-video nil))))
 
+     ;; auto-complete
+     `(ac-candidate-face ((,class (:background ,solarized-hl :foreground ,cyan))))
+     `(ac-selection-face ((,class (:background ,cyan-lc :foreground ,cyan-hc))))
+     `(ac-candidate-mouse-face ((,class (:background ,cyan-hc :foreground ,cyan-lc))))
+     `(ac-completion-face ((,class (:foreground ,solarized-emph :underline t))))
+     `(ac-gtags-candidate-face ((,class (:background ,solarized-hl :foreground ,blue))))
+     `(ac-gtags-selection-face ((,class (:background ,blue-lc :foreground ,blue-hc))))
+     `(ac-yasnippet-candidate-face ((,class (:background ,solarized-hl :foreground ,yellow))))
+     `(ac-yasnippet-selection-face ((,class (:background ,yellow-lc :foreground ,yellow-hc))))
+
      ;; auto highlight symbol
      `(ahs-definition-face ((,class (:foreground ,solarized-bg :background ,blue :underline t))))
      `(ahs-edit-mode-face ((,class (:foreground ,solarized-bg :background ,yellow))))
@@ -423,6 +433,7 @@
      `(helm-lisp-show-completion ((,class (:foreground ,yellow  :background ,solarized-hl
                                                        :bold t))))
      `(helm-M-x-key ((,class (:foreground ,orange :underline t))))
+     `(helm-moccur-buffer ((,class (:foreground ,cyan :underline t))))
      `(helm-match ((,class (:inherit match))))
      `(helm-selection ((,class (:background ,solarized-hl :underline t))))
      `(helm-selection-line ((,class (:background ,solarized-hl :foreground ,solarized-emph
@@ -660,6 +671,16 @@
      ;; pretty-mode
      `(pretty-mode-symbol-face  ((,class (:foreground ,green))))
 
+     ;; popup
+     `(popup-face ((,class (:background ,solarized-hl :foreground ,solarized-fg))))
+     `(popup-isearch-match ((,class (:background ,yellow))))
+     `(popup-menu-face ((,class (:background ,solarized-bg :foreground ,solarized-fg))))
+     `(popup-menu-mouse-face ((,class (:background ,blue :foreground ,solarized-fg))))
+     `(popup-menu-selection-face ((,class (:background ,magenta :foreground ,solarized-bg))))
+     `(popup-scroll-bar-background-face ((,class (:background ,solarized-comments))))
+     `(popup-scroll-bar-foreground-face ((,class (:background ,solarized-emph))))
+     `(popup-tip-face ((,class (:background ,solarized-hl :foreground ,solarized-fg))))
+
      ;; rainbow-delimiters
      `(rainbow-delimiters-depth-1-face ((,class (:foreground ,cyan))))
      `(rainbow-delimiters-depth-2-face ((,class (:foreground ,yellow))))
@@ -699,6 +720,11 @@
      `(sh-quoted-exec ((,class (:foreground ,violet :weight bold))))
      `(sh-escaped-newline ((,class (:foreground ,yellow :weight bold))))
      `(sh-heredoc ((,class (:foreground ,yellow :weight bold))))
+
+     ;; smartparens
+     `(sp-pair-overlay-face ((,class (:background ,solarized-hl))))
+     `(sp-wrap-overlay-face ((,class (:background ,solarized-hl))))
+     `(sp-wrap-tag-overlay-face ((,class (:background ,solarized-hl))))
 
      ;; show-paren
      `(show-paren-match
@@ -778,7 +804,8 @@
      ;; undo-tree
      `(undo-tree-visualizer-default-face
        ((,class (:foreground ,solarized-comments :background ,solarized-bg))))
-     `(undo-tree-visualizer-current-face ((,class (:foreground ,cyan :inverse-video t))))
+     `(undo-tree-visualizer-unmodified-face ((,class (:foreground ,green))))
+     `(undo-tree-visualizer-current-face ((,class (:foreground ,blue :inverse-video t))))
      `(undo-tree-visualizer-active-branch-face
        ((,class (:foreground ,solarized-emph :background ,solarized-bg :weight bold))))
      `(undo-tree-visualizer-register-face ((,class (:foreground ,yellow))))
@@ -798,6 +825,27 @@
      `(w3m-lnum-minibuffer-prompt ((,class (:foreground ,solarized-emph))))
      `(w3m-lnum-match ((,class (:background ,solarized-hl))))
      `(w3m-lnum ((,class (:underline nil :bold nil :foreground ,red))))
+
+     ;; web-mode
+     `(web-mode-builtin-face ((,class (:foreground ,red))))
+     `(web-mode-comment-face ((,class (:foreground ,solarized-comments))))
+     `(web-mode-constant-face ((,class (:foreground ,blue :weight bold))))
+     `(web-mode-css-at-rule-face ((,class (:foreground ,violet :slant italic))))
+     `(web-mode-css-prop-face ((,class (:foreground ,violet))))
+     `(web-mode-css-pseudo-class-face ((,class (:foreground ,green :slant italic))))
+     `(web-mode-css-rule-face ((,class (:foreground ,blue))))
+     `(web-mode-doctype-face ((,class (:foreground ,solarized-comments
+                                                   :slant italic :weight bold))))
+     `(web-mode-folded-face ((,class (:underline t))))
+     `(web-mode-function-name-face ((,class (:foreground ,blue))))
+     `(web-mode-html-attr-name-face ((,class (:foreground ,blue :slant normal))))
+     `(web-mode-html-attr-value-face ((,class (:foreground ,cyan :slant italic))))
+     `(web-mode-html-tag-face ((,class (:foreground ,green))))
+     `(web-mode-keyword-face ((,class (:foreground ,yellow :weight bold))))
+     `(web-mode-preprocessor-face ((,class (:foreground ,yellow  :slant italic :weight bold))))
+     `(web-mode-string-face ((,class (:foreground ,cyan))))
+     `(web-mode-type-face ((,class (:foreground ,yellow))))
+     `(web-mode-variable-name-face ((,class (:foreground ,blue))))
 
      ;; whitespace-mode
      `(whitespace-space ((,class (:background ,solarized-bg :foreground ,yellow-lc
