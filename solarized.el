@@ -174,6 +174,10 @@
      `(dired-symlink ((,class (:foreground ,cyan :weight normal :slant italic))))
      `(dired-warning ((,class (:foreground ,orange :underline t))))
 
+     ;; dropdown
+     `(dropdown-list-face ((,class (:background ,solarized-hl :foreground ,cyan))))
+     `(dropdown-list-selection-face ((,class (:background ,cyan-lc :foreground ,cyan-hc))))
+
      ;; grep
      `(grep-context-face ((,class (:foreground ,solarized-fg))))
      `(grep-error-face ((,class (:foreground ,red :weight bold :underline t))))
@@ -183,6 +187,11 @@
      ;; faces used by isearch
      `(isearch ((,class (:foreground ,yellow :background ,solarized-hl :bold t))))
      `(isearch-fail ((,class (:foreground ,red :background ,solarized-bg :bold t))))
+
+     ;; man
+     `(Man-overstrike ((,class (:foreground ,blue :weight bold))))
+     `(Man-reverse ((,class (:foreground ,orange))))
+     `(Man-underline ((,class (:foreground ,green :underline t))))
 
      ;; misc faces
      `(menu ((,class (:foreground ,solarized-fg :background ,solarized-bg))))
@@ -279,6 +288,11 @@
      `(cfw:face-toolbar-button-off ((,class (:background ,yellow-lc :foreground ,yellow-hc :weight bold))))
      `(cfw:face-toolbar-button-on ((,class (:background ,yellow-hc :foreground ,yellow-lc :weight bold))))
 
+     ;; ctable
+     `(ctbl:face-cell-select ((,class (:background ,blue :foreground ,solarized-bg))))
+     `(ctbl:face-continue-bar ((,class (:background ,solarized-hl :foreground ,solarized-bg))))
+     `(ctbl:face-row-select ((,class (:background ,cyan :foreground ,solarized-bg))))
+
      ;; custom
      `(custom-variable-tag ((,class (:foreground ,cyan))))
      `(custom-comment-tag ((,class (:foreground ,solarized-comments))))
@@ -292,6 +306,9 @@
      `(diff-header ((,class (:background ,solarized-bg))))
      `(diff-file-header
        ((,class (:background ,solarized-bg :foreground ,solarized-fg :weight bold))))
+
+     ;; epc
+     `(epc:face-title ((,class (:foreground ,magenta :weight bold))))
 
      ;; eshell
      `(eshell-prompt ((,class (:foreground ,yellow :weight bold))))
@@ -487,6 +504,9 @@
      `(js2-private-member-face ((,class (:foreground ,blue))))
      `(js2-warning-face ((,class (:underline ,orange))))
 
+     ;; jedi
+     `(jedi:highlight-function-argument ((,class (:inherit bold))))
+
      ;; linum-mode
      `(linum ((,class (:foreground ,solarized-fg :background ,solarized-bg))))
 
@@ -673,8 +693,8 @@
 
      ;; popup
      `(popup-face ((,class (:background ,solarized-hl :foreground ,solarized-fg))))
-     `(popup-isearch-match ((,class (:background ,yellow))))
-     `(popup-menu-face ((,class (:background ,solarized-bg :foreground ,solarized-fg))))
+     `(popup-isearch-match ((,class (:background ,yellow :foreground ,solarized-bg))))
+     `(popup-menu-face ((,class (:background ,solarized-hl :foreground ,solarized-fg))))
      `(popup-menu-mouse-face ((,class (:background ,blue :foreground ,solarized-fg))))
      `(popup-menu-selection-face ((,class (:background ,magenta :foreground ,solarized-bg))))
      `(popup-scroll-bar-background-face ((,class (:background ,solarized-comments))))
