@@ -98,6 +98,9 @@
 
          ;; Light/Dark adaptive higher/lower contrast accented colors
          ;; Only use these in exceptional cirmumstances!
+         (solarized-fg-hc (if (eq variant 'light) base3 base03))
+         (solarized-fg-lc (if (eq variant 'light) base03 base3))
+
          (yellow-hc (if (eq variant 'light) yellow-d yellow-l))
          (yellow-lc (if (eq variant 'light) yellow-l yellow-d))
          (orange-hc (if (eq variant 'light) orange-d orange-l))
@@ -306,6 +309,14 @@
      `(diff-header ((,class (:background ,solarized-bg))))
      `(diff-file-header
        ((,class (:background ,solarized-bg :foreground ,solarized-fg :weight bold))))
+
+     ;; ediff
+     `(ediff-fine-diff-A ((,class (:background ,orange-lc))))
+     `(ediff-fine-diff-B ((,class (:background ,green-lc))))
+     `(ediff-even-diff-A ((,class (:background ,solarized-comments :foreground ,solarized-fg-lc ))))
+     `(ediff-odd-diff-A ((,class (:background ,solarized-comments :foreground ,solarized-fg-hc ))))
+     `(ediff-even-diff-B ((,class (:background ,solarized-comments :foreground ,solarized-fg-hc ))))
+     `(ediff-odd-diff-B ((,class (:background ,solarized-comments :foreground ,solarized-fg-lc ))))
 
      ;; epc
      `(epc:face-title ((,class (:foreground ,magenta :weight bold))))
