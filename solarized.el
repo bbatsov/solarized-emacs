@@ -303,9 +303,9 @@
      `(custom-state ((,class (:foreground ,green))))
 
      ;; diff
-     `(diff-added ((,class (:foreground ,green))))
-     `(diff-changed ((,class (:foreground ,yellow))))
-     `(diff-removed ((,class (:foreground ,red))))
+     `(diff-added ((,class (:foreground ,green :background ,solarized-bg))))
+     `(diff-changed ((,class (:foreground ,yellow :background ,solarized-bg))))
+     `(diff-removed ((,class (:foreground ,red :background ,solarized-bg))))
      `(diff-header ((,class (:background ,solarized-bg))))
      `(diff-file-header
        ((,class (:background ,solarized-bg :foreground ,solarized-fg :weight bold))))
