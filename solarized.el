@@ -341,6 +341,12 @@
      `(flymake-warnline
        ((,class (:foreground ,yellow-hc :background ,yellow-lc :weight bold :underline t))))
 
+     ;; flycheck
+     `(flycheck-error-face
+       ((,class (:foreground ,red-hc :background ,red-lc :weight bold :underline t))))
+     `(flymake-warning-face
+       ((,class (:foreground ,yellow-hc :background ,yellow-lc :weight bold :underline t))))
+
      ;; flyspell
      `(flyspell-duplicate ((,class (:foreground ,yellow :weight bold :underline t))))
      `(flyspell-incorrect ((,class (:foreground ,red :weight bold :underline t))))
