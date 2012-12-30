@@ -291,6 +291,11 @@
      `(cfw:face-toolbar-button-off ((,class (:background ,yellow-lc :foreground ,yellow-hc :weight bold))))
      `(cfw:face-toolbar-button-on ((,class (:background ,yellow-hc :foreground ,yellow-lc :weight bold))))
 
+     ;; clojure-test-mode
+     `(clojure-test-failure-face ((t (:foreground ,orange :weight bold :underline t))))
+     `(clojure-test-error-face ((t (:foreground ,red :weight bold :underline t))))
+     `(clojure-test-success-face ((t (:foreground ,green :weight bold :underline t))))
+
      ;; ctable
      `(ctbl:face-cell-select ((,class (:background ,blue :foreground ,solarized-bg))))
      `(ctbl:face-continue-bar ((,class (:background ,solarized-hl :foreground ,solarized-bg))))
