@@ -349,7 +349,7 @@
      ;; flycheck
      `(flycheck-error-face
        ((,class (:foreground ,red-hc :background ,red-lc :weight bold :underline t))))
-     `(flymake-warning-face
+     `(flycheck-warning-face
        ((,class (:foreground ,yellow-hc :background ,yellow-lc :weight bold :underline t))))
 
      ;; flyspell
