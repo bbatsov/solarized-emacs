@@ -1,4 +1,6 @@
-(require 'solarized)
+(require 'solarized
+         (locate-file "solarized.el" custom-theme-load-path
+                      '("c" "")))
 
 (deftheme solarized-light "The light variant of the Solarized colour theme")
 
