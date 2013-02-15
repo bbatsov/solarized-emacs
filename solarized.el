@@ -377,6 +377,11 @@
      `(erc-timestamp-face ((,class (:foreground ,green))))
      `(erc-underline-face ((t (:underline t))))
 
+     ;; git-gutter
+     `(git-gutter:added ((,class (:foreground ,green :weight bold :inverse-video t))))
+     `(git-gutter:deleted ((,class (:foreground ,red :weight bold :inverse-video t))))
+     `(git-gutter:modified ((,class (:foreground ,magenta :weight bold :inverse-video t))))
+
      ;; gnus
      `(gnus-group-mail-1-face ((,class (:weight bold :inherit gnus-group-mail-1-empty))))
      `(gnus-group-mail-1-empty-face ((,class (:inherit gnus-group-news-1-empty))))
