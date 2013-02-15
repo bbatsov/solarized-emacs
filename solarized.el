@@ -1,8 +1,8 @@
 ;;; solarized.el --- Solarized for Emacs.
 
-;; Copyright (C) 2011,2012 Bozhidar Batsov
+;; Copyright (C) 2011-2013 Bozhidar Batsov
 
-;; Author: Bozhidar Batsov <bozhidar.batsov@gmail.com>
+;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; Author: Thomas Frössman <thomasf@jossystem.se>
 ;; URL: http://github.com/bbatsov/solarized-emacs
 ;; Version: 0.5.0
@@ -41,7 +41,7 @@
 ;; Ethan Schoonover created the original theme for vim on such this port
 ;; is based.
 ;;
-;;; Code
+;;; Code:
 
 (defun create-solarized-theme (variant theme-name &optional childtheme)
   (let* ((class '((class color) (min-colors 89)))
@@ -990,4 +990,4 @@
 
 (provide 'solarized)
 
-;;; solarized.el ends here.
+;;; solarized.el ends here
