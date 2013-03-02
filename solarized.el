@@ -378,9 +378,17 @@
      `(erc-underline-face ((t (:underline t))))
 
      ;; git-gutter
-     `(git-gutter:added ((,class (:foreground ,green :weight bold :inverse-video t))))
-     `(git-gutter:deleted ((,class (:foreground ,red :weight bold :inverse-video t))))
-     `(git-gutter:modified ((,class (:foreground ,magenta :weight bold :inverse-video t))))
+     `(git-gutter:added ((,class (:background ,green :foreground ,solarized-bg  :weight bold))))
+     `(git-gutter:deleted ((,class (:background ,red :foreground ,solarized-bg  :weight bold))))
+     `(git-gutter:modified ((,class (:background ,magenta :foreground ,solarized-bg :weight bold))))
+     `(git-gutter:unchanged ((,class (:background ,solarized-hl :foreground ,solarized-bg  :weight bold))))
+     ;; I use the following git-gutter settings along with those faces
+     ;; (when window-system
+     ;;  (let ((symbol "."))
+     ;;    (setq git-gutter:added-sign symbol
+     ;;          git-gutter:deleted-sign symbol
+     ;;          git-gutter:modified-sign symbol
+     ;;          git-gutter:unchanged-sign " ")))
 
      ;; gnus
      `(gnus-group-mail-1-face ((,class (:weight bold :inherit gnus-group-mail-1-empty))))
