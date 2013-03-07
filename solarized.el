@@ -390,6 +390,11 @@
      ;;          git-gutter:modified-sign symbol
      ;;          git-gutter:unchanged-sign " ")))
 
+     ;; git-gutter-fr
+     `(git-gutter-fr:added ((,class (:foreground ,green  :weight bold))))
+     `(git-gutter-fr:deleted ((,class (:foreground ,red :weight bold))))
+     `(git-gutter-fr:modified ((,class (:foreground ,magenta :weight bold))))
+
      ;; gnus
      `(gnus-group-mail-1-face ((,class (:weight bold :inherit gnus-group-mail-1-empty))))
      `(gnus-group-mail-1-empty-face ((,class (:inherit gnus-group-news-1-empty))))
