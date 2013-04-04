@@ -850,6 +850,27 @@
      ;; table
      `(table-cell ((,class (:foreground ,solarized-fg :background ,solarized-hl))))
 
+     ;; term
+     `(term-color-black ((t (:foreground ,base03
+                                         :background ,base02))))
+     `(term-color-red ((t (:foreground ,red
+                                       :background ,red-d))))
+     `(term-color-green ((t (:foreground ,green
+                                         :background ,green-d))))
+     `(term-color-yellow ((t (:foreground ,yellow
+                                          :background ,yellow-d))))
+     `(term-color-blue ((t (:foreground ,blue
+                                        :background ,blue-d))))
+     `(term-color-magenta ((t (:foreground ,magenta
+                                           :background ,magenta-d))))
+     `(term-color-cyan ((t (:foreground ,cyan
+                                        :background ,cyan-d))))
+     `(term-color-white ((t (:foreground ,base00
+                                         :background ,base0))))
+     '(term-default-fg-color ((t (:inherit term-color-white))))
+     '(term-default-bg-color ((t (:inherit term-color-black))))
+
+
      ;; tooltip. (NOTE: This setting has no effect on the os widgets for me
      ;; zencoding uses this)
      `(tooltip ((,class (:background ,yellow-lc :foreground ,yellow-hc
