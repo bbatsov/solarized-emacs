@@ -156,6 +156,9 @@
        ((,class (:inherit compilation-error :foreground ,red :weight bold))))
      `(compilation-message-face ((,class (:foreground ,blue))))
      `(compilation-warning-face ((,class (:foreground ,yellow :weight bold :underline t))))
+     `(compilation-mode-line-exit ((t (:foreground ,green :weight bold))))
+     `(compilation-mode-line-fail ((t (:foreground ,red :weight bold))))
+     `(compilation-mode-line-run ((t (:foreground ,orange :weight bold))))
 
      ;; cua
      `(cua-global-mark ((,class (:background ,yellow :foreground ,solarized-bg))))
