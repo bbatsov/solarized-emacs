@@ -341,6 +341,10 @@
      `(eshell-ls-special ((,class (:foreground ,yellow :weight bold))))
      `(eshell-ls-symlink ((,class (:foreground ,cyan :weight bold))))
 
+     ;; fic
+     `(fic-author-face ((,class (:background ,solarized-bg :foreground ,orange :underline t :slant italic))))
+     `(fic-face ((,class (:background ,solarized-bg :foreground ,orange :weight normal :slant italic))))
+
      ;; flymake
      `(flymake-errline
        ((,class (:foreground ,red-hc :background ,red-lc :weight bold :underline t))))
