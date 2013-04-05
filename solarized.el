@@ -211,7 +211,8 @@
                              :background ,solarized-bg
                              :box (:line-width -1 :style released-button)))))
      `(region ((,class (:foreground ,solarized-bg :background ,solarized-emph))))
-     `(secondary-selection ((,class (:background ,solarized-bg))))
+     `(secondary-selection ((,class (:background ,solarized-hl))))
+
      `(trailing-whitespace ((,class (:background ,red))))
      `(vertical-border ((,class (:foreground ,solarized-fg))))
 
