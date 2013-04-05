@@ -660,7 +660,7 @@
      `(nav-face-hfile ((,class (:foreground ,red))))
 
      ;; nav-flash
-     `(nav-flash-face ((,class (:foreground ,orange :background ,solarized-hl))))
+     `(nav-flash-face ((,class (:background ,solarized-hl))))
 
      ;; org-mode
      `(org-agenda-structure
