@@ -406,6 +406,11 @@
      `(git-gutter-fr:deleted ((,class (:foreground ,red :weight bold))))
      `(git-gutter-fr:modified ((,class (:foreground ,blue :weight bold))))
 
+     ;; guide-key
+     `(guide-key/highlight-command-face ((,class (:foreground ,blue))))
+     `(guide-key/key-face ((,class (:foreground ,solarized-comments))))
+     `(guide-key/prefix-command-face ((,class (:foreground ,green))))
+
      ;; gnus
      `(gnus-group-mail-1-face ((,class (:weight bold :inherit gnus-group-mail-1-empty))))
      `(gnus-group-mail-1-empty-face ((,class (:inherit gnus-group-news-1-empty))))
