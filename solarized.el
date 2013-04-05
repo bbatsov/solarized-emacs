@@ -631,6 +631,10 @@
      `(moccur-edit-reject-face ((,class (:foreground ,red))))
      `(moccur-face ((,class (:background ,solarized-hl :foreground ,solarized-emph
                                          :weight bold))))
+     `(search-buffers-face ((,class (:background ,solarized-hl :foreground ,solarized-emph
+                                                 :weight bold))))
+     `(search-buffers-header-face ((,class (:background ,solarized-hl :foreground ,yellow
+                                                        :weight bold))))
 
      ;; mu4e
      `(mu4e-cited-1-face ((,class (:foreground ,green :slant italic :weight normal))))
