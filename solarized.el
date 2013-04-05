@@ -386,7 +386,7 @@
      ;; git-gutter
      `(git-gutter:added ((,class (:background ,green :foreground ,solarized-bg  :weight bold))))
      `(git-gutter:deleted ((,class (:background ,red :foreground ,solarized-bg  :weight bold))))
-     `(git-gutter:modified ((,class (:background ,magenta :foreground ,solarized-bg :weight bold))))
+     `(git-gutter:modified ((,class (:background ,blue :foreground ,solarized-bg :weight bold))))
      `(git-gutter:unchanged ((,class (:background ,solarized-hl :foreground ,solarized-bg  :weight bold))))
      ;; I use the following git-gutter settings along with those faces
      ;; (when window-system
@@ -399,7 +399,7 @@
      ;; git-gutter-fr
      `(git-gutter-fr:added ((,class (:foreground ,green  :weight bold))))
      `(git-gutter-fr:deleted ((,class (:foreground ,red :weight bold))))
-     `(git-gutter-fr:modified ((,class (:foreground ,magenta :weight bold))))
+     `(git-gutter-fr:modified ((,class (:foreground ,blue :weight bold))))
 
      ;; gnus
      `(gnus-group-mail-1-face ((,class (:weight bold :inherit gnus-group-mail-1-empty))))
