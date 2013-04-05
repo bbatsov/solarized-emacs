@@ -304,6 +304,10 @@
      `(ctbl:face-continue-bar ((,class (:background ,solarized-hl :foreground ,solarized-bg))))
      `(ctbl:face-row-select ((,class (:background ,cyan :foreground ,solarized-bg))))
 
+     ;; coffee
+     `(coffee-mode-class-name ((,class (:foreground ,yellow :weight bold))))
+     `(coffee-mode-function-param ((,class (:foreground ,violet :slant italic))))
+
      ;; custom
      `(custom-variable-tag ((,class (:foreground ,cyan))))
      `(custom-comment-tag ((,class (:foreground ,solarized-comments))))
