@@ -1038,7 +1038,30 @@
      ;; highlight-tail
      `(highlight-tail-colors
        '((,solarized-hl . 0)(,green-lc . 20)(,cyan-lc . 30)(,blue-lc . 50)
-         (,yellow-lc . 60)(,orange-lc . 70)(,magenta-lc . 85)(,solarized-hl . 100))))
+         (,yellow-lc . 60)(,orange-lc . 70)(,magenta-lc . 85)(,solarized-hl . 100)))
+
+     ;; vc-annotate
+     `(vc-annotate-color-map
+       '(( 20. . ,red-d)
+         ( 40. . ,red-l)
+         ( 60. . ,orange)
+         ( 80. . ,yellow-d)
+         (100. . ,yellow)
+         (120. . ,yellow-l)
+         (140. . ,green-d)
+         (160. . ,green)
+         (180. . ,green-l)
+         (200. . ,violet-d)
+         (220. . ,violet)
+         (240. . ,violet-l)
+         (260. . ,cyan)
+         (280. . ,cyan-l)
+         (300. . ,blue-d)
+         (320. . ,blue)
+         (340. . ,blue-l)
+         (360. . ,magenta)))
+     `(vc-annotate-very-old-color ,magenta-d)
+     `(vc-annotate-background ,solarized-emph))
 
     ;; call chained theme function
     (when childtheme (funcall childtheme))))
