@@ -1061,7 +1061,7 @@
          (340. . ,blue-l)
          (360. . ,magenta)))
      `(vc-annotate-very-old-color ,magenta-d)
-     `(vc-annotate-background ,solarized-emph))
+     `(vc-annotate-background nil))
 
     ;; call chained theme function
     (when childtheme (funcall childtheme))))
