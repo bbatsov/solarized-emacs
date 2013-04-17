@@ -545,6 +545,23 @@
      `(ido-indicator ((,class (:background ,red :foreground ,solarized-bg :width condensed))))
      `(ido-virtual ((,class (:foreground ,cyan))))
 
+     `(jabber-activity-face ((,class (:weight bold :foreground ,red))))
+     `(jabber-activity-personal-face ((,class (:weight bold :foreground ,blue))))
+     `(jabber-chat-error ((,class (:weight bold :foreground ,red))))
+     `(jabber-chat-prompt-foreign ((,class (:weight bold :foreground ,red))))
+     `(jabber-chat-prompt-local ((,class (:weight bold :foreground ,blue))))
+     `(jabber-chat-prompt-system ((,class (:weight bold :foreground ,green))))
+     `(jabber-chat-text-foreign ((,class (:foreground ,base1))))
+     `(jabber-chat-text-local ((,class (:foreground ,base0))))
+     `(jabber-chat-rare-time-face ((,class (:underline t :foreground ,green))))
+     `(jabber-roster-user-away ((,class (:slant italic :foreground ,green))))
+     `(jabber-roster-user-chatty ((,class (:weight bold :foreground ,orange))))
+     `(jabber-roster-user-dnd ((,class (:slant italic :foreground ,red))))
+     `(jabber-roster-user-error ((,class (:weight light :slant italic :foreground ,red))))
+     `(jabber-roster-user-offline ((,class (:foreground ,base01))))
+     `(jabber-roster-user-online ((,class (:weight bold :foreground ,blue))))
+     `(jabber-roster-user-xa ((,class (:slant italic :foreground ,magenta))))
+
      ;; js2-mode colors
      `(js2-error ((,class (:foreground ,red))))
      `(js2-external-variable ((,class (:foreground ,orange))))
