@@ -1039,7 +1039,14 @@
        ((,class (:foreground ,solarized-comments :background ,solarized-comments))))
 
      ;; zencoding
-     `(zencoding-preview-input ((,class (:background ,solarized-hl :box ,solarized-emph)))))
+     `(zencoding-preview-input ((,class (:background ,solarized-hl :box ,solarized-emph))))
+
+     ;; cscope
+     `(cscope-file-face ((,class (:foreground ,green :weight bold))))
+     `(cscope-function-face ((,class (:foreground ,blue))))
+     `(cscope-line-number-face ((,class (:foreground ,yellow))))
+     `(cscope-line-face ((,class (:foreground ,solarized-fg))))
+     `(cscope-mouse-face ((,class (:background ,blue :foreground ,solarized-fg)))))
 
 
     (custom-theme-set-variables
