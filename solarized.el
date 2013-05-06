@@ -299,6 +299,13 @@
      `(clojure-test-error-face ((t (:foreground ,red :weight bold :underline t))))
      `(clojure-test-success-face ((t (:foreground ,green :weight bold :underline t))))
 
+     ;; cscope
+     `(cscope-file-face ((,class (:foreground ,green :weight bold))))
+     `(cscope-function-face ((,class (:foreground ,blue))))
+     `(cscope-line-number-face ((,class (:foreground ,yellow))))
+     `(cscope-line-face ((,class (:foreground ,solarized-fg))))
+     `(cscope-mouse-face ((,class (:background ,blue :foreground ,solarized-fg))))
+
      ;; ctable
      `(ctbl:face-cell-select ((,class (:background ,blue :foreground ,solarized-bg))))
      `(ctbl:face-continue-bar ((,class (:background ,solarized-hl :foreground ,solarized-bg))))
