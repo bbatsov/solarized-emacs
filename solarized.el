@@ -764,14 +764,14 @@
      `(org-mode-line-clock-overrun ((,class (:inherit modeline :background ,red))))
 
      ;; outline
-     `(outline-8 ((,class (:inherit default))))
-     `(outline-7 ((,class (:inherit outline-8 :height 1.0))))
-     `(outline-6 ((,class (:inherit outline-7 :height 1.0))))
-     `(outline-5 ((,class (:inherit outline-6 :height 1.0))))
-     `(outline-4 ((,class (:inherit outline-5 :height 1.0))))
-     `(outline-3 ((,class (:inherit outline-4 :height 1.0))))
-     `(outline-2 ((,class (:inherit outline-3 :height 1.0))))
-     `(outline-1 ((,class (:inherit outline-2 :height 1.0))))
+     `(outline-1 ((,class (:inherit org-level-1))))
+     `(outline-2 ((,class (:inherit org-level-2))))
+     `(outline-3 ((,class (:inherit org-level-3))))
+     `(outline-4 ((,class (:inherit org-level-4))))
+     `(outline-5 ((,class (:inherit org-level-5))))
+     `(outline-6 ((,class (:inherit org-level-6))))
+     `(outline-7 ((,class (:inherit org-level-7))))
+     `(outline-8 ((,class (:inherit org-level-8))))
 
      ;; pretty-mode
      `(pretty-mode-symbol-face  ((,class (:foreground ,green))))
