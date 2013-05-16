@@ -830,6 +830,11 @@
      `(sp-pair-overlay-face ((,class (:background ,solarized-hl))))
      `(sp-wrap-overlay-face ((,class (:background ,solarized-hl))))
      `(sp-wrap-tag-overlay-face ((,class (:background ,solarized-hl))))
+     `(sp-show-pair-enclosing ((,class (:inherit highlight))))
+     `(sp-show-pair-match-face
+       ((,class (:foreground ,cyan :background ,solarized-bg :weight normal :inverse-video t))))
+     `(sp-show-pair-mismatch-face
+       ((,class (:foreground ,red :background ,solarized-bg :weight normal :inverse-video t))))
 
      ;; show-paren
      `(show-paren-match
