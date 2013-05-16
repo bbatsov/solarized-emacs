@@ -1096,6 +1096,7 @@
 
 ;; Local Variables:
 ;; no-byte-compile: t
+;; eval: (when (fboundp 'rainbow-mode) (rainbow-mode 1))
 ;; End:
 
 (provide 'solarized)
