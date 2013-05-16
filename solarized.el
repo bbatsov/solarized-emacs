@@ -323,11 +323,14 @@
 
      ;; diff
      `(diff-added ((,class (:foreground ,green :background ,solarized-bg))))
-     `(diff-changed ((,class (:foreground ,yellow :background ,solarized-bg))))
+     `(diff-changed ((,class (:foreground ,blue :background ,solarized-bg))))
      `(diff-removed ((,class (:foreground ,red :background ,solarized-bg))))
      `(diff-header ((,class (:background ,solarized-bg))))
      `(diff-file-header
        ((,class (:background ,solarized-bg :foreground ,solarized-fg :weight bold))))
+     `(diff-refine-added ((,class :foreground ,solarized-bg :background ,green)))
+     `(diff-refine-change ((,class :foreground ,solarized-bg :background ,blue)))
+     `(diff-refine-removed ((,class (:foreground ,solarized-bg :background ,red))))
 
      ;; ediff
      `(ediff-fine-diff-A ((,class (:background ,orange-lc))))
