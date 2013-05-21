@@ -593,6 +593,12 @@
      ;; linum-mode
      `(linum ((,class (:foreground ,solarized-fg :background ,solarized-bg))))
 
+     ;; lusty-explorer
+     `(lusty-directory-face ((,class (:inherit dired-directory))))
+     `(lusty-file-face ((,class nil)))
+     `(lusty-match-face ((,class (:inherit ido-first-match))))
+     `(lusty-slash-face ((,class (:foreground ,cyan :weight bold))))
+
      ;; magit
      `(magit-section-title ((,class (:foreground ,yellow :weight bold))))
      `(magit-branch ((,class (:foreground ,orange :weight bold))))
