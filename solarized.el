@@ -368,10 +368,14 @@
        ((,class (:foreground ,yellow-hc :background ,yellow-lc :weight bold :underline t))))
 
      ;; flycheck
-     `(flycheck-error-face
+     `(flycheck-error
        ((,class (:foreground ,red-hc :background ,red-lc :weight bold :underline t))))
-     `(flycheck-warning-face
+     `(flycheck-warning
        ((,class (:foreground ,yellow-hc :background ,yellow-lc :weight bold :underline t))))
+     `(flycheck-fringe-error
+       ((,class (:foreground ,red-hc :background ,red-lc :weight bold))))
+     `(flycheck-fringe-warning
+       ((,class (:foreground ,yellow-hc :background ,yellow-lc :weight bold))))
 
      ;; flyspell
      `(flyspell-duplicate ((,class (:foreground ,yellow :weight bold :underline t))))
