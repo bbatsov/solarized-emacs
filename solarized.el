@@ -363,25 +363,25 @@
      ;; flymake
      `(flymake-errline
        ((,(append '((supports :underline (:style wave))) class)
-         (:underline (:style wave :color ,red)))
+         (:underline (:style wave :color ,red) :inherit unspecified :foreground unspecified :background unspecified))
         (,class (:foreground ,red-hc :background ,red-lc :weight bold :underline t))))
      `(flymake-infoline
        ((,(append '((supports :underline (:style wave))) class)
-         (:underline (:style wave :color ,green)))
+         (:underline (:style wave :color ,green) :inherit unspecified :foreground unspecified :background unspecified))
         (,class (:foreground ,green-hc :background ,green-lc))))
      `(flymake-warnline
        ((,(append '((supports :underline (:style wave))) class)
-         (:underline (:style wave :color ,yellow)))
+         (:underline (:style wave :color ,yellow) :inherit unspecified :foreground unspecified :background unspecified))
         (,class (:foreground ,yellow-hc :background ,yellow-lc :weight bold :underline t))))
 
      ;; flycheck
      `(flycheck-error
        ((,(append '((supports :underline (:style wave))) class)
-         (:underline (:style wave :color ,red)))
+         (:underline (:style wave :color ,red) :inherit unspecified))
         (,class (:foreground ,red-hc :background ,red-lc :weight bold :underline t))))
      `(flycheck-warning
        ((,(append '((supports :underline (:style wave))) class)
-         (:underline (:style wave :color ,yellow)))
+         (:underline (:style wave :color ,yellow) :inherit unspecified))
         (,class (:foreground ,yellow-hc :background ,yellow-lc :weight bold :underline t))))
      `(flycheck-fringe-error
        ((,class (:foreground ,red-hc :background ,red-lc :weight bold))))
@@ -391,11 +391,11 @@
      ;; flyspell
      `(flyspell-duplicate
        ((,(append '((supports :underline (:style wave))) class)
-         (:underline (:style wave :color ,yellow)))
+         (:underline (:style wave :color ,yellow) :inherit unspecified))
         (,class (:foreground ,yellow :weight bold :underline t))))
      `(flyspell-incorrect
        ((,(append '((supports :underline (:style wave))) class)
-         (:underline (:style wave :color ,red)))
+         (:underline (:style wave :color ,red) :inherit unspecified))
         (,class (:foreground ,red :weight bold :underline t))))
 
      ;; erc
