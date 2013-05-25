@@ -1073,6 +1073,14 @@
      `(wl-highlight-summary-refiled-face ((,class (:foreground ,solarized-fg))))
      `(wl-highlight-summary-displaying-face ((,class (:underline t :weight bold))))
 
+
+     ;; weechat
+     `(weechat-error-face ((,class (:inherit error))))
+     `(weechat-highlight-face ((,class (:foreground ,solarized-emph :weight bold))))
+     `(weechat-nick-self-face ((,class (:foreground ,green :weight unspecified :inverse-video t))))
+     `(weechat-prompt-face ((,class (:inherit minibuffer-prompt))))
+     `(weechat-time-face ((,class (:foreground ,solarized-comments))))
+
      ;; which-func-mode
      `(which-func ((,class (:foreground ,green))))
 
@@ -1124,7 +1132,17 @@
         (340 . "#2790C3")
         (360 . ,blue)))
      `(vc-annotate-very-old-color nil)
-     `(vc-annotate-background nil))
+     `(vc-annotate-background nil)
+
+     `(weechat-color-list
+       '(unspecified ,base03 ,base02
+                     ,red-d ,red
+                     ,green-d ,green
+                     ,yellow-d ,yellow
+                     ,blue-d ,blue
+                     ,magenta-d ,magenta
+                     ,cyan-d ,cyan
+                     ,base0 ,base00)))
 
     ;; call chained theme function
     (when childtheme (funcall childtheme))))
