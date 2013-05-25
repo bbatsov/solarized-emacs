@@ -1017,6 +1017,11 @@
      `(web-mode-string-face ((,class (:foreground ,cyan))))
      `(web-mode-type-face ((,class (:foreground ,yellow))))
      `(web-mode-variable-name-face ((,class (:foreground ,blue))))
+     `(web-mode-server-background-face ((,class (:background ,solarized-bg))))
+     `(web-mode-server-comment-face ((,class (:inherit web-mode-comment-face))))
+     `(web-mode-server-string-face ((,class (:inherit web-mode-string-face))))
+     `(web-mode-warning-face ((,class (:inherit font-lock-warning-face))))
+     `(web-mode-whitespaces-face ((,class (:background ,red))))
 
      ;; whitespace-mode
      `(whitespace-space ((,class (:background ,solarized-bg :foreground ,yellow-lc
