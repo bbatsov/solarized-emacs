@@ -127,7 +127,7 @@
      `(match ((,class (:background ,solarized-hl :foreground ,solarized-emph :weight bold))))
      `(cursor ((,class (:foreground ,solarized-bg :background ,solarized-fg :inverse-video t))))
      `(escape-glyph-face ((,class (:foreground ,red))))
-     `(fringe ((,class (:foreground ,solarized-fg :background ,solarized-hl))))
+     `(fringe ((,class (:foreground ,solarized-fg :background ,solarized-bg))))
      `(header-line ((,class (:foreground ,yellow
                                          :background ,solarized-hl
                                          :box (:line-width -1 :style released-button)))))
