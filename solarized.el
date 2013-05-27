@@ -137,7 +137,7 @@
      `(success ((,class (:foreground ,green ))))
      `(warning ((,class (:foreground ,yellow ))))
      `(error ((,class (:foreground ,orange))))
-     `(lazy-highlight ((,class (:foreground ,solarized-emph :background ,solarized-hl :bold t))))
+     `(lazy-highlight ((,class (:foreground ,solarized-bg :background ,yellow :weight normal))))
      `(escape-glyph ((,class (:foreground ,violet))))
 
      ;; compilation
@@ -190,7 +190,7 @@
      `(grep-match-face ((,class (:foreground ,orange :weight bold))))
 
      ;; faces used by isearch
-     `(isearch ((,class (:foreground ,yellow :background ,solarized-hl :bold t))))
+     `(isearch ((,class (:foreground ,solarized-bg :background ,magenta :weight normal))))
      `(isearch-fail ((,class (:foreground ,red :background ,solarized-bg :bold t))))
 
      ;; man
