@@ -202,14 +202,27 @@
      `(menu ((,class (:foreground ,solarized-fg :background ,solarized-bg))))
      `(minibuffer-prompt ((,class (:foreground ,solarized-emph))))
      `(mode-line
-       ((,class (:foreground ,solarized-fg
-                             :background ,solarized-hl
-                             :box (:line-width -1 :style released-button)))))
+       ((,class (:inverse-video unspecified
+                                :underline unspecified
+                                :foreground ,solarized-fg
+                                :background ,solarized-hl
+                                :box (:line-width 1 :color ,solarized-hl
+                                                  :style unspecified)))))
      `(mode-line-buffer-id ((,class (:foreground ,solarized-emph :weight bold))))
      `(mode-line-inactive
-       ((,class (:foreground ,solarized-fg
-                             :background ,solarized-bg
-                             :box (:line-width -1 :style released-button)))))
+       ((,class (:inverse-video unspecified
+                                :underline unspecified
+                                :foreground ,solarized-comments
+                                :background ,solarized-bg
+                                :box (:line-width 1 :color ,solarized-hl
+                                                  :style unspecified)))))
+     `(header-line
+       ((,class (:inverse-video unspecified
+                                :underline unspecified
+                                :foreground ,solarized-emph
+                                :background ,solarized-hl
+                                :box (:line-width 1 :color ,solarized-hl
+                                                  :style unspecified)))))
      `(region ((,class (:foreground ,solarized-bg :background ,solarized-emph))))
      `(secondary-selection ((,class (:background ,solarized-hl))))
 
