@@ -625,7 +625,7 @@
      `(jedi:highlight-function-argument ((,class (:inherit bold))))
 
      ;; linum-mode
-     `(linum ((,class (:foreground ,solarized-fg :background ,solarized-bg))))
+     `(linum ((,class (:foreground ,solarized-comments :background ,solarized-bg))))
 
      ;; lusty-explorer
      `(lusty-directory-face ((,class (:inherit dired-directory))))
