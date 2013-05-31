@@ -218,7 +218,7 @@
 
      ;; font lock
      `(font-lock-builtin-face ((,class (:foreground ,blue :slant italic))))
-     `(font-lock-comment-delimiter-face ((,class (:foreground ,solarized-comments))))
+     `(font-lock-comment-delimiter-face ((,class (:foreground ,solarized-comments :slant italic))))
      `(font-lock-comment-face ((,class (:foreground ,solarized-comments))))
      `(font-lock-constant-face ((,class (:foreground ,blue :weight bold))))
      `(font-lock-doc-face ((,class (:foreground ,cyan :slant italic))))
