@@ -636,7 +636,7 @@
      ;; magit
      `(magit-section-title ((,class (:foreground ,yellow :weight bold))))
      `(magit-branch ((,class (:foreground ,orange :weight bold))))
-     `(magit-item-highlight ((,class (:background ,solarized-hl))))
+     `(magit-item-highlight ((,class (:background ,solarized-hl :weight unspecified))))
      `(magit-log-author ((,class (:foreground ,cyan))))
      `(magit-log-graph ((,class (:foreground ,solarized-comments))))
      `(magit-log-head-label-bisect-bad ((,class (:background ,red-hc :foreground ,red-lc :box 1))))
