@@ -242,6 +242,27 @@
      `(ace-jump-face-foreground
        ((,class (:foreground ,red :background ,solarized-bg :inverse-video nil))))
 
+     ;; auctex
+     `(font-latex-bold-face ((,class (:inherit bold :foreground ,solarized-emph))))
+     `(font-latex-doctex-documentation-face ((,class (:background unspecified))))
+     `(font-latex-doctex-preprocessor-face ((,class (:inherit (font-latex-doctex-documentation-face font-lock-builtin-face font-lock-preprocessor-face)))))
+     `(font-latex-italic-face ((,class (:inherit italic :foreground ,solarized-emph))))
+     `(font-latex-math-face ((,class (:foreground ,violet))))
+     `(font-latex-sectioning-0-face ((,class (:inherit font-latex-sectioning-1-face :height 1.1))))
+     `(font-latex-sectioning-1-face ((,class (:inherit font-latex-sectioning-2-face :height 1.1))))
+     `(font-latex-sectioning-2-face ((,class (:inherit font-latex-sectioning-3-face :height 1.1))))
+     `(font-latex-sectioning-3-face ((,class (:inherit font-latex-sectioning-4-face :height 1.1))))
+     `(font-latex-sectioning-4-face ((,class (:inherit font-latex-sectioning-5-face :height 1.1))))
+     `(font-latex-sectioning-5-face ((,class (:inherit variable-pitch :foreground ,yellow :weight bold))))
+     `(font-latex-sedate-face ((,class (:foreground ,solarized-emph))))
+     `(font-latex-slide-title-face ((,class (:inherit (variable-pitch font-lock-type-face) :weight bold :height 1.2))))
+     `(font-latex-string-face ((,class (:foreground ,cyan))))
+     `(font-latex-subscript-face ((,class (:height 0.8))))
+     `(font-latex-superscript-face ((,class (:height 0.8))))
+     `(font-latex-verbatim-face ((,class (:inherit fixed-pitch :foreground ,solarized-fg :slant italic))))
+     `(font-latex-warning-face ((,class (:inherit bold :foreground ,orange))))
+
+
      ;; auto-complete
      `(ac-candidate-face ((,class (:background ,solarized-hl :foreground ,cyan))))
      `(ac-selection-face ((,class (:background ,cyan-lc :foreground ,cyan-hc))))
