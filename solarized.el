@@ -585,6 +585,10 @@
      `(highlight-changes ((,class (:foreground ,orange))))
      `(highlight-changes-delete ((,class (:foreground ,red :underline t))))
 
+     ;; highlight-indentation
+     `(highlight-indentation-face ((,class (:background ,solarized-hl))))
+     `(highlight-indentation-current-column-face((,class (:background ,solarized-hl))))
+
      ;; hl-line-mode
      `(hl-line ((,class (:background ,solarized-hl))))
      `(hl-line-face ((,class (:background ,solarized-hl))))
