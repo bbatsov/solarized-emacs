@@ -1062,25 +1062,26 @@
      `(web-mode-whitespaces-face ((,class (:background ,red))))
 
      ;; whitespace-mode
-     `(whitespace-space ((,class (:background ,solarized-bg :foreground ,yellow-lc
-                                              :inverse-video t))))
-     `(whitespace-hspace ((,class (:background ,solarized-bg :foreground ,red-lc
-                                               :inverse-video t))))
-     `(whitespace-tab ((,class (:background ,solarized-bg :foreground ,orange-lc
-                                            :inverse-video t))))
-     `(whitespace-newline ((,class (:foreground ,solarized-comments))))
-     `(whitespace-trailing ((,class (:foreground ,blue-lc :background ,solarized-bg
+     `(whitespace-space ((,class (:background unspecified :foreground ,solarized-comments
+                             :inverse-video unspecified :slant italic))))
+     `(whitespace-hspace ((,class (:background unspecified :foreground ,solarized-emph
+                                               :inverse-video unspecified))))
+     `(whitespace-tab ((,class (:background unspecified :foreground ,red
+                                            :inverse-video unspecified :weight bold))))
+     `(whitespace-newline ((,class(:background unspecified :foreground ,solarized-comments
+                                               :inverse-video unspecified))))
+     `(whitespace-trailing ((,class (:background unspecified :foreground ,orange-lc
                                                  :inverse-video t))))
-                                        ; removing inverse video on this
-     `(whitespace-line ((,class (:background ,solarized-bg :foreground ,magenta
-                                             :inverse-video nil))))
-     `(whitespace-space-before-tab ((,class (:background ,solarized-bg :foreground ,green-lc
-                                                         :inverse-video t))))
-     `(whitespace-indentation ((,class (:background ,solarized-bg :foreground ,magenta-lc
-                                                    :inverse-video t))))
-     `(whitespace-empty ((,class (:background ,solarized-fg :foreground ,red-lc :inverse-video t))))
-     `(whitespace-space-after-tab ((,class (:background ,solarized-bg  :foreground ,violet-lc
-                                                        :inverse-video t))))
+     `(whitespace-line ((,class (:background unspecified :foreground ,magenta
+                                             :inverse-video unspecified))))
+     `(whitespace-space-before-tab ((,class (:background ,red-lc :foreground unspecified
+                                                         :inverse-video unspecified))))
+     `(whitespace-indentation ((,class (:background unspecified :foreground ,yellow
+                                                    :inverse-video unspecified :weight bold))))
+     `(whitespace-empty ((,class (:background unspecified :foreground ,red-lc
+                                              :inverse-video t))))
+     `(whitespace-space-after-tab ((,class (:background unspecified :foreground ,orange
+                                                        :inverse-video t :weight bold))))
 
      ;; wanderlust
      `(wl-highlight-folder-few-face ((,class (:foreground ,red))))
