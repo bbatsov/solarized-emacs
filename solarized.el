@@ -127,6 +127,8 @@
      `(match ((,class (:background ,solarized-hl :foreground ,solarized-emph :weight bold))))
      `(cursor ((,class (:foreground ,solarized-bg :background ,solarized-fg
                                     :inverse-video t))))
+     `(mouse ((,class (:foreground ,solarized-bg :background ,solarized-fg
+				   :inverse-video t))))
      `(escape-glyph-face ((,class (:foreground ,red))))
      `(fringe ((,class (:foreground ,solarized-fg :background ,solarized-hl))))
      `(header-line ((,class (:foreground ,yellow
