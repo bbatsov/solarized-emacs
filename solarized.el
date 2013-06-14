@@ -793,6 +793,9 @@
      `(mu4e-flagged-face ((,class (:foreground ,magenta :weight bold))))
      `(mu4e-view-url-number-face ((,class (:foreground ,orange :weight bold))))
      `(mu4e-warning-face ((,class (:foreground ,red :slant normal :weight bold))))
+     `(mu4e-header-highlight-face
+       ((,class (:inherit unspecified :foreground unspecified :background ,solarized-hl
+                          :underline ,solarized-emph  :weight normal))))
 
      ;; mumamo
      `(mumamo-background-chunk-submode1 ((,class (:background ,solarized-hl))))
