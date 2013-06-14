@@ -798,6 +798,8 @@
      ;; org-mode
      `(org-agenda-structure
        ((,class (:inherit font-lock-comment-face :foreground ,magenta :inverse-video t))))
+     `(org-agenda-calendar-event ((,class (:foreground ,solarized-emph))))
+     `(org-agenda-calendar-sexp ((,class (:foreground ,solarized-emph))))
      `(org-agenda-date
        ((,class (:foreground ,solarized-fg :background ,solarized-hl :weight bold
                              :box (:line-width 4 :color ,solarized-hl) ))) t)
@@ -828,12 +830,12 @@
      `(org-link ((,class (:foreground ,yellow :underline t))))
      `(org-sexp-date ((,class (:foreground ,violet))))
      `(org-scheduled ((,class (:foreground ,green))))
-     `(org-scheduled-previously ((,class (:foreground ,yellow))))
+     `(org-scheduled-previously ((,class (:foreground ,cyan))))
      `(org-scheduled-today ((,class (:foreground ,blue :weight normal))))
      `(org-special-keyword ((,class (:foreground ,solarized-comments :weight bold))))
      `(org-table ((,class (:foreground ,green))))
      `(org-tag ((,class (:weight bold))))
-     `(org-time-grid ((,class (:foreground ,cyan))))
+     `(org-time-grid ((,class (:foreground ,solarized-comments))))
      `(org-todo ((,class (:foreground ,red :weight bold))))
      `(org-upcoming-deadline ((,class (:foreground ,yellow  :weight normal :underline nil))))
      `(org-warning ((,class (:foreground ,orange :weight normal :underline nil))))
