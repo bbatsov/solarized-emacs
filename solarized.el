@@ -471,7 +471,8 @@
      `(erc-current-nick-face ((,class (:foreground ,blue :weight bold))))
      `(erc-dangerous-host-face ((,class (:inherit font-lock-warning-face))))
      `(erc-default-face ((,class (:foreground ,solarized-fg))))
-     `(erc-highlight-face ((,class (:inherit hover-highlight))))
+     `(erc-highlight-face ((,class (:inherit (:inherit erc-default-face
+                                                       :background ,solarized-hl)))))
      `(erc-direct-msg-face ((,class (:inherit erc-default-face))))
      `(erc-error-face ((,class (:inherit font-lock-warning-face))))
      `(erc-fool-face ((,class (:inherit erc-default-face))))
@@ -537,7 +538,7 @@
      `(gnus-group-news-6-face ((,class (:weight bold :inherit gnus-group-news-6-empty))))
      `(gnus-group-news-low-face ((,class (:weight bold :inherit gnus-group-news-low-empty))))
      `(gnus-header-content-face ((,class (:inherit message-header-other))))
-     `(gnus-header-from-face ((,class (:inherit message-header-from))))
+     `(gnus-header-from-face ((,class (:inherit message-header-other))))
      `(gnus-header-name-face ((,class (:inherit message-header-name))))
      `(gnus-header-newsgroups-face ((,class (:inherit message-header-other))))
      `(gnus-header-subject-face ((,class (:inherit message-header-subject))))
