@@ -819,7 +819,7 @@
      `(org-agenda-date-weekend ((,class (:inherit org-agenda-date :slant italic))) t)
      `(org-agenda-date-today
        ((,class (:inherit org-agenda-date :slant italic underline: t))) t)
-     `(org-agenda-done ((,class (:foreground ,green))) t)
+     `(org-agenda-done ((,class (:foreground ,solarized-comments))) t)
      `(org-archived ((,class (:foreground ,solarized-comments :weight normal))))
      `(org-block ((,class (:foreground ,solarized-comments))))
      `(org-block-begin-line ((,class (:foreground ,solarized-comments :slant italic))))
