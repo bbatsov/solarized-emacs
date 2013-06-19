@@ -799,7 +799,7 @@
      `(org-agenda-structure
        ((,class (:inherit font-lock-comment-face :foreground ,magenta :inverse-video t))))
      `(org-agenda-calendar-event ((,class (:foreground ,solarized-emph))))
-     `(org-agenda-calendar-sexp ((,class (:foreground ,solarized-emph))))
+     `(org-agenda-calendar-sexp ((,class (:foreground ,violet))))
      `(org-agenda-date
        ((,class (:foreground ,solarized-fg :background ,solarized-hl :weight bold
                              :box (:line-width 4 :color ,solarized-hl) ))) t)
