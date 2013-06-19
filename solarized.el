@@ -458,8 +458,8 @@
      `(erc-current-nick-face ((,class (:foreground ,blue :weight bold))))
      `(erc-dangerous-host-face ((,class (:inherit font-lock-warning-face))))
      `(erc-default-face ((,class (:foreground ,solarized-fg))))
-     `(erc-highlight-face ((,class (:inherit (:inherit erc-default-face
-                                                       :background ,solarized-hl)))))
+     `(erc-highlight-face ((,class (:inherit erc-default-face
+                                             :background ,solarized-hl))))
      `(erc-direct-msg-face ((,class (:inherit erc-default-face))))
      `(erc-error-face ((,class (:inherit font-lock-warning-face))))
      `(erc-fool-face ((,class (:inherit erc-default-face))))
