@@ -1197,7 +1197,15 @@
        ((,class (:foreground ,solarized-comments :background ,solarized-comments))))
 
      ;; zencoding
-     `(zencoding-preview-input ((,class (:background ,solarized-hl :box ,solarized-emph)))))
+     `(zencoding-preview-input ((,class (:background ,solarized-hl :box ,solarized-emph))))
+
+     ;; enh-ruby-mode
+     `(enh-ruby-string-delimiter-face ((,class (:foreground ,red))))
+     `(enh-ruby-heredoc-delimiter-face ((,class (:inherit enh-ruby-string-delimiter-face))))
+     `(enh-ruby-regexp-delimiter-face ((,class (:inherit enh-ruby-string-delimiter-face))))
+     `(enh-ruby-op-face ((,class (:inherit default))))
+     `(erm-syn-errline ((,class (:inherit flymake-errline))))
+     `(erm-syn-warnline ((,class (:inherit flymake-warnline)))))
 
 
     (custom-theme-set-variables
