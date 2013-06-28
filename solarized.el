@@ -237,6 +237,8 @@
      `(font-lock-type-face ((,class (:foreground ,yellow))))
      `(font-lock-variable-name-face ((,class (:foreground ,blue))))
      `(font-lock-warning-face ((,class (:foreground ,orange :weight bold :underline t))))
+     `(font-lock-regexp-grouping-construct ((,class (:foreground ,red :weight bold))))
+     `(font-lock-regexp-grouping-backslash ((,class (:inherit font-lock-type-face))))
 
      `(c-annotation-face ((,class (:inherit font-lock-constant-face))))
 
