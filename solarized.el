@@ -188,6 +188,16 @@
      `(dropdown-list-face ((,class (:background ,solarized-hl :foreground ,cyan))))
      `(dropdown-list-selection-face ((,class (:background ,cyan-lc :foreground ,cyan-hc))))
 
+     ;; ee
+     `(ee-bookmarked ((,class (:foreground ,solarized-emph))))
+     `(ee-category ((,class (:foreground ,blue))))
+     `(ee-link ((,class (:inherit link))))
+     `(ee-link-visited ((,class (:inherit link-visited))))
+     `(ee-marked ((,class (:foreground ,magenta :weight bold))))
+     `(ee-omitted ((,class (:foreground ,solarized-comments))))
+     `(ee-shadow ((,class (:inherit shadow))))
+
+
      ;; grep
      `(grep-context-face ((,class (:foreground ,solarized-fg))))
      `(grep-error-face ((,class (:foreground ,red :weight bold :underline t))))
