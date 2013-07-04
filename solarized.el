@@ -1227,6 +1227,16 @@
        '((,solarized-hl . 0)(,green-lc . 20)(,cyan-lc . 30)(,blue-lc . 50)
          (,yellow-lc . 60)(,orange-lc . 70)(,magenta-lc . 85)(,solarized-hl . 100)))
 
+     ;; syslog-mode
+     `(syslog-ip-face '((t :background unspecified :foreground ,yellow)))
+     `(syslog-hour-face '((t :background unspecified :foreground ,green)))
+     `(syslog-error-face '((t :background unspecified :foreground ,red :weight bold)))
+     `(syslog-warn-face '((t :background unspecified :foreground ,orange :weight bold)))
+     `(syslog-info-face '((t :background unspecified :foreground ,blue :weight bold)))
+     `(syslog-debug-face '((t :background unspecified :foreground ,cyan :weight bold)))
+     `(syslog-su-face '((t :background unspecified :foreground ,magenta)))
+
+     ;; vc
      `(vc-annotate-color-map
       '((20 . ,red)
         (40 . "#CF4F1F")
@@ -1249,6 +1259,7 @@
      `(vc-annotate-very-old-color nil)
      `(vc-annotate-background nil)
 
+     ;; weechat
      `(weechat-color-list
        '(unspecified ,base03 ,base02
                      ,red-d ,red
