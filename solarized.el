@@ -243,12 +243,12 @@
      `(font-lock-keyword-face ((,class (:foreground ,green :weight normal))))
      `(font-lock-negation-char-face ((,class (:foreground ,yellow :weight bold))))
      `(font-lock-preprocessor-face ((,class (:foreground ,blue))))
+     `(font-lock-regexp-grouping-construct ((,class (:foreground ,yellow :weight bold))))
+     `(font-lock-regexp-grouping-backslash ((,class (:foreground ,green :weight bold))))
      `(font-lock-string-face ((,class (:foreground ,cyan))))
      `(font-lock-type-face ((,class (:foreground ,yellow))))
      `(font-lock-variable-name-face ((,class (:foreground ,blue))))
      `(font-lock-warning-face ((,class (:foreground ,orange :weight bold :underline t))))
-     `(font-lock-regexp-grouping-construct ((,class (:foreground ,yellow :weight bold))))
-     `(font-lock-regexp-grouping-backslash ((,class (:foreground ,green :weight bold))))
 
      `(c-annotation-face ((,class (:inherit font-lock-constant-face))))
 
