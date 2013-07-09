@@ -238,7 +238,6 @@
      `(font-lock-comment-face ((,class (:foreground ,solarized-comments))))
      `(font-lock-constant-face ((,class (:foreground ,blue :weight bold))))
      `(font-lock-doc-face ((,class (:foreground ,cyan :slant italic))))
-     `(font-lock-doc-string-face ((,class (:foreground ,blue))))
      `(font-lock-function-name-face ((,class (:foreground ,blue))))
      `(font-lock-keyword-face ((,class (:foreground ,green :weight normal))))
      `(font-lock-negation-char-face ((,class (:foreground ,yellow :weight bold))))
