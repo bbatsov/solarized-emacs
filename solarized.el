@@ -463,6 +463,9 @@ customize the resulting theme."
      `(fic-face ((,class (:background ,solarized-bg :foreground ,orange
                                       :weight normal :slant italic))))
 
+     ;; flx
+     `(flx-highlight-face ((,class (:foreground ,red :weight bold))))
+
      ;; flymake
      `(flymake-errline
        ((,(append '((supports :underline (:style wave))) class)
