@@ -192,6 +192,30 @@ customize the resulting theme."
      `(dropdown-list-face ((,class (:background ,solarized-hl :foreground ,cyan))))
      `(dropdown-list-selection-face ((,class (:background ,cyan-lc :foreground ,cyan-hc))))
 
+     ;; ecb
+     `(ecb-default-highlight-face ((,class (:background ,blue :foreground ,solarized-bg))))
+     `(ecb-history-bucket-node-dir-soure-path-face
+       ((,class (:inherit ecb-history-bucket-node-face :foreground ,yellow))))
+     `(ecb-source-in-directories-buffer-face ((,class (:inherit ecb-directories-general-face
+                                                                :foreground ,solarized-fg))))
+     `(ecb-history-dead-buffer-face ((,class (:inherit ecb-history-general-face
+                                                       :foreground ,solarized-comments))))
+     `(ecb-directory-not-accessible-face ((,class (:inherit ecb-directories-general-face
+                                                            :foreground ,solarized-comments))))
+     `(ecb-bucket-node-face ((,class (:inherit ecb-default-general-face :weight normal
+                                               :foreground ,blue))))
+     `(ecb-tag-header-face ((,class (:background ,solarized-hl))))
+     `(ecb-analyse-bucket-element-face ((,class (:inherit ecb-analyse-general-face
+                                                          :foreground ,green))))
+     `(ecb-directories-general-face ((,class (:inherit ecb-default-general-face :height 1.0))))
+     `(ecb-method-non-semantic-face ((,class (:inherit ecb-methods-general-face
+                                                       :foreground ,cyan))))
+     `(ecb-mode-line-prefix-face ((,class (:foreground ,green))))
+     `(ecb-tree-guide-line-face ((,class (:inherit ecb-default-general-face
+                                                   :foreground ,solarized-hl :height 1.0))))
+
+
+
      ;; ee
      `(ee-bookmarked ((,class (:foreground ,solarized-emph))))
      `(ee-category ((,class (:foreground ,blue))))
