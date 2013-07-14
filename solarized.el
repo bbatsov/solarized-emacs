@@ -260,14 +260,14 @@ customize the resulting theme."
      `(vertical-border ((,class (:foreground ,solarized-fg))))
 
      ;; font lock
-     `(font-lock-builtin-face ((,class (:foreground ,blue :slant italic))))
+     `(font-lock-builtin-face ((,class (:foreground ,solarized-fg :weigth bold))))
      `(font-lock-comment-delimiter-face
-       ((,class (:foreground ,solarized-comments :slant italic))))
+       ((,class (:foreground ,solarized-comments))))
      `(font-lock-comment-face ((,class (:foreground ,solarized-comments))))
      `(font-lock-constant-face ((,class (:foreground ,blue :weight bold))))
-     `(font-lock-doc-face ((,class (:foreground ,cyan :slant italic))))
+     `(font-lock-doc-face ((,class (:foreground ,cyan))))
      `(font-lock-function-name-face ((,class (:foreground ,blue))))
-     `(font-lock-keyword-face ((,class (:foreground ,green :weight normal))))
+     `(font-lock-keyword-face ((,class (:foreground ,green :weight bold))))
      `(font-lock-negation-char-face ((,class (:foreground ,yellow :weight bold))))
      `(font-lock-preprocessor-face ((,class (:foreground ,blue))))
      `(font-lock-regexp-grouping-construct ((,class (:foreground ,yellow :weight bold))))
