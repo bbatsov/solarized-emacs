@@ -299,7 +299,7 @@ customize the resulting theme."
        ((,class (:foreground ,solarized-comments :background ,solarized-bg
                              :inverse-video nil))))
      `(ace-jump-face-foreground
-       ((,class (:foreground ,red :background ,solarized-bg :inverse-video nil))))
+       ((,class (:foreground ,red :background ,solarized-bg :inverse-video nil :weight bold))))
 
      ;; auctex
      `(font-latex-bold-face ((,class (:inherit bold :foreground ,solarized-emph))))
