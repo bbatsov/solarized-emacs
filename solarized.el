@@ -464,7 +464,9 @@ customize the resulting theme."
                                       :weight normal :slant italic))))
 
      ;; flx
-     `(flx-highlight-face ((,class (:foreground ,red :weight bold))))
+     `(flx-highlight-face ((,class (:foreground ,blue
+                                                :weight bold :underline nil))))
+
 
      ;; flymake
      `(flymake-errline
