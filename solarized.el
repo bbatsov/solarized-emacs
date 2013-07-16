@@ -896,7 +896,7 @@ customize the resulting theme."
      `(org-scheduled ((,class (:foreground ,green))))
      `(org-scheduled-previously ((,class (:foreground ,cyan))))
      `(org-scheduled-today ((,class (:foreground ,blue :weight normal))))
-     `(org-special-keyword ((,class (:foreground ,solarized-comments :weight normal))))
+     `(org-special-keyword ((,class (:foreground ,solarized-comments :weight bold))))
      `(org-table ((,class (:foreground ,green))))
      `(org-tag ((,class (:weight bold))))
      `(org-time-grid ((,class (:foreground ,solarized-comments))))
