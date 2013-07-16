@@ -462,7 +462,7 @@ customize the resulting theme."
 
      ;; flx
      `(flx-highlight-face ((,class (:foreground ,blue
-                                                :weight bold :underline nil))))
+                                                :weight normal :underline nil))))
 
 
      ;; flymake
@@ -683,8 +683,8 @@ customize the resulting theme."
      `(hl-line-face ((,class (:background ,solarized-hl))))
 
      ;; ido-mode
-     `(ido-first-match ((,class (:foreground ,green :weight bold))))
-     `(ido-only-match ((,class (:foreground ,solarized-bg :background ,green :weight bold))))
+     `(ido-first-match ((,class (:foreground ,green :weight normal))))
+     `(ido-only-match ((,class (:foreground ,solarized-bg :background ,green :weight normal))))
      `(ido-subdir ((,class (:foreground ,blue))))
      `(ido-incomplete-regexp ((,class (:foreground ,red :weight bold ))))
      `(ido-indicator ((,class (:background ,red :foreground ,solarized-bg :width condensed))))
@@ -886,7 +886,7 @@ customize the resulting theme."
      `(org-scheduled ((,class (:foreground ,green))))
      `(org-scheduled-previously ((,class (:foreground ,cyan))))
      `(org-scheduled-today ((,class (:foreground ,blue :weight normal))))
-     `(org-special-keyword ((,class (:foreground ,solarized-comments :weight bold))))
+     `(org-special-keyword ((,class (:foreground ,solarized-comments :weight normal))))
      `(org-table ((,class (:foreground ,green))))
      `(org-tag ((,class (:weight bold))))
      `(org-time-grid ((,class (:foreground ,solarized-comments))))
