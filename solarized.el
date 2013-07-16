@@ -839,13 +839,14 @@ customize the resulting theme."
 
      ;; org-mode
      `(org-agenda-structure
-       ((,class (:foreground ,solarized-fg  :background ,solarized-bg :weight normal :slant normal
-                             :inverse-video t :height 1.0
+       ((,class (:foreground ,solarized-emph :background ,solarized-hl
+                             :weight bold :slant normal :inverse-video nil :height 1.1
+                             :underline nil
                              :box (:line-width 2 :color ,solarized-bg)))))
      `(org-agenda-calendar-event ((,class (:foreground ,solarized-emph))))
      `(org-agenda-calendar-sexp ((,class (:foreground ,violet))))
      `(org-agenda-date
-       ((,class (:foreground ,solarized-comments :background ,solarized-hl :weight normal
+       ((,class (:foreground ,solarized-comments :background ,solarized-bg :weight normal
                              :inverse-video nil :overline nil :slant normal :height 1.0
                              :box (:line-width 2 :color ,solarized-bg)))) t)
      `(org-agenda-date-weekend
@@ -854,8 +855,8 @@ customize the resulting theme."
                           :underline t :overline nil :box unspecified))) t)
      `(org-agenda-date-today
        ((,class (:inherit org-agenda-date :inverse-video nil :weight normal
-                          :underline nil :overline nil :box unspecified :foreground ,solarized-emph
-                          :background ,solarized-hl :height 1.0))) t)
+                          :underline nil :overline nil :box unspecified
+                          :foreground ,solarized-emph :background ,solarized-bg))) t)
      `(org-agenda-done ((,class (:foreground ,solarized-comments :slant italic))) t)
      `(org-archived ((,class (:foreground ,solarized-comments :weight normal))))
      `(org-block ((,class (:foreground ,solarized-comments))))
