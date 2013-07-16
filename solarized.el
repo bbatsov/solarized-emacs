@@ -849,18 +849,46 @@ customize the resulting theme."
      ;; nav-flash
      `(nav-flash-face ((,class (:background ,solarized-hl))))
 
+
      ;; org-mode
      `(org-agenda-structure
-       ((,class (:inherit font-lock-comment-face :foreground ,magenta :inverse-video t))))
+       ((,class (:foreground ,magenta
+                             :background ,solarized-bg
+                             :weight normal
+                             :slant normal
+                             :inverse-video t
+                             :box (:line-width 3 :color ,solarized-bg)
+                             :height 1.3
+                             ))))
      `(org-agenda-calendar-event ((,class (:foreground ,solarized-emph))))
      `(org-agenda-calendar-sexp ((,class (:foreground ,violet))))
      `(org-agenda-date
-       ((,class (:foreground ,solarized-fg :background ,solarized-hl :weight bold
-                             :box (:line-width 4 :color ,solarized-hl) ))) t)
-     `(org-agenda-date-weekend ((,class (:inherit org-agenda-date :slant italic))) t)
+       ((,class (:foreground ,solarized-comments
+                             :background ,solarized-hl
+                             :weight normal
+                             :inverse-video nil
+                             :overline nil
+                             :slant normal
+                             :box nil
+                             :height 1.4
+                             :box (:line-width 3 :color ,solarized-bg)
+                             ))) t)
+     `(org-agenda-date-weekend ((,class (:inherit org-agenda-date
+                                                  :inverse-video nil
+                                                  :background nil
+                                                  :foreground ,solarized-comments
+                                                  :weight unspecified
+                                                  :underline t
+                                                  :overline nil
+                                                  :box unspecified
+                                                  ))) t)
      `(org-agenda-date-today
-       ((,class (:inherit org-agenda-date :slant italic underline: t))) t)
-     `(org-agenda-done ((,class (:foreground ,solarized-comments))) t)
+       ((,class (:inherit org-agenda-date :inverse-video nil
+                          :weight normal :underline nil :overline nil :box nil
+                          :foreground ,solarized-emph :background ,solarized-hl :height 1.0
+                          :underline t
+                          ))) t)
+     `(org-agenda-done ((,class (:foreground ,solarized-comments :slant italic))) t)
      `(org-archived ((,class (:foreground ,solarized-comments :weight normal))))
      `(org-block ((,class (:foreground ,solarized-comments))))
      `(org-block-begin-line ((,class (:foreground ,solarized-comments :slant italic))))
