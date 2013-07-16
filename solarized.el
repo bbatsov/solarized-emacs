@@ -135,9 +135,6 @@ customize the resulting theme."
 				   :inverse-video t))))
      `(escape-glyph-face ((,class (:foreground ,red))))
      `(fringe ((,class (:foreground ,solarized-fg :background ,solarized-bg))))
-     `(header-line ((,class (:foreground ,yellow
-                                         :background ,solarized-hl
-                                         :box (:line-width -1 :style released-button)))))
      `(highlight ((,class (:background ,solarized-hl))))
      `(link ((,class (:foreground ,yellow :underline t :weight bold))))
      `(link-visited ((,class (:foreground ,yellow :underline t :weight normal))))
@@ -243,7 +240,7 @@ customize the resulting theme."
 
      ;; misc faces
      `(menu ((,class (:foreground ,solarized-fg :background ,solarized-bg))))
-     `(minibuffer-prompt ((,class (:foreground ,solarized-emph))))
+     `(minibuffer-prompt ((,class (:foreground ,solarized-fg))))
      `(mode-line
        ((,class (:inverse-video unspecified
                                 :underline unspecified
