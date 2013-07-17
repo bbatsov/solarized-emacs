@@ -867,9 +867,9 @@ customize the resulting theme."
                           :foreground ,solarized-comments :weight unspecified
                           :underline t :overline nil :box unspecified))) t)
      `(org-agenda-date-today
-       ((,class (:inherit org-agenda-date :inverse-video nil :weight normal
-                          :underline nil :overline nil :box unspecified
-                          :foreground ,solarized-emph :background ,solarized-bg))) t)
+       ((,class (:inherit org-agenda-date :inverse-video t :weight bold
+                          :underline unspecified :overline nil :box unspecified
+                          :foreground ,blue :background ,solarized-bg))) t)
      `(org-agenda-done ((,class (:foreground ,solarized-comments :slant italic))) t)
      `(org-archived ((,class (:foreground ,solarized-comments :weight normal))))
      `(org-block ((,class (:foreground ,solarized-comments))))
