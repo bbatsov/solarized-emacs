@@ -270,7 +270,7 @@ customize the resulting theme."
      `(vertical-border ((,class (:foreground ,solarized-fg))))
 
      ;; font lock
-     `(font-lock-builtin-face ((,class (:foreground ,solarized-fg :weigth bold))))
+     `(font-lock-builtin-face ((,class (:foreground ,solarized-fg :weight bold))))
      `(font-lock-comment-delimiter-face
        ((,class (:foreground ,solarized-comments))))
      `(font-lock-comment-face ((,class (:foreground ,solarized-comments))))
