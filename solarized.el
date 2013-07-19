@@ -44,6 +44,10 @@
 ;;; Code:
 
 (defun create-solarized-theme (variant theme-name &optional childtheme)
+  "Create a VARIANT of the theme named THEME-NAME.
+
+When optional argument CHILDTHEME function is supplied it's invoked to further
+customize the resulting theme."
   (let* ((class '((class color) (min-colors 89)))
          ;; Solarized palette
          (base03    "#002b36")
@@ -131,9 +135,6 @@
 				   :inverse-video t))))
      `(escape-glyph-face ((,class (:foreground ,red))))
      `(fringe ((,class (:foreground ,solarized-fg :background ,solarized-bg))))
-     `(header-line ((,class (:foreground ,yellow
-                                         :background ,solarized-hl
-                                         :box (:line-width -1 :style released-button)))))
      `(highlight ((,class (:background ,solarized-hl))))
      `(link ((,class (:foreground ,yellow :underline t :weight bold))))
      `(link-visited ((,class (:foreground ,yellow :underline t :weight normal))))
@@ -188,6 +189,40 @@
      `(dropdown-list-face ((,class (:background ,solarized-hl :foreground ,cyan))))
      `(dropdown-list-selection-face ((,class (:background ,cyan-lc :foreground ,cyan-hc))))
 
+     ;; ecb
+     `(ecb-default-highlight-face ((,class (:background ,blue :foreground ,solarized-bg))))
+     `(ecb-history-bucket-node-dir-soure-path-face
+       ((,class (:inherit ecb-history-bucket-node-face :foreground ,yellow))))
+     `(ecb-source-in-directories-buffer-face ((,class (:inherit ecb-directories-general-face
+                                                                :foreground ,solarized-fg))))
+     `(ecb-history-dead-buffer-face ((,class (:inherit ecb-history-general-face
+                                                       :foreground ,solarized-comments))))
+     `(ecb-directory-not-accessible-face ((,class (:inherit ecb-directories-general-face
+                                                            :foreground ,solarized-comments))))
+     `(ecb-bucket-node-face ((,class (:inherit ecb-default-general-face :weight normal
+                                               :foreground ,blue))))
+     `(ecb-tag-header-face ((,class (:background ,solarized-hl))))
+     `(ecb-analyse-bucket-element-face ((,class (:inherit ecb-analyse-general-face
+                                                          :foreground ,green))))
+     `(ecb-directories-general-face ((,class (:inherit ecb-default-general-face :height 1.0))))
+     `(ecb-method-non-semantic-face ((,class (:inherit ecb-methods-general-face
+                                                       :foreground ,cyan))))
+     `(ecb-mode-line-prefix-face ((,class (:foreground ,green))))
+     `(ecb-tree-guide-line-face ((,class (:inherit ecb-default-general-face
+                                                   :foreground ,solarized-hl :height 1.0))))
+
+
+
+     ;; ee
+     `(ee-bookmarked ((,class (:foreground ,solarized-emph))))
+     `(ee-category ((,class (:foreground ,blue))))
+     `(ee-link ((,class (:inherit link))))
+     `(ee-link-visited ((,class (:inherit link-visited))))
+     `(ee-marked ((,class (:foreground ,magenta :weight bold))))
+     `(ee-omitted ((,class (:foreground ,solarized-comments))))
+     `(ee-shadow ((,class (:inherit shadow))))
+
+
      ;; grep
      `(grep-context-face ((,class (:foreground ,solarized-fg))))
      `(grep-error-face ((,class (:foreground ,red :weight bold :underline t))))
@@ -205,7 +240,7 @@
 
      ;; misc faces
      `(menu ((,class (:foreground ,solarized-fg :background ,solarized-bg))))
-     `(minibuffer-prompt ((,class (:foreground ,solarized-emph))))
+     `(minibuffer-prompt ((,class (:foreground ,solarized-fg))))
      `(mode-line
        ((,class (:inverse-video unspecified
                                 :underline unspecified
@@ -216,10 +251,10 @@
      `(mode-line-buffer-id ((,class (:foreground ,solarized-emph :weight bold))))
      `(mode-line-inactive
        ((,class (:inverse-video unspecified
-                                :underline unspecified
+                                :underline ,solarized-comments
                                 :foreground ,solarized-comments
                                 :background ,solarized-bg
-                                :box (:line-width 1 :color ,solarized-hl
+                                :box (:line-width 1 :color ,solarized-bg
                                                   :style unspecified)))))
      `(header-line
        ((,class (:inverse-video unspecified
@@ -235,17 +270,18 @@
      `(vertical-border ((,class (:foreground ,solarized-fg))))
 
      ;; font lock
-     `(font-lock-builtin-face ((,class (:foreground ,blue :slant italic))))
+     `(font-lock-builtin-face ((,class (:foreground ,solarized-fg :weight bold))))
      `(font-lock-comment-delimiter-face
-       ((,class (:foreground ,solarized-comments :slant italic))))
+       ((,class (:foreground ,solarized-comments))))
      `(font-lock-comment-face ((,class (:foreground ,solarized-comments))))
      `(font-lock-constant-face ((,class (:foreground ,blue :weight bold))))
-     `(font-lock-doc-face ((,class (:foreground ,cyan :slant italic))))
-     `(font-lock-doc-string-face ((,class (:foreground ,blue))))
+     `(font-lock-doc-face ((,class (:foreground ,cyan))))
      `(font-lock-function-name-face ((,class (:foreground ,blue))))
-     `(font-lock-keyword-face ((,class (:foreground ,green :weight normal))))
-     `(font-lock-negation-char-face ((,class (:foreground ,solarized-fg))))
+     `(font-lock-keyword-face ((,class (:foreground ,green :weight bold))))
+     `(font-lock-negation-char-face ((,class (:foreground ,yellow :weight bold))))
      `(font-lock-preprocessor-face ((,class (:foreground ,blue))))
+     `(font-lock-regexp-grouping-construct ((,class (:foreground ,yellow :weight bold))))
+     `(font-lock-regexp-grouping-backslash ((,class (:foreground ,green :weight bold))))
      `(font-lock-string-face ((,class (:foreground ,cyan))))
      `(font-lock-type-face ((,class (:foreground ,yellow))))
      `(font-lock-variable-name-face ((,class (:foreground ,blue))))
@@ -260,7 +296,7 @@
        ((,class (:foreground ,solarized-comments :background ,solarized-bg
                              :inverse-video nil))))
      `(ace-jump-face-foreground
-       ((,class (:foreground ,red :background ,solarized-bg :inverse-video nil))))
+       ((,class (:foreground ,red :background ,solarized-bg :inverse-video nil :weight bold))))
 
      ;; auctex
      `(font-latex-bold-face ((,class (:inherit bold :foreground ,solarized-emph))))
@@ -423,6 +459,11 @@
                                              :underline t :slant italic))))
      `(fic-face ((,class (:background ,solarized-bg :foreground ,orange
                                       :weight normal :slant italic))))
+
+     ;; flx
+     `(flx-highlight-face ((,class (:foreground ,blue
+                                                :weight normal :underline nil))))
+
 
      ;; flymake
      `(flymake-errline
@@ -642,8 +683,8 @@
      `(hl-line-face ((,class (:background ,solarized-hl))))
 
      ;; ido-mode
-     `(ido-first-match ((,class (:foreground ,green :weight bold))))
-     `(ido-only-match ((,class (:foreground ,solarized-bg :background ,green :weight bold))))
+     `(ido-first-match ((,class (:foreground ,yellow :weight normal))))
+     `(ido-only-match ((,class (:foreground ,solarized-bg :background ,yellow :weight normal))))
      `(ido-subdir ((,class (:foreground ,blue))))
      `(ido-incomplete-regexp ((,class (:foreground ,red :weight bold ))))
      `(ido-indicator ((,class (:background ,red :foreground ,solarized-bg :width condensed))))
@@ -808,18 +849,28 @@
      ;; nav-flash
      `(nav-flash-face ((,class (:background ,solarized-hl))))
 
+
      ;; org-mode
      `(org-agenda-structure
-       ((,class (:inherit font-lock-comment-face :foreground ,magenta :inverse-video t))))
+       ((,class (:foreground ,solarized-emph :background ,solarized-hl
+                             :weight bold :slant normal :inverse-video nil :height 1.1
+                             :underline nil
+                             :box (:line-width 2 :color ,solarized-bg)))))
      `(org-agenda-calendar-event ((,class (:foreground ,solarized-emph))))
      `(org-agenda-calendar-sexp ((,class (:foreground ,violet))))
      `(org-agenda-date
-       ((,class (:foreground ,solarized-fg :background ,solarized-hl :weight bold
-                             :box (:line-width 4 :color ,solarized-hl) ))) t)
-     `(org-agenda-date-weekend ((,class (:inherit org-agenda-date :slant italic))) t)
+       ((,class (:foreground ,solarized-comments :background ,solarized-bg :weight normal
+                             :inverse-video nil :overline nil :slant normal :height 1.0
+                             :box (:line-width 2 :color ,solarized-bg)))) t)
+     `(org-agenda-date-weekend
+       ((,class (:inherit org-agenda-date :inverse-video nil :background unspecified
+                          :foreground ,solarized-comments :weight unspecified
+                          :underline t :overline nil :box unspecified))) t)
      `(org-agenda-date-today
-       ((,class (:inherit org-agenda-date :slant italic underline: t))) t)
-     `(org-agenda-done ((,class (:foreground ,solarized-comments))) t)
+       ((,class (:inherit org-agenda-date :inverse-video t :weight bold
+                          :underline unspecified :overline nil :box unspecified
+                          :foreground ,blue :background ,solarized-bg))) t)
+     `(org-agenda-done ((,class (:foreground ,solarized-comments :slant italic))) t)
      `(org-archived ((,class (:foreground ,solarized-comments :weight normal))))
      `(org-block ((,class (:foreground ,solarized-comments))))
      `(org-block-begin-line ((,class (:foreground ,solarized-comments :slant italic))))
@@ -1223,6 +1274,16 @@
        '((,solarized-hl . 0)(,green-lc . 20)(,cyan-lc . 30)(,blue-lc . 50)
          (,yellow-lc . 60)(,orange-lc . 70)(,magenta-lc . 85)(,solarized-hl . 100)))
 
+     ;; syslog-mode
+     `(syslog-ip-face '((t :background unspecified :foreground ,yellow)))
+     `(syslog-hour-face '((t :background unspecified :foreground ,green)))
+     `(syslog-error-face '((t :background unspecified :foreground ,red :weight bold)))
+     `(syslog-warn-face '((t :background unspecified :foreground ,orange :weight bold)))
+     `(syslog-info-face '((t :background unspecified :foreground ,blue :weight bold)))
+     `(syslog-debug-face '((t :background unspecified :foreground ,cyan :weight bold)))
+     `(syslog-su-face '((t :background unspecified :foreground ,magenta)))
+
+     ;; vc
      `(vc-annotate-color-map
       '((20 . ,red)
         (40 . "#CF4F1F")
@@ -1245,6 +1306,7 @@
      `(vc-annotate-very-old-color nil)
      `(vc-annotate-background nil)
 
+     ;; weechat
      `(weechat-color-list
        '(unspecified ,base03 ,base02
                      ,red-d ,red
