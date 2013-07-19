@@ -683,8 +683,8 @@ customize the resulting theme."
      `(hl-line-face ((,class (:background ,solarized-hl))))
 
      ;; ido-mode
-     `(ido-first-match ((,class (:foreground ,green :weight normal))))
-     `(ido-only-match ((,class (:foreground ,solarized-bg :background ,green :weight normal))))
+     `(ido-first-match ((,class (:foreground ,yellow :weight normal))))
+     `(ido-only-match ((,class (:foreground ,solarized-bg :background ,yellow :weight normal))))
      `(ido-subdir ((,class (:foreground ,blue))))
      `(ido-incomplete-regexp ((,class (:foreground ,red :weight bold ))))
      `(ido-indicator ((,class (:background ,red :foreground ,solarized-bg :width condensed))))
