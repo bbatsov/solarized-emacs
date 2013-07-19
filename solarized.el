@@ -251,10 +251,10 @@ customize the resulting theme."
      `(mode-line-buffer-id ((,class (:foreground ,solarized-emph :weight bold))))
      `(mode-line-inactive
        ((,class (:inverse-video unspecified
-                                :underline unspecified
+                                :underline ,solarized-comments
                                 :foreground ,solarized-comments
                                 :background ,solarized-bg
-                                :box (:line-width 1 :color ,solarized-hl
+                                :box (:line-width 1 :color ,solarized-bg
                                                   :style unspecified)))))
      `(header-line
        ((,class (:inverse-video unspecified
