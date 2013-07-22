@@ -341,13 +341,13 @@ customize the resulting theme."
      `(ac-yasnippet-selection-face ((,class (:background ,yellow-lc :foreground ,yellow-hc))))
 
      ;; auto highlight symbol
-     `(ahs-definition-face ((,class (:foreground ,solarized-bg :background ,blue
-                                                 :underline t))))
-     `(ahs-edit-mode-face ((,class (:foreground ,solarized-bg :background ,yellow))))
-     `(ahs-face ((,class (:foreground ,solarized-bg :background ,blue))))
-     `(ahs-plugin-bod-face ((,class (:foreground ,solarized-bg :background ,blue))))
-     `(ahs-plugin-defalt-face ((,class (:foreground ,solarized-bg :background ,cyan))))
-     `(ahs-plugin-whole-buffer-face ((,class (:foreground ,solarized-bg :background ,green))))
+     `(ahs-definition-face ((,class (:foreground ,magenta :background ,solarized-bg
+                                                 :slant normal))))
+     `(ahs-edit-mode-face ((,class (:foreground ,solarized-bg :background ,magenta))))
+     `(ahs-face ((,class (:foreground ,magenta :background ,solarized-bg))))
+     `(ahs-plugin-bod-face ((,class (:foreground ,magenta :background unspecified ))))
+     `(ahs-plugin-defalt-face ((,class (:foreground ,magenta :background unspecified))))
+     `(ahs-plugin-whole-buffer-face ((,class (:foreground ,magenta  :background unspecified))))
      `(ahs-warning-face ((,class (:foreground ,red :weight bold))))
 
      ;; android mode
