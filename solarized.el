@@ -146,17 +146,20 @@ customize the resulting theme."
      `(escape-glyph ((,class (:foreground ,violet))))
 
      ;; compilation
-     `(compilation-column-face ((,class (:foreground ,yellow))))
-     `(compilation-enter-directory-face ((,class (:foreground ,green))))
-     `(compilation-error-face ((,class (:foreground ,red :weight bold :underline t))))
-     `(compilation-face ((,class (:foreground ,solarized-fg))))
-     `(compilation-info-face ((,class (:foreground ,blue))))
-     `(compilation-info ((,class (:foreground ,green :underline t))))
-     `(compilation-leave-directory-face ((,class (:foreground ,green))))
-     `(compilation-line-face ((,class (:foreground ,yellow))))
-     `(compilation-line-number ((,class (:foreground ,yellow))))
-     `(compilation-message-face ((,class (:foreground ,blue))))
-     `(compilation-warning-face ((,class (:foreground ,yellow :weight bold :underline t))))
+     `(compilation-column-face ((,class (:foreground ,cyan :underline nil))))
+     `(compilation-column-number ((,class (:inherit font-lock-doc-face :foreground ,cyan
+                                                    :underline nil))))
+     `(compilation-enter-directory-face ((,class (:foreground ,green :underline nil))))
+     `(compilation-error ((,class (:inherit error :underline nil))))
+     `(compilation-error-face ((,class (:foreground ,red : :underline nil))))
+     `(compilation-face ((,class (:foreground ,solarized-fg :underline nil))))
+     `(compilation-info ((,class (:foreground ,solarized-comments :underline nil :bold nil))))
+     `(compilation-info-face ((,class (:foreground ,blue :underline nil))))
+     `(compilation-leave-directory-face ((,class (:foreground ,green :underline nil))))
+     `(compilation-line-face ((,class (:foreground ,green :underline nil))))
+     `(compilation-line-number ((,class (:foreground ,green :underline nil))))
+     `(compilation-warning ((,class (:inherit warning :underline nil))))
+     `(compilation-warning-face ((,class (:foreground ,yellow :weight normal :underline nil))))
 
      `(compilation-mode-line-exit
        ((,class (:inherit compilation-info :foreground ,green :weight bold))))
