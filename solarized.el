@@ -401,9 +401,11 @@ customize the resulting theme."
      `(cscope-mouse-face ((,class (:background ,blue :foreground ,solarized-fg))))
 
      ;; ctable
-     `(ctbl:face-cell-select ((,class (:background ,blue :foreground ,solarized-bg))))
-     `(ctbl:face-continue-bar ((,class (:background ,solarized-hl :foreground ,solarized-bg))))
-     `(ctbl:face-row-select ((,class (:background ,cyan :foreground ,solarized-bg))))
+     `(ctbl:face-cell-select ((,class (:background ,solarized-hl :foreground ,solarized-emph
+                                                   :underline ,solarized-emph :weight bold))))
+     `(ctbl:face-continue-bar ((,class (:background ,solarized-hl :foreground ,yellow))))
+     `(ctbl:face-row-select ((,class (:background ,solarized-hl :foreground ,solarized-fg
+                                                  :underline t))))
 
      ;; coffee
      `(coffee-mode-class-name ((,class (:foreground ,yellow :weight bold))))
@@ -439,7 +441,9 @@ customize the resulting theme."
                                               :foreground ,solarized-fg-lc ))))
 
      ;; epc
-     `(epc:face-title ((,class (:foreground ,magenta :weight bold))))
+     `(epc:face-title ((,class (:foreground ,blue :background ,solarized-bg
+                                            :weight normal :underline nil))))
+
 
      ;; eshell
      `(eshell-prompt ((,class (:foreground ,yellow :weight bold))))
