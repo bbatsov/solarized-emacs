@@ -434,6 +434,10 @@ customize the resulting theme."
      ;; ediff
      `(ediff-fine-diff-A ((,class (:background ,orange-lc))))
      `(ediff-fine-diff-B ((,class (:background ,green-lc))))
+     `(ediff-fine-diff-C ((,class (:background ,yellow-lc))))
+     
+     `(ediff-current-diff-C ((,class (:background ,blue-lc))))
+     
      `(ediff-even-diff-A ((,class (:background ,solarized-comments
                                                :foreground ,solarized-fg-lc ))))
      `(ediff-odd-diff-A ((,class (:background ,solarized-comments
@@ -442,7 +446,11 @@ customize the resulting theme."
                                                :foreground ,solarized-fg-hc ))))
      `(ediff-odd-diff-B ((,class (:background ,solarized-comments
                                               :foreground ,solarized-fg-lc ))))
-
+     `(ediff-even-diff-C ((,class (:background ,solarized-comments
+                                               :foreground ,solarized-fg ))))
+     `(ediff-odd-diff-C ((,class (:background ,solarized-comments
+                                              :foreground ,solarized-bg ))))
+     
      ;; epc
      `(epc:face-title ((,class (:foreground ,blue :background ,solarized-bg
                                             :weight normal :underline nil))))
