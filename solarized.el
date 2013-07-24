@@ -1261,7 +1261,11 @@ customize the resulting theme."
     (custom-theme-set-variables
      theme-name
      `(ansi-color-names-vector [,solarized-bg ,red ,green ,yellow
-                                             ,blue ,magenta ,cyan ,solarized-fg])
+                                              ,blue ,magenta ,cyan ,solarized-fg])
+
+     ;; compilation
+     `(compilation-message-face 'default)
+
      ;; fill-column-indicator
      `(fci-rule-color ,solarized-hl)
 
