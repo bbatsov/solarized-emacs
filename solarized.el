@@ -1326,7 +1326,15 @@ customize the resulting theme."
                      ,blue-d ,blue
                      ,magenta-d ,magenta
                      ,cyan-d ,cyan
-                     ,base0 ,base00)))
+                     ,base0 ,base00))
+
+
+     ;; enh-ruby-mode
+     `(enh-ruby-op-face ((t (:inherit default))))
+     `(enh-ruby-regexp-delimiter-face ((t (:foreground ,red :background nil))))
+     `(enh-ruby-string-delimiter-face ((t (:foreground ,red :background nil))))
+     `(erb-face ((t (:background nil))) t)
+     `(erb-out-delim-face ((t (:inherit erb-exec-delim-face :foreground ,yellow))) t))
 
     ;; call chained theme function
     (when childtheme (funcall childtheme))))
