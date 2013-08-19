@@ -773,7 +773,7 @@ customize the resulting theme."
      `(jedi:highlight-function-argument ((,class (:inherit bold))))
 
      ;; linum-mode
-     `(linum ((,class (:foreground ,solarized-comments :background ,solarized-bg))))
+     `(linum ((,class (:foreground ,solarized-comments :background ,solarized-hl))))
 
      ;; lusty-explorer
      `(lusty-directory-face ((,class (:inherit dired-directory))))
