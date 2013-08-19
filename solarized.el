@@ -49,7 +49,8 @@ The theme has to be reloaded after changing anything in this group."
   :group 'faces)
 
 (defcustom solarized-distinct-fringe-background nil
-  "Make the fringe background different from the normal background color."
+  "Make the fringe background different from the normal background color.
+Also affects linum-mode background."
   :type 'boolean
   :group 'solarized)
 
@@ -773,7 +774,7 @@ customize the resulting theme."
      `(jedi:highlight-function-argument ((,class (:inherit bold))))
 
      ;; linum-mode
-     `(linum ((,class (:foreground ,solarized-comments :background ,solarized-bg))))
+     `(linum ((,class (:foreground ,solarized-comments :background ,s-fringe-bg))))
 
      ;; lusty-explorer
      `(lusty-directory-face ((,class (:inherit dired-directory))))
