@@ -43,6 +43,22 @@
 ;;
 ;;; Code:
 
+(defgroup solarized nil
+  "Solarized theme options.
+The theme has to be reloaded after changing anything in this group."
+  :group 'faces)
+
+(defcustom solarized-distinct-fringe-background nil
+  "Make the fringe background different from the normal background color.
+Also affects linum-mode background."
+  :type 'boolean
+  :group 'solarized)
+
+(defcustom solarized-high-contrast-mode-line nil
+  "Make the active/inactive mode line stand out more."
+  :type 'boolean
+  :group 'solarized)
+
 (defun create-solarized-theme (variant theme-name &optional childtheme)
   "Create a VARIANT of the theme named THEME-NAME.
 
@@ -120,7 +136,24 @@ customize the resulting theme."
          (cyan-hc (if (eq variant 'light) cyan-d cyan-l))
          (cyan-lc (if (eq variant 'light) cyan-l cyan-d))
          (green-hc (if (eq variant 'light) green-d green-l))
-         (green-lc (if (eq variant 'light) green-l green-d)))
+         (green-lc (if (eq variant 'light) green-l green-d))
+
+         ;; customize based face properties
+         (s-fringe-bg (if solarized-distinct-fringe-background
+                          solarized-hl solarized-bg))
+
+         (s-mode-line-fg (if solarized-high-contrast-mode-line
+                       solarized-bg solarized-fg))
+         (s-mode-line-bg (if solarized-high-contrast-mode-line
+                       solarized-fg solarized-hl))
+         (s-mode-line-buffer-id-fg (if solarized-high-contrast-mode-line
+                                       'unspecified solarized-emph))
+         (s-mode-line-inactive-fg (if solarized-high-contrast-mode-line
+                       solarized-fg solarized-comments))
+         (s-mode-line-inactive-bg (if solarized-high-contrast-mode-line
+                                      solarized-hl solarized-bg))
+         (s-mode-line-inactive-bc (if solarized-high-contrast-mode-line
+                                      solarized-fg solarized-hl)))
     (custom-theme-set-faces
      theme-name
      '(button ((t (:underline t))))
@@ -134,7 +167,7 @@ customize the resulting theme."
      `(mouse ((,class (:foreground ,solarized-bg :background ,solarized-fg
 				   :inverse-video t))))
      `(escape-glyph-face ((,class (:foreground ,red))))
-     `(fringe ((,class (:foreground ,solarized-fg :background ,solarized-bg))))
+     `(fringe ((,class (:foreground ,solarized-fg :background ,s-fringe-bg))))
      `(highlight ((,class (:background ,solarized-hl))))
      `(link ((,class (:foreground ,yellow :underline t :weight bold))))
      `(link-visited ((,class (:foreground ,yellow :underline t :weight normal))))
@@ -247,17 +280,17 @@ customize the resulting theme."
      `(mode-line
        ((,class (:inverse-video unspecified
                                 :underline unspecified
-                                :foreground ,solarized-fg
-                                :background ,solarized-hl
-                                :box (:line-width 1 :color ,solarized-hl
+                                :foreground ,s-mode-line-fg
+                                :background ,s-mode-line-bg
+                                :box (:line-width 1 :color ,s-mode-line-bg
                                                   :style unspecified)))))
-     `(mode-line-buffer-id ((,class (:foreground ,solarized-emph :weight bold))))
+     `(mode-line-buffer-id ((,class (:foreground ,s-mode-line-buffer-id-fg :weight bold))))
      `(mode-line-inactive
        ((,class (:inverse-video unspecified
                                 :underline unspecified
-                                :foreground ,solarized-comments
-                                :background ,solarized-bg
-                                :box (:line-width 1 :color ,solarized-hl
+                                :foreground ,s-mode-line-inactive-fg
+                                :background ,s-mode-line-inactive-bg
+                                :box (:line-width 1 :color ,s-mode-line-inactive-bc
                                                   :style unspecified)))))
      `(header-line
        ((,class (:inverse-video unspecified
@@ -741,7 +774,11 @@ customize the resulting theme."
      `(jedi:highlight-function-argument ((,class (:inherit bold))))
 
      ;; linum-mode
+<<<<<<< HEAD
      `(linum ((,class (:foreground ,solarized-comments :background ,solarized-hl))))
+=======
+     `(linum ((,class (:foreground ,solarized-comments :background ,s-fringe-bg))))
+>>>>>>> upstream/master
 
      ;; lusty-explorer
      `(lusty-directory-face ((,class (:inherit dired-directory))))
