@@ -1299,6 +1299,10 @@ customize the resulting theme."
      `(yascroll:thumb-fringe
        ((,class (:foreground ,solarized-comments :background ,solarized-comments))))
 
+     ;; enh-ruby-mode
+     `(enh-ruby-op-face
+       ((,class (:foreground ,base01 :background ,solarized-bg))))
+
      ;; zencoding
      `(zencoding-preview-input ((,class (:background ,solarized-hl :box ,solarized-emph)))))
 
