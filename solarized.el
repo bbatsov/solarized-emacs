@@ -468,9 +468,9 @@ customize the resulting theme."
      `(ediff-fine-diff-A ((,class (:background ,orange-lc))))
      `(ediff-fine-diff-B ((,class (:background ,green-lc))))
      `(ediff-fine-diff-C ((,class (:background ,yellow-lc))))
-     
+
      `(ediff-current-diff-C ((,class (:background ,blue-lc))))
-     
+
      `(ediff-even-diff-A ((,class (:background ,solarized-comments
                                                :foreground ,solarized-fg-lc ))))
      `(ediff-odd-diff-A ((,class (:background ,solarized-comments
@@ -483,7 +483,7 @@ customize the resulting theme."
                                                :foreground ,solarized-fg ))))
      `(ediff-odd-diff-C ((,class (:background ,solarized-comments
                                               :foreground ,solarized-bg ))))
-     
+
      ;; epc
      `(epc:face-title ((,class (:foreground ,blue :background ,solarized-bg
                                             :weight normal :underline nil))))
@@ -510,7 +510,11 @@ customize the resulting theme."
 
      ;; flx
      `(flx-highlight-face ((,class (:foreground ,blue
+<<<<<<< HEAD
                                                 :weight normal :underline nil))))
+=======
+                                                :weight bold :underline nil))))
+>>>>>>> upstream-syl20bnr/cherrypick
 
 
      ;; flymake
@@ -774,11 +778,7 @@ customize the resulting theme."
      `(jedi:highlight-function-argument ((,class (:inherit bold))))
 
      ;; linum-mode
-<<<<<<< HEAD
-     `(linum ((,class (:foreground ,solarized-comments :background ,solarized-hl))))
-=======
      `(linum ((,class (:foreground ,solarized-comments :background ,s-fringe-bg))))
->>>>>>> upstream/master
 
      ;; lusty-explorer
      `(lusty-directory-face ((,class (:inherit dired-directory))))
