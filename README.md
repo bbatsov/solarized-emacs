@@ -48,5 +48,6 @@ GitHub pull request.
 # Contributors
 
 - [Thomas Frössman](http://t.jossystem.se)
+- [Marcin Antczak]
 
 (Add yourself to the list)

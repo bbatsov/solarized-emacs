@@ -50,7 +50,7 @@ The theme has to be reloaded after changing anything in this group."
 
 (defcustom solarized-distinct-fringe-background nil
   "Make the fringe background different from the normal background color.
-Also affects linum-mode background."
+Also affects 'linum-mode' background."
   :type 'boolean
   :group 'solarized)
 
@@ -468,9 +468,9 @@ customize the resulting theme."
      `(ediff-fine-diff-A ((,class (:background ,orange-lc))))
      `(ediff-fine-diff-B ((,class (:background ,green-lc))))
      `(ediff-fine-diff-C ((,class (:background ,yellow-lc))))
-     
+
      `(ediff-current-diff-C ((,class (:background ,blue-lc))))
-     
+
      `(ediff-even-diff-A ((,class (:background ,solarized-comments
                                                :foreground ,solarized-fg-lc ))))
      `(ediff-odd-diff-A ((,class (:background ,solarized-comments
@@ -483,7 +483,7 @@ customize the resulting theme."
                                                :foreground ,solarized-fg ))))
      `(ediff-odd-diff-C ((,class (:background ,solarized-comments
                                               :foreground ,solarized-bg ))))
-     
+
      ;; epc
      `(epc:face-title ((,class (:foreground ,blue :background ,solarized-bg
                                             :weight normal :underline nil))))
@@ -511,8 +511,6 @@ customize the resulting theme."
      ;; flx
      `(flx-highlight-face ((,class (:foreground ,blue
                                                 :weight normal :underline nil))))
-
-
      ;; flymake
      `(flymake-errline
        ((,(append '((supports :underline (:style wave))) class)
@@ -774,7 +772,8 @@ customize the resulting theme."
      `(jedi:highlight-function-argument ((,class (:inherit bold))))
 
      ;; linum-mode
-     `(linum ((,class (:foreground ,solarized-comments :background ,s-fringe-bg))))
+     ;; `(linum ((,class (:foreground ,solarized-comments :background ,s-fringe-bg))))
+     `(linum ((,class (:foreground ,solarized-comments :background ,solarized-bg))))
 
      ;; lusty-explorer
      `(lusty-directory-face ((,class (:inherit dired-directory))))
@@ -1295,6 +1294,10 @@ customize the resulting theme."
      `(yascroll:thumb-fringe
        ((,class (:foreground ,solarized-comments :background ,solarized-comments))))
 
+     ;; enh-ruby-mode
+     `(enh-ruby-op-face
+       ((,class (:foreground ,base01 :background ,solarized-bg))))
+
      ;; zencoding
      `(zencoding-preview-input ((,class (:background ,solarized-hl :box ,solarized-emph)))))
 
@@ -1359,7 +1362,15 @@ customize the resulting theme."
                      ,blue-d ,blue
                      ,magenta-d ,magenta
                      ,cyan-d ,cyan
-                     ,base0 ,base00)))
+                     ,base0 ,base00))
+
+
+     ;; enh-ruby-mode
+     `(enh-ruby-op-face ((t (:inherit default))))
+     `(enh-ruby-regexp-delimiter-face ((t (:foreground ,red :background nil))))
+     `(enh-ruby-string-delimiter-face ((t (:foreground ,red :background nil))))
+     `(erb-face ((t (:background nil))) t)
+     `(erb-out-delim-face ((t (:inherit erb-exec-delim-face :foreground ,yellow))) t))
 
     ;; call chained theme function
     (when childtheme (funcall childtheme))))
