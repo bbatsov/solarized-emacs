@@ -38,6 +38,20 @@ MELPA) you can install solarized like this:
 Afterwards - business as usual, just load one of the theme variants
 with `M-x load-theme`.
 
+# Customisations
+
+If you don't like low-contrast modeline or fringe, you can `customize` them:
+
+```emacs
+;; make the fringe stand out from the background
+(setq solarized-distinct-fringe-background t)
+
+;; make the modeline high contrast
+(setq solarized-high-contrast-mode-line t)
+```
+
+Note that these need to be set **before** `load-theme` is invoked for Solarized.
+
 # Bugs & Improvements
 
 Please, report any problems that you find on the projects integrated
