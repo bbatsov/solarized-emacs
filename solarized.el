@@ -931,14 +931,22 @@ customize the resulting theme."
      `(org-formula ((,class (:foreground ,yellow))))
      `(org-headline-done ((,class (:foreground ,green))))
      `(org-hide ((,class (:foreground ,solarized-bg))))
-     `(org-level-1 ((,class (:foreground ,orange))))
-     `(org-level-2 ((,class (:foreground ,green))))
-     `(org-level-3 ((,class (:foreground ,blue))))
-     `(org-level-4 ((,class (:foreground ,yellow))))
-     `(org-level-5 ((,class (:foreground ,cyan))))
-     `(org-level-6 ((,class (:foreground ,green))))
-     `(org-level-7 ((,class (:foreground ,red))))
-     `(org-level-8 ((,class (:foreground ,blue))))
+     `(org-level-1 ((,class (:inherit variable-pitch :height 1.55 :weight bold
+                                      :foreground ,orange))))
+     `(org-level-2 ((,class (:inherit variable-pitch :height 1.4 :weight bold
+                                      :foreground ,green))))
+     `(org-level-3 ((,class (:inherit variable-pitch :height 1.35 :weight bold
+                                      :foreground ,blue))))
+     `(org-level-4 ((,class (:inherit variable-pitch :height 1.3 :weight bold
+                                      :foreground ,yellow))))
+     `(org-level-5 ((,class (:inherit variable-pitch :height 1.25 :weight bold
+                                      :foreground ,cyan))))
+     `(org-level-6 ((,class (:inherit variable-pitch :height 1.2 :weight bold
+                                      :foreground ,green))))
+     `(org-level-7 ((,class (:inherit variable-pitch :height 1.2 :weight bold
+                                      :foreground ,red))))
+     `(org-level-8 ((,class (:inherit variable-pitch :height 1.2 :weight bold
+                                      :foreground ,blue))))
      `(org-link ((,class (:foreground ,yellow :underline t))))
      `(org-sexp-date ((,class (:foreground ,violet))))
      `(org-scheduled ((,class (:foreground ,green))))
