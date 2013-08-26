@@ -994,7 +994,7 @@ customize the resulting theme."
      `(outline-8 ((,class (:inherit org-level-8))))
 
      ;; pretty-mode
-     `(pretty-mode-symbol-face  ((,class (:foreground ,green))))
+     `(pretty-mode-symbol-face  ((,class (:foreground ,yellow :weight normal))))
 
      ;; popup
      `(popup-face ((,class (:background ,solarized-hl :foreground ,solarized-fg))))
