@@ -448,9 +448,13 @@ customize the resulting theme."
      `(coffee-mode-function-param ((,class (:foreground ,violet :slant italic))))
 
      ;; custom
-     `(custom-variable-tag ((,class (:foreground ,cyan))))
+     `(custom-face-tag ((,class (:inherit variable-pitch :height 1.2
+                                          :foreground ,violet :weight bold))))
+     `(custom-variable-tag ((,class (:inherit variable-pitch
+                                              :foreground ,cyan :height 1.2))))
      `(custom-comment-tag ((,class (:foreground ,solarized-comments))))
-     `(custom-group-tag ((,class (:foreground ,blue))))
+     `(custom-group-tag ((,class (:inherit variable-pitch :foreground ,blue :height 1.2))))
+     `(custom-group-tag-1 ((,class (:inherit variable-pitch :foreground ,red :height 1.2))))
      `(custom-state ((,class (:foreground ,green))))
 
      ;; diff
