@@ -905,7 +905,7 @@ customize the resulting theme."
                              :underline nil
                              :box (:line-width 2 :color ,solarized-bg)))))
      `(org-agenda-calendar-event ((,class (:foreground ,solarized-emph))))
-     `(org-agenda-calendar-sexp ((,class (:foreground ,violet))))
+     `(org-agenda-calendar-sexp ((,class (:foreground ,solarized-fg :slant italic))))
      `(org-agenda-date
        ((,class (:foreground ,solarized-comments :background ,solarized-bg :weight normal
                              :inverse-video nil :overline nil :slant normal :height 1.0
