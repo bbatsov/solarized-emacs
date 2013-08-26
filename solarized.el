@@ -803,6 +803,16 @@ customize the resulting theme."
                                                        :box 1))))
      `(magit-log-sha1 ((,class (:foreground ,yellow))))
 
+     ;; markdown-mode
+     `(markdown-header-face-1 ((,class (:inherit markdown-header-face :height 1.55))))
+     `(markdown-header-face-2 ((,class (:inherit markdown-header-face :height 1.4))))
+     `(markdown-header-face-3 ((,class (:inherit markdown-header-face :height 1.35))))
+     `(markdown-header-face-4 ((,class (:inherit markdown-header-face :height 1.3))))
+     `(markdown-header-face-5 ((,class (:inherit markdown-header-face :height 1.25))))
+     `(markdown-header-face-6 ((,class (:inherit markdown-header-face :height 1.2))))
+
+
+
      ;; message-mode
      `(message-cited-text ((,class (:foreground ,solarized-comments))))
      `(message-header-name ((,class (:foreground ,green))))
