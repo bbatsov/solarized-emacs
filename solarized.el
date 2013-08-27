@@ -1007,6 +1007,9 @@ customize the resulting theme."
      `(outline-7 ((,class (:inherit org-level-7))))
      `(outline-8 ((,class (:inherit org-level-8))))
 
+     ;; parenfaceu
+     `(paren-face  ((,class (:foreground ,solarized-comments))))
+
      ;; pretty-mode
      `(pretty-mode-symbol-face  ((,class (:foreground ,yellow :weight normal))))
 
