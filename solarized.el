@@ -808,6 +808,7 @@ customize the resulting theme."
      `(magit-log-sha1 ((,class (:foreground ,yellow))))
 
      ;; markdown-mode
+     `(markdown-header-face ((,class (:foreground ,green))))
      `(markdown-header-face-1 ((,class (:inherit markdown-header-face :height 1.55))))
      `(markdown-header-face-2 ((,class (:inherit markdown-header-face :height 1.4))))
      `(markdown-header-face-3 ((,class (:inherit markdown-header-face :height 1.35))))
