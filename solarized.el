@@ -89,6 +89,28 @@ Also affects linum-mode background."
   :type 'number
   :group 'solarized)
 
+(defmacro solarized-declare-customizations-for-group (group prefix)
+  (let ((customs '(height-minus-1
+  		   height-plus-1
+  		   height-plus-2
+  		   height-plus-3
+  		   height-plus-4
+  		   use-variable-pitch))
+	(prefix-str (symbol-name prefix))
+	(sp "solarized-"))
+    `(progn
+       (defgroup ,(intern (concat sp prefix-str)) nil
+	 ,(concat "Solarized theme options for " group ".")
+	 :group 'solarized)
+       ,@(mapcar
+	  (lambda (c)
+	    (let ((sgc (intern (concat sp (symbol-name c)))))
+	      `(defcustom ,(intern (concat sp prefix-str "-" (symbol-name c)))
+		 ,sgc
+		 ,(get sgc 'variable-documentation)
+		 :type ',(get sgc 'custom-type)
+		 :group ',(intern (concat sp prefix-str)))))
+	  customs))))
 (defun create-solarized-theme (variant theme-name &optional childtheme)
   "Create a VARIANT of the theme named THEME-NAME.
 
