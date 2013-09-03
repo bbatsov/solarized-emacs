@@ -59,6 +59,31 @@ Also affects linum-mode background."
   :type 'boolean
   :group 'solarized)
 
+(defcustom solarized-height-minus-1 0.8
+  "Font size -1"
+  :type 'number
+  :group 'solarized)
+
+(defcustom solarized-height-plus-1 1.1
+  "Font size +1"
+  :type 'number
+  :group 'solarized)
+
+(defcustom solarized-height-plus-2 1.15
+  "Font size +2"
+  :type 'number
+  :group 'solarized)
+
+(defcustom solarized-height-plus-3 1.2
+  "Font size +3"
+  :type 'number
+  :group 'solarized)
+
+(defcustom solarized-height-plus-4 1.3
+  "Font size +4."
+  :type 'number
+  :group 'solarized)
+
 (defun create-solarized-theme (variant theme-name &optional childtheme)
   "Create a VARIANT of the theme named THEME-NAME.
 
@@ -344,23 +369,23 @@ customize the resulting theme."
      `(font-latex-italic-face ((,class (:inherit italic :foreground ,solarized-emph))))
      `(font-latex-math-face ((,class (:foreground ,violet))))
      `(font-latex-sectioning-0-face ((,class (:inherit font-latex-sectioning-1-face
-                                                       :height 1.1))))
+                                                       :height ,solarized-height-plus-1))))
      `(font-latex-sectioning-1-face ((,class (:inherit font-latex-sectioning-2-face
-                                                       :height 1.1))))
+                                                       :height ,solarized-height-plus-1))))
      `(font-latex-sectioning-2-face ((,class (:inherit font-latex-sectioning-3-face
-                                                       :height 1.1))))
+                                                       :height ,solarized-height-plus-1))))
      `(font-latex-sectioning-3-face ((,class (:inherit font-latex-sectioning-4-face
-                                                       :height 1.1))))
+                                                       :height ,solarized-height-plus-1))))
      `(font-latex-sectioning-4-face ((,class (:inherit font-latex-sectioning-5-face
-                                                       :height 1.1))))
+                                                       :height ,solarized-height-plus-1))))
      `(font-latex-sectioning-5-face ((,class (:inherit variable-pitch :foreground ,yellow
                                                        :weight bold))))
      `(font-latex-sedate-face ((,class (:foreground ,solarized-emph))))
      `(font-latex-slide-title-face ((,class (:inherit (variable-pitch font-lock-type-face)
-                                                      :weight bold :height 1.2))))
+                                                      :weight bold :height ,solarized-height-plus-3))))
      `(font-latex-string-face ((,class (:foreground ,cyan))))
-     `(font-latex-subscript-face ((,class (:height 0.8))))
-     `(font-latex-superscript-face ((,class (:height 0.8))))
+     `(font-latex-subscript-face ((,class (:height ,solarized-height-minus-1))))
+     `(font-latex-superscript-face ((,class (:height ,solarized-height-minus-1))))
      `(font-latex-verbatim-face ((,class (:inherit fixed-pitch :foreground ,solarized-fg
                                                    :slant italic))))
      `(font-latex-warning-face ((,class (:inherit bold :foreground ,orange))))
@@ -414,7 +439,7 @@ customize the resulting theme."
      `(cfw:face-saturday ((,class (:foreground ,cyan-hc :background ,cyan-lc))))
      `(cfw:face-sunday ((,class (:foreground ,red-hc :background ,red-lc :weight bold))))
      `(cfw:face-title ((,class (:inherit variable-pitch :foreground ,yellow
-                                         :weight bold :height 1.3))))
+                                         :weight bold :height ,solarized-height-plus-4))))
      `(cfw:face-today ((,class (:weight bold :background ,solarized-hl :foreground nil))))
      `(cfw:face-today-title ((,class (:background ,yellow-lc
                                                   :foreground ,yellow-hc :weight bold))))
@@ -448,13 +473,13 @@ customize the resulting theme."
      `(coffee-mode-function-param ((,class (:foreground ,violet :slant italic))))
 
      ;; custom
-     `(custom-face-tag ((,class (:inherit variable-pitch :height 1.2
+     `(custom-face-tag ((,class (:inherit variable-pitch :height ,solarized-height-plus-3
                                           :foreground ,violet :weight bold))))
      `(custom-variable-tag ((,class (:inherit variable-pitch
-                                              :foreground ,cyan :height 1.2))))
+                                              :foreground ,cyan :height ,solarized-height-plus-3))))
      `(custom-comment-tag ((,class (:foreground ,solarized-comments))))
-     `(custom-group-tag ((,class (:inherit variable-pitch :foreground ,blue :height 1.2))))
-     `(custom-group-tag-1 ((,class (:inherit variable-pitch :foreground ,red :height 1.2))))
+     `(custom-group-tag ((,class (:inherit variable-pitch :foreground ,blue :height ,solarized-height-plus-3))))
+     `(custom-group-tag-1 ((,class (:inherit variable-pitch :foreground ,red :height ,solarized-height-plus-3))))
      `(custom-state ((,class (:foreground ,green))))
 
      ;; diff
@@ -809,10 +834,10 @@ customize the resulting theme."
 
      ;; markdown-mode
      `(markdown-header-face ((,class (:foreground ,green))))
-     `(markdown-header-face-1 ((,class (:inherit markdown-header-face :height 1.3))))
-     `(markdown-header-face-2 ((,class (:inherit markdown-header-face :height 1.25))))
-     `(markdown-header-face-3 ((,class (:inherit markdown-header-face :height 1.15))))
-     `(markdown-header-face-4 ((,class (:inherit markdown-header-face :height 1.1))))
+     `(markdown-header-face-1 ((,class (:inherit markdown-header-face :height ,solarized-height-plus-4))))
+     `(markdown-header-face-2 ((,class (:inherit markdown-header-face :height ,solarized-height-plus-3))))
+     `(markdown-header-face-3 ((,class (:inherit markdown-header-face :height ,solarized-height-plus-2))))
+     `(markdown-header-face-4 ((,class (:inherit markdown-header-face :height ,solarized-height-plus-1))))
      `(markdown-header-face-5 ((,class (:inherit markdown-header-face))))
      `(markdown-header-face-6 ((,class (:inherit markdown-header-face))))
 
@@ -916,7 +941,7 @@ customize the resulting theme."
      ;; org-mode
      `(org-agenda-structure
        ((,class (:foreground ,solarized-emph :background ,solarized-hl
-                             :weight bold :slant normal :inverse-video nil :height 1.1
+                             :weight bold :slant normal :inverse-video nil :height ,solarized-height-plus-1
                              :underline nil
                              :box (:line-width 2 :color ,solarized-bg)))))
      `(org-agenda-calendar-event ((,class (:foreground ,solarized-emph))))
@@ -946,13 +971,13 @@ customize the resulting theme."
      `(org-formula ((,class (:foreground ,yellow))))
      `(org-headline-done ((,class (:foreground ,green))))
      `(org-hide ((,class (:foreground ,solarized-bg))))
-     `(org-level-1 ((,class (:inherit variable-pitch :height 1.3 :weight bold
+     `(org-level-1 ((,class (:inherit variable-pitch :height ,solarized-height-plus-4 :weight bold
                                       :foreground ,orange))))
-     `(org-level-2 ((,class (:inherit variable-pitch :height 1.25 :weight bold
+     `(org-level-2 ((,class (:inherit variable-pitch :height ,solarized-height-plus-3 :weight bold
                                       :foreground ,green))))
-     `(org-level-3 ((,class (:inherit variable-pitch :height 1.15 :weight bold
+     `(org-level-3 ((,class (:inherit variable-pitch :height ,solarized-height-plus-2 :weight bold
                                       :foreground ,blue))))
-     `(org-level-4 ((,class (:inherit variable-pitch :height 1.1 :weight bold
+     `(org-level-4 ((,class (:inherit variable-pitch :height ,solarized-height-plus-1 :weight bold
                                       :foreground ,yellow))))
      `(org-level-5 ((,class (:inherit variable-pitch :weight bold
                                       :foreground ,cyan))))
@@ -992,7 +1017,7 @@ customize the resulting theme."
      `(org-column-title ((,class (:background ,solarized-hl :underline t :weight bold))))
      `(org-date-selected ((,class (:foreground ,red :inverse-video t))))
      `(org-document-info ((,class (:foreground ,solarized-fg))))
-     `(org-document-title ((,class (:foreground ,solarized-emph  :weight bold :height 1.3))))
+     `(org-document-title ((,class (:foreground ,solarized-emph  :weight bold :height ,solarized-height-plus-4))))
      `(org-drawer ((,class (:foreground ,cyan))))
      `(org-footnote ((,class (:foreground ,magenta :underline t))))
      `(org-latex-and-export-specials ((,class (:foreground ,orange))))
@@ -1113,13 +1138,13 @@ customize the resulting theme."
 
      ;; sunrise commander headings
      `(sr-active-path-face ((,class (:background ,blue :foreground ,solarized-bg
-                                                 :height 1.1  :weight bold))))
+                                                 :height ,solarized-height-plus-1  :weight bold))))
      `(sr-editing-path-face ((,class (:background ,yellow :foreground ,solarized-bg
-                                                  :weight bold :height 1.1))))
+                                                  :weight bold :height ,solarized-height-plus-1))))
      `(sr-highlight-path-face ((,class (:background ,green :foreground ,solarized-bg
-                                                    :weight bold :height 1.1))))
+                                                    :weight bold :height ,solarized-height-plus-1))))
      `(sr-passive-path-face ((,class (:background ,solarized-comments :foreground ,solarized-bg
-                                                  :weight bold :height 1.1))))
+                                                  :weight bold :height ,solarized-height-plus-1))))
      ;; sunrise commander marked
      `(sr-marked-dir-face ((,class (:inherit dired-marked))))
      `(sr-marked-file-face ((,class (:inherit dired-marked))))
