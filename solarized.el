@@ -1020,7 +1020,7 @@ customize the resulting theme."
      `(org-agenda-restriction-lock ((,class (:background ,yellow))))
      `(org-clock-overlay ((,class (:background ,yellow))))
      `(org-column ((,class (:background ,solarized-hl :strike-through nil
-                                        :underline nil :slant normal :weight normal))))
+                                        :underline nil :slant normal :weight normal :inherit default))))
      `(org-column-title ((,class (:background ,solarized-hl :underline t :weight bold))))
      `(org-date-selected ((,class (:foreground ,red :inverse-video t))))
      `(org-document-info ((,class (:foreground ,solarized-fg))))
