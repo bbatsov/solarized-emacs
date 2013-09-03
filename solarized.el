@@ -54,28 +54,33 @@ Also affects linum-mode background."
   :type 'boolean
   :group 'solarized)
 
+(defcustom solarized-use-variable-pitch t
+  "Use variable pitch face for some headings and titles."
+  :type 'boolean
+  :group 'solarized)
+
 (defcustom solarized-high-contrast-mode-line nil
   "Make the active/inactive mode line stand out more."
   :type 'boolean
   :group 'solarized)
 
 (defcustom solarized-height-minus-1 0.8
-  "Font size -1"
+  "Font size -1."
   :type 'number
   :group 'solarized)
 
 (defcustom solarized-height-plus-1 1.1
-  "Font size +1"
+  "Font size +1."
   :type 'number
   :group 'solarized)
 
 (defcustom solarized-height-plus-2 1.15
-  "Font size +2"
+  "Font size +2."
   :type 'number
   :group 'solarized)
 
 (defcustom solarized-height-plus-3 1.2
-  "Font size +3"
+  "Font size +3."
   :type 'number
   :group 'solarized)
 
@@ -164,6 +169,8 @@ customize the resulting theme."
          (green-lc (if (eq variant 'light) green-l green-d))
 
          ;; customize based face properties
+         (s-variable-pitch (if solarized-use-variable-pitch
+                               'variable-pitch 'default))
          (s-fringe-bg (if solarized-distinct-fringe-background
                           solarized-hl solarized-bg))
 
@@ -378,10 +385,10 @@ customize the resulting theme."
                                                        :height ,solarized-height-plus-1))))
      `(font-latex-sectioning-4-face ((,class (:inherit font-latex-sectioning-5-face
                                                        :height ,solarized-height-plus-1))))
-     `(font-latex-sectioning-5-face ((,class (:inherit variable-pitch :foreground ,yellow
+     `(font-latex-sectioning-5-face ((,class (:inherit ,s-variable-pitch :foreground ,yellow
                                                        :weight bold))))
      `(font-latex-sedate-face ((,class (:foreground ,solarized-emph))))
-     `(font-latex-slide-title-face ((,class (:inherit (variable-pitch font-lock-type-face)
+     `(font-latex-slide-title-face ((,class (:inherit (,s-variable-pitch font-lock-type-face)
                                                       :weight bold :height ,solarized-height-plus-3))))
      `(font-latex-string-face ((,class (:foreground ,cyan))))
      `(font-latex-subscript-face ((,class (:height ,solarized-height-minus-1))))
@@ -438,7 +445,7 @@ customize the resulting theme."
      `(cfw:face-select ((,class (:background ,magenta-lc :foreground ,magenta-hc))))
      `(cfw:face-saturday ((,class (:foreground ,cyan-hc :background ,cyan-lc))))
      `(cfw:face-sunday ((,class (:foreground ,red-hc :background ,red-lc :weight bold))))
-     `(cfw:face-title ((,class (:inherit variable-pitch :foreground ,yellow
+     `(cfw:face-title ((,class (:inherit ,s-variable-pitch :foreground ,yellow
                                          :weight bold :height ,solarized-height-plus-4))))
      `(cfw:face-today ((,class (:weight bold :background ,solarized-hl :foreground nil))))
      `(cfw:face-today-title ((,class (:background ,yellow-lc
@@ -473,13 +480,13 @@ customize the resulting theme."
      `(coffee-mode-function-param ((,class (:foreground ,violet :slant italic))))
 
      ;; custom
-     `(custom-face-tag ((,class (:inherit variable-pitch :height ,solarized-height-plus-3
+     `(custom-face-tag ((,class (:inherit ,s-variable-pitch :height ,solarized-height-plus-3
                                           :foreground ,violet :weight bold))))
-     `(custom-variable-tag ((,class (:inherit variable-pitch
+     `(custom-variable-tag ((,class (:inherit ,s-variable-pitch
                                               :foreground ,cyan :height ,solarized-height-plus-3))))
      `(custom-comment-tag ((,class (:foreground ,solarized-comments))))
-     `(custom-group-tag ((,class (:inherit variable-pitch :foreground ,blue :height ,solarized-height-plus-3))))
-     `(custom-group-tag-1 ((,class (:inherit variable-pitch :foreground ,red :height ,solarized-height-plus-3))))
+     `(custom-group-tag ((,class (:inherit ,s-variable-pitch :foreground ,blue :height ,solarized-height-plus-3))))
+     `(custom-group-tag-1 ((,class (:inherit ,s-variable-pitch :foreground ,red :height ,solarized-height-plus-3))))
      `(custom-state ((,class (:foreground ,green))))
 
      ;; diff
@@ -971,21 +978,21 @@ customize the resulting theme."
      `(org-formula ((,class (:foreground ,yellow))))
      `(org-headline-done ((,class (:foreground ,green))))
      `(org-hide ((,class (:foreground ,solarized-bg))))
-     `(org-level-1 ((,class (:inherit variable-pitch :height ,solarized-height-plus-4 :weight bold
+     `(org-level-1 ((,class (:inherit ,s-variable-pitch :height ,solarized-height-plus-4
                                       :foreground ,orange))))
-     `(org-level-2 ((,class (:inherit variable-pitch :height ,solarized-height-plus-3 :weight bold
+     `(org-level-2 ((,class (:inherit ,s-variable-pitch :height ,solarized-height-plus-3
                                       :foreground ,green))))
-     `(org-level-3 ((,class (:inherit variable-pitch :height ,solarized-height-plus-2 :weight bold
+     `(org-level-3 ((,class (:inherit ,s-variable-pitch :height ,solarized-height-plus-2
                                       :foreground ,blue))))
-     `(org-level-4 ((,class (:inherit variable-pitch :height ,solarized-height-plus-1 :weight bold
+     `(org-level-4 ((,class (:inherit ,s-variable-pitch :height ,solarized-height-plus-1
                                       :foreground ,yellow))))
-     `(org-level-5 ((,class (:inherit variable-pitch :weight bold
+     `(org-level-5 ((,class (:inherit ,s-variable-pitch
                                       :foreground ,cyan))))
-     `(org-level-6 ((,class (:inherit variable-pitch :weight bold
+     `(org-level-6 ((,class (:inherit ,s-variable-pitch
                                       :foreground ,green))))
-     `(org-level-7 ((,class (:inherit variable-pitch :weight bold
+     `(org-level-7 ((,class (:inherit ,s-variable-pitch
                                       :foreground ,red))))
-     `(org-level-8 ((,class (:inherit variable-pitch :weight bold
+     `(org-level-8 ((,class (:inherit ,s-variable-pitch
                                       :foreground ,blue))))
      `(org-link ((,class (:foreground ,yellow :underline t))))
      `(org-sexp-date ((,class (:foreground ,violet))))
@@ -1124,17 +1131,17 @@ customize the resulting theme."
      `(slime-repl-inputed-output-face ((,class (:foreground ,red))))
 
      ;; speedbar
-     `(speedbar-button-face ((,class (:inherit variable-pitch
+     `(speedbar-button-face ((,class (:inherit ,s-variable-pitch
                                                :foreground ,solarized-comments))))
-     `(speedbar-directory-face ((,class (:inherit variable-pitch :foreground ,blue))))
-     `(speedbar-file-face ((,class (:inherit variable-pitch :foreground ,solarized-fg))))
-     `(speedbar-highlight-face ((,class (:inherit variable-pitch :background ,solarized-hl))))
-     `(speedbar-selected-face ((,class (:inherit variable-pitch
+     `(speedbar-directory-face ((,class (:inherit ,s-variable-pitch :foreground ,blue))))
+     `(speedbar-file-face ((,class (:inherit ,s-variable-pitch :foreground ,solarized-fg))))
+     `(speedbar-highlight-face ((,class (:inherit ,s-variable-pitch :background ,solarized-hl))))
+     `(speedbar-selected-face ((,class (:inherit ,s-variable-pitch
                                                  :foreground ,yellow :underline t))))
-     `(speedbar-separator-face ((,class (:inherit variable-pitch
+     `(speedbar-separator-face ((,class (:inherit ,s-variable-pitch
                                                   :background ,blue :foreground ,solarized-bg
                                                   :overline ,cyan-lc))))
-     `(speedbar-tag-face ((,class (:inherit variable-pitch :foreground ,green))))
+     `(speedbar-tag-face ((,class (:inherit ,s-variable-pitch :foreground ,green))))
 
      ;; sunrise commander headings
      `(sr-active-path-face ((,class (:background ,blue :foreground ,solarized-bg
@@ -1196,7 +1203,7 @@ customize the resulting theme."
      ;; tooltip. (NOTE: This setting has no effect on the os widgets for me
      ;; zencoding uses this)
      `(tooltip ((,class (:background ,yellow-lc :foreground ,yellow-hc
-                                     :inherit variable-pitch))))
+                                     :inherit ,s-variable-pitch))))
 
      ;; tuareg
      `(tuareg-font-lock-governing-face ((,class (:foreground ,magenta :weight bold))))
