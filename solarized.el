@@ -1361,6 +1361,9 @@ customize the resulting theme."
      ;; fill-column-indicator
      `(fci-rule-color ,solarized-hl)
 
+     ;; magit
+     `(magit-diff-use-overlays nil)
+
      ;; highlight-changes
      `(highlight-changes-colors '(,magenta ,violet))
 
