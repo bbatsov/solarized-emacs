@@ -635,6 +635,20 @@ customize the resulting theme."
      `(git-gutter-fr:deleted ((,class (:foreground ,red :weight bold))))
      `(git-gutter-fr:modified ((,class (:foreground ,blue :weight bold))))
 
+     ;; git-gutter+ and git-gutter+-fr
+     `(git-gutter+-added ((,class (:background ,green :foreground ,solarized-bg
+                                               :weight bold))))
+     `(git-gutter+-deleted ((,class (:background ,red :foreground ,solarized-bg
+                                                 :weight bold))))
+     `(git-gutter+-modified ((,class (:background ,blue :foreground ,solarized-bg
+                                                  :weight bold))))
+     `(git-gutter+-unchanged ((,class (:background ,solarized-hl
+                                                   :foreground ,solarized-bg
+                                                   :weight bold))))
+     `(git-gutter-fr+-added ((,class (:foreground ,green  :weight bold))))
+     `(git-gutter-fr+-deleted ((,class (:foreground ,red :weight bold))))
+     `(git-gutter-fr+-modified ((,class (:foreground ,blue :weight bold))))
+
      ;; guide-key
      `(guide-key/highlight-command-face ((,class (:foreground ,blue))))
      `(guide-key/key-face ((,class (:foreground ,solarized-comments))))
