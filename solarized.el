@@ -622,13 +622,6 @@ customize the resulting theme."
      `(git-gutter:unchanged ((,class (:background ,solarized-hl
                                                   :foreground ,solarized-bg
                                                   :weight bold))))
-     ;; I use the following git-gutter settings along with those faces
-     ;; (when window-system
-     ;;  (let ((symbol "."))
-     ;;    (setq git-gutter:added-sign symbol
-     ;;          git-gutter:deleted-sign symbol
-     ;;          git-gutter:modified-sign symbol
-     ;;          git-gutter:unchanged-sign " ")))
 
      ;; git-gutter-fr
      `(git-gutter-fr:added ((,class (:foreground ,green  :weight bold))))
