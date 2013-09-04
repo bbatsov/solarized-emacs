@@ -175,13 +175,13 @@ customize the resulting theme."
                           solarized-hl solarized-bg))
 
          (s-mode-line-fg (if solarized-high-contrast-mode-line
-                       solarized-bg solarized-fg))
+                             solarized-bg solarized-fg))
          (s-mode-line-bg (if solarized-high-contrast-mode-line
-                       solarized-fg solarized-hl))
+                             solarized-fg solarized-hl))
          (s-mode-line-buffer-id-fg (if solarized-high-contrast-mode-line
                                        'unspecified solarized-emph))
          (s-mode-line-inactive-fg (if solarized-high-contrast-mode-line
-                       solarized-fg solarized-comments))
+                                      solarized-fg solarized-comments))
          (s-mode-line-inactive-bg (if solarized-high-contrast-mode-line
                                       solarized-hl solarized-bg))
          (s-mode-line-inactive-bc (if solarized-high-contrast-mode-line
@@ -504,9 +504,9 @@ customize the resulting theme."
      `(ediff-fine-diff-A ((,class (:background ,orange-lc))))
      `(ediff-fine-diff-B ((,class (:background ,green-lc))))
      `(ediff-fine-diff-C ((,class (:background ,yellow-lc))))
-     
+
      `(ediff-current-diff-C ((,class (:background ,blue-lc))))
-     
+
      `(ediff-even-diff-A ((,class (:background ,solarized-comments
                                                :foreground ,solarized-fg-lc ))))
      `(ediff-odd-diff-A ((,class (:background ,solarized-comments
@@ -519,7 +519,7 @@ customize the resulting theme."
                                                :foreground ,solarized-fg ))))
      `(ediff-odd-diff-C ((,class (:background ,solarized-comments
                                               :foreground ,solarized-bg ))))
-     
+
      ;; epc
      `(epc:face-title ((,class (:foreground ,blue :background ,solarized-bg
                                             :weight normal :underline nil))))
@@ -1290,7 +1290,7 @@ customize the resulting theme."
 
      ;; whitespace-mode
      `(whitespace-space ((,class (:background unspecified :foreground ,solarized-comments
-                             :inverse-video unspecified :slant italic))))
+                                              :inverse-video unspecified :slant italic))))
      `(whitespace-hspace ((,class (:background unspecified :foreground ,solarized-emph
                                                :inverse-video unspecified))))
      `(whitespace-tab ((,class (:background unspecified :foreground ,red
@@ -1397,24 +1397,24 @@ customize the resulting theme."
 
      ;; vc
      `(vc-annotate-color-map
-      '((20 . ,red)
-        (40 . "#CF4F1F")
-        (60 . "#C26C0F")
-        (80 . ,yellow)
-        (100 . "#AB8C00")
-        (120 . "#A18F00")
-        (140 . "#989200")
-        (160 . "#8E9500")
-        (180 . ,green)
-        (200 . "#729A1E")
-        (220 . "#609C3C")
-        (240 . "#4E9D5B")
-        (260 . "#3C9F79")
-        (280 . ,cyan)
-        (300 . "#299BA6")
-        (320 . "#2896B5")
-        (340 . "#2790C3")
-        (360 . ,blue)))
+       '((20 . ,red)
+         (40 . "#CF4F1F")
+         (60 . "#C26C0F")
+         (80 . ,yellow)
+         (100 . "#AB8C00")
+         (120 . "#A18F00")
+         (140 . "#989200")
+         (160 . "#8E9500")
+         (180 . ,green)
+         (200 . "#729A1E")
+         (220 . "#609C3C")
+         (240 . "#4E9D5B")
+         (260 . "#3C9F79")
+         (280 . ,cyan)
+         (300 . "#299BA6")
+         (320 . "#2896B5")
+         (340 . "#2790C3")
+         (360 . ,blue)))
      `(vc-annotate-very-old-color nil)
      `(vc-annotate-background nil)
 
