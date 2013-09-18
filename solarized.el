@@ -409,10 +409,10 @@ customize the resulting theme."
      `(ac-yasnippet-selection-face ((,class (:background ,yellow-lc :foreground ,yellow-hc))))
 
      ;; auto highlight symbol
-     `(ahs-definition-face ((,class (:foreground ,magenta :background ,solarized-bg
+     `(ahs-definition-face ((,class (:foreground ,magenta :background unspecified
                                                  :slant normal))))
      `(ahs-edit-mode-face ((,class (:foreground ,solarized-bg :background ,magenta))))
-     `(ahs-face ((,class (:foreground ,magenta :background ,solarized-bg))))
+     `(ahs-face ((,class (:foreground ,magenta :background unspecified))))
      `(ahs-plugin-bod-face ((,class (:foreground ,magenta :background unspecified ))))
      `(ahs-plugin-defalt-face ((,class (:foreground ,magenta :background unspecified))))
      `(ahs-plugin-whole-buffer-face ((,class (:foreground ,magenta  :background unspecified))))
