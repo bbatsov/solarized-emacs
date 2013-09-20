@@ -520,6 +520,13 @@ customize the resulting theme."
      `(ediff-odd-diff-C ((,class (:background ,solarized-comments
                                               :foreground ,solarized-bg ))))
 
+     ;; elfeed
+     `(elfeed-search-date-face ((,class (:foreground ,solarized-comments))))
+     `(elfeed-search-feed-face ((,class (:foreground ,cyan))))
+     `(elfeed-search-tag-face ((,class (:foreground ,solarized-emph))))
+     `(elfeed-search-title-face ((,class (:foreground ,solarized-fg))))
+
+
      ;; epc
      `(epc:face-title ((,class (:foreground ,blue :background ,solarized-bg
                                             :weight normal :underline nil))))
