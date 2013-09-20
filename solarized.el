@@ -522,8 +522,8 @@ customize the resulting theme."
 
      ;; elfeed
      `(elfeed-search-date-face ((,class (:foreground ,solarized-comments))))
-     `(elfeed-search-feed-face ((,class (:foreground ,cyan))))
-     `(elfeed-search-tag-face ((,class (:foreground ,solarized-emph))))
+     `(elfeed-search-feed-face ((,class (:foreground ,solarized-comments))))
+     `(elfeed-search-tag-face ((,class (:foreground ,solarized-fg))))
      `(elfeed-search-title-face ((,class (:foreground ,solarized-fg))))
 
 
@@ -866,15 +866,17 @@ customize the resulting theme."
 
      ;; message-mode
      `(message-cited-text ((,class (:foreground ,solarized-comments))))
-     `(message-header-name ((,class (:foreground ,green))))
-     `(message-header-other ((,class (:foreground ,green))))
-     `(message-header-to ((,class (:foreground ,yellow :weight bold))))
-     `(message-header-cc ((,class (:foreground ,orange :weight bold))))
+     `(message-header-name ((,class (:foreground ,solarized-comments))))
+     `(message-header-other ((,class (:foreground ,solarized-fg :weight normal))))
+     `(message-header-to ((,class (:foreground ,solarized-fg :weight normal))))
+     `(message-header-cc ((,class (:foreground ,solarized-fg :weight normal))))
      `(message-header-newsgroups ((,class (:foreground ,yellow :weight bold))))
-     `(message-header-subject ((,class (:foreground ,orange))))
+     `(message-header-subject ((,class (:foreground ,cyan :weight normal))))
      `(message-header-xheader ((,class (:foreground ,cyan))))
      `(message-mml ((,class (:foreground ,yellow :weight bold))))
      `(message-separator ((,class (:foreground ,solarized-comments :slant italic))))
+
+
 
      ;; mew
      `(mew-face-header-subject ((,class (:foreground ,orange))))
@@ -938,11 +940,34 @@ customize the resulting theme."
      `(mu4e-cited-6-face ((,class (:foreground ,green :slant italic :weight normal))))
      `(mu4e-cited-7-face ((,class (:foreground ,blue :slant italic :weight normal))))
      `(mu4e-flagged-face ((,class (:foreground ,magenta :weight bold))))
-     `(mu4e-view-url-number-face ((,class (:foreground ,orange :weight bold))))
+     `(mu4e-view-url-number-face ((,class (:foreground ,yellow :weight normal))))
      `(mu4e-warning-face ((,class (:foreground ,red :slant normal :weight bold))))
      `(mu4e-header-highlight-face
        ((,class (:inherit unspecified :foreground unspecified :background ,solarized-hl
                           :underline ,solarized-emph  :weight normal))))
+
+     ;; `(mu4e-draft-face ((,class (:inherit font-lock-string-face))))
+     ;; `(mu4e-footer-face ((,class (:inherit font-lock-comment-face))))
+     ;; `(mu4e-forwarded-face ((,class (:inherit font-lock-builtin-face :weight normal))))
+     ;; `(mu4e-header-face ((,class (:inherit default))))
+     ;; `(mu4e-header-marks-face ((,class (:inherit font-lock-preprocessor-face))))
+     ;; `(mu4e-header-title-face ((,class (:inherit font-lock-type-face))))
+     ;; `(mu4e-highlight-face ((,class (:inherit font-lock-pseudo-keyword-face :weight bold))))
+     ;; `(mu4e-moved-face ((,class (:inherit font-lock-comment-face :slant italic))))
+     ;; `(mu4e-ok-face ((,class (:inherit font-lock-comment-face :slant normal :weight bold))))
+     ;; `(mu4e-replied-face ((,class (:inherit font-lock-builtin-face :weight normal))))
+     ;; `(mu4e-system-face ((,class (:inherit font-lock-comment-face :slant italic))))
+     ;; `(mu4e-title-face ((,class (:inherit font-lock-type-face :weight bold))))
+     ;; `(mu4e-trashed-face ((,class (:inherit font-lock-comment-face :strike-through t))))
+     ;; `(mu4e-unread-face ((,class (:inherit font-lock-keyword-face :weight bold))))
+     ;; `(mu4e-view-attach-number-face ((,class (:inherit font-lock-variable-name-face :weight bold))))
+     `(mu4e-view-contact-face ((,class (:foreground ,solarized-fg  :weight normal))))
+     `(mu4e-view-header-key-face ((,class (:inherit message-header-name :weight normal))))
+     `(mu4e-view-header-value-face ((,class (:foreground ,cyan :weight normal :slant normal))))
+     `(mu4e-view-link-face ((,class (:inherit link))))
+     `(mu4e-view-special-header-value-face ((,class (:foreground ,blue :weight normal :underline nil
+                                                                 ))))
+
 
      ;; mumamo
      `(mumamo-background-chunk-submode1 ((,class (:background ,solarized-hl))))
