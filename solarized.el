@@ -524,7 +524,7 @@ customize the resulting theme."
      `(elfeed-search-date-face ((,class (:foreground ,solarized-comments))))
      `(elfeed-search-feed-face ((,class (:foreground ,solarized-comments))))
      `(elfeed-search-tag-face ((,class (:foreground ,solarized-fg))))
-     `(elfeed-search-title-face ((,class (:foreground ,solarized-fg))))
+     `(elfeed-search-title-face ((,class (:foreground ,cyan))))
 
 
      ;; epc
