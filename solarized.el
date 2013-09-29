@@ -425,6 +425,9 @@ customize the resulting theme."
      `(android-mode-verbose-face ((,class (:foreground ,solarized-comments))))
      `(android-mode-warning-face ((,class (:foreground ,yellow))))
 
+     ;; anzu-mode
+     `(anzu-mode-line ((,class (:foreground ,magenta :weight bold))))
+
      ;; bm
      `(bm-face ((,class (:background ,yellow-lc :foreground ,solarized-bg))))
      `(bm-fringe-face ((,class (:background ,yellow-lc :foreground ,solarized-bg))))
