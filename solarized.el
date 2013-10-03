@@ -1308,6 +1308,9 @@ customize the resulting theme."
      `(web-mode-builtin-face ((,class (:foreground ,red))))
      `(web-mode-comment-face ((,class (:foreground ,solarized-comments))))
      `(web-mode-constant-face ((,class (:foreground ,blue :weight bold))))
+     `(web-mode-current-element-highlight-face ((,class
+                                                 (:underline nil :weight normal
+                                                             :background ,solarized-hl))))
      `(web-mode-css-at-rule-face ((,class (:foreground ,violet :slant italic))))
      `(web-mode-css-prop-face ((,class (:foreground ,violet))))
      `(web-mode-css-pseudo-class-face ((,class (:foreground ,green :slant italic))))
