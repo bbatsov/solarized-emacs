@@ -592,10 +592,16 @@ customize the resulting theme."
        ((,(append '((supports :underline (:style wave))) class)
          (:underline (:style wave :color ,yellow) :inherit unspecified))
         (,class (:foreground ,yellow-hc :background ,yellow-lc :weight bold :underline t))))
+     `(flycheck-info
+       ((,(append '((supports :underline (:style wave))) class)
+         (:underline (:style wave :color ,blue) :inherit unspecified))
+        (,class (:foreground ,yellow-hc :background ,yellow-lc :weight bold :underline t))))
      `(flycheck-fringe-error
        ((,class (:foreground ,red-hc :background ,red-lc :weight bold))))
      `(flycheck-fringe-warning
        ((,class (:foreground ,yellow-hc :background ,yellow-lc :weight bold))))
+     `(flycheck-fringe-info
+       ((,class (:foreground ,blue-hc :background ,blue-lc :weight bold))))
 
      ;; flyspell
      `(flyspell-duplicate
