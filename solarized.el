@@ -595,7 +595,7 @@ customize the resulting theme."
      `(flycheck-info
        ((,(append '((supports :underline (:style wave))) class)
          (:underline (:style wave :color ,blue) :inherit unspecified))
-        (,class (:foreground ,yellow-hc :background ,yellow-lc :weight bold :underline t))))
+        (,class (:foreground ,blue-hc :background ,blue-lc :weight bold :underline t))))
      `(flycheck-fringe-error
        ((,class (:foreground ,red-hc :background ,red-lc :weight bold))))
      `(flycheck-fringe-warning
