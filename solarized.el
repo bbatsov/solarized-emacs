@@ -560,6 +560,8 @@ customize the resulting theme."
                                              :underline t :slant italic))))
      `(fic-face ((,class (:background ,solarized-bg :foreground ,orange
                                       :weight normal :slant italic))))
+     `(font-lock-fic-face ((,class (:background ,solarized-bg :foreground ,orange
+                                      :weight normal :slant italic))))
 
      ;; flx
      `(flx-highlight-face ((,class (:foreground ,blue
