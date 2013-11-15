@@ -464,6 +464,15 @@ customize the resulting theme."
      `(clojure-test-error-face ((t (:foreground ,red :weight bold :underline t))))
      `(clojure-test-success-face ((t (:foreground ,green :weight bold :underline t))))
 
+     ;; company-mode
+     `(company-tooltip ((,class (:background ,solarized-hl :foreground ,cyan))))
+     `(company-tooltip-selection ((,class (:background ,cyan-lc :foreground ,cyan-hc))))
+     `(company-tooltip-mouse ((,class (:background ,cyan-hc :foreground ,cyan-lc))))
+     `(company-tooltip-common ((,class (:foreground ,solarized-emph :underline t))))
+     `(company-tooltip-common-selection ((,class (:foreground ,solarized-emph :underline t))))
+     `(company-preview ((,class (:background ,solarized-hl :foreground ,cyan))))
+     `(company-preview-common ((,class (:foreground ,solarized-emph :underline t))))
+
      ;; cscope
      `(cscope-file-face ((,class (:foreground ,green :weight bold))))
      `(cscope-function-face ((,class (:foreground ,blue))))
