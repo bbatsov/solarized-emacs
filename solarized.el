@@ -538,6 +538,23 @@ customize the resulting theme."
      `(diff-hl-insert ((,class (:background ,green-lc  :foreground ,green-hc))))
      `(diff-hl-unknown ((,class (:background ,cyan-lc   :foreground ,cyan-hc))))
 
+     ;; edts
+     `(edts-face-error-line
+       ((,(append '((supports :underline (:style line))) class)
+         (:underline (:style line :color ,(if (eq variant 'light) red-l red)) :inherit unspecified))
+        (,class (:foreground ,red-hc :background ,red-lc :weight bold :underline t))))
+     `(edts-face-warning-line
+       ((,(append '((supports :underline (:style line))) class)
+         (:underline (:style line :color ,(if (eq variant 'light) yellow-l yellow)) :inherit unspecified))
+        (,class (:foreground ,yellow-hc :background ,yellow-lc :weight bold :underline t))))
+     `(edts-face-error-fringe-bitmap
+       ((,class (:foreground ,(if (eq variant 'light) red-l red) :background unspecified :weight bold))))
+     `(edts-face-warning-fringe-bitmap
+       ((,class (:foreground ,(if (eq variant 'light) yellow-l yellow) :background unspecified :weight bold))))
+     `(edts-face-error-mode-line
+       ((,class (:background ,(if (eq variant 'light) red-l red) :foreground unspecified))))
+     `(edts-face-warning-mode-line
+       ((,class (:background ,(if (eq variant 'light) yellow-l yellow) :foreground unspecified))))
 
      ;; elfeed
      `(elfeed-search-date-face ((,class (:foreground ,solarized-comments))))
