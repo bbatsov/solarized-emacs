@@ -15,7 +15,7 @@ customizations and `deftheme` and does not require the
 Download `solarized.el`, `solarized-dark-theme.el` and
 `solarized-light-theme.el`.
 
-Place `solarized.el` is a folder that's on your Emacs' `load-path`.
+Place `solarized.el` in a folder that's on your Emacs' `load-path`.
 Afterward place `solarized-dark-theme.el` and
 `solarized-light-theme.el` in `~/.emacs.d/themes` (or some other
 folder if you prefer so). Add this your
