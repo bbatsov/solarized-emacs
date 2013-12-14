@@ -795,6 +795,9 @@ customize the resulting theme."
      `(helm-separator ((,class (:foreground ,red))))
      `(helm-source-header ((,class (:background ,blue-lc :foreground ,solarized-bg
                                                 :underline nil))))
+     `(helm-swoop-target-line-face ((,class (:background ,solarized-hl))))
+     `(helm-swoop-target-line-block-face ((,class (:background ,solarized-hl))))
+     `(helm-swoop-target-word-face ((,class (:foreground ,magenta :background unspecified))))
      `(helm-time-zone-current ((,class (:foreground ,green))))
      `(helm-time-zone-home ((,class (:foreground ,red))))
      `(helm-visible-mark ((,class (:background ,solarized-bg :foreground ,magenta :bold t))))
