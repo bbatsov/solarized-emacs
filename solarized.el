@@ -589,6 +589,11 @@ customize the resulting theme."
      `(font-lock-fic-face ((,class (:background ,solarized-bg :foreground ,orange
                                       :weight normal :slant italic))))
 
+     ;; fixmee
+     `(fixmee-notice-face ((,class (:background nil :foreground ,solarized-emph
+                                             :underline nil :slant italic :weight bold))))
+
+
      ;; flx
      `(flx-highlight-face ((,class (:foreground ,blue
                                                 :weight normal :underline nil))))
