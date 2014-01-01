@@ -50,7 +50,7 @@ The theme has to be reloaded after changing anything in this group."
 
 (defcustom solarized-distinct-fringe-background nil
   "Make the fringe background different from the normal background color.
-Also affects linum-mode background."
+Also affects `linum-mode' background."
   :type 'boolean
   :group 'solarized)
 
