@@ -1,4 +1,4 @@
-# Prelude
+# Solarized for Emacs
 
 Solarized for Emacs is an Emacs port of the [Solarized theme for vim](http://ethanschoonover.com/solarized),
 developed by Ethan Schoonover.
