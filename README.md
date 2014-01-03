@@ -41,7 +41,7 @@ with `M-x load-theme`.
 # Customisations
 
 If you don't like low-contrast modeline or fringe, you can `customize` them either by doing `M-x customize-group solarized` or setting the values using elisp code:
-```emacs
+```lisp
 ;; make the fringe stand out from the background
 (setq solarized-distinct-fringe-background t)
 
