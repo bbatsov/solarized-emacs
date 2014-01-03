@@ -89,6 +89,32 @@ Also affects `linum-mode' background."
   :type 'number
   :group 'solarized)
 
+(defmacro solarized-declare-customizations-for-group (group prefix)
+  (let ((customs '(height-minus-1
+  		   height-plus-1
+  		   height-plus-2
+  		   height-plus-3
+  		   height-plus-4
+  		   use-variable-pitch))
+	(prefix-str (symbol-name prefix))
+	(sp "solarized-"))
+    `(progn
+       (defgroup ,(intern (concat sp prefix-str)) nil
+	 ,(concat "Solarized theme options for " group ".")
+	 :group 'solarized)
+       ,@(mapcar
+	  (lambda (c)
+	    (let ((sgc (intern (concat sp (symbol-name c)))))
+	      `(defcustom ,(intern (concat sp prefix-str "-" (symbol-name c)))
+		 ,sgc
+		 ,(get sgc 'variable-documentation)
+		 :type ',(get sgc 'custom-type)
+		 :group ',(intern (concat sp prefix-str)))))
+	  customs))))
+
+(solarized-declare-customizations-for-group "Org Mode" org)
+
+
 (defun create-solarized-theme (variant theme-name &optional childtheme)
   "Create a VARIANT of the theme named THEME-NAME.
 
@@ -1130,7 +1156,7 @@ customize the resulting theme."
      ;; org-mode
      `(org-agenda-structure
        ((,class (:foreground ,solarized-emph :background ,solarized-hl
-                             :weight bold :slant normal :inverse-video nil :height ,solarized-height-plus-1
+                             :weight bold :slant normal :inverse-video nil :height ,solarized-org-height-plus-1
                              :underline nil
                              :box (:line-width 2 :color ,solarized-bg)))))
      `(org-agenda-calendar-event ((,class (:foreground ,solarized-emph))))
@@ -1160,13 +1186,13 @@ customize the resulting theme."
      `(org-formula ((,class (:foreground ,yellow))))
      `(org-headline-done ((,class (:foreground ,green))))
      `(org-hide ((,class (:foreground ,solarized-bg))))
-     `(org-level-1 ((,class (:inherit ,s-variable-pitch :height ,solarized-height-plus-4
+     `(org-level-1 ((,class (:inherit ,s-variable-pitch :height ,solarized-org-height-plus-4
                                       :foreground ,orange))))
-     `(org-level-2 ((,class (:inherit ,s-variable-pitch :height ,solarized-height-plus-3
+     `(org-level-2 ((,class (:inherit ,s-variable-pitch :height ,solarized-org-height-plus-3
                                       :foreground ,green))))
-     `(org-level-3 ((,class (:inherit ,s-variable-pitch :height ,solarized-height-plus-2
+     `(org-level-3 ((,class (:inherit ,s-variable-pitch :height ,solarized-org-height-plus-2
                                       :foreground ,blue))))
-     `(org-level-4 ((,class (:inherit ,s-variable-pitch :height ,solarized-height-plus-1
+     `(org-level-4 ((,class (:inherit ,s-variable-pitch :height ,solarized-org-height-plus-1
                                       :foreground ,yellow))))
      `(org-level-5 ((,class (:inherit ,s-variable-pitch
                                       :foreground ,cyan))))
@@ -1206,7 +1232,7 @@ customize the resulting theme."
      `(org-column-title ((,class (:background ,solarized-hl :underline t :weight bold))))
      `(org-date-selected ((,class (:foreground ,red :inverse-video t))))
      `(org-document-info ((,class (:foreground ,solarized-fg))))
-     `(org-document-title ((,class (:foreground ,solarized-emph  :weight bold :height ,solarized-height-plus-4))))
+     `(org-document-title ((,class (:foreground ,solarized-emph  :weight bold :height ,solarized-org-height-plus-4))))
      `(org-drawer ((,class (:foreground ,cyan))))
      `(org-footnote ((,class (:foreground ,magenta :underline t))))
      `(org-latex-and-export-specials ((,class (:foreground ,orange))))
