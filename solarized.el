@@ -290,6 +290,13 @@ customize the resulting theme."
      `(ee-omitted ((,class (:foreground ,solarized-comments))))
      `(ee-shadow ((,class (:inherit shadow))))
 
+     ;; enh-ruby-mode
+     `(enh-ruby-string-delimiter-face ((,class (:foreground ,yellow))))
+     `(enh-ruby-heredoc-delimiter-face ((,class (:inherit enh-ruby-string-delimiter-face))))
+     `(enh-ruby-regexp-delimiter-face ((,class (:inherit enh-ruby-string-delimiter-face))))
+     `(enh-ruby-op-face ((,class (:inherit default))))
+     `(erm-syn-errline ((,class (:inherit flymake-errline))))
+     `(erm-syn-warnline ((,class (:inherit flymake-warnline))))
 
      ;; grep
      `(grep-context-face ((,class (:foreground ,solarized-fg))))
@@ -1551,13 +1558,7 @@ customize the resulting theme."
      ;; zencoding
      `(zencoding-preview-input ((,class (:background ,solarized-hl :box ,solarized-emph))))
 
-     ;; enh-ruby-mode
-     `(enh-ruby-string-delimiter-face ((,class (:foreground ,red))))
-     `(enh-ruby-heredoc-delimiter-face ((,class (:inherit enh-ruby-string-delimiter-face))))
-     `(enh-ruby-regexp-delimiter-face ((,class (:inherit enh-ruby-string-delimiter-face))))
-     `(enh-ruby-op-face ((,class (:inherit default))))
-     `(erm-syn-errline ((,class (:inherit flymake-errline))))
-     `(erm-syn-warnline ((,class (:inherit flymake-warnline)))))
+     )
 
 
     (custom-theme-set-variables
