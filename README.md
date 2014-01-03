@@ -21,7 +21,9 @@ Afterward place `solarized-dark-theme.el` and
 folder if you prefer so). Add this your
 `.emacs.d`:
 
-`(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")`
+```lisp
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+```
 
 Now you can load the theme with the interactive function `load-theme`.
 
