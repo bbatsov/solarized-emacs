@@ -96,19 +96,19 @@ When optional argument CHILDTHEME function is supplied it's invoked to further
 customize the resulting theme."
   (let* ((class '((class color) (min-colors 89)))
          ;; Solarized palette
-         (base03    "#002b36")
-         (base02    "#073642")
+         (s-base03    "#002b36")
+         (s-base02    "#073642")
          ;; emphasized content
-         (base01    "#586e75")
+         (s-base01    "#586e75")
          ;; primary content
-         (base00    "#657b83")
-         (base0     "#839496")
+         (s-base00    "#657b83")
+         (s-base0     "#839496")
          ;; comments
-         (base1     "#93a1a1")
+         (s-base1     "#93a1a1")
          ;; background highlight light
-         (base2     "#eee8d5")
+         (s-base2     "#eee8d5")
          ;; background light
-         (base3     "#fdf6e3")
+         (s-base3     "#fdf6e3")
 
          ;; Solarized accented colors
          (yellow    "#b58900")
@@ -140,16 +140,26 @@ customize the resulting theme."
          (green-l   "#B4C342")
 
          ;; Light/Dark adaptive solarized colors
-         (solarized-fg (if (eq variant 'light) base00 base0))
-         (solarized-bg (if (eq variant 'light) base3 base03))
-         (solarized-hl (if (eq variant 'light) base2 base02))
-         (solarized-emph (if (eq variant 'light) base01 base1))
-         (solarized-comments (if (eq variant 'light) base1 base01))
+         (solarized-fg (if (eq variant 'light) s-base00 s-base0))
+         (solarized-bg (if (eq variant 'light) s-base3 s-base03))
+         (solarized-hl (if (eq variant 'light) s-base2 s-base02))
+         (solarized-emph (if (eq variant 'light) s-base01 s-base1))
+         (solarized-comments (if (eq variant 'light) s-base1 s-base01))
 
          ;; Light/Dark adaptive higher/lower contrast accented colors
          ;; Only use these in exceptional cirmumstances!
-         (solarized-fg-hc (if (eq variant 'light) base3 base03))
-         (solarized-fg-lc (if (eq variant 'light) base03 base3))
+         (solarized-fg-hc (if (eq variant 'light) s-base3 s-base03))
+         (solarized-fg-lc (if (eq variant 'light) s-base03 s-base3))
+
+         ;; Solarized palette names instead of -fg -bg which can be more confusing.
+         (base0 (if (eq variant 'light) s-base00 s-base0))
+         (base00 (if (eq variant 'light) s-base0 s-base00))
+         (base1 (if (eq variant 'light) s-base01 s-base1))
+         (base01 (if (eq variant 'light) s-base1 s-base01))
+         (base2 (if (eq variant 'light) s-base02 s-base2))
+         (base02 (if (eq variant 'light) s-base2 s-base02))
+         (base3 (if (eq variant 'light) s-base03 s-base3))
+         (base03 (if (eq variant 'light) s-base3 s-base03))
 
          (yellow-hc (if (eq variant 'light) yellow-d yellow-l))
          (yellow-lc (if (eq variant 'light) yellow-l yellow-d))
