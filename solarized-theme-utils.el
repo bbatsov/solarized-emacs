@@ -65,8 +65,8 @@ in the format of solarized-theme.el."
                          "")))))
 	  faces)))
 
-
-
+;; Local Variables:
+;; byte-compile-warnings: (not cl-functions)
+;; End:
 (provide 'solarized-theme-utils)
-
 ;;; solarized-theme-utils.el ends here
