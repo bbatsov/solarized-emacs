@@ -1494,6 +1494,7 @@ customize the resulting theme."
      `(web-mode-part-string-face ((,class (:inherit web-mode-string-face))))
      `(web-mode-symbol-face ((,class (:foreground ,yellow))))
      `(web-mode-whitespace-face ((,class (:background ,red))))
+     `(web-mode-html-tag-bracket-face ((,class (:foreground ,base01))))
 
      ;; whitespace-mode
      `(whitespace-space ((,class (:background unspecified :foreground ,base01
