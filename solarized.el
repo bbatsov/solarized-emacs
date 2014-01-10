@@ -334,7 +334,8 @@ customize the resulting theme."
                                 :foreground ,s-mode-line-fg
                                 :background ,s-mode-line-bg
                                 :box (:line-width 1 :color ,s-mode-line-bg
-                                                  :style unspecified)))))
+                                                  :style unspecified)
+                                ))))
      `(mode-line-buffer-id ((,class (:foreground ,s-mode-line-buffer-id-fg :weight bold))))
      `(mode-line-inactive
        ((,class (:inverse-video unspecified
@@ -342,14 +343,16 @@ customize the resulting theme."
                                 :foreground ,s-mode-line-inactive-fg
                                 :background ,s-mode-line-inactive-bg
                                 :box (:line-width 1 :color ,s-mode-line-inactive-bc
-                                                  :style unspecified)))))
+                                                  :style unspecified)
+                                ))))
      `(header-line
        ((,class (:inverse-video unspecified
                                 :underline unspecified
                                 :foreground ,base1
                                 :background ,base02
                                 :box (:line-width 1 :color ,base02
-                                                  :style unspecified)))))
+                                                  :style unspecified)
+                                ))))
      `(region ((,class (:foreground ,base03 :background ,base1))))
      `(secondary-selection ((,class (:background ,base02))))
 
@@ -1164,7 +1167,8 @@ customize the resulting theme."
      `(org-block ((,class (:foreground ,base01))))
      `(org-block-begin-line ((,class (:foreground ,base01 :slant italic))))
      `(org-checkbox ((,class (:background ,base03 :foreground ,base0
-                                          :box (:line-width 1 :style released-button)))))
+                                          :box (:line-width 1 :style released-button))
+                            )))
      `(org-code ((,class (:foreground ,base01))))
      `(org-date ((,class (:foreground ,blue :underline t))))
      `(org-done ((,class (:weight bold :foreground ,green))))
