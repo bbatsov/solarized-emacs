@@ -1149,17 +1149,17 @@ customize the resulting theme."
      `(org-agenda-calendar-sexp ((,class (:foreground ,base0 :slant italic))))
      `(org-agenda-date
        ((,class (:foreground ,base01 :background ,base03 :weight normal
-                             :inverse-video nil :overline nil :slant normal :height 1.0
-                             :box (:line-width 2 :color ,base03)))) t)
+                             :box (:line-width 2 :color ,base03)
+                             :inverse-video nil :overline nil :slant normal :height 1.0))))
      `(org-agenda-date-weekend
        ((,class (:inherit org-agenda-date :inverse-video nil :background unspecified
                           :foreground ,base01 :weight unspecified
-                          :underline t :overline nil :box unspecified))) t)
+                          :underline t :overline nil :box unspecified))))
      `(org-agenda-date-today
        ((,class (:inherit org-agenda-date :inverse-video t :weight bold
                           :underline unspecified :overline nil :box unspecified
-                          :foreground ,blue :background ,base03))) t)
-     `(org-agenda-done ((,class (:foreground ,base01 :slant italic))) t)
+                          :foreground ,blue :background ,base03))))
+     `(org-agenda-done ((,class (:foreground ,base01 :slant italic))))
      `(org-archived ((,class (:foreground ,base01 :weight normal))))
      `(org-block ((,class (:foreground ,base01))))
      `(org-block-begin-line ((,class (:foreground ,base01 :slant italic))))
