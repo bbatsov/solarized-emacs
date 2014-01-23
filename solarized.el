@@ -827,6 +827,15 @@ customize the resulting theme."
      `(helm-time-zone-home ((,class (:foreground ,red))))
      `(helm-visible-mark ((,class (:background ,base03 :foreground ,magenta :bold t))))
 
+     ;;; helm-css-scss
+     `(helm-css-scss-selector-depth-face-1 ((,class (:foreground ,base0))))
+     `(helm-css-scss-selector-depth-face-2 ((,class (:foreground ,blue))))
+     `(helm-css-scss-selector-depth-face-3 ((,class (:foreground ,cyan))))
+     `(helm-css-scss-selector-depth-face-4 ((,class (:foreground ,green))))
+     `(helm-css-scss-selector-depth-face-5 ((,class (:foreground ,yellow))))
+     `(helm-css-scss-selector-depth-face-6 ((,class (:foreground ,violet))))
+     `(helm-css-scss-target-line-face ((,class (:background unspecified :foreground ,magenta))))
+
      ;; helm-swoop
      `(helm-swoop-target-line-face ((,class (:foreground unspecified :background ,base02))))
      `(helm-swoop-target-line-block-face ((,class (:foreground unspecified :background ,base02))))
