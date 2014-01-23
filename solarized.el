@@ -1247,6 +1247,11 @@ customize the resulting theme."
      ;; pretty-mode
      `(pretty-mode-symbol-face  ((,class (:foreground ,yellow :weight normal))))
 
+     ;; prodigy
+     `(prodigy-green-face ((,class (:foreground ,green))))
+     `(prodigy-red-face ((,class (:foreground ,orange))))
+     `(prodigy-yellow-face ((,class (:foreground ,yellow))))
+
      ;; popup
      `(popup-face ((,class (:background ,base02 :foreground ,base0))))
      `(popup-isearch-match ((,class (:background ,yellow :foreground ,base03))))
