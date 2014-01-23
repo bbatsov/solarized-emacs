@@ -822,12 +822,15 @@ customize the resulting theme."
      `(helm-separator ((,class (:foreground ,red))))
      `(helm-source-header ((,class (:background ,blue-lc :foreground ,base03
                                                 :underline nil))))
-     `(helm-swoop-target-line-face ((,class (:background ,base02))))
-     `(helm-swoop-target-line-block-face ((,class (:background ,base02))))
-     `(helm-swoop-target-word-face ((,class (:foreground ,magenta :background unspecified))))
+
      `(helm-time-zone-current ((,class (:foreground ,green))))
      `(helm-time-zone-home ((,class (:foreground ,red))))
      `(helm-visible-mark ((,class (:background ,base03 :foreground ,magenta :bold t))))
+
+     ;; helm-swoop
+     `(helm-swoop-target-line-face ((,class (:foreground unspecified :background ,base02))))
+     `(helm-swoop-target-line-block-face ((,class (:foreground unspecified :background ,base02))))
+     `(helm-swoop-target-word-face ((,class (:foreground ,magenta :background unspecified))))
 
      ;; hi-lock-mode
      `(hi-yellow ((,class (:foreground ,yellow-lc :background ,yellow-hc))))
