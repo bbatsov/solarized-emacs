@@ -1320,29 +1320,29 @@ customize the resulting theme."
      `(sp-show-pair-enclosing ((,class (:inherit highlight))))
      `(sp-show-pair-match-face
        ((,class (:background unspecified :foreground ,magenta
-                             :weight normal))))
+                             :weight unspecified))))
      `(sp-show-pair-mismatch-face
        ((,class (:foreground ,base02 :background ,red
-                             :weight normal))))
+                             :weight unspecified))))
 
      ;; show-paren
      `(show-paren-match
        ((,class (:foreground ,magenta :background unspecified
-                             :weight normal))))
+                             :weight unspecified))))
      `(show-paren-mismatch
        ((,class (:foreground ,base02 :background ,red
-                             :weight normal))))
+                             :weight unspecified))))
 
      ;; mic-paren
      `(paren-face-match
        ((,class (:foreground ,magenta :background unspecified
-                             :weight normal))))
+                             :weight unspecified))))
      `(paren-face-mismatch
        ((,class (:foreground ,base02 :background ,red
-                             :weight normal))))
+                             :weight unspecified))))
      `(paren-face-no-match
        ((,class (:foreground ,base02 :background ,red
-                             :weight normal))))
+                             :weight unspecified))))
 
      ;; SLIME
      `(slime-repl-inputed-output-face ((,class (:foreground ,red))))
