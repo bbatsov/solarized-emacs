@@ -1319,30 +1319,30 @@ customize the resulting theme."
      `(sp-wrap-tag-overlay-face ((,class (:background ,base02))))
      `(sp-show-pair-enclosing ((,class (:inherit highlight))))
      `(sp-show-pair-match-face
-       ((,class (:foreground ,cyan :background ,base03
-                             :weight normal :inverse-video t))))
+       ((,class (:background unspecified :foreground ,magenta
+                             :weight normal))))
      `(sp-show-pair-mismatch-face
-       ((,class (:foreground ,red :background ,base03
-                             :weight normal :inverse-video t))))
+       ((,class (:foreground ,base02 :background ,red
+                             :weight normal))))
 
      ;; show-paren
      `(show-paren-match
-       ((,class (:foreground ,cyan :background ,base03
-                             :weight normal :inverse-video t))))
+       ((,class (:foreground ,magenta :background unspecified
+                             :weight normal))))
      `(show-paren-mismatch
-       ((,class (:foreground ,red :background ,base03
-                             :weight normal :inverse-video t))))
+       ((,class (:foreground ,base02 :background ,red
+                             :weight normal))))
 
      ;; mic-paren
      `(paren-face-match
-       ((,class (:foreground ,cyan :background ,base03
-                             :weight normal :inverse-video t))))
+       ((,class (:foreground ,magenta :background unspecified
+                             :weight normal))))
      `(paren-face-mismatch
-       ((,class (:foreground ,red :background ,base03
-                             :weight normal :inverse-video t))))
+       ((,class (:foreground ,base02 :background ,red
+                             :weight normal))))
      `(paren-face-no-match
-       ((,class (:foreground ,red :background ,base03
-                             :weight normal :inverse-video t))))
+       ((,class (:foreground ,base02 :background ,red
+                             :weight normal))))
 
      ;; SLIME
      `(slime-repl-inputed-output-face ((,class (:foreground ,red))))
