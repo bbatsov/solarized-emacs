@@ -448,7 +448,7 @@ customize the resulting theme."
      `(android-mode-warning-face ((,class (:foreground ,yellow))))
 
      ;; anzu-mode
-     `(anzu-mode-line ((,class (:foreground ,magenta :weight bold))))
+     `(anzu-mode-line ((,class (:foreground ,yellow :weight bold))))
 
      ;; bm
      `(bm-face ((,class (:background ,yellow-lc :foreground ,base03))))
