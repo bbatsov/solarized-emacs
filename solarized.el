@@ -1313,6 +1313,10 @@ customize the resulting theme."
      `(sh-escaped-newline ((,class (:foreground ,yellow :weight bold))))
      `(sh-heredoc ((,class (:foreground ,yellow :weight bold))))
 
+     ;; skewer-mode
+     `(skewer-error-face ((,class (:foreground ,orange :underline nil))))
+     `(skewer-repl-log-face ((,class (:foreground ,violet))))
+
      ;; smartparens
      `(sp-pair-overlay-face ((,class (:background ,base02))))
      `(sp-wrap-overlay-face ((,class (:background ,base02))))
