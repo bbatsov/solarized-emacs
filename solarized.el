@@ -1337,6 +1337,30 @@ customize the resulting theme."
        ((,class (:foreground ,base02 :background ,red
                              :weight unspecified))))
 
+     ;; syslog-mode
+     `(syslog-ip ((,class (:background unspecified
+                                       :foreground ,green
+                                       :underline nil
+                                       :weight normal
+                                       :slant normal))))
+     `(syslog-hour ((,class (:background unspecified
+                                         :foreground ,yellow))))
+     `(syslog-error ((,class (:background unspecified
+                                          :foreground ,orange
+                                          :weight bold))))
+     `(syslog-warn ((,class (:background unspecified
+                                         :foreground ,yellow
+                                         :weight bold))))
+     `(syslog-info ((,class (:background unspecified
+                                         :foreground ,blue
+                                         :weight bold))))
+     `(syslog-debug ((,class (:background unspecified
+                                          :foreground ,cyan
+                                          :weight bold))))
+     `(syslog-su ((,class (:background unspecified
+                                       :foreground ,violet
+                                       :weight normal))))
+
      ;; mic-paren
      `(paren-face-match
        ((,class (:foreground ,magenta :background unspecified
@@ -1622,15 +1646,6 @@ customize the resulting theme."
      `(highlight-tail-colors
        '((,base02 . 0)(,green-lc . 20)(,cyan-lc . 30)(,blue-lc . 50)
          (,yellow-lc . 60)(,orange-lc . 70)(,magenta-lc . 85)(,base02 . 100)))
-
-     ;; syslog-mode
-     `(syslog-ip-face '((t :background unspecified :foreground ,yellow)))
-     `(syslog-hour-face '((t :background unspecified :foreground ,green)))
-     `(syslog-error-face '((t :background unspecified :foreground ,red :weight bold)))
-     `(syslog-warn-face '((t :background unspecified :foreground ,orange :weight bold)))
-     `(syslog-info-face '((t :background unspecified :foreground ,blue :weight bold)))
-     `(syslog-debug-face '((t :background unspecified :foreground ,cyan :weight bold)))
-     `(syslog-su-face '((t :background unspecified :foreground ,magenta)))
 
      ;; vc
      `(vc-annotate-color-map
