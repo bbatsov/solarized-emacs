@@ -584,13 +584,11 @@ customize the resulting theme."
      `(elfeed-search-date-face ((,class (:foreground ,base01))))
      `(elfeed-search-feed-face ((,class (:foreground ,base01))))
      `(elfeed-search-tag-face ((,class (:foreground ,base0))))
-     `(elfeed-search-title-face ((,class (:foreground ,cyan))))
-
+     `(elfeed-search-title-face ((,class (:foreground ,base0))))
 
      ;; epc
      `(epc:face-title ((,class (:foreground ,blue :background ,base03
                                             :weight normal :underline nil))))
-
 
      ;; eshell
      `(eshell-prompt ((,class (:foreground ,yellow :weight bold))))
