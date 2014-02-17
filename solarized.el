@@ -1584,9 +1584,8 @@ customize the resulting theme."
 
      ;; weechat
      `(weechat-error-face ((,class (:inherit error))))
-     `(weechat-highlight-face ((,class (:foreground ,base1 :weight bold))))
-     `(weechat-nick-self-face ((,class (:foreground ,green :weight unspecified
-                                                    :inverse-video t))))
+     `(weechat-highlight-face ((,class (:foreground ,base0 :weight bold))))
+     `(weechat-nick-self-face ((,class (:foreground ,base01 :weight unspecified))))
      `(weechat-prompt-face ((,class (:inherit minibuffer-prompt))))
      `(weechat-time-face ((,class (:foreground ,base01))))
 
