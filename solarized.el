@@ -1604,6 +1604,18 @@ customize the resulting theme."
      ;; zencoding
      `(zencoding-preview-input ((,class (:background ,base02 :box ,base1))))
 
+     ;; ztree
+     `(ztreep-arrow-face ((,class (:foreground ,s-base01))))
+     `(ztreep-diff-header-face ((,class (:foreground ,s-base01 :weight bold :height 1.2))))
+     `(ztreep-diff-header-small-face ((,class (:foreground ,s-base01 :weight bold))))
+     `(ztreep-diff-model-add-face ((,class (:foreground ,blue))))
+     `(ztreep-diff-model-diff-face ((,class (:foreground ,red))))
+     `(ztreep-diff-model-normal-face ((,class (:foreground ,s-base0))))
+     `(ztreep-expand-sign-face ((,class (:foreground ,s-base01))))
+     `(ztreep-header-face ((,class (:foreground ,s-base01 :weight bold :height 1.2))))
+     `(ztreep-leaf-face ((,class (:foreground  ,s-base0))))
+     `(ztreep-node-face ((,class (:foreground ,blue))))
+
      )
 
 
