@@ -1404,6 +1404,15 @@ customize the resulting theme."
      `(sr-clex-hotchar-face ((,class (:background ,red  :foreground ,base03
                                                   :weight bold))))
 
+     ;; swoop
+     `(swoop-face-header-format-line ((,class (:foreground ,yellow :weight bold
+                                                           :height unspecified))))
+     `(swoop-face-line-buffer-name ((,class (:background ,base02 :foreground ,base1
+                                                         :weight bold :height unspecified))))
+     `(swoop-face-line-number ((,class (:foreground ,base01))))
+     `(swoop-face-target-line ((,class (:background ,base02 :foreground unspecified))))
+     `(swoop-face-target-words ((,class (:background unspecified :foreground ,magenta))))
+
      ;; table
      `(table-cell ((,class (:foreground ,base0 :background ,base02))))
 
