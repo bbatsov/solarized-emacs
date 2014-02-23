@@ -1307,18 +1307,18 @@ customize the resulting theme."
      `(sp-show-pair-enclosing ((,class (:inherit highlight))))
      `(sp-show-pair-match-face
        ((,class (:background unspecified :foreground ,magenta
-                             :weight unspecified))))
+                             :weight bold))))
      `(sp-show-pair-mismatch-face
        ((,class (:foreground ,base02 :background ,red
-                             :weight unspecified))))
+                             :weight bold))))
 
      ;; show-paren
      `(show-paren-match
        ((,class (:foreground ,magenta :background unspecified
-                             :weight unspecified))))
+                             :weight bold))))
      `(show-paren-mismatch
        ((,class (:foreground ,base02 :background ,red
-                             :weight unspecified))))
+                             :weight bold))))
 
      ;; syslog-mode
      `(syslog-ip ((,class (:background unspecified
@@ -1347,13 +1347,13 @@ customize the resulting theme."
      ;; mic-paren
      `(paren-face-match
        ((,class (:foreground ,magenta :background unspecified
-                             :weight unspecified))))
+                             :weight bold))))
      `(paren-face-mismatch
        ((,class (:foreground ,base02 :background ,red
-                             :weight unspecified))))
+                             :weight bold))))
      `(paren-face-no-match
        ((,class (:foreground ,base02 :background ,red
-                             :weight unspecified))))
+                             :weight bold))))
 
      ;; SLIME
      `(slime-repl-inputed-output-face ((,class (:foreground ,red))))
