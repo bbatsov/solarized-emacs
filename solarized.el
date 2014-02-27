@@ -1256,6 +1256,18 @@ customize the resulting theme."
      `(popup-scroll-bar-foreground-face ((,class (:background ,base1))))
      `(popup-tip-face ((,class (:background ,base02 :foreground ,base0))))
 
+     ;; rainbow-blocks
+     `(rainbow-blocks-depth-1-face ((,class (:foreground ,cyan))))
+     `(rainbow-blocks-depth-2-face ((,class (:foreground ,yellow))))
+     `(rainbow-blocks-depth-3-face ((,class (:foreground ,blue))))
+     `(rainbow-blocks-depth-4-face ((,class (:foreground ,violet))))
+     `(rainbow-blocks-depth-5-face ((,class (:foreground ,green))))
+     `(rainbow-blocks-depth-6-face ((,class (:foreground ,yellow))))
+     `(rainbow-blocks-depth-7-face ((,class (:foreground ,blue))))
+     `(rainbow-blocks-depth-8-face ((,class (:foreground ,violet))))
+     `(rainbow-blocks-depth-9-face ((,class (:foreground ,green))))
+     `(rainbow-blocks-unmatched-face ((,class (:foreground ,red))))
+
      ;; rainbow-delimiters
      `(rainbow-delimiters-depth-1-face ((,class (:foreground ,cyan))))
      `(rainbow-delimiters-depth-2-face ((,class (:foreground ,yellow))))
