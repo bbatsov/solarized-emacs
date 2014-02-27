@@ -1551,6 +1551,13 @@ customize the resulting theme."
      `(web-mode-whitespace-face ((,class (:background ,red))))
      `(web-mode-html-tag-bracket-face ((,class (:foreground ,base01))))
 
+     ;; wgrep
+     `(wgrep-delete-face ((,class (:background unspecified :foreground ,blue))))
+     `(wgrep-done-face ((,class (:foreground ,green))))
+     `(wgrep-face ((,class (:background unspecified :foreground ,blue))))
+     `(wgrep-file-face ((,class (:background unspecified :foreground ,magenta))))
+     `(wgrep-reject-face ((,class (:foreground ,red :weight unspecified))))
+
      ;; whitespace-mode
      `(whitespace-space ((,class (:background unspecified :foreground ,base01
                                               :inverse-video unspecified :slant italic))))
