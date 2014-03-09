@@ -150,19 +150,26 @@ customize the resulting theme."
          (base03 (if (eq variant 'light) s-base3 s-base03))
 
          ;; Light/Dark adaptive solarized colors
-         ;; NOTE: the symbols -fg, -bg, -hl, -emph, -comments -fg-hc -fg-lc
-         ;; are only here to keep being compatible with preexisting child themes.
+         ;;
+         ;; NOTE: the symbols -fg, -bg, -hl, -emph, -comments -fg-hc -fg-lc are only here to
+         ;; keep being compatible with preexisting child themes.
          (solarized-fg (if (eq variant 'light) s-base00 s-base0))
          (solarized-bg (if (eq variant 'light) s-base3 s-base03))
          (solarized-hl (if (eq variant 'light) s-base2 s-base02))
          (solarized-emph (if (eq variant 'light) s-base01 s-base1))
          (solarized-comments (if (eq variant 'light) s-base1 s-base01))
-         ;; Light/Dark adaptive higher/lower contrast accented colors
-         ;; Only use these in exceptional cirmumstances!
          (solarized-fg-hc (if (eq variant 'light) s-base3 s-base03))
          (solarized-fg-lc (if (eq variant 'light) s-base03 s-base3))
 
+         ;; Line drawing color
+         ;;
+         ;; NOTE only use this for very thin lines that are hard to see using base02, in low
+         ;; color displayes base02 might be used instead
+         (s-line (if (eq variant 'light) "#cccec4" "#284b54"))
 
+         ;; Light/Dark adaptive higher/lower contrast accented colors
+         ;;
+         ;; NOTE Only use these in exceptional cirmumstances!
          (yellow-hc (if (eq variant 'light) yellow-d yellow-l))
          (yellow-lc (if (eq variant 'light) yellow-l yellow-d))
          (orange-hc (if (eq variant 'light) orange-d orange-l))
@@ -211,7 +218,7 @@ customize the resulting theme."
      `(mouse ((,class (:foreground ,base03 :background ,base0
                    :inverse-video t))))
      `(escape-glyph-face ((,class (:foreground ,red))))
-     `(fringe ((,class (:foreground ,base0 :background ,s-fringe-bg))))
+     `(fringe ((,class (:foreground ,base01 :background ,s-fringe-bg))))
      `(highlight ((,class (:background ,base02))))
      `(link ((,class (:foreground ,yellow :underline t :weight bold))))
      `(link-visited ((,class (:foreground ,yellow :underline t :weight normal))))
@@ -330,7 +337,7 @@ customize the resulting theme."
      `(minibuffer-prompt ((,class (:foreground ,base0))))
      `(mode-line
        ((,class (:inverse-video unspecified
-                                :underline unspecified
+                                :underline ,s-line
                                 :foreground ,s-mode-line-fg
                                 :background ,s-mode-line-bg
                                 :box (:line-width 1 :color ,s-mode-line-bg
@@ -339,25 +346,26 @@ customize the resulting theme."
      `(mode-line-buffer-id ((,class (:foreground ,s-mode-line-buffer-id-fg :weight bold))))
      `(mode-line-inactive
        ((,class (:inverse-video unspecified
-                                :underline unspecified
+                                :overline ,s-mode-line-inactive-bc
+                                :underline ,s-line
                                 :foreground ,s-mode-line-inactive-fg
                                 :background ,s-mode-line-inactive-bg
-                                :box (:line-width 1 :color ,s-mode-line-inactive-bc
+                                :box (:line-width 1 :color ,s-mode-line-inactive-bg
                                                   :style unspecified)
                                 ))))
      `(header-line
        ((,class (:inverse-video unspecified
-                                :underline unspecified
-                                :foreground ,base1
-                                :background ,base02
-                                :box (:line-width 1 :color ,base02
+                                :underline ,s-mode-line-inactive-bc
+                                :foreground ,s-mode-line-fg
+                                :background ,s-mode-line-inactive-bg
+                                :box (:line-width 2 :color ,s-mode-line-inactive-bg
                                                   :style unspecified)
                                 ))))
      `(region ((,class (:foreground ,base03 :background ,base1))))
      `(secondary-selection ((,class (:background ,base02))))
 
      `(trailing-whitespace ((,class (:background ,red))))
-     `(vertical-border ((,class (:foreground ,base0))))
+     `(vertical-border ((,class (:foreground ,s-line))))
 
      ;; font lock
      `(font-lock-builtin-face ((,class (:foreground ,base0 :weight bold))))
