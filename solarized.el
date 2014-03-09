@@ -1383,6 +1383,10 @@ customize the resulting theme."
                                                   :overline ,cyan-lc))))
      `(speedbar-tag-face ((,class (:inherit ,s-variable-pitch :foreground ,green))))
 
+     ;; structured-haskell
+     `(shm-current-face ((,class (:background ,base02))))
+     `(shm-quarantine-face ((,class (:background ,base01))))
+
      ;; sunrise commander headings
      `(sr-active-path-face ((,class (:background ,blue :foreground ,base03
                                                  :height ,solarized-height-plus-1  :weight bold))))
@@ -1631,10 +1635,6 @@ customize the resulting theme."
 
      ;; zencoding
      `(zencoding-preview-input ((,class (:background ,base02 :box ,base1))))
-
-     ;; structured-haskell
-     `(shm-current-face ((,class (:background ,base02))))
-     `(shm-quarantine-face ((,class (:background ,base01))))
 
      ;; ztree
      `(ztreep-arrow-face ((,class (:foreground ,base01))))
