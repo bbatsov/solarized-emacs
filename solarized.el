@@ -1632,6 +1632,10 @@ customize the resulting theme."
      ;; zencoding
      `(zencoding-preview-input ((,class (:background ,base02 :box ,base1))))
 
+     ;; structured-haskell
+     `(shm-current-face ((,class (:background ,base2))))
+     `(shm-quarantine-face ((,class (:background ,base02))))
+
      ;; ztree
      `(ztreep-arrow-face ((,class (:foreground ,base01))))
      `(ztreep-diff-header-face ((,class (:foreground ,base01 :weight bold :height 1.2))))
