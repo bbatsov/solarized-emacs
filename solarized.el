@@ -192,6 +192,8 @@ customize the resulting theme."
                                'variable-pitch 'default))
          (s-fringe-bg (if solarized-distinct-fringe-background
                           base02 base03))
+         (s-fringe-fg (if solarized-distinct-fringe-background
+                          base0 base01))
 
          (s-mode-line-fg (if solarized-high-contrast-mode-line
                              base03 base0))
@@ -218,7 +220,7 @@ customize the resulting theme."
      `(mouse ((,class (:foreground ,base03 :background ,base0
                    :inverse-video t))))
      `(escape-glyph-face ((,class (:foreground ,red))))
-     `(fringe ((,class (:foreground ,base01 :background ,s-fringe-bg))))
+     `(fringe ((,class (:foreground ,s-fringe-fg :background ,s-fringe-bg))))
      `(highlight ((,class (:background ,base02))))
      `(link ((,class (:foreground ,yellow :underline t :weight bold))))
      `(link-visited ((,class (:foreground ,yellow :underline t :weight normal))))
@@ -1002,7 +1004,7 @@ customize the resulting theme."
      `(kite-undefined ((,class (:inherit nxml-char-ref-number))))
 
      ;; linum-mode
-     `(linum ((,class (:foreground ,base01 :background ,s-fringe-bg))))
+     `(linum ((,class (:foreground ,s-fringe-fg :background ,s-fringe-bg))))
 
      ;; lusty-explorer
      `(lusty-directory-face ((,class (:inherit dired-directory))))
