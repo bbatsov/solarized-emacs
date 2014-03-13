@@ -7,12 +7,16 @@
 (require 's)
 (require 'dash)
 (require 'f)
+(setq header-line-format "header line content")
 
 (defconst screenshots-directory
   (f-expand "screenshots" tests-directory))
 
-(defun visual-test-find-file (name)
-  (find-file (expand-file-name name "test-files")))
+(defconst test-files-directory
+  (f-expand "test-files" tests-directory))
+
+(defun visual-test-find-file (  name)
+  (find-file (f-expand name test-files-directory)))
 
 (defun visual-test-screenshot ()
   (call-process "scrot" nil nil nil "-u"
@@ -20,25 +24,26 @@
                           screenshots-directory))
   (message "saved screenshot"))
 
-;; set theme
-(load-theme 'solarized-dark t)
-;; open a file
+;; (setq solarized-high-contrast-mode-line t)
+;; (load-theme 'solarized-dark t)
+(load-theme 'solarized-light t)
+(magit-status default-directory)
+(split-window-right)
 (visual-test-find-file "django-template.html")
-;; enable web-mode
+(setq header-line-format "header line content")
 (web-mode)
-;;  go to some position
 (goto-char 27)
-;; Prepare taking a screenshot
+(call-interactively 'ispell-complete-word)
+
+
 (run-with-idle-timer 2 nil
                      '(lambda ()
                         (visual-test-screenshot)
                         ;; (keyboard-quit)
-                        (kill-buffer)
-                        (kill-emacs)
+                        ;; (kill-buffer)
+                        ;; (kill-emacs)
                         ))
 
-;; open ispell-complete word interaction
-(call-interactively 'ispell-complete-word)
 
 
 (provide 'emacs-visual-test)
