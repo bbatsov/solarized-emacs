@@ -195,10 +195,20 @@ customize the resulting theme."
          (s-fringe-fg (if solarized-distinct-fringe-background
                           base0 base01))
 
+         (s-header-line-fg (if solarized-high-contrast-mode-line
+                                    base1 base0))
+         (s-header-line-bg (if solarized-high-contrast-mode-line
+                                    base02 base03))
+         (s-header-line-underline (if solarized-high-contrast-mode-line
+                                               nil base02))
+
          (s-mode-line-fg (if solarized-high-contrast-mode-line
                              base03 base0))
          (s-mode-line-bg (if solarized-high-contrast-mode-line
                              base0 base02))
+         (s-mode-line-underline (if solarized-high-contrast-mode-line
+                                    nil s-line))
+
          (s-mode-line-buffer-id-fg (if solarized-high-contrast-mode-line
                                        'unspecified base1))
          (s-mode-line-inactive-fg (if solarized-high-contrast-mode-line
@@ -206,7 +216,8 @@ customize the resulting theme."
          (s-mode-line-inactive-bg (if solarized-high-contrast-mode-line
                                       base02 base03))
          (s-mode-line-inactive-bc (if solarized-high-contrast-mode-line
-                                      base0 base02)))
+                                               base02 base02)))
+
     (custom-theme-set-faces
      theme-name
      '(button ((t (:underline t))))
@@ -339,7 +350,8 @@ customize the resulting theme."
      `(minibuffer-prompt ((,class (:foreground ,base0))))
      `(mode-line
        ((,class (:inverse-video unspecified
-                                :underline ,s-line
+                                :overline ,s-mode-line-bg
+                                :underline ,s-mode-line-underline
                                 :foreground ,s-mode-line-fg
                                 :background ,s-mode-line-bg
                                 :box (:line-width 1 :color ,s-mode-line-bg
@@ -349,7 +361,7 @@ customize the resulting theme."
      `(mode-line-inactive
        ((,class (:inverse-video unspecified
                                 :overline ,s-mode-line-inactive-bc
-                                :underline ,s-line
+                                :underline ,s-mode-line-underline
                                 :foreground ,s-mode-line-inactive-fg
                                 :background ,s-mode-line-inactive-bg
                                 :box (:line-width 1 :color ,s-mode-line-inactive-bg
@@ -357,10 +369,11 @@ customize the resulting theme."
                                 ))))
      `(header-line
        ((,class (:inverse-video unspecified
-                                :underline ,s-mode-line-inactive-bc
-                                :foreground ,s-mode-line-fg
-                                :background ,s-mode-line-inactive-bg
-                                :box (:line-width 2 :color ,s-mode-line-inactive-bg
+                                :overline nil
+                                :underline ,s-header-line-underline
+                                :foreground ,s-header-line-fg
+                                :background ,s-header-line-bg
+                                :box (:line-width 2 :color ,s-header-line-bg
                                                   :style unspecified)
                                 ))))
      `(region ((,class (:foreground ,base03 :background ,base1))))
