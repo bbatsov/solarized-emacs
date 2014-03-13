@@ -1031,7 +1031,30 @@ customize the resulting theme."
                                                          :box 1))))
      `(magit-log-head-label-tags ((,class (:background ,yellow-lc :foreground ,yellow-hc
                                                        :box 1))))
+     ;; magit hotfix
+     `(magit-header ((,class (:inherit default))))
+     ;; TODO
      `(magit-log-sha1 ((,class (:foreground ,yellow))))
+     `(magit-cherry-equivalent ((,class (:foreground ,magenta))))
+     `(magit-cherry-unmatched ((,class (:foreground ,cyan))))
+     ;; `(magit-log-head-label-bisect-skip ((,class (:background "light goldenrod" :foreground "dark goldenrod" :box 1))))
+     ;; `(magit-log-head-label-head ((,class (:background "Grey70" :foreground "Black" :box 1))))
+     ;; `(magit-log-head-label-wip ((,class (:background "Grey95" :foreground "LightSkyBlue3" :box 1))))
+     ;; `(magit-log-reflog-label-checkout ((,class (:background "Grey85" :foreground "LightSkyBlue4" :box 1))))
+     ;; `(magit-log-reflog-label-cherry-pick ((,class (:background "light green" :foreground "dark olive green" :box 1))))
+     ;; `(magit-log-reflog-label-commit ((,class (:background "LemonChiffon1" :foreground "goldenrod4" :box 1))))
+     ;; `(magit-log-reflog-label-other ((,class (:background "Grey50" :box 1))))
+     ;; `(magit-log-reflog-label-rebase ((,class (:background "Grey85" :foreground "OliveDrab4" :box 1))))
+     ;; `(magit-log-reflog-label-remote ((,class (:background "Grey50" :box 1))))
+     ;; `(magit-log-reflog-label-reset ((,class (:background "IndianRed1" :foreground "IndianRed4" :box 1))))
+     `(magit-process-ng ((,class (:inherit magit-header :foreground ,red))))
+     `(magit-process-ok ((,class (:inherit magit-header :foreground ,green))))
+     `(magit-signature-bad ((,class (:foreground ,red))))
+     `(magit-signature-good ((,class (:foreground ,green))))
+     `(magit-signature-none ((,class (:inherit magit-log-message))))
+     `(magit-signature-untrusted ((,class (:foreground ,cyan))))
+     `(magit-whitespace-warning-face ((,class (:inherit trailing-whitespace))))
+
 
      ;; markdown-mode
      `(markdown-header-face ((,class (:foreground ,green))))
