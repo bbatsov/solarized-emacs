@@ -198,8 +198,6 @@ customize the resulting theme."
          (green-lc (if (eq variant 'light) green-l green-d))
 
          ;; customize based face properties
-         (s-maybe-bold-or-normal (if solarized-use-less-bold
-                           'normal 'bold))
          (s-maybe-bold (if solarized-use-less-bold
                            'unspecified 'bold))
          (s-maybe-italic (if solarized-use-more-italic
