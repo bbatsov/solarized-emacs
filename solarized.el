@@ -1705,6 +1705,12 @@ customize the resulting theme."
      ;; compilation
      `(compilation-message-face 'default)
 
+     ;; cua
+     `(cua-normal-cursor-color ,base0)
+     `(cua-read-only-cursor-color ,green)
+     `(cua-global-mark-cursor-color ,cyan)
+     `(cua-overwrite-cursor-color ,yellow)
+
      ;; fill-column-indicator
      `(fci-rule-color ,base02)
 
