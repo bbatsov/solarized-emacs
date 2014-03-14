@@ -49,6 +49,13 @@ If you don't like low-contrast modeline or fringe, you can `customize` them eith
 
 ;; make the modeline high contrast
 (setq solarized-high-contrast-mode-line t)
+
+;; Use less bolding
+(setq solarized-use-less-bold t)
+
+;; Use more italics
+(setq solarized-use-more-italic t)
+
 ```
 
 Note that these need to be set **before** `load-theme` is invoked for Solarized.
