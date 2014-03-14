@@ -1291,6 +1291,7 @@ customize the resulting theme."
      `(prodigy-green-face ((,class (:foreground ,green))))
      `(prodigy-red-face ((,class (:foreground ,orange))))
      `(prodigy-yellow-face ((,class (:foreground ,yellow))))
+     `(prodigy-line-face ((,class (:background ,base02))))
 
      ;; popup
      `(popup-face ((,class (:background ,base02 :foreground ,base0))))
