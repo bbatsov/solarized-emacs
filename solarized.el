@@ -59,6 +59,16 @@ Also affects `linum-mode' background."
   :type 'boolean
   :group 'solarized)
 
+(defcustom solarized-use-less-bold nil
+  "Use bold weight less often."
+  :type 'boolean
+  :group 'solarized)
+
+(defcustom solarized-use-more-italic nil
+  "Use italic slant more often."
+  :type 'boolean
+  :group 'solarized)
+
 (defcustom solarized-high-contrast-mode-line nil
   "Make the active/inactive mode line stand out more."
   :type 'boolean
@@ -188,6 +198,12 @@ customize the resulting theme."
          (green-lc (if (eq variant 'light) green-l green-d))
 
          ;; customize based face properties
+         (s-maybe-bold-or-normal (if solarized-use-less-bold
+                           'normal 'bold))
+         (s-maybe-bold (if solarized-use-less-bold
+                           'unspecified 'bold))
+         (s-maybe-italic (if solarized-use-more-italic
+                             'italic 'normal))
          (s-variable-pitch (if solarized-use-variable-pitch
                                'variable-pitch 'default))
          (s-fringe-bg (if solarized-distinct-fringe-background
@@ -383,14 +399,15 @@ customize the resulting theme."
      `(vertical-border ((,class (:foreground ,s-line))))
 
      ;; font lock
-     `(font-lock-builtin-face ((,class (:foreground ,base0 :weight bold))))
+     `(font-lock-builtin-face ((,class (:foreground ,base0 :weight ,s-maybe-bold
+                                                    :slant ,s-maybe-italic))))
      `(font-lock-comment-delimiter-face
-       ((,class (:foreground ,base01))))
+       ((,class (:foreground ,base01 :slant ,s-maybe-italic))))
      `(font-lock-comment-face ((,class (:foreground ,base01))))
      `(font-lock-constant-face ((,class (:foreground ,blue :weight bold))))
-     `(font-lock-doc-face ((,class (:foreground ,cyan))))
+     `(font-lock-doc-face ((,class (:foreground ,cyan :slant ,s-maybe-italic))))
      `(font-lock-function-name-face ((,class (:foreground ,blue))))
-     `(font-lock-keyword-face ((,class (:foreground ,green :weight bold))))
+     `(font-lock-keyword-face ((,class (:foreground ,green :weight ,s-maybe-bold))))
      `(font-lock-negation-char-face ((,class (:foreground ,yellow :weight bold))))
      `(font-lock-preprocessor-face ((,class (:foreground ,blue))))
      `(font-lock-regexp-grouping-construct ((,class (:foreground ,yellow :weight bold))))
@@ -1366,18 +1383,18 @@ customize the resulting theme."
      `(sp-show-pair-enclosing ((,class (:inherit highlight))))
      `(sp-show-pair-match-face
        ((,class (:background unspecified :foreground ,magenta
-                             :weight bold))))
+                             :weight ,s-maybe-bold))))
      `(sp-show-pair-mismatch-face
        ((,class (:foreground ,base02 :background ,red
-                             :weight bold))))
+                             :weight ,s-maybe-bold))))
 
      ;; show-paren
      `(show-paren-match
        ((,class (:foreground ,magenta :background unspecified
-                             :weight bold))))
+                             :weight ,s-maybe-bold))))
      `(show-paren-mismatch
        ((,class (:foreground ,base02 :background ,red
-                             :weight bold))))
+                             :weight ,s-maybe-bold))))
 
      ;; syslog-mode
      `(syslog-ip ((,class (:background unspecified
@@ -1406,13 +1423,13 @@ customize the resulting theme."
      ;; mic-paren
      `(paren-face-match
        ((,class (:foreground ,magenta :background unspecified
-                             :weight bold))))
+                             :weight ,s-maybe-bold))))
      `(paren-face-mismatch
        ((,class (:foreground ,base02 :background ,red
-                             :weight bold))))
+                             :weight ,s-maybe-bold))))
      `(paren-face-no-match
        ((,class (:foreground ,base02 :background ,red
-                             :weight bold))))
+                             :weight ,s-maybe-bold))))
 
      ;; SLIME
      `(slime-repl-inputed-output-face ((,class (:foreground ,red))))
