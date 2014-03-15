@@ -299,6 +299,11 @@ customize the resulting theme."
      `(dired-symlink ((,class (:foreground ,cyan :weight normal :slant italic))))
      `(dired-warning ((,class (:foreground ,orange :underline t))))
 
+     ;;dired-async
+     `(dired-async-message ((,class (:background ,(if (eq variant 'light) yellow-l yellow) ))))
+     `(dired-async-mode-message
+       ((,class (:background ,(if (eq variant 'light) red-l red) ))))
+
      ;; dropdown
      `(dropdown-list-face ((,class (:background ,base02 :foreground ,cyan))))
      `(dropdown-list-selection-face ((,class (:background ,cyan-lc :foreground ,cyan-hc))))
