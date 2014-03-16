@@ -69,6 +69,11 @@ Also affects `linum-mode' background."
   :type 'boolean
   :group 'solarized)
 
+(defcustom solarized-emphasize-indicators t
+  "Use more colors for indicators such as git:gutter, flycheck and similar."
+  :type 'boolean
+  :group 'solarized)
+
 (defcustom solarized-high-contrast-mode-line nil
   "Make the active/inactive mode line stand out more."
   :type 'boolean
@@ -209,12 +214,13 @@ customize the resulting theme."
          (s-fringe-fg (if solarized-distinct-fringe-background
                           base0 base01))
 
+
          (s-header-line-fg (if solarized-high-contrast-mode-line
                                     base1 base0))
          (s-header-line-bg (if solarized-high-contrast-mode-line
                                     base02 base03))
          (s-header-line-underline (if solarized-high-contrast-mode-line
-                                               nil base02))
+                                      nil base02))
 
          (s-mode-line-fg (if solarized-high-contrast-mode-line
                              base03 base0))
@@ -692,14 +698,24 @@ customize the resulting theme."
         (,class (:foreground ,yellow-hc :background ,yellow-lc :weight bold :underline t))))
      `(flycheck-info
        ((,(append '((supports :underline (:style wave))) class)
-         (:underline (:style wave :color ,blue) :inherit unspecified))
+         (:underline (:style wave :color ,(if solarized-emphasize-indicators
+                                              blue base0)) :inherit unspecified))
         (,class (:foreground ,blue-hc :background ,blue-lc :weight bold :underline t))))
      `(flycheck-fringe-error
-       ((,class (:foreground ,red-hc :background ,red-lc :weight bold))))
+       ((,class (:foreground ,(if solarized-emphasize-indicators
+                                  red-hc red)
+                             :background ,(if solarized-emphasize-indicators
+                                              red-lc base03) :weight bold))))
      `(flycheck-fringe-warning
-       ((,class (:foreground ,yellow-hc :background ,yellow-lc :weight bold))))
+       ((,class (:foreground ,(if solarized-emphasize-indicators
+                                  yellow-hc yellow)
+                             :background ,(if solarized-emphasize-indicators
+                                              yellow-lc base03) :weight bold))))
      `(flycheck-fringe-info
-       ((,class (:foreground ,blue-hc :background ,blue-lc :weight bold))))
+       ((,class (:foreground ,(if solarized-emphasize-indicators
+                                  blue-hc base01)
+                             :background ,(if solarized-emphasize-indicators
+                                              blue-lc base03) :weight bold))))
 
      ;; flyspell
      `(flyspell-duplicate
@@ -734,15 +750,30 @@ customize the resulting theme."
      `(erc-underline-face ((t (:underline t))))
 
      ;; git-gutter
-     `(git-gutter:added ((,class (:background ,green :foreground ,base03
-                                              :weight bold))))
-     `(git-gutter:deleted ((,class (:background ,red :foreground ,base03
-                                                :weight bold))))
-     `(git-gutter:modified ((,class (:background ,blue :foreground ,base03
-                                                 :weight bold))))
-     `(git-gutter:unchanged ((,class (:background ,base02
-                                                  :foreground ,base03
-                                                  :weight bold))))
+     `(git-gutter:added
+         ((,class (:weight normal
+                           :foreground ,(if solarized-emphasize-indicators
+                                            green s-fringe-fg)
+                         :background ,s-fringe-bg
+                         ))))
+     `(git-gutter:deleted
+         ((,class (:weight normal
+                           :foreground ,(if solarized-emphasize-indicators
+                                            red s-fringe-fg)
+                         :background ,s-fringe-bg
+                         ))))
+     `(git-gutter:modified
+       ((,class (:weight normal
+                         :foreground ,(if solarized-emphasize-indicators
+                                          blue s-fringe-fg)
+                         :background ,s-fringe-bg
+                         ))))
+     `(git-gutter:unchanged
+       ((,class (:weight normal
+                         :foreground ,(if solarized-emphasize-indicators
+                                          base01 s-fringe-fg)
+                         :background ,s-fringe-bg
+                         ))))
 
      ;; git-gutter-fr
      `(git-gutter-fr:added ((,class (:foreground ,green  :weight bold))))
@@ -759,7 +790,7 @@ customize the resulting theme."
      `(git-gutter+-unchanged ((,class (:background ,base02
                                                    :foreground ,base03
                                                    :weight bold))))
-     `(git-gutter-fr+-added ((,class (:foreground ,green  :weight bold))))
+     `(git-gutter-fr+-added ((,class (:foreground ,green :weight bold))))
      `(git-gutter-fr+-deleted ((,class (:foreground ,red :weight bold))))
      `(git-gutter-fr+-modified ((,class (:foreground ,blue :weight bold))))
 
