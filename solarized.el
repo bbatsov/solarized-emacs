@@ -1715,6 +1715,9 @@ customize the resulting theme."
      `(ztreep-leaf-face ((,class (:foreground  ,base0))))
      `(ztreep-node-face ((,class (:foreground ,blue))))
 
+     ;; multiple-cursors
+     `(mc/cursor-face ((,class (:inherit cursor :inverse-video nil))))
+
      )
 
 
