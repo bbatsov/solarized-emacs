@@ -1098,7 +1098,8 @@ customize the resulting theme."
      `(markdown-header-face-5 ((,class (:inherit markdown-header-face))))
      `(markdown-header-face-6 ((,class (:inherit markdown-header-face))))
 
-
+     ;; multiple-cursors
+     `(mc/cursor-face ((,class (:inherit cursor :inverse-video nil))))
 
      ;; message-mode
      `(message-cited-text ((,class (:foreground ,base01))))
@@ -1111,8 +1112,6 @@ customize the resulting theme."
      `(message-header-xheader ((,class (:foreground ,cyan))))
      `(message-mml ((,class (:foreground ,yellow :weight bold))))
      `(message-separator ((,class (:foreground ,base01 :slant italic))))
-
-
 
      ;; mew
      `(mew-face-header-subject ((,class (:foreground ,orange))))
@@ -1141,6 +1140,17 @@ customize the resulting theme."
      `(mew-face-mark-unread ((,class (:foreground ,red))))
      `(mew-face-eof-message ((,class (:foreground ,green))))
      `(mew-face-eof-part ((,class (:foreground ,yellow))))
+
+     ;; mic-paren
+     `(paren-face-match
+       ((,class (:foreground ,magenta :background unspecified
+                             :weight ,s-maybe-bold))))
+     `(paren-face-mismatch
+       ((,class (:foreground ,base02 :background ,red
+                             :weight ,s-maybe-bold))))
+     `(paren-face-no-match
+       ((,class (:foreground ,base02 :background ,red
+                             :weight ,s-maybe-bold))))
 
      ;; mingus
      `(mingus-directory-face ((,class (:foreground ,blue))))
@@ -1423,16 +1433,6 @@ customize the resulting theme."
                                        :foreground ,violet
                                        :weight normal))))
 
-     ;; mic-paren
-     `(paren-face-match
-       ((,class (:foreground ,magenta :background unspecified
-                             :weight ,s-maybe-bold))))
-     `(paren-face-mismatch
-       ((,class (:foreground ,base02 :background ,red
-                             :weight ,s-maybe-bold))))
-     `(paren-face-no-match
-       ((,class (:foreground ,base02 :background ,red
-                             :weight ,s-maybe-bold))))
 
      ;; SLIME
      `(slime-repl-inputed-output-face ((,class (:foreground ,red))))
@@ -1680,7 +1680,6 @@ customize the resulting theme."
      `(wl-highlight-summary-refiled-face ((,class (:foreground ,base0))))
      `(wl-highlight-summary-displaying-face ((,class (:underline t :weight bold))))
 
-
      ;; weechat
      `(weechat-error-face ((,class (:inherit error))))
      `(weechat-highlight-face ((,class (:foreground ,base0 :weight bold))))
@@ -1714,9 +1713,6 @@ customize the resulting theme."
      `(ztreep-header-face ((,class (:foreground ,base01 :weight bold :height 1.2))))
      `(ztreep-leaf-face ((,class (:foreground  ,base0))))
      `(ztreep-node-face ((,class (:foreground ,blue))))
-
-     ;; multiple-cursors
-     `(mc/cursor-face ((,class (:inherit cursor :inverse-video nil))))
 
      )
 
