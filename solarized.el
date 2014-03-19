@@ -917,6 +917,49 @@ customize the resulting theme."
      `(ido-indicator ((,class (:background ,red :foreground ,base03 :width condensed))))
      `(ido-virtual ((,class (:foreground ,cyan))))
 
+     ;;info+
+     `(info-file
+       ((,class (:foreground ,yellow-lc :background ,(if (eq variant 'light) base02 base2)))))
+     `(info-menu
+       ((,class (:foreground ,yellow-lc :background ,(if (eq variant 'light) base02 base2)))))
+     `(info-quoted-name
+       ((,class (:foreground ,green-lc :inherit font-lock-string-face))))
+     `(info-string
+       ((,class (:foreground ,orange-lc :inherit font-lock-string-face))))
+     `(info-single-quote
+       ((,class (:foreground ,red-lc :inherit font-lock-string-face))))
+     `(info-quoted-name
+       ((,class (:foreground ,violet-lc :inherit font-lock-string-face))))
+     `(info-string
+       ((,class (:foreground ,orange-lc :inherit font-lock-string-face))))
+     `(info-title-1
+       ((,class (:foreground ,red-hc :weight bold))))
+     `(info-title-2
+       ((,class (:foreground ,blue-lc :weight bold))))
+     `(info-title-3
+       ((,class (:weight bold))))
+     `(info-title-4
+       ((,class (:weight bold))))
+     `(info-command-ref-item
+       ((,class (:foreground ,green-lc :background ,(if (eq variant 'light) base02 base2)))))
+     `(info-constant-ref-item
+       ((,class (:foreground ,red-hc :background ,(if (eq variant 'light) base02 base2)))))
+     `(info-function-ref-item
+       ((,class (:foreground ,cyan-l :background ,(if (eq variant 'light) base02 base2)))))
+     `(info-macro-ref-item
+       ((,class (:foreground ,green-hc :background ,(if (eq variant 'light) base02 base2)))))
+     `(info-reference-item
+       ((,class (:background ,(if (eq variant 'light) base02 base2)))))
+     `(info-special-form-ref-item
+       ((,class (:foreground ,magenta-hc :background ,(if (eq variant 'light) base02 base2)))))
+     `(info-syntax-class-item
+       ((,class (:foreground ,magenta-lc :background ,(if (eq variant 'light) base2 base02)))))
+     `(info-user-option-ref-item
+       ((,class (:foreground ,red-hc :background ,(if (eq variant 'light) base02 base2)))))
+     `(info-user-option-ref-item
+       ((,class (:foreground ,orange-hc :background ,(if (eq variant 'light) base02 base2)))))
+
+     ;;jabber
      `(jabber-activity-face ((,class (:weight bold :foreground ,red))))
      `(jabber-activity-personal-face ((,class (:weight bold :foreground ,blue))))
      `(jabber-chat-error ((,class (:weight bold :foreground ,red))))
