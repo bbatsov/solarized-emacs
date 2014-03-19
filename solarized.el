@@ -1445,6 +1445,9 @@ customize the resulting theme."
                                                   :overline ,cyan-lc))))
      `(speedbar-tag-face ((,class (:inherit ,s-variable-pitch :foreground ,green))))
 
+     ;;stripe-buffer
+     `(stripe-highlight ((,class (:background ,base02))))
+
      ;; structured-haskell
      `(shm-current-face ((,class (:background ,base02))))
      `(shm-quarantine-face ((,class (:background ,base01))))
