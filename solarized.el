@@ -919,45 +919,45 @@ customize the resulting theme."
 
      ;;info+
      `(info-file
-       ((,class (:foreground ,yellow-lc :background ,(if (eq variant 'light) base02 base2)))))
+       ((,class (:foreground ,yellow :background ,base02))))
      `(info-menu
-       ((,class (:foreground ,yellow-lc :background ,(if (eq variant 'light) base02 base2)))))
+       ((,class (:foreground ,yellow :background ,base02))))
      `(info-quoted-name
-       ((,class (:foreground ,green-lc :inherit font-lock-string-face))))
+       ((,class (:foreground ,green :inherit font-lock-string-face))))
      `(info-string
-       ((,class (:foreground ,orange-lc :inherit font-lock-string-face))))
+       ((,class (:foreground ,orange :inherit font-lock-string-face))))
      `(info-single-quote
-       ((,class (:foreground ,red-lc :inherit font-lock-string-face))))
+       ((,class (:foreground ,red :inherit font-lock-string-face))))
      `(info-quoted-name
-       ((,class (:foreground ,violet-lc :inherit font-lock-string-face))))
+       ((,class (:foreground ,orange :inherit font-lock-string-face))))
      `(info-string
-       ((,class (:foreground ,orange-lc :inherit font-lock-string-face))))
+       ((,class (:foreground ,blue :inherit font-lock-string-face))))
      `(info-title-1
-       ((,class (:foreground ,red-hc :weight bold))))
+       ((,class (:foreground ,red :weight bold))))
      `(info-title-2
-       ((,class (:foreground ,blue-lc :weight bold))))
+       ((,class (:foreground ,blue :weight bold))))
      `(info-title-3
        ((,class (:weight bold))))
      `(info-title-4
        ((,class (:weight bold))))
      `(info-command-ref-item
-       ((,class (:foreground ,green-lc :background ,(if (eq variant 'light) base02 base2)))))
+       ((,class (:foreground ,green :background ,base02))))
      `(info-constant-ref-item
-       ((,class (:foreground ,red-hc :background ,(if (eq variant 'light) base02 base2)))))
+       ((,class (:foreground ,red :background ,base02))))
      `(info-function-ref-item
-       ((,class (:foreground ,cyan-l :background ,(if (eq variant 'light) base02 base2)))))
+       ((,class (:foreground ,cyan :background ,base02))))
      `(info-macro-ref-item
-       ((,class (:foreground ,green-hc :background ,(if (eq variant 'light) base02 base2)))))
+       ((,class (:foreground ,green :background ,base02))))
      `(info-reference-item
-       ((,class (:background ,(if (eq variant 'light) base02 base2)))))
+       ((,class (:background ,base02))))
      `(info-special-form-ref-item
-       ((,class (:foreground ,magenta-hc :background ,(if (eq variant 'light) base02 base2)))))
+       ((,class (:foreground ,magenta :background ,base02))))
      `(info-syntax-class-item
-       ((,class (:foreground ,magenta-lc :background ,(if (eq variant 'light) base2 base02)))))
+       ((,class (:foreground ,magenta :background ,base02))))
      `(info-user-option-ref-item
-       ((,class (:foreground ,red-hc :background ,(if (eq variant 'light) base02 base2)))))
+       ((,class (:foreground ,red :background ,base02))))
      `(info-user-option-ref-item
-       ((,class (:foreground ,orange-hc :background ,(if (eq variant 'light) base02 base2)))))
+       ((,class (:foreground ,orange :background ,base02))))
 
      ;;jabber
      `(jabber-activity-face ((,class (:weight bold :foreground ,red))))
