@@ -56,6 +56,9 @@ If you don't like low-contrast modeline or fringe, you can `customize` them eith
 ;; Use more italics
 (setq solarized-use-more-italic t)
 
+;; Use less colors for indicators such as git:gutter, flycheck and similar.
+(setq solarized-emphasize-indicators nil)
+
 ```
 
 Note that these need to be set **before** `load-theme` is invoked for Solarized.
