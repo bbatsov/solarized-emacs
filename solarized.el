@@ -699,7 +699,7 @@ customize the resulting theme."
      `(flycheck-info
        ((,(append '((supports :underline (:style wave))) class)
          (:underline (:style wave :color ,(if solarized-emphasize-indicators
-                                              blue base0)) :inherit unspecified))
+                                              blue base03)) :inherit unspecified))
         (,class (:foreground ,blue-hc :background ,blue-lc :weight bold :underline t))))
      `(flycheck-fringe-error
        ((,class (:foreground ,(if solarized-emphasize-indicators
