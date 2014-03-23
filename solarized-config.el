@@ -1,6 +1,6 @@
 ;;; solarized-config.el --- Solarized additional configurations for Emacs.
 
-;; Copyright (C) 2011-2013 
+;; Copyright (C) 2011-2013
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; Author: Thomas Frössman <thomasf@jossystem.se>
 ;; URL: http://github.com/bbatsov/solarized-emacs
@@ -42,6 +42,7 @@
   "TODO"
   (interactive)
 
+
   (eval-after-load "git-gutter"
     '(progn
        ;; (setq solarized-)
@@ -56,9 +57,8 @@
 (defun solarized-config--smaller-font-hook  ()
   (text-scale-set -1))
 
-;; (defcustom solarized-config-smaller-fonts-hooks 
+;; (defcustom solarized-config-smaller-fonts-hooks
 ;;   '(
-
 ;;     flycheck-error-list-mode-hook
 ;;     magit-status-mode-hook
 ;;     magit-log-mode-hook
@@ -69,27 +69,53 @@
 
 ;; solarized-config-smaller-fonts
 (defun solarized-config-smaller-fonts-wip ()
-    "DOCSTRING"
-    (interactive)
-    
-    )
-   
+  "DOCSTRING"
+  (interactive)
+
+  )
+
+
+;; solarized-config-uniquify
+
 ;; solarized-config-ibuffer
 
+
+
+;; solarized-config-flycheck
+(dont-compile
+  ;; TODO finish flycheck config
+  (require 'fringe-helper)
+  (fringe-helper-define 'vertical-wave-bitmap '(center repeat)
+                        "...XXX."
+                        "...XXX."
+                        "..XXX.."
+                        "..XXX..")
+
+  (flycheck-define-error-level 'error
+                               :overlay-category 'flycheck-error-overlay
+                               :fringe-bitmap 'vertical-wave-bitmap
+                               :fringe-face 'flycheck-fringe-error)
+
+  (flycheck-define-error-level 'warning
+                               :overlay-category 'flycheck-warning-overlay
+                               :fringe-bitmap 'vertical-wave-bitmap
+                               :fringe-face 'flycheck-fringe-warning)
+
+  (flycheck-define-error-level 'info
+                               :overlay-category 'flycheck-info-overlay
+                               :fringe-bitmap 'vertical-wave-bitmap
+                               :fringe-face 'flycheck-fringe-info))
 
 ;; solarized-config-
 
 
 
-    
 
 
-;; Local Variables:
-;; no-byte-compile: t
-;; eval: (when (fboundp 'rainbow-mode) (rainbow-mode 1))
-;; fill-column: 95
-;; End:
+
+
+
 
 (provide 'solarized-config)
 
-;;; solarized.el ends here
+;;; solarized-config.el ends here
