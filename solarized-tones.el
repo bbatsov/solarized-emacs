@@ -69,3 +69,12 @@
 
 
 
+;; out = alpha * new + (1 - alpha) * old
+(defun color-blend-name (color1 color2 alpha)
+  (apply 'color-rgb-to-hex
+         (--zip-with
+          (+ (* alpha it) (* other  (- 1 alpha)))
+          (color-name-to-rgb color1)
+          (color-name-to-rgb color2))))
+
+
