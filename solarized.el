@@ -575,9 +575,9 @@ customize the resulting theme."
      `(custom-state ((,class (:foreground ,green))))
 
      ;; diff
-     `(diff-added ((,class (:foreground ,green :background ,base03))))
-     `(diff-changed ((,class (:foreground ,blue :background ,base03))))
-     `(diff-removed ((,class (:foreground ,red :background ,base03))))
+     `(diff-added ((,class (:foreground ,green :background nil))))
+     `(diff-changed ((,class (:foreground ,blue :background nil))))
+     `(diff-removed ((,class (:foreground ,red :background nil))))
      `(diff-header ((,class (:background ,base03))))
      `(diff-file-header
        ((,class (:background ,base03 :foreground ,base0 :weight bold))))
