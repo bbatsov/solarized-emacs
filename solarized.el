@@ -310,6 +310,13 @@ customize the resulting theme."
      `(dired-async-mode-message
        ((,class (:background ,(if (eq variant 'light) red-l red) ))))
 
+     ;; dired-efap
+     `(dired-efap-face ((,class (:box nil
+                                      :background ,base02
+                                      :foreground ,base1
+                                      :underline ,s-line
+                                      :weight bold))))
+
      ;; dropdown
      `(dropdown-list-face ((,class (:background ,base02 :foreground ,cyan))))
      `(dropdown-list-selection-face ((,class (:background ,cyan-lc :foreground ,cyan-hc))))
