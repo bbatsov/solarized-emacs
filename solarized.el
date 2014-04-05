@@ -1886,6 +1886,9 @@ customize the resulting theme."
        '((,base02 . 0)(,green-lc . 20)(,cyan-lc . 30)(,blue-lc . 50)
          (,yellow-lc . 60)(,orange-lc . 70)(,magenta-lc . 85)(,base02 . 100)))
 
+     ;; smartrep
+     `(smartrep-mode-line-active-bg (solarized-color-blend ,green ,s-mode-line-bg 0.2))
+     
      ;; vc
      `(vc-annotate-color-map
        '((20 . ,red)
