@@ -1376,7 +1376,7 @@ customize the resulting theme."
      `(org-table ((,class (:foreground ,green))))
      `(org-tag ((,class (:weight bold))))
      `(org-time-grid ((,class (:foreground ,base01))))
-     `(org-todo ((,class (:foreground ,red :weight bold))))
+     `(org-todo ((,class (:foreground ,cyan :weight bold))))
      `(org-upcoming-deadline ((,class (:foreground ,yellow  :weight normal :underline nil))))
      `(org-warning ((,class (:foreground ,orange :weight normal :underline nil))))
      ;; org-habit (clear=blue, ready=green, alert=yellow, overdue=red. future=lower contrast)
@@ -1403,6 +1403,7 @@ customize the resulting theme."
      `(org-latex-and-export-specials ((,class (:foreground ,orange))))
      `(org-mode-line-clock-overrun ((,class (:inherit mode-line :background ,red))))
 
+     
      ;; outline
      `(outline-1 ((,class (:inherit org-level-1))))
      `(outline-2 ((,class (:inherit org-level-2))))
