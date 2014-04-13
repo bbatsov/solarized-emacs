@@ -104,6 +104,41 @@ Also affects `linum-mode' background."
   :type 'number
   :group 'solarized)
 
+(defun solarized-color-name-to-rgb (color &optional frame)
+  "Convert COLOR string to a list of normalized RGB components.
+COLOR should be a color name (e.g. \"white\") or an RGB triplet
+string (e.g. \"#ff12ec\").
+
+Normally the return value is a list of three floating-point
+numbers, (RED GREEN BLUE), each between 0.0 and 1.0 inclusive.
+
+Optional argument FRAME specifies the frame where the color is to be
+displayed.  If FRAME is omitted or nil, use the selected frame.
+If FRAME cannot display COLOR, return nil."
+  ;; `colors-values' maximum value is either 65535 or 65280 depending on the
+  ;; display system.  So we use a white conversion to get the max value.
+  (let ((valmax (float (car (color-values "#ffffff")))))
+    (mapcar (lambda (x) (/ x valmax)) (color-values color frame))))
+
+(defun solarized-color-rgb-to-hex  (red green blue)
+  "Return hexadecimal notation for the color RED GREEN BLUE.
+RED, GREEN, and BLUE should be numbers between 0.0 and 1.0, inclusive."
+  (format "#%02x%02x%02x"
+          (* red 255) (* green 255) (* blue 255)))
+
+(defun solarized-color-blend (color1 color2 alpha)
+  "Blends COLOR1 onto COLOR2 with ALPHA.
+
+COLOR1 and COLOR2 should be color names (e.g. \"white\") or RGB
+triplet strings (e.g. \"#ff12ec\").
+
+Alpha should be a float between 0 and 1."
+  (apply 'solarized-color-rgb-to-hex
+         (-zip-with '(lambda (it other)
+                       (+ (* alpha it) (* other (- 1 alpha))))
+                    (solarized-color-name-to-rgb color1)
+                    (solarized-color-name-to-rgb color2))))
+
 (defun create-solarized-theme (variant theme-name &optional childtheme)
   "Create a VARIANT of the theme named THEME-NAME.
 
@@ -1851,6 +1886,9 @@ customize the resulting theme."
        '((,base02 . 0)(,green-lc . 20)(,cyan-lc . 30)(,blue-lc . 50)
          (,yellow-lc . 60)(,orange-lc . 70)(,magenta-lc . 85)(,base02 . 100)))
 
+     ;; smartrep
+     `(smartrep-mode-line-active-bg (solarized-color-blend ,green ,s-mode-line-bg 0.2))
+     
      ;; vc
      `(vc-annotate-color-map
        '((20 . ,red)
