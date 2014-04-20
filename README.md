@@ -42,7 +42,12 @@ with `M-x load-theme`.
 
 # Customisations
 
-If you don't like low-contrast modeline or fringe, you can `customize` them either by doing `M-x customize-group solarized` or setting the values using elisp code:
+## Theme specific settings
+If you don't like low-contrast modeline or fringe, you can `customize` them
+either by doing `M-x customize-group solarized` or setting the values using
+elisp code:
+
+
 ```lisp
 ;; make the fringe stand out from the background
 (setq solarized-distinct-fringe-background t)
@@ -60,8 +65,23 @@ If you don't like low-contrast modeline or fringe, you can `customize` them eith
 (setq solarized-emphasize-indicators nil)
 
 ```
-
 Note that these need to be set **before** `load-theme` is invoked for Solarized.
+
+## Underline position setting for X
+
+If you are using emacs under X you might like the following setting which puts
+the underline below the
+[font bottomline instead of the baseline](https://publib.boulder.ibm.com/infocenter/pseries/v5r3/topic/com.ibm.aix.graPHIGS/doc/phigstrf/figures/afma5rbd.jpg).
+
+Ihmo it enhances the general readability and also it fits well with the default
+`solarized-high-contrast-mode-line` setting which uses an slightly emphazised
+underline for the modeline to create one horisontal window border in the same
+manner as the vertical border.
+
+```lisp
+(setq x-underline-at-descent-line t)
+```
+
 
 # Bugs & Improvements
 
