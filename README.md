@@ -12,14 +12,17 @@ customizations and `deftheme` and does not require the
 
 ## Stand-alone installation
 
-Download `solarized.el`, `solarized-dark-theme.el` and
-`solarized-light-theme.el`.
+Save the following files in a folder that's on your Emacs' `load-path`:
 
-Place `solarized.el` in a folder that's on your Emacs' `load-path`.
-Afterward place `solarized-dark-theme.el` and
-`solarized-light-theme.el` in `~/.emacs.d/themes` (or some other
-folder if you prefer so). Add this your
-`.emacs.d`:
+* [dash.el](https://raw.githubusercontent.com/magnars/dash.el/master/dash.el) - [dash](https://github.com/magnars/dash.el), a modern list library for Emacs
+* [solarized.el](https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized.el) - the solarzed theme
+
+Save the following files into `~/.emacs.d/themes`:
+
+* [solarized-light-theme.el](https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-light-theme.el) 
+* [solarized-dark-theme.el](https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-dark-theme.el)
+
+Add this your `.emacs.d`:
 
 ```lisp
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
