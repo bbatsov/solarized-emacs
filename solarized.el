@@ -43,6 +43,8 @@
 ;;
 ;;; Code:
 
+(require 'dash)
+
 (defgroup solarized nil
   "Solarized theme options.
 The theme has to be reloaded after changing anything in this group."
