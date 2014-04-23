@@ -1765,6 +1765,13 @@ customize the resulting theme."
      `(web-mode-whitespace-face ((,class (:background ,red))))
      `(web-mode-html-tag-bracket-face ((,class (:foreground ,base01))))
 
+     ;; weather-metno
+     `(weather-metno-date ((,class (:foreground ,yellow :height ,solarized-height-plus-3))))
+     `(weather-metno-date-range ((,class (:foreground ,blue))))
+     `(weather-metno-entry ((,class (:foreground ,cyan))))
+     `(weather-metno-footer ((,class (:inherit font-lock-comment-face))))
+     `(weather-metno-header ((,class (:inherit header-line))))
+
      ;; wgrep
      `(wgrep-delete-face ((,class (:background unspecified :foreground ,blue))))
      `(wgrep-done-face ((,class (:foreground ,green))))
