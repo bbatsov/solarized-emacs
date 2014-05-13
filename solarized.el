@@ -992,29 +992,35 @@ customize the resulting theme."
      `(ido-indicator ((,class (:background ,red :foreground ,base03 :width condensed))))
      `(ido-virtual ((,class (:foreground ,cyan))))
 
-     ;;info+
+     ;; info
+     `(info-title-1 ((,class (:foreground ,base1 :weight bold))))
+     `(info-title-2 ((,class (:foreground ,base1 :weight bold))))
+     `(info-title-3 ((,class (:weight bold))))
+     `(info-title-4 ((,class (:weight bold))))
+     `(info-node ((,class (:foreground ,base1 :slant italic :weight bold))))
+     `(info-header-node ((,class (:inherit info-node))))
+     `(info-header-xref ((,class (:inherit info-xref))))
+     `(info-index-match ((,class (:inherit match))))
+     `(info-menu-header ((,class (:inherit variable-pitch :weight bold))))
+     `(info-menu-star ((,class (:foreground ,orange))))
+     `(info-xref ((,class (:inherit link))))
+     `(info-xref-visited ((,class (:inherit (link-visited info-xref)))))
+
+     ;; info+
      `(info-file
        ((,class (:foreground ,yellow :background ,base02))))
      `(info-menu
-       ((,class (:foreground ,yellow :background ,base02))))
+       ((,class (:foreground ,violet :background ,base02))))
      `(info-quoted-name
        ((,class (:foreground ,green :inherit font-lock-string-face))))
      `(info-string
-       ((,class (:foreground ,orange :inherit font-lock-string-face))))
+       ((,class (:foreground ,cyan :inherit font-lock-string-face))))
      `(info-single-quote
-       ((,class (:foreground ,red :inherit font-lock-string-face))))
+       ((,class (:foreground ,cyan :inherit font-lock-string-face))))
      `(info-quoted-name
        ((,class (:foreground ,orange :inherit font-lock-string-face))))
      `(info-string
        ((,class (:foreground ,blue :inherit font-lock-string-face))))
-     `(info-title-1
-       ((,class (:foreground ,red :weight bold))))
-     `(info-title-2
-       ((,class (:foreground ,blue :weight bold))))
-     `(info-title-3
-       ((,class (:weight bold))))
-     `(info-title-4
-       ((,class (:weight bold))))
      `(info-command-ref-item
        ((,class (:foreground ,green :background ,base02))))
      `(info-constant-ref-item
