@@ -81,7 +81,7 @@ GitHub pull request.
 Save the following files in a folder that's on your Emacs' `load-path`:
 
 * [dash.el](https://raw.githubusercontent.com/magnars/dash.el/master/dash.el) - [dash](https://github.com/magnars/dash.el), a modern list library for Emacs
-* [solarized.el](https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized.el) - the solarzed theme
+* [solarized.el](https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized.el) - the solarized theme
 
 Save the following files into `~/.emacs.d/themes`:
 
