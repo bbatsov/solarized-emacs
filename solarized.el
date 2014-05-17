@@ -980,6 +980,10 @@ customize the resulting theme."
      `(highlight-indentation-face ((,class (:background ,base02))))
      `(highlight-indentation-current-column-face((,class (:background ,base02))))
 
+     ;; highlight-symbol
+     `(highlight-symbol-face ((,class (:foreground ,magenta
+                                                   :background unspecified))))
+     
      ;; hl-line-mode
      `(hl-line ((,class (:background ,base02))))
      `(hl-line-face ((,class (:background ,base02))))
@@ -1896,6 +1900,12 @@ customize the resulting theme."
      ;; highlight-changes
      `(highlight-changes-colors '(,magenta ,violet))
 
+     ;; highlight-symbol
+     `(highlight-symbol-foreground-color ,base1)
+     `(highlight-symbol-colors
+       (--map (solarized-color-blend it ,base03 0.25)
+              '(,yellow ,cyan ,red ,violet ,green ,orange ,blue)))
+                 
      ;; highlight-tail
      `(highlight-tail-colors
        '((,base02 . 0)(,green-lc . 20)(,cyan-lc . 30)(,blue-lc . 50)
