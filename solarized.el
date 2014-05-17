@@ -959,19 +959,34 @@ customize the resulting theme."
      `(helm-swoop-target-line-block-face ((,class (:foreground unspecified :background ,base02))))
      `(helm-swoop-target-word-face ((,class (:foreground ,magenta :background unspecified))))
 
-     ;; hi-lock-mode
-     `(hi-yellow ((,class (:foreground ,yellow-lc :background ,yellow-hc))))
-     `(hi-pink ((,class (:foreground ,magenta-lc :background ,magenta-hc))))
-     `(hi-green ((,class (:foreground ,green-lc :background ,green-hc))))
-     `(hi-blue ((,class (:foreground ,blue-lc :background ,blue-hc))))
-     `(hi-black-b ((,class (:foreground ,base1 :background ,base03
-                                        :weight bold))))
-     `(hi-blue-b ((,class (:foreground ,blue-lc :weight bold))))
-     `(hi-green-b ((,class (:foreground ,green-lc :weight bold))))
-     `(hi-red-b ((,class (:foreground ,red :weight bold))))
-     `(hi-black-hb ((,class (:foreground ,base1 :background ,base03
-                                         :weight bold))))
 
+     
+     ;; hi-lock-mode
+     `(hi-yellow ((,class (:foreground ,(solarized-color-blend yellow base1 0.5)
+                                       :background,(solarized-color-blend yellow base03 0.15)))))
+     `(hi-pink ((,class (:foreground ,(solarized-color-blend magenta base1 0.5)
+                                       :background,(solarized-color-blend magenta base03 0.15)))))
+     `(hi-green ((,class (:foreground ,(solarized-color-blend green base1 0.5)
+                                       :background,(solarized-color-blend green base03 0.15)))))
+     `(hi-blue ((,class (:foreground ,(solarized-color-blend blue base1 0.5)
+                                       :background,(solarized-color-blend blue base03 0.15)))))
+     `(hi-black-b ((,class (:foreground ,base1
+                                        :background ,base03
+                                        :weight bold))))
+     `(hi-blue-b ((,class (:weight bold
+                                   :foreground ,(solarized-color-blend cyan base1 0.7)
+                                   :background ,(solarized-color-blend cyan base03 0.2)))))
+     `(hi-green-b ((,class (:weight bold
+                           :foreground ,(solarized-color-blend green base1 0.7)
+                           :background ,(solarized-color-blend green base03 0.2)))))
+     `(hi-red-b ((,class (:weight bold
+                                  :foreground ,(solarized-color-blend red base1 0.7)
+                                  :background ,(solarized-color-blend red base03 0.2)))))
+     `(hi-black-hb ((,class (:weight bold
+                                     :foreground ,base1
+                                     :background ,base02))))
+    
+     
      ;; highlight-changes
      `(highlight-changes ((,class (:foreground ,orange))))
      `(highlight-changes-delete ((,class (:foreground ,red :underline t))))
