@@ -1874,6 +1874,9 @@ customize the resulting theme."
      `(yascroll:thumb-fringe
        ((,class (:foreground ,base01 :background ,base01))))
 
+     ;; yasnippet
+     `(yas-field-highlight-face ((,class (:inherit secondary-selection))))
+
      ;; zencoding
      `(zencoding-preview-input ((,class (:background ,base02 :box ,base1))))
 
