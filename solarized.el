@@ -1744,7 +1744,7 @@ customize the resulting theme."
      `(w3m-tab-unselected-unseen ((,class (:background ,base02 :foreground ,violet))))
 
      ;; web-mode
-     `(web-mode-builtin-face ((,class (:foreground ,red))))
+     `(web-mode-builtin-face ((,class (:inherit font-lock-builtin-face))))
      `(web-mode-comment-face ((,class (:foreground ,base01))))
      `(web-mode-constant-face ((,class (:foreground ,blue :weight bold))))
      `(web-mode-current-element-highlight-face ((,class
