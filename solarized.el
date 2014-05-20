@@ -610,14 +610,21 @@ customize the resulting theme."
 
      ;; custom
      `(custom-face-tag ((,class (:inherit ,s-variable-pitch :height ,solarized-height-plus-3
-                                          :foreground ,violet :weight bold))))
+                                          :foreground ,violet :weight normal))))
      `(custom-variable-tag ((,class (:inherit ,s-variable-pitch
                                               :foreground ,cyan :height ,solarized-height-plus-3))))
      `(custom-comment-tag ((,class (:foreground ,base01))))
      `(custom-group-tag ((,class (:inherit ,s-variable-pitch :foreground ,blue :height ,solarized-height-plus-3))))
      `(custom-group-tag-1 ((,class (:inherit ,s-variable-pitch :foreground ,red :height ,solarized-height-plus-3))))
      `(custom-state ((,class (:foreground ,green))))
-
+     `(custom-button ((,class (:background ,base02 :foreground ,base1
+                                           :box (:line-width 2 :style released-button)))))
+     `(custom-button-mouse ((,class (:background ,base01 :foreground ,base02
+                                                 :box (:line-width 2 :style released-button)))))
+     `(custom-button-pressed ((,class (:background ,base01 :foreground ,base1
+                                                   :box (:line-width 2 :style pressed-button)))))
+     `(custom-button-unraised ((,class (:inherit underline))))
+     `(custom-button-pressed-unraised ((,class (:inherit custom-button-unraised :foreground ,magenta))))
      ;; diff
      `(diff-added ((,class (:foreground ,green :background nil))))
      `(diff-changed ((,class (:foreground ,blue :background nil))))
