@@ -1675,26 +1675,25 @@ customize the resulting theme."
      `(table-cell ((,class (:foreground ,base0 :background ,base02))))
 
      ;; term
-     `(term-color-black ((t (:foreground ,base03
+     `(term ((t ( :background ,base03
+                              :foreground ,base0))))
+     `(term-color-black ((t (:foreground ,base02
                                          :background ,base02))))
      `(term-color-red ((t (:foreground ,red
-                                       :background ,red-d))))
+                                       :background ,red))))
      `(term-color-green ((t (:foreground ,green
-                                         :background ,green-d))))
+                                         :background ,green))))
      `(term-color-yellow ((t (:foreground ,yellow
-                                          :background ,yellow-d))))
+                                          :background ,yellow))))
      `(term-color-blue ((t (:foreground ,blue
-                                        :background ,blue-d))))
+                                        :background ,blue))))
      `(term-color-magenta ((t (:foreground ,magenta
-                                           :background ,magenta-d))))
+                                           :background ,magenta))))
      `(term-color-cyan ((t (:foreground ,cyan
-                                        :background ,cyan-d))))
-     `(term-color-white ((t (:foreground ,base00
-                                         :background ,base0))))
-     '(term-default-fg-color ((t (:inherit term-color-white))))
-     '(term-default-bg-color ((t (:inherit term-color-black))))
-
-
+                                        :background ,cyan))))
+     `(term-color-white ((t (:foreground ,base2
+                                         :background ,base2))))
+     
      ;; tooltip. (NOTE: This setting has no effect on the os widgets for me
      ;; zencoding uses this)
      `(tooltip ((,class (:background ,yellow-lc :foreground ,yellow-hc
@@ -1915,8 +1914,8 @@ customize the resulting theme."
 
     (custom-theme-set-variables
      theme-name
-     `(ansi-color-names-vector [,base03 ,red ,green ,yellow
-                                              ,blue ,magenta ,cyan ,base0])
+     `(ansi-color-names-vector [,base02 ,red ,green ,yellow
+                                              ,blue ,magenta ,cyan ,base00])
 
      ;; compilation
      `(compilation-message-face 'default)
@@ -1949,7 +1948,11 @@ customize the resulting theme."
 
      ;; smartrep
      `(smartrep-mode-line-active-bg (solarized-color-blend ,green ,s-mode-line-bg 0.2))
-     
+
+     ;; term 
+     `(term-default-fg-color ,base0) ;; @deprecated24.3
+     `(term-default-bg-color ,base03) ;; @deprecated24.3
+
      ;; vc
      `(vc-annotate-color-map
        '((20 . ,red)
