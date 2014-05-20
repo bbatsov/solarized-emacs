@@ -1789,6 +1789,17 @@ customize the resulting theme."
      `(web-mode-symbol-face ((,class (:foreground ,yellow))))
      `(web-mode-whitespace-face ((,class (:background ,red))))
      `(web-mode-html-tag-bracket-face ((,class (:foreground ,base01))))
+     `(web-mode-block-delimiter-face ((,class (:inherit font-lock-preprocessor-face))))
+     `(web-mode-css-comment-face ((,class (:inherit web-mode-comment-face))))
+     `(web-mode-css-variable-face ((,class (:inherit web-mode-variable-name-face :slant italic))))
+     `(web-mode-error-face ((,class (:background ,red))))
+     `(web-mode-function-call-face ((,class (:inherit font-lock-function-name-face))))
+     `(web-mode-html-attr-custom-face ((,class (:inherit web-mode-html-attr-name-face))))
+     `(web-mode-html-attr-engine-face ((,class (:inherit web-mode-html-attr-custom-face))))
+     `(web-mode-html-attr-equal-face ((,class (:inherit web-mode-html-attr-name-face))))
+     `(web-mode-html-tag-custom-face ((,class (:inherit web-mode-html-tag-face))))
+     `(web-mode-javascript-comment-face ((,class (:inherit web-mode-comment-face))))
+     `(web-mode-json-comment-face ((,class (:inherit web-mode-comment-face))))
 
      ;; weather-metno
      `(weather-metno-date ((,class (:foreground ,yellow :height ,solarized-height-plus-3))))
