@@ -286,8 +286,8 @@ customize the resulting theme."
      `(cursor ((,class (:foreground ,base03 :background ,base0
                                     :inverse-video t))))
      `(mouse ((,class (:foreground ,base03 :background ,base0
-                   :inverse-video t))))
-     `(escape-glyph-face ((,class (:foreground ,red))))
+                                   :inverse-video t))))
+     `(escape-glyph ((,class (:foreground ,violet))))     
      `(fringe ((,class (:foreground ,s-fringe-fg :background ,s-fringe-bg))))
      `(highlight ((,class (:background ,base02))))
      `(link ((,class (:foreground ,yellow :underline t :weight bold))))
@@ -297,7 +297,7 @@ customize the resulting theme."
      `(error ((,class (:foreground ,orange))))
      `(lazy-highlight ((,class (:foreground ,base03 :background ,yellow
                                             :weight normal))))
-     `(escape-glyph ((,class (:foreground ,violet))))
+     
 
      ;; compilation
      `(compilation-column-face ((,class (:foreground ,cyan :underline nil))))
