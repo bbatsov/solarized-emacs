@@ -1486,6 +1486,9 @@ customize the resulting theme."
      ;; parenfaceu
      `(paren-face  ((,class (:foreground ,base01))))
 
+     ;; perspective
+     `(persp-selected-face ((,class (:foreground ,yellow))))
+
      ;; pretty-mode
      `(pretty-mode-symbol-face  ((,class (:foreground ,yellow :weight normal))))
 
