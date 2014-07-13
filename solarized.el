@@ -395,7 +395,7 @@ customize the resulting theme."
      `(enh-ruby-string-delimiter-face ((,class (:foreground ,yellow))))
      `(enh-ruby-heredoc-delimiter-face ((,class (:inherit enh-ruby-string-delimiter-face))))
      `(enh-ruby-regexp-delimiter-face ((,class (:inherit enh-ruby-string-delimiter-face))))
-     `(enh-ruby-op-face ((,class (:inherit default))))
+     `(enh-ruby-op-face ((,class (:foreground ,base0))))
      `(erm-syn-errline ((,class (:inherit flymake-errline))))
      `(erm-syn-warnline ((,class (:inherit flymake-warnline))))
 
