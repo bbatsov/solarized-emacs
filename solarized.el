@@ -1186,6 +1186,25 @@ customize the resulting theme."
      `(kite-tag-slash-face ((,class (:inherit kite-name-face))))
      `(kite-undefined ((,class (:inherit nxml-char-ref-number))))
 
+     ;; ledger-mode
+     `(ledger-font-payee-uncleared-face ((t (:foreground ,red))))
+     `(ledger-font-payee-cleared-face ((t (:foreground ,green :weight normal))))
+     `(ledger-font-xact-highlight-face ((t (:background ,base02))))
+     `(ledger-font-pending-face ((t (:foreground ,yellow weight: normal))))
+     `(ledger-font-other-face ((t (:foreground ,base0))))
+     `(ledger-font-posting-account-face ((t (:foreground ,cyan))))
+     `(ledger-font-posting-account-cleared-face ((t (:foreground ,base0))))
+     `(ledger-font-posting-account-pending-face ((t (:foreground ,yellow))))
+     `(ledger-font-posting-amount-face ((t (:foreground ,yellow))))
+     `(ledger-font-posting-account-pending-face ((t (:foreground ,yellow))))
+     `(ledger-occur-narrowed-face ((t (:foreground ,base3 :invisible t))))
+     `(ledger-occur-xact-face ((t (:background ,base02))))
+     `(ledger-font-comment-face ((t (:foreground ,base01))))
+     `(ledger-font-reconciler-uncleared-face ((t (:foreground ,red :weight bold))))
+     `(ledger-font-reconciler-cleared-face ((t (:foreground ,base0 :weight normal))))
+     `(ledger-font-reconciler-pending-face ((t (:foreground ,yellow :weight normal))))
+     `(ledger-font-report-clickable-face ((t (:foreground ,yellow :weight normal))))
+
      ;; linum-mode
      `(linum ((,class (:foreground ,s-fringe-fg :background ,s-fringe-bg))))
 
