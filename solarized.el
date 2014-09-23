@@ -1715,7 +1715,12 @@ customize the resulting theme."
                                         :background ,cyan))))
      `(term-color-white ((t (:foreground ,base2
                                          :background ,base2))))
-     
+
+     ;; todotxt
+     `(todotxt-priority-a-face ((,class (:foreground ,orange))))
+     `(todotxt-priority-b-face ((,class (:foreground ,yellow))))
+     `(todotxt-priority-c-face ((,class (:foreground ,violet))))
+
      ;; tooltip. (NOTE: This setting has no effect on the os widgets for me
      ;; zencoding uses this)
      `(tooltip ((,class (:background ,yellow-lc :foreground ,yellow-hc
