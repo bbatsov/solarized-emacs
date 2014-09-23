@@ -544,10 +544,10 @@ customize the resulting theme."
      `(anzu-mode-line ((,class (:foreground ,yellow :weight bold))))
 
      ;; bm
-     `(bm-face ((,class (:background ,yellow-lc :foreground ,base03))))
-     `(bm-fringe-face ((,class (:background ,yellow-lc :foreground ,base03))))
-     `(bm-fringe-persistent-face ((,class (:background ,green-lc :foreground ,base03))))
-     `(bm-persistent-face ((,class (:background ,green-lc :foreground ,base03))))
+     `(bm-face ((,class (:overline ,base0))))
+     `(bm-fringe-face ((,class (:overline ,base0))))
+     `(bm-fringe-persistent-face ((,class (:overline ,base0))))
+     `(bm-persistent-face ((,class (:overline ,base0))))
 
      ;; calfw
      `(cfw:face-day-title ((,class (:background ,base02))))
