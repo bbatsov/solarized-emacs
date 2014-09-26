@@ -656,6 +656,87 @@ customize the resulting theme."
      `(ediff-odd-diff-C ((,class (:background ,base01
                                               :foreground ,base03 ))))
 
+     ;;;; alternative ediiff (not finished)
+     ;; ;; ediff
+     ;; `(ediff-fine-diff-A ((,class (
+     ;;                               :background ,(solarized-color-blend blue base03 0.25))
+     ;;                              )))
+     ;; `(ediff-fine-diff-B ((,class (
+     ;;                               :background ,(solarized-color-blend violet base03 0.25))
+     ;;                              )))
+     ;; `(ediff-fine-diff-C ((,class (
+     ;;                               :background ,(solarized-color-blend yellow base03 0.25))
+     ;;                              )))
+
+     ;; `(ediff-current-diff-A ((,class (
+     ;;                                  :background ,(solarized-color-blend blue base03 0.15)
+
+     ;;                                              ))))
+     ;; `(ediff-current-diff-B ((,class (
+     ;;                                   :background ,(solarized-color-blend violet base03 0.15)
+
+     ;;                                              ))))
+     ;; `(ediff-current-diff-C ((,class (
+     ;;                                  :background ,(solarized-color-blend yellow base03 0.15)
+
+     ;;                                              ))))
+
+     ;; `(ediff-even-diff-A ((,class (
+     ;;                                ;; :background ,(solarized-color-blend base0 base03 0.15)
+     ;;                               :background ,base02
+     ;;                               ;; :foreground ,base2
+     ;;                                ;; :background ,(solarized-color-blend green base02 0.15)
+     ;;                                           ))))
+     ;; `(ediff-even-diff-B ((,class (
+     ;;                               ;; :background ,base01
+     ;;                               :background ,base02
+     ;;                               ;; :foreground ,base2
+     ;;                                           ))))
+     ;; `(ediff-even-diff-C ((,class (
+     ;;                               ;; :background ,base01
+     ;;                               :background ,base02
+     ;;                                           ;; :foreground ,base2
+     ;;                                           ))))
+
+
+     ;; `(ediff-odd-diff-A ((,class (
+     ;;                              ;; :background ,base01
+     ;;                                          :background ,base02
+     ;;                                          ))))
+     ;; `(ediff-odd-diff-B ((,class (
+     ;;                              ;; :background ,base01
+     ;;                                          :background ,base02
+     ;;                                          ))))
+     ;; `(ediff-odd-diff-C ((,class (
+     ;;                              ;; :background ,base01
+     ;;                                          :background ,base03
+     ;;                                          ))))
+
+     ;; `(ediff-current-diff-Ancestor ((,class (:background "VioletRed" :foreground "Black"))))
+     ;; `(ediff-even-diff-Ancestor ((,class (:background "Grey" :foreground "White"))))
+     ;; `(ediff-fine-diff-Ancestor ((,class (:background "Green" :foreground "Black"))))
+     ;; `(ediff-odd-diff-Ancestor ((,class (:background "gray40" :foreground "cyan3"))))
+
+
+     ;; `(ediff-even-diff-A ((,class (:underline ,base01))))
+     ;; `(ediff-odd-diff-A ((,class (:underline ,base01
+
+     ;;                                          ))))
+
+     ;; `(ediff-even-diff-B ((,class (:background ,base01
+     ;;                                           :foreground ,base03
+     ;;                                           ))))
+     ;; `(ediff-odd-diff-B ((,class (:background ,base01
+     ;;                                          :foreground ,base03
+     ;;                                          ))))
+
+     ;; `(ediff-even-diff-C ((,class (:background ,base01
+     ;;                                           :foreground ,base0
+     ;;                                           ))))
+     ;; `(ediff-odd-diff-C ((,class (:background ,base01
+     ;;                                          :foreground ,base03
+     ;;                                          ))))
+
      ;; diff-hl
      `(diff-hl-change ((,class (:background ,blue-lc  :foreground ,blue-hc))))
      `(diff-hl-delete ((,class (:background ,red-lc  :foreground ,red-hc))))
