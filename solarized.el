@@ -632,9 +632,12 @@ customize the resulting theme."
      `(diff-header ((,class (:background ,base03))))
      `(diff-file-header
        ((,class (:background ,base03 :foreground ,base0 :weight bold))))
-     `(diff-refine-added ((,class :foreground ,base03 :background ,green)))
-     `(diff-refine-change ((,class :foreground ,base03 :background ,blue)))
-     `(diff-refine-removed ((,class (:foreground ,base03 :background ,red))))
+     `(diff-refine-added ((,class (:foreground ,green :background ,base03
+                                               :inverse-video t))))
+     `(diff-refine-change ((,class (:foreground ,blue :background ,base03
+                                                :inverse-video t))))
+     `(diff-refine-removed ((,class (:foreground ,red :background ,base03
+                                                 :inverse-video t))))
 
      ;; ediff
      `(ediff-fine-diff-A ((,class (:background ,orange-lc))))
