@@ -1045,6 +1045,9 @@ customize the resulting theme."
      `(helm-css-scss-selector-depth-face-6 ((,class (:foreground ,violet))))
      `(helm-css-scss-target-line-face ((,class (:background unspecified :foreground ,magenta))))
 
+     ;; helm-go-package
+     `(helm-source-go-package-godoc-description ((,class (:foreground ,base01))))
+
      ;; helm-swoop
      `(helm-swoop-target-line-face ((,class (:foreground unspecified :background ,base02))))
      `(helm-swoop-target-line-block-face ((,class (:foreground unspecified :background ,base02))))
