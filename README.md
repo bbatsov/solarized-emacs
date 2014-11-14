@@ -1,3 +1,7 @@
+[![License GPL 3][badge-license]](http://www.gnu.org/licenses/gpl-3.0.txt)
+[![MELPA](http://melpa.org/packages/solarized-theme-badge.svg)](http://melpa.org/#/solarized-theme)
+[![MELPA Stable](http://stable.melpa.org/packages/solarized-theme-badge.svg)](http://stable.melpa.org/#/solarized-theme)
+
 # Solarized for Emacs
 
 Solarized for Emacs is an Emacs port of the [Solarized theme for vim](http://ethanschoonover.com/solarized),
@@ -102,3 +106,5 @@ Now you can load the theme with the interactive function `load-theme`.
 - [Thomas Frössman](http://t.jossystem.se)
 
 (Add yourself to the list)
+
+[badge-license]: https://img.shields.io/badge/license-GPL_3-green.svg
