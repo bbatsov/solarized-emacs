@@ -2109,6 +2109,12 @@ customize the resulting theme."
        '((,base02 . 0)(,green-lc . 20)(,cyan-lc . 30)(,blue-lc . 50)
          (,yellow-lc . 60)(,orange-lc . 70)(,magenta-lc . 85)(,base02 . 100)))
 
+     ;; hl-anything
+     `(hl-fg-colors '(,base03 ,base03 ,base03 ,base03 ,base03 ,base03
+                              ,base03 ,base03))
+     `(hl-bg-colors '(,yellow-lc ,orange-lc ,red-lc ,magenta-lc
+                                 ,violet-lc ,blue-lc ,cyan-lc ,green-lc)) 
+
      ;; smartrep
      `(smartrep-mode-line-active-bg (solarized-color-blend ,green ,s-mode-line-bg 0.2))
 
