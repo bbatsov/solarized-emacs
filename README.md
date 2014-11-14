@@ -37,7 +37,7 @@ either by doing `M-x customize-group solarized` or setting the values using
 elisp code:
 
 
-```lisp
+```el
 ;; make the fringe stand out from the background
 (setq solarized-distinct-fringe-background t)
 
@@ -67,7 +67,7 @@ Ihmo it enhances the general readability and also it fits well with the default
 underline for the modeline to create one horisontal window border in the same
 manner as the vertical border.
 
-```lisp
+```el
 (setq x-underline-at-descent-line t)
 ```
 
@@ -94,7 +94,7 @@ Save the following files into `~/.emacs.d/themes`:
 
 Add this your `.emacs.d`:
 
-```lisp
+```el
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 ```
 
