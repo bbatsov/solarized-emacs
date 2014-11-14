@@ -2,7 +2,7 @@
 [![MELPA](http://melpa.org/packages/solarized-theme-badge.svg)](http://melpa.org/#/solarized-theme)
 [![MELPA Stable](http://stable.melpa.org/packages/solarized-theme-badge.svg)](http://stable.melpa.org/#/solarized-theme)
 
-# Solarized for Emacs
+## Solarized for Emacs
 
 Solarized for Emacs is an Emacs port of the [Solarized theme for vim](http://ethanschoonover.com/solarized),
 developed by Ethan Schoonover.
@@ -12,7 +12,7 @@ working under Emacs 23 as well. The theme is implemented in terms of
 customizations and `deftheme` and does not require the
 `color-theme-package`.
 
-# Installation
+## Installation
 
 
 Solarized for Emacs is available for installation via the
@@ -29,9 +29,9 @@ load-theme`.
 (If you want to install manually that procedure is briefly documentet in the
 FAQ at the end of this document.)
 
-# Customisations
+## Customisations
 
-## Theme specific settings
+### Theme specific settings
 If you don't like low-contrast modeline or fringe, you can `customize` them
 either by doing `M-x customize-group solarized` or setting the values using
 elisp code:
@@ -56,7 +56,7 @@ elisp code:
 ```
 Note that these need to be set **before** `load-theme` is invoked for Solarized.
 
-## Underline position setting for X
+### Underline position setting for X
 
 If you are using emacs under X you might like the following setting which puts
 the underline below the
@@ -71,16 +71,16 @@ manner as the vertical border.
 (setq x-underline-at-descent-line t)
 ```
 
-# Bugs & Improvements
+## Bugs & Improvements
 
 Please, report any problems that you find on the projects integrated
 issue tracker. If you've added some improvements and you want them
 included upstream don't hesitate to send me a patch or even better - a
 GitHub pull request.
 
-# FAQ
+## FAQ
 
-## Stand-alone manual installation
+### Stand-alone manual installation
 
 Save the following files in a folder that's on your Emacs' `load-path`:
 
@@ -101,7 +101,7 @@ Add this your `.emacs.d`:
 Now you can load the theme with the interactive function `load-theme`.
 
 
-# Contributors
+## Contributors
 
 - [Thomas Frössman](http://t.jossystem.se)
 
