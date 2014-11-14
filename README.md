@@ -14,7 +14,6 @@ customizations and `deftheme` and does not require the
 
 ## Installation
 
-
 Solarized for Emacs is available for installation via the
 [MELPA](http://melpa.org) and
 [Marmalade](http://marmalade-repo.org/) `package.el`
@@ -36,7 +35,6 @@ If you don't like low-contrast modeline or fringe, you can `customize` them
 either by doing `M-x customize-group solarized` or setting the values using
 elisp code:
 
-
 ```el
 ;; make the fringe stand out from the background
 (setq solarized-distinct-fringe-background t)
@@ -52,8 +50,8 @@ elisp code:
 
 ;; Use less colors for indicators such as git:gutter, flycheck and similar.
 (setq solarized-emphasize-indicators nil)
-
 ```
+
 Note that these need to be set **before** `load-theme` is invoked for Solarized.
 
 ### Underline position setting for X
@@ -99,7 +97,6 @@ Add this your `.emacs.d`:
 ```
 
 Now you can load the theme with the interactive function `load-theme`.
-
 
 ## Contributors
 
