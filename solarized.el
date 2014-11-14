@@ -787,6 +787,9 @@ customize the resulting theme."
      `(eshell-ls-special ((,class (:foreground ,yellow :weight bold))))
      `(eshell-ls-symlink ((,class (:foreground ,cyan :weight bold))))
 
+     ;; evil-search-highlight-persist
+     `(evil-search-highlight-persist-highlight-face ((,class (:background ,(if (eq variant 'light) green-lc violet-lc)))))
+
      ;; fic
      `(fic-author-face ((,class (:background ,base03 :foreground ,orange
                                              :underline t :slant italic))))
