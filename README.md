@@ -16,7 +16,7 @@ customizations and `deftheme` and does not require the
 
 
 Solarized for Emacs is available for installation via the
-[MELPA](http://melpa.milkbox.net) and
+[MELPA](http://melpa.org) and
 [Marmalade](http://marmalade-repo.org/) `package.el`
 repositories. Assuming you've set one of the them up (I recommend
 MELPA) you can install solarized like this:
