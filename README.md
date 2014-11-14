@@ -107,4 +107,7 @@ Now you can load the theme with the interactive function `load-theme`.
 
 (Add yourself to the list)
 
+Cheers,<br\>
+[Bozhidar](http://twitter.com/bbatsov)
+
 [badge-license]: https://img.shields.io/badge/license-GPL_3-green.svg
