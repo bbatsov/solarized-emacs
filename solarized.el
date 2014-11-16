@@ -106,6 +106,11 @@ Also affects `linum-mode' background."
   :type 'number
   :group 'solarized)
 
+(defcustom solarized-scale-org-headlines t
+  "Whether scaling of outline-headlines should apply to org-mode headlines."
+  :type 'boolean
+  :group 'solarized)
+
 (defun solarized-color-name-to-rgb (color &optional frame)
   "Convert COLOR string to a list of normalized RGB components.
 COLOR should be a color name (e.g. \"white\") or an RGB triplet
@@ -1578,14 +1583,18 @@ customize the resulting theme."
      `(org-formula ((,class (:foreground ,yellow))))
      `(org-headline-done ((,class (:foreground ,green))))
      `(org-hide ((,class (:foreground ,base03))))
-     `(org-level-1 ((,class (:inherit ,s-variable-pitch :height ,solarized-height-plus-4
-                                      :foreground ,orange))))
-     `(org-level-2 ((,class (:inherit ,s-variable-pitch :height ,solarized-height-plus-3
-                                      :foreground ,green))))
-     `(org-level-3 ((,class (:inherit ,s-variable-pitch :height ,solarized-height-plus-2
-                                      :foreground ,blue))))
-     `(org-level-4 ((,class (:inherit ,s-variable-pitch :height ,solarized-height-plus-1
-                                      :foreground ,yellow))))
+     `(org-level-1 ((,class (:inherit ,s-variable-pitch :foreground ,orange
+                             ,@(when solarized-scale-org-headlines
+                                 (list :height ,solarized-height-plus-4))))))
+     `(org-level-2 ((,class (:inherit ,s-variable-pitch :foreground ,green
+                             ,@(when solarized-scale-org-headlines
+                                 (list :height ,solarized-height-plus-3))))))
+     `(org-level-3 ((,class (:inherit ,s-variable-pitch :foreground ,blue
+                             ,@(when solarized-scale-org-headlines
+                                 (list :height ,solarized-height-plus-2))))))
+     `(org-level-4 ((,class (:inherit ,s-variable-pitch :foreground ,yellow
+                             ,@(when solarized-scale-org-headlines
+                                 (list :height ,solarized-height-plus-1))))))
      `(org-level-5 ((,class (:inherit ,s-variable-pitch
                                       :foreground ,cyan))))
      `(org-level-6 ((,class (:inherit ,s-variable-pitch
@@ -1632,10 +1641,10 @@ customize the resulting theme."
 
      
      ;; outline
-     `(outline-1 ((,class (:inherit org-level-1))))
-     `(outline-2 ((,class (:inherit org-level-2))))
-     `(outline-3 ((,class (:inherit org-level-3))))
-     `(outline-4 ((,class (:inherit org-level-4))))
+     `(outline-1 ((,class (:inherit org-level-1 :height ,solarized-height-plus-4))))
+     `(outline-2 ((,class (:inherit org-level-2 :height ,solarized-height-plus-3))))
+     `(outline-3 ((,class (:inherit org-level-3 :height ,solarized-height-plus-2))))
+     `(outline-4 ((,class (:inherit org-level-4 :height ,solarized-height-plus-1))))
      `(outline-5 ((,class (:inherit org-level-5))))
      `(outline-6 ((,class (:inherit org-level-6))))
      `(outline-7 ((,class (:inherit org-level-7))))

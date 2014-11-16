@@ -50,6 +50,17 @@ elisp code:
 
 ;; Use less colors for indicators such as git:gutter, flycheck and similar.
 (setq solarized-emphasize-indicators nil)
+
+;; Don't change size of org-mode headlines (but keep other size-changes)
+(setq solarized-scale-org-headlines nil)
+
+;; Avoid all font-size changes
+(setq solarized-height-minus-1 1)
+(setq solarized-height-plus-1 1)
+(setq solarized-height-plus-2 1)
+(setq solarized-height-plus-3 1)
+(setq solarized-height-plus-4 1)
+
 ```
 
 Note that these need to be set **before** `load-theme` is invoked for Solarized.
