@@ -590,6 +590,10 @@ customize the resulting theme."
      `(company-preview ((,class (:background ,base02 :foreground ,cyan))))
      `(company-preview-common ((,class (:foreground ,base1 :underline t))))
 
+     ;; column-enforce-mode
+     `(column-enforce-face ((,class (:background unspecified :foreground ,magenta
+                                                 :inverse-video unspecified))))
+
      ;; cscope
      `(cscope-file-face ((,class (:foreground ,green :weight bold))))
      `(cscope-function-face ((,class (:foreground ,blue))))
