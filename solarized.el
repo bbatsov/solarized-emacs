@@ -1589,16 +1589,16 @@ customize the resulting theme."
      `(org-hide ((,class (:foreground ,base03))))
      `(org-level-1 ((,class (:inherit ,s-variable-pitch :foreground ,orange
                              ,@(when solarized-scale-org-headlines
-                                 (list :height ,solarized-height-plus-4))))))
+                                 (list :height solarized-height-plus-4))))))
      `(org-level-2 ((,class (:inherit ,s-variable-pitch :foreground ,green
                              ,@(when solarized-scale-org-headlines
-                                 (list :height ,solarized-height-plus-3))))))
+                                 (list :height solarized-height-plus-3))))))
      `(org-level-3 ((,class (:inherit ,s-variable-pitch :foreground ,blue
                              ,@(when solarized-scale-org-headlines
-                                 (list :height ,solarized-height-plus-2))))))
+                                 (list :height solarized-height-plus-2))))))
      `(org-level-4 ((,class (:inherit ,s-variable-pitch :foreground ,yellow
                              ,@(when solarized-scale-org-headlines
-                                 (list :height ,solarized-height-plus-1))))))
+                                 (list :height solarized-height-plus-1))))))
      `(org-level-5 ((,class (:inherit ,s-variable-pitch
                                       :foreground ,cyan))))
      `(org-level-6 ((,class (:inherit ,s-variable-pitch
