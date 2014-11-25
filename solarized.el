@@ -584,6 +584,11 @@ customize the resulting theme."
      `(clojure-test-error-face ((t (:foreground ,red :weight bold :underline t))))
      `(clojure-test-success-face ((t (:foreground ,green :weight bold :underline t))))
 
+     ;; cider-test-mode
+     `(cider-test-failure-face ((t (:foreground ,orange :weight bold :underline t))))
+     `(cider-test-error-face ((t (:foreground ,red :weight bold :underline t))))
+     `(cider-test-success-face ((t (:foreground ,green :weight bold :underline t))))
+
      ;; company-mode
      `(company-tooltip ((,class (:background ,base02 :foreground ,cyan))))
      `(company-tooltip-selection ((,class (:background ,cyan-lc :foreground ,cyan-hc))))
