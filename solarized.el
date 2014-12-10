@@ -610,18 +610,27 @@ customize the resulting theme."
      `(custom-button-unraised ((,class (:inherit underline))))
      `(custom-button-pressed-unraised ((,class (:inherit custom-button-unraised :foreground ,magenta))))
 ;;;;; diff
-     `(diff-added ((,class (:foreground ,green :background nil))))
-     `(diff-changed ((,class (:foreground ,blue :background nil))))
-     `(diff-removed ((,class (:foreground ,red :background nil))))
-     `(diff-header ((,class (:background ,base03))))
+     `(diff-added   ((,class (:foreground ,green))))
+     `(diff-changed ((,class (:foreground ,blue))))
+     `(diff-removed ((,class (:foreground ,red))))
+     `(diff-refine-added
+       ((((class color) (background light))
+         (:background ,(solarized-color-blend "#ddffdd" green 0.7)))
+        (((class color) (background dark))
+         (:background ,(solarized-color-blend "#446644" green 0.7)))))
+     `(diff-refine-changed
+       ((((class color) (background light))
+         (:background ,(solarized-color-blend "#ddddff" blue 0.7)))
+        (((class color) (background dark))
+         (:background ,(solarized-color-blend "#444466" blue 0.7)))))
+     `(diff-refine-removed
+       ((((class color) (background light))
+         (:background ,(solarized-color-blend "#ffdddd" red 0.7)))
+        (((class color) (background dark))
+         (:background ,(solarized-color-blend "#664444" red 0.7)))))
+     `(diff-header  ((,class (:background ,base03))))
      `(diff-file-header
        ((,class (:background ,base03 :foreground ,base0 :weight bold))))
-     `(diff-refine-added ((,class (:foreground ,green :background ,base03
-                                               :inverse-video t))))
-     `(diff-refine-change ((,class (:foreground ,blue :background ,base03
-                                                :inverse-video t))))
-     `(diff-refine-removed ((,class (:foreground ,red :background ,base03
-                                                 :inverse-video t))))
 ;;;;; ediff
      `(ediff-fine-diff-A ((,class (:background ,orange-lc))))
      `(ediff-fine-diff-B ((,class (:background ,green-lc))))
@@ -854,6 +863,10 @@ customize the resulting theme."
      `(erc-prompt-face ((,class (:foreground ,orange :background ,base03 :weight bold))))
      `(erc-timestamp-face ((,class (:foreground ,green))))
      `(erc-underline-face ((t (:underline t))))
+;;;;; git-commit
+     `(git-commit-comment-action  ((,class (:foreground ,base0  :weight bold))))
+     `(git-commit-comment-branch  ((,class (:foreground ,blue   :weight bold))))
+     `(git-commit-comment-heading ((,class (:foreground ,yellow :weight bold))))
 ;;;;; git-gutter
      `(git-gutter:added
          ((,class (:weight normal
@@ -896,6 +909,8 @@ customize the resulting theme."
      `(git-gutter-fr+-added ((,class (:foreground ,green :weight bold))))
      `(git-gutter-fr+-deleted ((,class (:foreground ,red :weight bold))))
      `(git-gutter-fr+-modified ((,class (:foreground ,blue :weight bold))))
+;;;;; git-rebase
+     `(git-rebase-hash ((,class (:foreground ,base01))))
 ;;;;; go-direx
      `(go-direx-header ((,class (:foreground ,blue))))
      `(go-direx-label ((,class (:foreground ,green))))
@@ -1257,47 +1272,83 @@ customize the resulting theme."
      `(lusty-match-face ((,class (:inherit ido-first-match))))
      `(lusty-slash-face ((,class (:foreground ,cyan :weight bold))))
 ;;;;; magit
-     `(magit-section-title ((,class (:foreground ,yellow :weight bold))))
-     `(magit-branch ((,class (:foreground ,orange :weight bold))))
-     `(magit-item-highlight ((,class (:background ,base02 :weight unspecified))))
-     `(magit-log-author ((,class (:foreground ,cyan))))
-     `(magit-log-graph ((,class (:foreground ,base01))))
-     `(magit-log-head-label-bisect-bad ((,class (:background ,red-hc :foreground ,red-lc
-                                                             :box 1))))
-     `(magit-log-head-label-bisect-good ((,class (:background ,green-hc :foreground ,green-lc
-                                                              :box 1))))
-     `(magit-log-head-label-default ((,class (:background ,base02 :box 1))))
-     `(magit-log-head-label-local ((,class (:background ,blue-lc :foreground ,blue-hc
-                                                        :box 1))))
-     `(magit-log-head-label-patches ((,class (:background ,red-lc :foreground ,red-hc
-                                                          :box 1))))
-     `(magit-log-head-label-remote ((,class (:background ,green-lc :foreground ,green-hc
-                                                         :box 1))))
-     `(magit-log-head-label-tags ((,class (:background ,yellow-lc :foreground ,yellow-hc
-                                                       :box 1))))
-     ;; magit hotfix
-     `(magit-header ((,class (:inherit default))))
-     ;; TODO
-     `(magit-log-sha1 ((,class (:foreground ,yellow))))
-     `(magit-cherry-equivalent ((,class (:foreground ,magenta))))
-     `(magit-cherry-unmatched ((,class (:foreground ,cyan))))
-     ;; `(magit-log-head-label-bisect-skip ((,class (:background "light goldenrod" :foreground "dark goldenrod" :box 1))))
-     ;; `(magit-log-head-label-head ((,class (:background "Grey70" :foreground "Black" :box 1))))
-     ;; `(magit-log-head-label-wip ((,class (:background "Grey95" :foreground "LightSkyBlue3" :box 1))))
-     ;; `(magit-log-reflog-label-checkout ((,class (:background "Grey85" :foreground "LightSkyBlue4" :box 1))))
-     ;; `(magit-log-reflog-label-cherry-pick ((,class (:background "light green" :foreground "dark olive green" :box 1))))
-     ;; `(magit-log-reflog-label-commit ((,class (:background "LemonChiffon1" :foreground "goldenrod4" :box 1))))
-     ;; `(magit-log-reflog-label-other ((,class (:background "Grey50" :box 1))))
-     ;; `(magit-log-reflog-label-rebase ((,class (:background "Grey85" :foreground "OliveDrab4" :box 1))))
-     ;; `(magit-log-reflog-label-remote ((,class (:background "Grey50" :box 1))))
-     ;; `(magit-log-reflog-label-reset ((,class (:background "IndianRed1" :foreground "IndianRed4" :box 1))))
-     `(magit-process-ng ((,class (:inherit magit-header :foreground ,red))))
-     `(magit-process-ok ((,class (:inherit magit-header :foreground ,green))))
-     `(magit-signature-bad ((,class (:foreground ,red))))
-     `(magit-signature-good ((,class (:foreground ,green))))
-     `(magit-signature-none ((,class (:inherit magit-log-message))))
-     `(magit-signature-untrusted ((,class (:foreground ,cyan))))
-     `(magit-whitespace-warning-face ((,class (:inherit trailing-whitespace))))
+;;;;;; headings and diffs
+     `(magit-section-highlight           ((t (:background ,base02))))
+     `(magit-section-heading             ((t (:foreground ,yellow :weight bold))))
+     `(magit-section-heading-selection   ((t (:foreground ,orange :weight bold))))
+     `(magit-diff-file-heading           ((t (:weight bold))))
+     `(magit-diff-file-heading-highlight ((t (:background ,base02 :weight bold))))
+     `(magit-diff-file-heading-selection ((t (:background ,base02
+                                              :foreground ,orange :weight bold))))
+     `(magit-diff-hunk-heading
+       ((t (:background ,(solarized-color-blend yellow base03 0.1)))))
+     `(magit-diff-hunk-heading-highlight
+       ((t (:background ,(solarized-color-blend yellow base02 0.1)))))
+     `(magit-diff-hunk-heading-selection
+       ((t (:background ,(solarized-color-blend yellow base02 0.1)
+            :foreground ,orange
+            :weight bold))))
+     `(magit-diff-lines-heading          ((t (:background ,orange
+                                              :foreground ,base3))))
+     `(magit-diff-context-highlight      ((t (:background ,base02))))
+     `(magit-diffstat-added              ((t (:foreground ,green))))
+     `(magit-diffstat-removed            ((t (:foreground ,red))))
+;;;;;; popup
+     `(magit-popup-heading             ((t (:foreground ,yellow  :weight bold))))
+     `(magit-popup-key                 ((t (:foreground ,green-d :weight bold))))
+     `(magit-popup-argument            ((t (:foreground ,green   :weight bold))))
+     `(magit-popup-disabled-argument   ((t (:foreground ,base01  :weight normal))))
+     `(magit-popup-option-value        ((t (:foreground ,blue    :weight bold))))
+;;;;;; process
+     `(magit-process-ok    ((t (:foreground ,green :weight bold))))
+     `(magit-process-ng    ((t (:foreground ,red   :weight bold))))
+;;;;;; log
+     `(magit-log-author    ((t (:foreground ,orange))))
+     `(magit-log-date      ((t (:foreground ,base0))))
+     `(magit-log-graph     ((t (:foreground ,base1))))
+;;;;;; sequence
+     `(magit-sequence-pick ((t (:foreground ,yellow-d))))
+     `(magit-sequence-stop ((t (:foreground ,green))))
+     `(magit-sequence-part ((t (:foreground ,yellow))))
+     `(magit-sequence-head ((t (:foreground ,blue))))
+     `(magit-sequence-drop ((t (:foreground ,red))))
+     `(magit-sequence-done ((t (:foreground ,base01))))
+     `(magit-sequence-onto ((t (:foreground ,base01))))
+;;;;;; bisect
+     `(magit-bisect-good ((t (:foreground ,green))))
+     `(magit-bisect-skip ((t (:foreground ,yellow))))
+     `(magit-bisect-bad  ((t (:foreground ,red))))
+;;;;;; blame
+     `(magit-blame-heading ((t (:background ,base1 :foreground ,base02))))
+     `(magit-blame-hash    ((t (:background ,base1 :foreground ,base02))))
+     `(magit-blame-name    ((t (:background ,base1 :foreground ,orange-l))))
+     `(magit-blame-date    ((t (:background ,base1 :foreground ,orange-l))))
+     `(magit-blame-summary ((t (:background ,base1 :foreground ,base02 :weight bold))))
+;;;;;; references etc.
+     `(magit-dimmed         ((t (:foreground ,base01))))
+     `(magit-hash           ((t (:foreground ,base01))))
+     `(magit-tag            ((t (:foreground ,orange :weight bold))))
+     `(magit-branch-remote  ((t (:foreground ,green  :weight bold))))
+     `(magit-branch-local   ((t (:foreground ,blue   :weight bold))))
+     `(magit-branch-current ((t (:foreground ,blue   :weight bold :box t))))
+     `(magit-head           ((t (:foreground ,blue   :weight bold))))
+     `(magit-refname        ((t (:background ,base02 :foreground ,base01 :weight bold))))
+     `(magit-refname-stash  ((t (:background ,base02 :foreground ,base01 :weight bold))))
+     `(magit-refname-wip    ((t (:background ,base02 :foreground ,base01 :weight bold))))
+     `(magit-signature-good      ((t (:foreground ,green))))
+     `(magit-signature-bad       ((t (:foreground ,red))))
+     `(magit-signature-untrusted ((t (:foreground ,yellow))))
+     `(magit-cherry-unmatched    ((t (:foreground ,cyan))))
+     `(magit-cherry-equivalent   ((t (:foreground ,magenta))))
+     `(magit-reflog-commit       ((t (:foreground ,green))))
+     `(magit-reflog-amend        ((t (:foreground ,magenta))))
+     `(magit-reflog-merge        ((t (:foreground ,green))))
+     `(magit-reflog-checkout     ((t (:foreground ,blue))))
+     `(magit-reflog-reset        ((t (:foreground ,red))))
+     `(magit-reflog-rebase       ((t (:foreground ,magenta))))
+     `(magit-reflog-cherry-pick  ((t (:foreground ,green))))
+     `(magit-reflog-remote       ((t (:foreground ,cyan))))
+     `(magit-reflog-other        ((t (:foreground ,cyan))))
 ;;;;; markdown-mode
      `(markdown-blockquote-face ((,class (:inherit font-lock-doc-face))))
      `(markdown-bold-face ((,class (:inherit bold))))
