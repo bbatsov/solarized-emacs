@@ -735,6 +735,13 @@ customize the resulting theme."
      `(elfeed-search-feed-face ((,class (:foreground ,base01))))
      `(elfeed-search-tag-face ((,class (:foreground ,base0))))
      `(elfeed-search-title-face ((,class (:foreground ,base0))))
+
+;;;;; elscreen
+     `(elscreen-tab-background-face ((,class (:background ,base03))))
+     `(elscreen-tab-current-screen-face ((,class (:background ,base1 :foreground ,base03)) (t (:underline t))))
+     `(elscreen-tab-other-screen-face ((,class (:background ,base02 :foreground ,base01))))
+     `(elscreen-tab-control-face ((,class (:background ,base03 :foreground ,base0))))
+
 ;;;;; epc
      `(epc:face-title ((,class (:foreground ,blue :background ,base03
                                             :weight normal :underline nil))))
