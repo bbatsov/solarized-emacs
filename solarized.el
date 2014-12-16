@@ -564,6 +564,7 @@ customize the resulting theme."
      `(cider-test-error-face ((t (:foreground ,red :weight bold :underline t))))
      `(cider-test-success-face ((t (:foreground ,green :weight bold :underline t))))
 ;;;;; company-mode
+     `(company-template-field ((,class (:background ,yellow :foreground ,base02))))
      `(company-tooltip ((,class (:background ,base02 :foreground ,cyan))))
      `(company-tooltip-selection ((,class (:background ,cyan-lc :foreground ,cyan-hc))))
      `(company-tooltip-mouse ((,class (:background ,cyan-hc :foreground ,cyan-lc))))
