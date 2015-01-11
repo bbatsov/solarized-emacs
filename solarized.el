@@ -741,7 +741,13 @@ customize the resulting theme."
      `(elscreen-tab-current-screen-face ((,class (:background ,base1 :foreground ,base03)) (t (:underline t))))
      `(elscreen-tab-other-screen-face ((,class (:background ,base02 :foreground ,base01))))
      `(elscreen-tab-control-face ((,class (:background ,base03 :foreground ,base0))))
-
+;;;;; epa
+     `(epa-mark ((,class (:foreground ,magenta :weight bold))))
+     `(epa-string ((,class (:foreground ,violet))))
+     `(epa-validity-disabled ((,class (:inverse-video t :slant italic))))
+     `(epa-validity-high ((,class (:weight bold))))
+     `(epa-validity-low ((,class (:slant italic))))
+     `(epa-validity-medium ((,class (:slant italic))))
 ;;;;; epc
      `(epc:face-title ((,class (:foreground ,blue :background ,base03
                                             :weight normal :underline nil))))
