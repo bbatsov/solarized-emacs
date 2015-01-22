@@ -1985,6 +1985,9 @@ customize the resulting theme."
                               ,base03 ,base03))
      `(hl-bg-colors '(,yellow-lc ,orange-lc ,red-lc ,magenta-lc
                                  ,violet-lc ,blue-lc ,cyan-lc ,green-lc)) 
+;;;;; pos-tip
+     `(pos-tip-foreground-color ,base1)
+     `(pos-tip-background-color ,base02)
 ;;;;; smartrep
      `(smartrep-mode-line-active-bg (solarized-color-blend ,green ,s-mode-line-bg 0.2))
 ;;;;; term
