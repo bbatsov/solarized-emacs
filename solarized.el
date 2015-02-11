@@ -1074,10 +1074,6 @@ customize the resulting theme."
        ((,class (:foreground ,yellow :background ,base02))))
      `(info-menu
        ((,class (:foreground ,violet :background ,base02))))
-     `(info-quoted-name
-       ((,class (:foreground ,green :inherit font-lock-string-face))))
-     `(info-string
-       ((,class (:foreground ,cyan :inherit font-lock-string-face))))
      `(info-single-quote
        ((,class (:foreground ,cyan :inherit font-lock-string-face))))
      `(info-quoted-name
@@ -1098,8 +1094,6 @@ customize the resulting theme."
        ((,class (:foreground ,magenta :background ,base02))))
      `(info-syntax-class-item
        ((,class (:foreground ,magenta :background ,base02))))
-     `(info-user-option-ref-item
-       ((,class (:foreground ,red :background ,base02))))
      `(info-user-option-ref-item
        ((,class (:foreground ,orange :background ,base02))))
 ;;;;; jabber
@@ -1228,7 +1222,6 @@ customize the resulting theme."
      `(ledger-font-posting-account-cleared-face ((t (:foreground ,base0))))
      `(ledger-font-posting-account-pending-face ((t (:foreground ,yellow))))
      `(ledger-font-posting-amount-face ((t (:foreground ,yellow))))
-     `(ledger-font-posting-account-pending-face ((t (:foreground ,yellow))))
      `(ledger-occur-narrowed-face ((t (:foreground ,base3 :invisible t))))
      `(ledger-occur-xact-face ((t (:background ,base02))))
      `(ledger-font-comment-face ((t (:foreground ,base01))))
