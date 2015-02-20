@@ -570,6 +570,7 @@ customize the resulting theme."
      `(company-tooltip-mouse ((,class (:background ,cyan-hc :foreground ,cyan-lc))))
      `(company-tooltip-common ((,class (:foreground ,base1 :underline t))))
      `(company-tooltip-common-selection ((,class (:foreground ,base1 :underline t))))
+     `(company-tooltip-annotation ((,class (:foreground ,yellow :background ,base02))))
      `(company-scrollbar-fg ((,class (:foreground ,base03 :background ,base0))))
      `(company-scrollbar-bg ((,class (:background ,base02 :foreground ,cyan))))
      `(company-preview ((,class (:background ,base02 :foreground ,cyan))))
