@@ -1630,6 +1630,27 @@ customize the resulting theme."
 ;;;;; skewer-mode
      `(skewer-error-face ((,class (:foreground ,orange :underline nil))))
      `(skewer-repl-log-face ((,class (:foreground ,violet))))
+;;;;; smart-mode-line
+     ;; use (setq sml/theme nil) to enable Solarized for sml
+     `(sml/modes               ((,class (:foreground ,base1 :weight bold))))
+     `(sml/minor-modes         ((,class (:foreground ,base00))))
+     `(sml/filename            ((,class (:foreground ,blue :weight bold))))
+     `(sml/folder              ((,class (:foreground ,base0))))
+     `(sml/prefix              ((,class (:foreground ,cyan))))
+     `(sml/read-only           ((,class (:foreground ,green))))
+     `(sml/modified            ((,class (:foreground ,red))))
+     `(sml/outside-modified    ((,class (:foreground ,magenta))))
+     `(sml/line-number         ((,class (:foreground ,base0 :weight bold))))
+     `(sml/col-number          ((,class (:foreground ,base0))))
+     `(sml/position-percentage ((,class (:foreground ,base00))))
+     `(sml/sudo                ((,class (:foreground ,red :weight bold))))
+     `(sml/git                 ((,class (:foreground ,cyan))))
+     `(sml/process             ((,class (:foreground ,magenta :weight bold))))
+     `(sml/vc                  ((,class (:foreground ,yellow))))
+     `(sml/vc-edited           ((,class (:foreground ,orange))))
+     `(sml/charging            ((,class (:foreground ,green))))
+     `(sml/discharging         ((,class (:foreground ,red))))
+     `(sml/time                ((,class (:foreground ,base0))))
 ;;;;; smartparens
      `(sp-pair-overlay-face ((,class (:background ,base02))))
      `(sp-wrap-overlay-face ((,class (:background ,base02))))
