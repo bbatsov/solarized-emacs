@@ -1251,7 +1251,7 @@ customize the resulting theme."
      `(lusty-slash-face ((,class (:foreground ,cyan :weight bold))))
 ;;;;; magit
      ;; magit.el
-     `(magit-dimmed ((,class (:foreground ,solarized-comments))))
+     `(magit-dimmed ((,class (:foreground ,base01))))
      `(magit-hash   ((,class (:foreground ,yellow))))
      `(magit-tag            ((,class (:foreground ,yellow :weight bold))))
      `(magit-branch-remote  ((,class (:foreground ,green :weight bold))))
@@ -1270,15 +1270,15 @@ customize the resulting theme."
      `(magit-sequence-head ((,class (:foreground ,blue))))
      `(magit-sequence-drop ((,class (:foreground ,red))))
      ;; magit-section.el
-     `(magit-section-highlight ((,class (:background ,solarized-hl))))
-     `(magit-section-heading   ((,class (:background ,solarized-hl :weight bold))))
+     `(magit-section-highlight ((,class (:background ,base02))))
+     `(magit-section-heading   ((,class (:background ,base02 :weight bold))))
      ;; magit-process.el
      `(magit-process-ok ((,class (:foreground ,green))))
      `(magit-process-ng ((,class (:foreground ,red))))
      ;; magit-log.el
-     `(magit-log-graph       ((,class (:foreground ,solarized-fg))))
+     `(magit-log-graph       ((,class (:foreground ,base0))))
      `(magit-log-author      ((,class (:foreground ,orange))))
-     `(magit-log-date        ((,class (:foreground ,solarized-fg))))
+     `(magit-log-date        ((,class (:foreground ,base0))))
      `(magit-reflog-commit      ((,class (:foreground ,yellow))))
      `(magit-reflog-amend       ((,class (:foreground ,orange))))
      `(magit-reflog-checkout    ((,class (:foreground ,cyan))))
@@ -1288,21 +1288,21 @@ customize the resulting theme."
      `(magit-reflog-remote      ((,class (:foreground ,blue))))
      `(magit-reflog-other       ((,class (:foreground ,magenta))))
      ;; magit-diff.el
-     `(magit-diff-file-heading-selection ((,class (:foreground ,solarized-emph))))
-     `(magit-diff-hunk-heading           ((,class (:foreground ,solarized-fg))))
-     `(magit-diff-hunk-heading-highlight ((,class (:background ,solarized-hl :foreground ,solarized-fg))))
-     `(magit-diff-hunk-heading-selection ((,class (:foreground ,solarized-emph))))
-     `(magit-diff-lines-heading          ((,class (:background ,solarized-fg-lc :foreground,solarized-fg-hc))))
-     `(magit-diff-context                ((,class (:foreground ,solarized-fg))))
-     `(magit-diff-context-highlight      ((,class (:background ,solarized-hl :foreground ,solarized-emph))))
+     `(magit-diff-file-heading-selection ((,class (:foreground ,base1))))
+     `(magit-diff-hunk-heading           ((,class (:foreground ,base0))))
+     `(magit-diff-hunk-heading-highlight ((,class (:background ,base02 :foreground ,base0))))
+     `(magit-diff-hunk-heading-selection ((,class (:foreground ,base1))))
+     `(magit-diff-lines-heading          ((,class (:background ,base3 :foreground ,base03))))
+     `(magit-diff-context                ((,class (:foreground ,base0))))
+     `(magit-diff-context-highlight      ((,class (:background ,base02 :foreground ,base1))))
      ;; magit-blame.el
-     `(magit-blame-heading ((,class (:foreground ,solarized-fg))))
+     `(magit-blame-heading ((,class (:foreground ,base0))))
      ;; magit-bisect.el
      `(magit-bisect-good ((,class (:foreground ,green))))
      `(magit-bisect-skip ((,class (:foreground ,yellow))))
      `(magit-bisect-bad  ((,class (:foreground ,red))))
      ;; git-rebase.el
-     `(git-rebase-hash ((,class (:foreground ,solarized-fg))))
+     `(git-rebase-hash ((,class (:foreground ,base0))))
 ;;;;;; markdown-mode
      `(markdown-blockquote-face ((,class (:inherit font-lock-doc-face))))
      `(markdown-bold-face ((,class (:inherit bold))))
