@@ -307,6 +307,7 @@ customize the resulting theme."
      `(error ((,class (:foreground ,orange))))
      `(lazy-highlight ((,class (:foreground ,base03 :background ,yellow
                                             :weight normal))))
+     `(widget-field ((,class (:background ,base02))))
      '(button ((t (:underline t))))
 ;;;;; compilation
      `(compilation-column-face ((,class (:foreground ,cyan :underline nil))))
