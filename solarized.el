@@ -32,10 +32,6 @@
 ;;
 ;; Don't forget that the theme requires Emacs 24.
 ;;
-;;; Bugs
-;;
-;; None that I'm aware of.
-;;
 ;;; Credits
 ;;
 ;; Ethan Schoonover created the original theme for vim on such this port
