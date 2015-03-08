@@ -25,7 +25,7 @@ MELPA) you can install solarized like this:
 Afterwards - business as usual, just load one of the theme variants with `M-x
 load-theme`.
 
-(If you want to install manually that procedure is briefly documentet in the
+(If you want to install manually that procedure is briefly documented in the
 FAQ at the end of this document.)
 
 ## Customisations
@@ -71,9 +71,9 @@ If you are using emacs under X you might like the following setting which puts
 the underline below the
 [font bottomline instead of the baseline](https://publib.boulder.ibm.com/infocenter/pseries/v5r3/topic/com.ibm.aix.graPHIGS/doc/phigstrf/figures/afma5rbd.jpg).
 
-Ihmo it enhances the general readability and also it fits well with the default
+Imho it enhances the general readability and also it fits well with the default
 `solarized-high-contrast-mode-line` setting which uses an slightly emphazised
-underline for the modeline to create one horisontal window border in the same
+underline for the modeline to create one horizontal window border in the same
 manner as the vertical border.
 
 ```el
@@ -98,7 +98,7 @@ Save the following files in a folder that's on your Emacs' `load-path`:
 
 Save the following files into `~/.emacs.d/themes`:
 
-* [solarized-light-theme.el](https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-light-theme.el) 
+* [solarized-light-theme.el](https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-light-theme.el)
 * [solarized-dark-theme.el](https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-dark-theme.el)
 
 Add this your `.emacs.d`:
