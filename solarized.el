@@ -1,6 +1,6 @@
 ;;; solarized.el --- Solarized for Emacs.
 
-;; Copyright (C) 2011-2014 Bozhidar Batsov
+;; Copyright (C) 2011-2015 Bozhidar Batsov
 
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; Author: Thomas Frössman <thomasf@jossystem.se>
@@ -297,7 +297,7 @@ customize the resulting theme."
                                     :inverse-video t))))
      `(mouse ((,class (:foreground ,base03 :background ,base0
                                    :inverse-video t))))
-     `(escape-glyph ((,class (:foreground ,violet))))     
+     `(escape-glyph ((,class (:foreground ,violet))))
      `(fringe ((,class (:foreground ,s-fringe-fg :background ,s-fringe-bg))))
      `(highlight ((,class (:background ,base02))))
      `(link ((,class (:foreground ,yellow :underline t :weight bold))))
@@ -2000,7 +2000,7 @@ customize the resulting theme."
      `(hl-fg-colors '(,base03 ,base03 ,base03 ,base03 ,base03 ,base03
                               ,base03 ,base03))
      `(hl-bg-colors '(,yellow-lc ,orange-lc ,red-lc ,magenta-lc
-                                 ,violet-lc ,blue-lc ,cyan-lc ,green-lc)) 
+                                 ,violet-lc ,blue-lc ,cyan-lc ,green-lc))
 ;;;;; pos-tip
      `(pos-tip-foreground-color ,base1)
      `(pos-tip-background-color ,base02)
