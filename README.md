@@ -31,6 +31,7 @@ FAQ at the end of this document.)
 ## Customisations
 
 ### Theme specific settings
+
 If you don't like low-contrast modeline or fringe, you can `customize` them
 either by doing `M-x customize-group solarized` or setting the values using
 elisp code:
@@ -67,7 +68,7 @@ Note that these need to be set **before** `load-theme` is invoked for Solarized.
 
 ### Underline position setting for X
 
-If you are using emacs under X you might like the following setting which puts
+If you are using Emacs under X you might like the following setting which puts
 the underline below the
 [font bottomline instead of the baseline](https://publib.boulder.ibm.com/infocenter/pseries/v5r3/topic/com.ibm.aix.graPHIGS/doc/phigstrf/figures/afma5rbd.jpg).
 
