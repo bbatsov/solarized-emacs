@@ -1423,7 +1423,6 @@ customize the resulting theme."
                                             (list yellow base03 0.2)
                                           (list cyan base03 0.3)))))))
 ;;;;; navi2ch
-     `(navi2ch-list-category-face ((,class (:foreground ,base0 :background ,blue  :weight bold))))
      `(navi2ch-list-category-face ((,class (:foreground ,blue ))))
      `(navi2ch-list-add-board-name-face ((,class (:foreground ,yellow))))
      `(navi2ch-list-board-name-face ((,class (:foreground ,blue))))
