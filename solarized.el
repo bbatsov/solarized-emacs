@@ -255,8 +255,7 @@ customize the resulting theme."
                                'variable-pitch 'default))
          (s-fringe-bg (if solarized-distinct-fringe-background
                           base02 base03))
-         (s-fringe-fg (if solarized-distinct-fringe-background
-                          base0 base01))
+         (s-fringe-fg base01)
 
 
          (s-header-line-fg (if solarized-high-contrast-mode-line
