@@ -1578,6 +1578,19 @@ customize the resulting theme."
      `(popup-scroll-bar-background-face ((,class (:background ,base01))))
      `(popup-scroll-bar-foreground-face ((,class (:background ,base1))))
      `(popup-tip-face ((,class (:background ,base02 :foreground ,base0))))
+;;;;; powerline
+     `(powerline-active1 ((,class ,(if solarized-high-contrast-mode-line
+                                       `(:background ,base00 :foreground ,base03)
+                                       `(:background ,base03 :foreground ,base00)))))
+     `(powerline-active2 ((,class ,(if solarized-high-contrast-mode-line
+                                       `(:background ,base01 :foreground ,base03)
+                                       `(:background ,base02 :foreground ,base00)))))
+     `(powerline-inactive1 ((,class ,(if solarized-high-contrast-mode-line
+                                         `(:background ,base03 :foreground ,base1)
+                                         `(:background ,base02 :foreground ,base01)))))
+     `(powerline-inactive2 ((,class ,(if solarized-high-contrast-mode-line
+                                         `(:background ,base02 :foreground ,base1)
+                                         `(:background ,base03 :foreground ,base01)))))
 ;;;;; rainbow-blocks
      `(rainbow-blocks-depth-1-face ((,class (:foreground ,cyan))))
      `(rainbow-blocks-depth-2-face ((,class (:foreground ,yellow))))
