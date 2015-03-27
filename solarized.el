@@ -1459,6 +1459,13 @@ customize the resulting theme."
      `(navi2ch-message-link-face ((,class (:weight bold))))
      `(navi2ch-message-url-face ((,class (:weight bold))))
      `(navi2ch-message-citation-face ((,class (:foreground ,magenta))))
+;;;;; neotree
+     `(neo-banner-face ((,class (:foreground ,base01))))
+     `(neo-header-face ((,class (:foreground ,blue))))
+     `(neo-root-dir-face ((,class (:foreground ,base1 :weight bold))))
+     `(neo-dir-link-face ((,class (:foreground ,blue))))
+     `(neo-file-link-face ((,class (:foreground ,base0))))
+     `(neo-expand-btn-face ((,class (:foreground ,base01))))
 ;;;;; org-mode
      `(org-agenda-structure
        ((,class (:foreground ,base1 :background ,base02
