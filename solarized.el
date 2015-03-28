@@ -1585,7 +1585,7 @@ customize the resulting theme."
      `(popup-scroll-bar-foreground-face ((,class (:background ,base1))))
      `(popup-tip-face ((,class (:background ,base02 :foreground ,base0))))
 ;;;;; pophint
-     `(pophint:tip-face ((,class (:background ,yellow :foreground ,base03))))
+     `(pophint:tip-face ((,class (:background ,magenta :foreground ,base03))))
      `(pophint:match-face ((,class (:background ,blue :foreground ,base03))))
      `(pophint:pos-tip-face ((,class (:background ,base02 :foreground ,base0))))
 ;;;;; powerline
