@@ -148,11 +148,8 @@ Alpha should be a float between 0 and 1."
 
 ;;; Setup Start
 
-(defun create-solarized-theme (variant theme-name &optional childtheme)
-  "Create a VARIANT of the theme named THEME-NAME.
-
-When optional argument CHILDTHEME function is supplied it's invoked to further
-customize the resulting theme."
+(defun create-solarized-theme (variant theme-name)
+  "Create a VARIANT of the theme named THEME-NAME."
 ;;; Color palette
   (let* ((class '((class color) (min-colors 89)))
          (s-base03    "#002b36")
@@ -2057,8 +2054,7 @@ customize the resulting theme."
      `(xterm-color-names-bright [,base03 ,orange ,base01 ,base00
                                          ,base0 ,violet ,base1 ,base3])
 ;;; Setup End
-     (when childtheme
-       (funcall childtheme))
+
      ) ; END custom-theme-set-variables
   )    ; END defun create-solarized-theme
 
