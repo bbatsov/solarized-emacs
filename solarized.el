@@ -205,18 +205,6 @@ Alpha should be a float between 0 and 1."
          (base3 (if (eq variant 'light) s-base03 s-base3))
          (base03 (if (eq variant 'light) s-base3 s-base03))
 
-         ;; Light/Dark adaptive solarized colors
-         ;;
-         ;; NOTE: the symbols -fg, -bg, -hl, -emph, -comments -fg-hc -fg-lc are only here to
-         ;; keep being compatible with preexisting child themes.
-         (solarized-fg (if (eq variant 'light) s-base00 s-base0))
-         (solarized-bg (if (eq variant 'light) s-base3 s-base03))
-         (solarized-hl (if (eq variant 'light) s-base2 s-base02))
-         (solarized-emph (if (eq variant 'light) s-base01 s-base1))
-         (solarized-comments (if (eq variant 'light) s-base1 s-base01))
-         (solarized-fg-hc (if (eq variant 'light) s-base3 s-base03))
-         (solarized-fg-lc (if (eq variant 'light) s-base03 s-base3))
-
          ;; Line drawing color
          ;;
          ;; NOTE only use this for very thin lines that are hard to see using base02, in low
