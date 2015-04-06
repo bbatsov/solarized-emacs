@@ -306,7 +306,7 @@ Alpha should be a float between 0 and 1."
      `(compilation-warning-face ((,class (:foreground ,yellow :weight normal :underline nil))))
 
      `(compilation-mode-line-exit
-       ((,class (:inherit compilation-info :foreground ,green :weight bold))))
+       ((,class (:foreground unspecified :weight bold))))
      `(compilation-mode-line-fail
        ((,class (:inherit compilation-error :foreground ,red :weight bold))))
      `(compilation-mode-line-run ((,class (:foreground ,orange :weight bold))))
