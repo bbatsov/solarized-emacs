@@ -22,18 +22,18 @@ situations.
 The base Solarized colors have a canonical
 [usage documentation](http://ethanschoonover.com/solarized#usage-development)
 
-Usage table for the dark theme:
-
-* `base 1` - optional emphasized content
-* `base 0` - body text / default code / primary content
-* `base 00` - unspecified (it's a separator)
-* `base 01` - comments / secondary content
-* `base 02` - background highlights
-* `base 03` - background
-
-When defining a child theme, the current convention is to use the dark theme's
+When referring to colors, the convention is to use the dark theme's
 base color names directly, e.g. `(:foreground ,base0)`. They will switch to
 their counterparts automatically in the light theme.
+
+Usage table for the automatic dark/light base colors:
+
+* `,base1` - optional emphasized content
+* `,base0` - body text / default code / primary content
+* `,base00` - unspecified (it's a separator)
+* `,base01` - comments / secondary content
+* `,base02` - background highlights
+* `,base03` - background
 
 ### Basic strategy for selecting colors
 
