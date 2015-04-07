@@ -578,6 +578,12 @@ Alpha should be a float between 0 and 1."
 ;;;;; coffee
      `(coffee-mode-class-name ((,class (:foreground ,yellow :weight bold))))
      `(coffee-mode-function-param ((,class (:foreground ,violet :slant italic))))
+
+;;;;; cperl-mode
+     `(cperl-array-face ((,class (:background unspecified :foreground ,blue))))
+     `(cperl-hash-face ((,class (:background unspecified :foreground ,blue))))
+     `(cperl-nonoverridable-face ((,class (:foreground ,base0 :weight bold))))
+
 ;;;;; custom
      `(custom-face-tag ((,class (:inherit ,s-variable-pitch :height ,solarized-height-plus-3
                                           :foreground ,violet :weight normal))))
