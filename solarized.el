@@ -1580,6 +1580,10 @@ customize the resulting theme."
      `(popup-scroll-bar-background-face ((,class (:background ,base01))))
      `(popup-scroll-bar-foreground-face ((,class (:background ,base1))))
      `(popup-tip-face ((,class (:background ,base02 :foreground ,base0))))
+;;;;; pophint
+     `(pophint:tip-face ((,class (:background ,magenta :foreground ,base03))))
+     `(pophint:match-face ((,class (:background ,blue :foreground ,base03))))
+     `(pophint:pos-tip-face ((,class (:background ,base02 :foreground ,base0))))
 ;;;;; powerline
      `(powerline-active1 ((,class ,(if solarized-high-contrast-mode-line
                                        `(:background ,base00 :foreground ,base03)
