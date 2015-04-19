@@ -1577,7 +1577,7 @@ customize the resulting theme."
      `(popup-face ((,class (:background ,base02 :foreground ,base0))))
      `(popup-isearch-match ((,class (:background ,yellow :foreground ,base03))))
      `(popup-menu-face ((,class (:background ,base02 :foreground ,base0))))
-     `(popup-menu-mouse-face ((,class (:background ,blue :foreground ,base0))))
+     `(popup-menu-mouse-face ((,class (:background ,blue :foreground ,base03))))
      `(popup-menu-selection-face ((,class (:background ,magenta :foreground ,base03))))
      `(popup-scroll-bar-background-face ((,class (:background ,base01))))
      `(popup-scroll-bar-foreground-face ((,class (:background ,base1))))
