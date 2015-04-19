@@ -109,6 +109,11 @@ Also affects `linum-mode' background."
   :type 'boolean
   :group 'solarized)
 
+(defcustom solarized-override-mouse-pointer t
+  "Whether the color of the mouse pointer is changed according to the theme."
+  :type 'boolean
+  :group 'solarized)
+
 ;;; Utilities
 
 (defun solarized-color-name-to-rgb (color &optional frame)
@@ -278,8 +283,9 @@ customize the resulting theme."
      `(match ((,class (:background ,base02 :foreground ,base1 :weight bold))))
      `(cursor ((,class (:foreground ,base03 :background ,base0
                                     :inverse-video t))))
-     `(mouse ((,class (:foreground ,base03 :background ,base0
-                                   :inverse-video t))))
+     (when solarized-override-mouse-pointer
+       `(mouse ((,class (:foreground ,base03 :background ,base0
+                                     :inverse-video t)))))
      `(escape-glyph ((,class (:foreground ,violet))))
      `(fringe ((,class (:foreground ,s-fringe-fg :background ,s-fringe-bg))))
      `(highlight ((,class (:background ,base02))))
@@ -489,7 +495,8 @@ customize the resulting theme."
 ;;;;; auto-complete
      `(ac-candidate-face ((,class (:background ,base02 :foreground ,cyan))))
      `(ac-selection-face ((,class (:background ,cyan-lc :foreground ,cyan-hc))))
-     `(ac-candidate-mouse-face ((,class (:background ,cyan-hc :foreground ,cyan-lc))))
+     (when solarized-override-mouse-pointer
+       `(ac-candidate-mouse-face ((,class (:background ,cyan-hc :foreground ,cyan-lc)))))
      `(ac-completion-face ((,class (:foreground ,base1 :underline t))))
      `(ac-gtags-candidate-face ((,class (:background ,base02 :foreground ,blue))))
      `(ac-gtags-selection-face ((,class (:background ,blue-lc :foreground ,blue-hc))))
@@ -571,7 +578,8 @@ customize the resulting theme."
      `(cscope-function-face ((,class (:foreground ,blue))))
      `(cscope-line-number-face ((,class (:foreground ,yellow))))
      `(cscope-line-face ((,class (:foreground ,base0))))
-     `(cscope-mouse-face ((,class (:background ,blue :foreground ,base0))))
+     (when solarized-override-mouse-pointer
+       `(cscope-mouse-face ((,class (:background ,blue :foreground ,base0)))))
 ;;;;; ctable
      `(ctbl:face-cell-select ((,class (:background ,base02 :foreground ,base1
                                                    :underline ,base1 :weight bold))))
@@ -1579,7 +1587,8 @@ customize the resulting theme."
      `(popup-face ((,class (:background ,base02 :foreground ,base0))))
      `(popup-isearch-match ((,class (:background ,yellow :foreground ,base03))))
      `(popup-menu-face ((,class (:background ,base02 :foreground ,base0))))
-     `(popup-menu-mouse-face ((,class (:background ,blue :foreground ,base0))))
+     (when solarized-override-mouse-pointer
+       `(popup-menu-mouse-face ((,class (:background ,blue :foreground ,base0)))))
      `(popup-menu-selection-face ((,class (:background ,magenta :foreground ,base03))))
      `(popup-scroll-bar-background-face ((,class (:background ,base01))))
      `(popup-scroll-bar-foreground-face ((,class (:background ,base1))))
