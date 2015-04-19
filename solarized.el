@@ -891,6 +891,10 @@ customize the resulting theme."
      `(git-gutter-fr+-added ((,class (:foreground ,green :weight bold))))
      `(git-gutter-fr+-deleted ((,class (:foreground ,red :weight bold))))
      `(git-gutter-fr+-modified ((,class (:foreground ,blue :weight bold))))
+;;;;; go-direx
+     `(go-direx-header ((,class (:foreground ,blue))))
+     `(go-direx-label ((,class (:foreground ,green))))
+     `(go-direx-package ((,class (:foreground ,base1 :weight bold))))
 ;;;;; guide-key
      `(guide-key/highlight-command-face ((,class (:foreground ,blue))))
      `(guide-key/key-face ((,class (:foreground ,base01))))
