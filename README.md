@@ -4,6 +4,8 @@
 
 ## Solarized for Emacs
 
+[![Join the chat at https://gitter.im/bbatsov/solarized-emacs](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/bbatsov/solarized-emacs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Solarized for Emacs is an Emacs port of the [Solarized theme for vim](http://ethanschoonover.com/solarized),
 developed by Ethan Schoonover.
 
