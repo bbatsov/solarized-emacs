@@ -1062,6 +1062,12 @@ customize the resulting theme."
 ;;;;; hl-line-mode
      `(hl-line ((,class (:background ,base02))))
      `(hl-line-face ((,class (:background ,base02))))
+;;;;; hydra
+     `(hydra-face-red ((,class (:foreground ,red))))
+     `(hydra-face-blue ((,class (:foreground ,blue))))
+     `(hydra-face-amaranth ((,class (:foreground ,orange))))
+     `(hydra-face-pink ((,class (:foreground ,magenta))))
+     `(hydra-face-teal ((,class (:foreground ,cyan))))
 ;;;;; ido-mode
      `(ido-first-match ((,class (:foreground ,yellow :weight normal))))
      `(ido-only-match ((,class (:foreground ,base03 :background ,yellow :weight normal))))
