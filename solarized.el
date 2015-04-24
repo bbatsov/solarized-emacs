@@ -893,6 +893,22 @@ customize the resulting theme."
      `(go-direx-header ((,class (:foreground ,blue))))
      `(go-direx-label ((,class (:foreground ,green))))
      `(go-direx-package ((,class (:foreground ,base1 :weight bold))))
+
+;;;;;; go-mode
+     `(go-coverage-0 ((,class (:foreground ,orange))))
+     `(go-coverage-1 ((,class (:foreground ,(solarized-color-blend blue yellow (/ 2.0 6))))))
+     `(go-coverage-2 ((,class (:foreground ,(solarized-color-blend blue yellow (/ 3.0 6))))))
+     `(go-coverage-3 ((,class (:foreground ,(solarized-color-blend blue yellow (/ 4.0 6))))))
+     `(go-coverage-4 ((,class (:foreground ,(solarized-color-blend blue yellow (/ 5.0 6))))))
+     `(go-coverage-5 ((,class (:foreground ,blue))))
+     `(go-coverage-6 ((,class (:foreground ,(solarized-color-blend cyan blue (/ 2.0 6))))))
+     `(go-coverage-7 ((,class (:foreground ,(solarized-color-blend cyan blue (/ 3.0 6))))))
+     `(go-coverage-8 ((,class (:foreground ,(solarized-color-blend cyan blue (/ 4.0 6))))))
+     `(go-coverage-9 ((,class (:foreground ,(solarized-color-blend cyan blue (/ 5.0 6))))))
+     `(go-coverage-10 ((,class (:foreground ,cyan))))
+     `(go-coverage-covered ((,class (:foreground ,green))))
+     `(go-coverage-untracked ((,class (:foreground ,base01))))
+
 ;;;;; guide-key
      `(guide-key/highlight-command-face ((,class (:foreground ,blue))))
      `(guide-key/key-face ((,class (:foreground ,base01))))
