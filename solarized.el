@@ -54,6 +54,12 @@ Also affects `linum-mode' background."
   :type 'boolean
   :group 'solarized)
 
+(defcustom solarized-distinct-doc-face nil
+  "Make font-lock-doc-face stand out more.
+Related discussion: https://github.com/bbatsov/solarized-emacs/issues/158"
+  :type 'boolean
+  :group 'solarized)
+
 (defcustom solarized-use-variable-pitch t
   "Use variable pitch face for some headings and titles."
   :type 'boolean
@@ -435,7 +441,8 @@ customize the resulting theme."
        ((,class (:foreground ,base01 :slant ,s-maybe-italic))))
      `(font-lock-comment-face ((,class (:foreground ,base01))))
      `(font-lock-constant-face ((,class (:foreground ,blue :weight bold))))
-     `(font-lock-doc-face ((,class (:foreground ,cyan :slant ,s-maybe-italic))))
+     `(font-lock-doc-face ((,class (:foreground ,(if solarized-distinct-doc-face violet cyan)
+                                                :slant ,s-maybe-italic))))
      `(font-lock-function-name-face ((,class (:foreground ,blue))))
      `(font-lock-keyword-face ((,class (:foreground ,green :weight ,s-maybe-bold))))
      `(font-lock-negation-char-face ((,class (:foreground ,yellow :weight bold))))
