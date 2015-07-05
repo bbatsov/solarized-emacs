@@ -1333,7 +1333,7 @@ customize the resulting theme."
 ;;;;;; references etc.
      `(magit-dimmed         ((t (:foreground ,base01))))
      `(magit-hash           ((t (:foreground ,base01))))
-     `(magit-tag            ((t (:foreground ,orange :weight bold))))
+     `(magit-tag            ((t (:foreground ,cyan :weight bold))))
      `(magit-branch-remote  ((t (:foreground ,green  :weight bold))))
      `(magit-branch-local   ((t (:foreground ,blue   :weight bold))))
      `(magit-branch-current ((t (:foreground ,blue   :weight bold :box t))))
