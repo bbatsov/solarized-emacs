@@ -1300,11 +1300,11 @@ customize the resulting theme."
      `(magit-diffstat-added              ((t (:foreground ,green))))
      `(magit-diffstat-removed            ((t (:foreground ,red))))
 ;;;;;; popup
-     `(magit-popup-heading             ((t (:foreground ,yellow  :weight bold))))
-     `(magit-popup-key                 ((t (:foreground ,green-d :weight bold))))
-     `(magit-popup-argument            ((t (:foreground ,green   :weight bold))))
-     `(magit-popup-disabled-argument   ((t (:foreground ,base01  :weight normal))))
-     `(magit-popup-option-value        ((t (:foreground ,blue    :weight bold))))
+     `(magit-popup-heading             ((t (:foreground ,base1 :weight normal))))
+     `(magit-popup-key                 ((t (:foreground ,base1 :weight bold))))
+     `(magit-popup-argument            ((t (:foreground ,base1 :weight bold))))
+     `(magit-popup-disabled-argument   ((t (:foreground ,base01 :weight normal))))
+     `(magit-popup-option-value        ((t (:foreground ,base1 :weight bold))))
 ;;;;;; process
      `(magit-process-ok    ((t (:foreground ,green :weight bold))))
      `(magit-process-ng    ((t (:foreground ,red   :weight bold))))
