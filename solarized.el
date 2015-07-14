@@ -1079,6 +1079,8 @@ customize the resulting theme."
 ;;;;; highlight-indentation
      `(highlight-indentation-face ((,class (:background ,base02))))
      `(highlight-indentation-current-column-face((,class (:background ,base02))))
+;;;;; highlight-numbers
+     `(highlight-numbers-number ((,class (:foreground ,violet :bold nil))))
 ;;;;; highlight-symbol
      `(highlight-symbol-face ((,class (:foreground ,magenta))))
 ;;;;; hl-line-mode
