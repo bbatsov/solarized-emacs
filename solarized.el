@@ -261,19 +261,21 @@ customize the resulting theme."
 
          (s-mode-line-fg (if solarized-high-contrast-mode-line
                              base03 base0))
+         (s-mode-line-buffer-id-fg (if solarized-high-contrast-mode-line
+                                       'unspecified base1))
          (s-mode-line-bg (if solarized-high-contrast-mode-line
                              base0 base02))
          (s-mode-line-underline (if solarized-high-contrast-mode-line
-                                    nil s-line))
+                                    base0 s-line))
 
-         (s-mode-line-buffer-id-fg (if solarized-high-contrast-mode-line
-                                       'unspecified base1))
          (s-mode-line-inactive-fg (if solarized-high-contrast-mode-line
                                       base0 base01))
          (s-mode-line-inactive-bg (if solarized-high-contrast-mode-line
                                       base02 base03))
-         (s-mode-line-inactive-bc (if solarized-high-contrast-mode-line
-                                               base02 base02)))
+         (s-mode-line-inactive-overline (if solarized-high-contrast-mode-line
+                                               s-line base02))
+         (s-mode-line-inactive-underline (if solarized-high-contrast-mode-line
+                                               base01 s-line)))
 ;;; Theme Faces
     (custom-theme-set-faces
      theme-name
@@ -407,18 +409,14 @@ customize the resulting theme."
                                 :underline ,s-mode-line-underline
                                 :foreground ,s-mode-line-fg
                                 :background ,s-mode-line-bg
-                                :box (:line-width 1 :color ,s-mode-line-bg
-                                                  :style unspecified)
                                 ))))
      `(mode-line-buffer-id ((,class (:foreground ,s-mode-line-buffer-id-fg :weight bold))))
      `(mode-line-inactive
        ((,class (:inverse-video unspecified
-                                :overline ,s-mode-line-inactive-bc
-                                :underline ,s-mode-line-underline
+                                :overline ,s-mode-line-inactive-overline
+                                :underline ,s-mode-line-inactive-underline
                                 :foreground ,s-mode-line-inactive-fg
                                 :background ,s-mode-line-inactive-bg
-                                :box (:line-width 1 :color ,s-mode-line-inactive-bg
-                                                  :style unspecified)
                                 ))))
      `(header-line
        ((,class (:inverse-video unspecified
