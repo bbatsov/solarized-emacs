@@ -115,6 +115,11 @@ Related discussion: https://github.com/bbatsov/solarized-emacs/issues/158"
   :type 'boolean
   :group 'solarized)
 
+(defcustom solarized-org-block-highlight nil
+  "Whether to highlight org blocks."
+  :type 'boolean
+  :group 'solarized)
+
 ;;; Utilities
 
 (defun solarized-color-name-to-rgb (color &optional frame)
@@ -273,7 +278,16 @@ customize the resulting theme."
          (s-mode-line-inactive-bg (if solarized-high-contrast-mode-line
                                       base02 base03))
          (s-mode-line-inactive-bc (if solarized-high-contrast-mode-line
-                                               base02 base02)))
+                                      base02 base02))
+
+         (s-org-block-bg (if solarized-org-block-highlight
+                             base02 'unspecified))
+         (s-org-block-line-bg (if solarized-org-block-highlight
+                                  base01 'unspecified))
+         (s-org-block-line-fg (if solarized-org-block-highlight
+                                  base03 'unspecified)))
+
+
 ;;; Theme Faces
     (custom-theme-set-faces
      theme-name
@@ -783,7 +797,7 @@ customize the resulting theme."
                                       :weight normal :slant italic))))
 ;;;;; fixmee
      `(fixmee-notice-face ((,class (:background nil :foreground ,base1
-						:underline nil :slant italic :weight bold))))
+                                                :underline nil :slant italic :weight bold))))
 
 ;;;;; flx
      `(flx-highlight-face ((,class (:foreground ,blue
@@ -1569,7 +1583,13 @@ customize the resulting theme."
      `(org-agenda-done ((,class (:foreground ,base01 :slant italic))))
      `(org-archived ((,class (:foreground ,base01 :weight normal))))
      `(org-block ((,class (:foreground ,base01))))
-     `(org-block-begin-line ((,class (:foreground ,base01 :slant italic))))
+     `(org-block-background ((,class (:background ,s-org-block-bg))))
+     `(org-block-begin-line ((,class (:background ,s-org-block-line-bg
+                                                  :foreground ,s-org-block-line-fg
+                                                  :slant italic))))
+     `(org-block-end-line ((,class (:background ,s-org-block-line-bg
+                                                :foreground ,s-org-block-line-fg
+                                                :slant italic))))
      `(org-checkbox ((,class (:background ,base03 :foreground ,base0
                                           :box (:line-width 1 :style released-button)))))
      `(org-code ((,class (:foreground ,base01))))
