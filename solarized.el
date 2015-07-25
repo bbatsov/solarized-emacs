@@ -153,14 +153,10 @@ Alpha should be a float between 0 and 1."
                     (solarized-color-name-to-rgb color2))))
 
 ;;; Setup Start
-
-(defun create-solarized-theme (variant theme-name &optional childtheme)
-  "Create a VARIANT of the theme named THEME-NAME.
-
-When optional argument CHILDTHEME function is supplied it's invoked to further
-customize the resulting theme."
-;;; Color palette
-  (let* ((class '((class color) (min-colors 89)))
+(defmacro solarized-with-color-variables (variant &rest body)
+  (declare (indent 0))
+  `(let* ((class '((class color) (min-colors 89)))
+	 (variant ,variant)
          (s-base03    "#002b36")
          (s-base02    "#073642")
          ;; emphasized content
@@ -253,9 +249,9 @@ customize the resulting theme."
 
 
          (s-header-line-fg (if solarized-high-contrast-mode-line
-                                    base1 base0))
+                               base1 base0))
          (s-header-line-bg (if solarized-high-contrast-mode-line
-                                    base02 base03))
+                               base02 base03))
          (s-header-line-underline (if solarized-high-contrast-mode-line
                                       nil base02))
 
@@ -273,7 +269,17 @@ customize the resulting theme."
          (s-mode-line-inactive-bg (if solarized-high-contrast-mode-line
                                       base02 base03))
          (s-mode-line-inactive-bc (if solarized-high-contrast-mode-line
-                                               base02 base02)))
+                                      base02 base02))
+         )
+     ,@body))
+
+(defun create-solarized-theme (variant theme-name &optional childtheme)
+  "Create a VARIANT of the theme named THEME-NAME.
+
+When optional argument CHILDTHEME function is supplied it's invoked to further
+customize the resulting theme."
+;;; Color palette
+  (solarized-with-color-variables variant
 ;;; Theme Faces
     (custom-theme-set-faces
      theme-name
@@ -2168,12 +2174,12 @@ customize the resulting theme."
                      ,blue-d ,blue
                      ,magenta-d ,magenta
                      ,cyan-d ,cyan
-                     ,base0 ,base00)))
+                     ,base0 ,base00))
 ;;;;; xterm-color
      `(xterm-color-names [,base02 ,red ,green ,yellow
                                   ,blue ,magenta ,cyan ,base2])
      `(xterm-color-names-bright [,base03 ,orange ,base01 ,base00
-                                         ,base0 ,violet ,base1 ,base3])
+                                         ,base0 ,violet ,base1 ,base3]))
 ;;; Setup End
      (when childtheme
        (funcall childtheme))
