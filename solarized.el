@@ -156,7 +156,7 @@ Alpha should be a float between 0 and 1."
 (defmacro solarized-with-color-variables (variant &rest body)
   (declare (indent 0))
   `(let* ((class '((class color) (min-colors 89)))
-	 (variant ,variant)
+         (variant ,variant)
          (s-base03    "#002b36")
          (s-base02    "#073642")
          ;; emphasized content
@@ -789,7 +789,7 @@ customize the resulting theme."
                                       :weight normal :slant italic))))
 ;;;;; fixmee
      `(fixmee-notice-face ((,class (:background nil :foreground ,base1
-						:underline nil :slant italic :weight bold))))
+                                                :underline nil :slant italic :weight bold))))
 
 ;;;;; flx
      `(flx-highlight-face ((,class (:foreground ,blue
