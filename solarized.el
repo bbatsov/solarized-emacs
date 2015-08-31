@@ -111,7 +111,7 @@ Related discussion: https://github.com/bbatsov/solarized-emacs/issues/158"
   :group 'solarized)
 
 (defcustom solarized-scale-org-headlines t
-  "Whether scaling of outline-headlines should apply to org-mode headlines."
+  "Whether scaling of outline-headlines should apply to `org-mode' headlines."
   :type 'boolean
   :group 'solarized)
 
