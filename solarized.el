@@ -55,7 +55,7 @@ Also affects `linum-mode' background."
   :group 'solarized)
 
 (defcustom solarized-distinct-doc-face nil
-  "Make font-lock-doc-face stand out more.
+  "Make `font-lock-doc-face' stand out more.
 Related discussion: https://github.com/bbatsov/solarized-emacs/issues/158"
   :type 'boolean
   :group 'solarized)
