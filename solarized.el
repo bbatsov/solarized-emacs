@@ -2119,6 +2119,10 @@ customize the resulting theme."
      `(fci-rule-color ,base02)
 ;;;;; magit
      `(magit-diff-use-overlays nil)
+;;;;; nrepl-client
+     `(nrepl-message-colors
+       '(,red ,orange ,yellow ,green-d ,green-l
+                      ,blue-d ,cyan ,magenta ,violet))
 ;;;;; highlight-changes
      `(highlight-changes-colors '(,magenta ,violet))
 ;;;;; highlight-symbol
