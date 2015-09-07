@@ -1317,7 +1317,7 @@ customize the resulting theme."
      `(magit-process-ok    ((t (:foreground ,green :weight bold))))
      `(magit-process-ng    ((t (:foreground ,red   :weight bold))))
 ;;;;;; log
-     `(magit-log-author    ((t (:foreground ,base0))))
+     `(magit-log-author    ((t (:foreground ,base01 :weight bold))))
      `(magit-log-date      ((t (:foreground ,base01))))
      `(magit-log-graph     ((t (:foreground ,base1))))
 ;;;;;; sequence
