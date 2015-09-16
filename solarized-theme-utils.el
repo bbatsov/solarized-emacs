@@ -24,7 +24,7 @@
 ;;
 
 ;;;; Code:
-(require 'cl)
+(require 'cl-lib)
 (require 'solarized)
 
 (defun solarized-import-faces (&optional regexp already-defined)
@@ -54,10 +54,10 @@ in the format of solarized-theme.el."
                                (setq result
                                      (nconc (list attribute
                                                   (cond
-                                                   ((member* attribute
-                                                             '(":background"
-                                                               ":foreground")
-                                                             :test 'string=)
+                                                   ((cl-member attribute
+                                                               '(":background"
+                                                                 ":foreground")
+                                                               :test 'string=)
                                                     (format "\"%s\"" value))
                                                    (t value))) result))))))
                        (if (get face 'theme-face)
