@@ -1026,6 +1026,7 @@ customize the resulting theme."
      `(helm-grep-match ((,class (:inherit match))))
      `(helm-grep-running ((,class (:foreground ,red))))
      `(helm-header ((,class (:inherit header-line))))
+     `(helm-header-line-left-margin ((,class (:inherit header-line))))
      `(helm-lisp-completion-info ((,class (:foreground ,base0))))
      `(helm-lisp-show-completion ((,class (:foreground ,yellow  :background ,base02
                                                        :bold t))))
