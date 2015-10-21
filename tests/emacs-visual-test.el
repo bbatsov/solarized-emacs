@@ -1,27 +1,22 @@
 ;;; emacs-visual-test.el ---
 
-;;; Commentary:
-;;
-
 (load-file "init.el")
-(require 's)
 (require 'dash)
-(require 'f)
 (setq header-line-format "header line content")
 
 (defconst screenshots-directory
-  (f-expand "screenshots" tests-directory))
+  (expand-file-name "screenshots" tests-directory))
 
 (defconst test-files-directory
-  (f-expand "test-files" tests-directory))
+  (expand-file-name "test-files" tests-directory))
 
 (defun visual-test-find-file (  name)
-  (find-file (f-expand name test-files-directory)))
+  (find-file (expand-file-name name test-files-directory)))
 
 (defun visual-test-screenshot ()
   (call-process "scrot" nil nil nil "-u"
-                (f-expand "screenshot-%Y-%m-%d_%H-%M-%S_$wx$h.png"
-                          screenshots-directory))
+                (expand-file-name "screenshot-%Y-%m-%d_%H-%M-%S_$wx$h.png"
+                                  screenshots-directory))
   (message "saved screenshot"))
 
 ;; (setq solarized-high-contrast-mode-line t)
@@ -35,7 +30,6 @@
 (goto-char 27)
 (call-interactively 'ispell-complete-word)
 
-
 (run-with-idle-timer 2 nil
                      '(lambda ()
                         (visual-test-screenshot)
@@ -43,8 +37,6 @@
                         ;; (kill-buffer)
                         ;; (kill-emacs)
                         ))
-
-
 
 (provide 'emacs-visual-test)
 
