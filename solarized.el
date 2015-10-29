@@ -1105,6 +1105,8 @@ customize the resulting theme."
      `(ido-incomplete-regexp ((,class (:foreground ,red :weight bold ))))
      `(ido-indicator ((,class (:background ,red :foreground ,base03 :width condensed))))
      `(ido-virtual ((,class (:foreground ,cyan))))
+;;;;; iedit-mode
+     `(iedit-occurrence ((,class (:background ,base03 :foreground ,magenta :bold t))))
 ;;;;; info
      `(info-title-1 ((,class (:foreground ,base1 :weight bold))))
      `(info-title-2 ((,class (:foreground ,base1 :weight bold))))
