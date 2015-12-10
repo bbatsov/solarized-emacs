@@ -1780,7 +1780,12 @@ customize the resulting theme."
      `(show-paren-mismatch
        ((,class (:foreground ,base02 :background ,red
                              :weight ,s-maybe-bold))))
-
+;;;;; swiper
+     `(swiper-line-face ((,class (:background ,base02))))
+     `(swiper-match-face-1 ((,class (:weight bold :foreground ,base1))))
+     `(swiper-match-face-2 ((,class (:weight bold :foreground ,yellow))))
+     `(swiper-match-face-3 ((,class (:weight bold :foreground ,yellow))))
+     `(swiper-match-face-4 ((,class (:weight bold :foreground ,yellow))))
 ;;;;; sx (WIP)
      `(sx-custom-button ((,class (:background ,base02 :foreground ,base1
                                               :box (:line-width 2 :style released-button :height 0.9)))))
