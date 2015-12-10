@@ -1148,6 +1148,15 @@ customize the resulting theme."
        ((,class (:foreground ,magenta :background ,base02))))
      `(info-user-option-ref-item
        ((,class (:foreground ,orange :background ,base02))))
+;;;;; ivy
+     `(ivy-confirm-face ((,class (:foreground ,green))))
+     `(ivy-current-match ((,class (:weight bold :background ,base02))))
+     `(ivy-match-required-face ((,class (:foreground ,red))))
+     `(ivy-minibuffer-match-face-1 ((,class (:foreground ,base1))))
+     `(ivy-minibuffer-match-face-2 ((,class (:foreground ,yellow))))
+     `(ivy-minibuffer-match-face-3 ((,class (:foreground ,yellow))))
+     `(ivy-minibuffer-match-face-4 ((,class (:foreground ,yellow))))
+     `(ivy-remote ((,class (:foreground ,blue))))
 ;;;;; jabber
      `(jabber-activity-face ((,class (:weight bold :foreground ,red))))
      `(jabber-activity-personal-face ((,class (:weight bold :foreground ,blue))))
