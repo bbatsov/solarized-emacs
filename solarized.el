@@ -523,6 +523,10 @@ customize the resulting theme."
      `(android-mode-warning-face ((,class (:foreground ,yellow))))
 ;;;;; anzu-mode
      `(anzu-mode-line ((,class (:foreground ,yellow :weight bold))))
+;;;;; avy-mode
+     `(avy-lead-face ((,class (:inherit isearch))))
+     `(avy-lead-face-0 ((,class (:inherit isearch :background ,violet))))
+     `(avy-lead-face-2 ((,class (:inherit isearch :background ,cyan))))
 ;;;;; bm
      `(bm-face ((,class (:overline ,base0))))
      `(bm-fringe-face ((,class (:overline ,base0))))
