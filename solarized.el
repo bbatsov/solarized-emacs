@@ -247,7 +247,6 @@ Alpha should be a float between 0 and 1."
                           base02 base03))
          (s-fringe-fg base01)
 
-
          (s-header-line-fg (if solarized-high-contrast-mode-line
                                base1 base0))
          (s-header-line-bg (if solarized-high-contrast-mode-line
@@ -2050,7 +2049,7 @@ customize the resulting theme."
      `(whitespace-hspace ((,class (:background unspecified :foreground ,base1
                                                :inverse-video unspecified))))
      `(whitespace-tab ((,class (:background unspecified :foreground ,red
-                                            :inverse-video unspecified :weight bold))))
+                                            :inverse-video t))))
      `(whitespace-newline ((,class(:background unspecified :foreground ,base01
                                                :inverse-video unspecified))))
      `(whitespace-trailing ((,class (:background unspecified :foreground ,orange-lc
