@@ -1356,7 +1356,8 @@ customize the resulting theme."
                                             :weight normal :slant normal :box (:color ,base02 :line-width 2)))))
      `(magit-blame-date    ((t (:background ,base02 :foreground ,violet
                                             :weight bold :slant normal :box (:color ,base02 :line-width 2)))))
-     `(magit-blame-summary ((t (:background ,base02 :foreground ,base0))))
+     `(magit-blame-summary ((t (:background ,base02 :foreground ,base0
+                                            :weight normal :slant normal :box (:color ,base02 :line-width 2)))))
 ;;;;;; references etc.
      `(magit-dimmed         ((t (:foreground ,base01))))
      `(magit-hash           ((t (:foreground ,base01))))
