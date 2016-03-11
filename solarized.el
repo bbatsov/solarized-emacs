@@ -1348,11 +1348,15 @@ customize the resulting theme."
      `(magit-bisect-skip ((t (:foreground ,yellow))))
      `(magit-bisect-bad  ((t (:foreground ,red))))
 ;;;;;; blame
-     `(magit-blame-heading ((t (:background ,base1 :foreground ,base02))))
-     `(magit-blame-hash    ((t (:background ,base1 :foreground ,base02))))
-     `(magit-blame-name    ((t (:background ,base1 :foreground ,orange-l))))
-     `(magit-blame-date    ((t (:background ,base1 :foreground ,orange-l))))
-     `(magit-blame-summary ((t (:background ,base1 :foreground ,base02 :weight bold))))
+     `(magit-blame-heading ((t (:background ,base02 :foreground ,violet
+                                            :weight bold :slant normal :box (:color ,base02 :line-width 2)))))
+     `(magit-blame-hash    ((t (:background ,base02 :foreground ,violet
+                                            :weight normal :slant normal :box (:color ,base02 :line-width 2)))))
+     `(magit-blame-name    ((t (:background ,base02 :foreground ,violet
+                                            :weight normal :slant normal :box (:color ,base02 :line-width 2)))))
+     `(magit-blame-date    ((t (:background ,base02 :foreground ,violet
+                                            :weight bold :slant normal :box (:color ,base02 :line-width 2)))))
+     `(magit-blame-summary ((t (:background ,base02 :foreground ,base0
 ;;;;;; references etc.
      `(magit-dimmed         ((t (:foreground ,base01))))
      `(magit-hash           ((t (:foreground ,base01))))
