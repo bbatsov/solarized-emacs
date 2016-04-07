@@ -525,7 +525,9 @@ customize the resulting theme."
 ;;;;; avy-mode
      `(avy-lead-face ((,class (:inherit isearch))))
      `(avy-lead-face-0 ((,class (:inherit isearch :background ,violet))))
+     `(avy-lead-face-1 ((,class (:inherit isearch :background ,orange))))
      `(avy-lead-face-2 ((,class (:inherit isearch :background ,cyan))))
+     `(avy-background-face ((,class (:inherit font-lock-comment-face))))
 ;;;;; bm
      `(bm-face ((,class (:overline ,base0))))
      `(bm-fringe-face ((,class (:overline ,base0))))
