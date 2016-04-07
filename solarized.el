@@ -1734,10 +1734,10 @@ customize the resulting theme."
      `(rainbow-delimiters-unmatched-face
        ((,class (:foreground ,base0 :background ,base03 :inverse-video t))))
 ;;;;; rst-mode
-     `(rst-level-1 ((,class (:inherit org-level-1 :height ,solarized-height-plus-4))))
-     `(rst-level-2 ((,class (:inherit org-level-2 :height ,solarized-height-plus-3))))
-     `(rst-level-3 ((,class (:inherit org-level-3 :height ,solarized-height-plus-2))))
-     `(rst-level-4 ((,class (:inherit org-level-4 :height ,solarized-height-plus-1))))
+     `(rst-level-1 ((,class (:inherit org-level-1))))
+     `(rst-level-2 ((,class (:inherit org-level-2))))
+     `(rst-level-3 ((,class (:inherit org-level-3))))
+     `(rst-level-4 ((,class (:inherit org-level-4))))
      `(rst-level-5 ((,class (:inherit org-level-5))))
      `(rst-level-6 ((,class (:inherit org-level-6))))
 ;;;;; rpm-mode
