@@ -328,6 +328,15 @@ customize the resulting theme."
                                         :background ,magenta :foreground ,base03))))
      `(cua-rectangle-noselect ((,class (:inherit region :background ,base02
                                                  :foreground ,base01))))
+;;;;; debbugs
+     `(debbugs-gnu-archived ((,class (:inverse-video t))))
+     `(debbugs-gnu-done ((,class (:foreground ,base01))))
+     `(debbugs-gnu-handled ((,class (:foreground ,green))))
+     `(debbugs-gnu-new ((,class (:foreground ,blue))))
+     `(debbugs-gnu-pending ((,class (:foreground ,cyan))))
+     `(debbugs-gnu-stale ((,class (:foreground ,yellow))))
+     `(debbugs-gnu-tagged ((,class (:foreground ,base1 :weight bold))))
+
 ;;;;; diary
      `(diary ((,class (:foreground ,yellow))))
 ;;;;; dired
