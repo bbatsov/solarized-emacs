@@ -566,10 +566,13 @@ customize the resulting theme."
                                                          :weight bold))))
      `(cfw:face-toolbar-button-on ((,class (:background ,yellow-hc :foreground ,yellow-lc
                                                         :weight bold))))
-;;;;; clojure-test-mode
-     `(clojure-test-failure-face ((t (:foreground ,orange :weight bold :underline t))))
-     `(clojure-test-error-face ((t (:foreground ,red :weight bold :underline t))))
-     `(clojure-test-success-face ((t (:foreground ,green :weight bold :underline t))))
+;;;;; cider
+     `(cider-result-overlay-face ((t (:foreground ,s-base2 :background unspecified))))
+     `(cider-enlightened-face ((t (:box (:color ,magenta :line-width -1)))))
+     `(cider-enlightened-local-face ((t (:weight bold :foreground ,green-l))))
+     `(cider-deprecated-face ((t (:background ,yellow))))
+     `(cider-instrumented-face ((t (:box (:color ,red-l :line-width -1)))))
+     `(cider-traced-face ((t (:box (:color ,cyan :line-width -1)))))
 ;;;;; cider-repl-mode
      `(cider-repl-err-output-face ((t (:inherit ,font-lock-warning-face :underline nil))))
 ;;;;; cider-test-mode
