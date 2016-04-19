@@ -934,6 +934,9 @@ customize the resulting theme."
      `(git-gutter-fr+-modified ((,class (:foreground ,blue :weight bold))))
 ;;;;; git-rebase
      `(git-rebase-hash ((,class (:foreground ,base01))))
+;;;;; git-timemachine
+     `(git-timemachine-minibuffer-author-face ((,class (:foreground ,orange))))
+     `(git-timemachine-minibuffer-detail-face ((,class (:foreground ,yellow))))
 ;;;;; go-direx
      `(go-direx-header ((,class (:foreground ,blue))))
      `(go-direx-label ((,class (:foreground ,green))))
