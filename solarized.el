@@ -139,6 +139,7 @@ RED, GREEN, and BLUE should be numbers between 0.0 and 1.0, inclusive."
   (format "#%02x%02x%02x"
           (* red 255) (* green 255) (* blue 255)))
 
+;;;###autoload
 (defun solarized-color-blend (color1 color2 alpha)
   "Blends COLOR1 onto COLOR2 with ALPHA.
 
