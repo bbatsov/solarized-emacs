@@ -547,7 +547,7 @@ customize the resulting theme."
      `(cfw:face-toolbar-button-on ((,class (:background ,yellow-hc :foreground ,yellow-lc
                                                         :weight bold))))
 ;;;;; cider
-     `(cider-result-overlay-face ((t (:foreground ,s-base2 :background unspecified))))
+     `(cider-result-overlay-face ((t (:background unspecified))))
      `(cider-enlightened-face ((t (:box (:color ,magenta :line-width -1)))))
      `(cider-enlightened-local-face ((t (:weight bold :foreground ,green-l))))
      `(cider-deprecated-face ((t (:background ,yellow))))
