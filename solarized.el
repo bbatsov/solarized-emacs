@@ -921,7 +921,8 @@ customize the resulting theme."
      `(go-direx-header ((,class (:foreground ,blue))))
      `(go-direx-label ((,class (:foreground ,green))))
      `(go-direx-package ((,class (:foreground ,base1 :weight bold))))
-
+;;;;;; go-guru
+     `(go-guru-hl-identifier-face ((,class (:foreground ,magenta))))
 ;;;;;; go-mode
      `(go-coverage-0 ((,class (:foreground ,orange))))
      `(go-coverage-1 ((,class (:foreground ,(solarized-color-blend blue yellow (/ 2.0 6))))))
