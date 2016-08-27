@@ -1323,8 +1323,8 @@ customize the resulting theme."
      `(magit-diffstat-removed            ((t (:foreground ,red))))
 ;;;;;; popup
      `(magit-popup-heading             ((t (:foreground ,yellow  :weight bold))))
-     `(magit-popup-key                 ((t (:foreground ,green-d :weight bold))))
-     `(magit-popup-argument            ((t (:foreground ,cyan-d  :weight bold))))
+     `(magit-popup-key                 ((t (:foreground ,base1   :weight bold))))
+     `(magit-popup-argument            ((t (:foreground ,cyan    :weight bold))))
      `(magit-popup-disabled-argument   ((t (:foreground ,base01  :weight normal))))
      `(magit-popup-option-value        ((t (:foreground ,cyan    :weight bold))))
 ;;;;;; process
