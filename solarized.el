@@ -2172,6 +2172,7 @@ customize the resulting theme."
      `(term-default-fg-color ,base0) ;; @deprecated24.3
      `(term-default-bg-color ,base03) ;; @deprecated24.3
 ;;;;; vc
+     `(vc-annotate-background-mode nil)
      `(vc-annotate-color-map
        '((20 . ,red)
          (40 . ,(solarized-color-blend yellow red (/ 2.0 4)))
