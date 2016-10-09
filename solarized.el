@@ -1305,9 +1305,9 @@ customize the resulting theme."
      `(magit-section-heading             ((t (:foreground ,yellow :weight bold))))
      `(magit-section-heading-selection   ((t (:foreground ,orange :weight bold))))
      `(magit-diff-file-heading           ((t (:weight bold))))
-     `(magit-diff-file-heading-highlight ((t (:background ,base02 :weight bold))))
+     `(magit-diff-file-heading-highlight ((t (:background ,base02))))
      `(magit-diff-file-heading-selection ((t (:background ,base02
-                                              :foreground ,orange :weight bold))))
+                                              :foreground ,orange))))
      `(magit-diff-hunk-heading
        ((t (:background ,(solarized-color-blend yellow base03 0.1)))))
      `(magit-diff-hunk-heading-highlight
