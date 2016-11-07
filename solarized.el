@@ -1649,7 +1649,7 @@ customize the resulting theme."
      ;; latest additions
      `(org-agenda-dimmed-todo-face ((,class (:foreground ,base01))))
      `(org-agenda-restriction-lock ((,class (:background ,yellow))))
-     `(org-clock-overlay ((,class (:background ,yellow))))
+     `(org-clock-overlay ((,class (:background ,base02))))
      `(org-column ((,class (:background ,base02 :strike-through nil
                                         :underline nil :slant normal :weight normal :inherit default))))
      `(org-column-title ((,class (:background ,base02 :underline t :weight bold))))
