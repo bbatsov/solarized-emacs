@@ -1189,6 +1189,20 @@ customize the resulting theme."
      `(js2-private-function-call ((,class (:foreground ,yellow))))
      `(js2-private-member ((,class (:foreground ,blue))))
      `(js2-warning ((,class (:underline ,orange))))
+;;;;; js3-mode colors
+     `(js3-error ((,class (:foreground ,red))))
+     `(js3-external-variable ((,class (:foreground ,orange))))
+     `(js3-function-param ((,class (:foreground ,green))))
+     `(js3-instance-member ((,class (:foreground ,magenta))))
+     `(js3-jsdoc-html-tag-delimiter ((,class (:foreground ,cyan))))
+     `(js3-jsdoc-html-tag-name ((,class (:foreground ,orange))))
+     `(js3-jsdoc-tag ((,class (:foreground ,cyan))))
+     `(js3-jsdoc-type ((,class (:foreground ,blue))))
+     `(js3-jsdoc-value ((,class (:foreground ,violet))))
+     `(js3-magic-paren ((,class (:underline t))))
+     `(js3-private-function-call ((,class (:foreground ,yellow))))
+     `(js3-private-member ((,class (:foreground ,blue))))
+     `(js3-warning ((,class (:underline ,orange))))
 ;;;;; jedi
      `(jedi:highlight-function-argument ((,class (:inherit bold))))
 ;;;;; kite
