@@ -553,6 +553,7 @@ customize the resulting theme."
      `(cider-deprecated-face ((t (:background ,yellow))))
      `(cider-instrumented-face ((t (:box (:color ,red-l :line-width -1)))))
      `(cider-traced-face ((t (:box (:color ,cyan :line-width -1)))))
+     `(cider-fringe-good-face ((t (:foreground ,green-l))))
 ;;;;; cider-repl-mode
      `(cider-repl-err-output-face ((t (:inherit ,font-lock-warning-face :underline nil))))
 ;;;;; cider-test-mode
