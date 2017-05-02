@@ -423,7 +423,7 @@ customize the resulting theme."
                                 :box (:line-width 2 :color ,s-header-line-bg
                                                   :style unspecified)
                                 ))))
-     `(region ((,class (:foreground ,base03 :background ,base1))))
+     `(region ((,class (:background ,base02))))
      `(secondary-selection ((,class (:background ,base02))))
 
      `(trailing-whitespace ((,class (:background ,red))))
