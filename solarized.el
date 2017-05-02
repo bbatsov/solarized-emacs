@@ -1591,7 +1591,8 @@ customize the resulting theme."
 ;;;;; org-mode
      `(org-agenda-structure
        ((,class (:foreground ,base1 :background ,base02
-                             :weight bold :slant normal :inverse-video nil :height ,solarized-height-plus-1
+                             :weight bold :slant normal :inverse-video nil 
+                             ,@(when solarized-scale-org-headlines :height ,solarized-height-plus-1)
                              :underline nil
                              :box (:line-width 2 :color ,base03)))))
      `(org-agenda-calendar-event ((,class (:foreground ,base1))))
@@ -1599,7 +1600,8 @@ customize the resulting theme."
      `(org-agenda-date
        ((,class (:foreground ,base01 :background ,base03 :weight normal
                              :box (:line-width 2 :color ,base03)
-                             :inverse-video nil :overline nil :slant normal :height 1.0))))
+                             :inverse-video nil :overline nil :slant normal
+                             ,@(when solarized-scale-org-headlines :height ,solarized-height-plus-1)))))
      `(org-agenda-date-weekend
        ((,class (:inherit org-agenda-date :inverse-video nil :background unspecified
                           :foreground ,base01 :weight unspecified
@@ -1630,17 +1632,17 @@ customize the resulting theme."
      `(org-level-3 ((,class (:inherit ,s-variable-pitch :foreground ,blue
                              ,@(when solarized-scale-org-headlines
                                  (list :height solarized-height-plus-2))))))
-     `(org-level-4 ((,class (:inherit ,s-variable-pitch :foreground ,yellow
-                             ,@(when solarized-scale-org-headlines
+     `(org-level-4 ((,class (:inherit ,s-variable-pitch :foreground 
+                             ,@(when solarized-scale-org-headlines ,cyan
                                  (list :height solarized-height-plus-1))))))
      `(org-level-5 ((,class (:inherit ,s-variable-pitch
-                                      :foreground ,cyan))))
-     `(org-level-6 ((,class (:inherit ,s-variable-pitch
                                       :foreground ,green))))
-     `(org-level-7 ((,class (:inherit ,s-variable-pitch
+     `(org-level-6 ((,class (:inherit ,s-variable-pitch
                                       :foreground ,red))))
-     `(org-level-8 ((,class (:inherit ,s-variable-pitch
+     `(org-level-7 ((,class (:inherit ,s-variable-pitch
                                       :foreground ,blue))))
+     `(org-level-8 ((,class (:inherit ,s-variable-pitch
+                                      :foreground ,yellow))))
      `(org-link ((,class (:foreground ,yellow :underline t))))
      `(org-sexp-date ((,class (:foreground ,violet))))
      `(org-scheduled ((,class (:foreground ,green))))
@@ -1672,7 +1674,8 @@ customize the resulting theme."
      `(org-column-title ((,class (:background ,base02 :underline t :weight bold))))
      `(org-date-selected ((,class (:foreground ,red :inverse-video t))))
      `(org-document-info ((,class (:foreground ,base0))))
-     `(org-document-title ((,class (:foreground ,base1  :weight bold :height ,solarized-height-plus-4))))
+     `(org-document-title ((,class (:foreground ,base1  :weight bold 
+                                                ,@(when solarized-scale-org-headlines :height ,solarized-height-plus-4)))))
      `(org-drawer ((,class (:foreground ,cyan))))
      `(org-footnote ((,class (:foreground ,magenta :underline t))))
      `(org-latex-and-export-specials ((,class (:foreground ,orange))))
