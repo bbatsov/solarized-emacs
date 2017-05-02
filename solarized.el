@@ -134,7 +134,7 @@ Alpha should be a float between 0 and 1."
 
 ;;; Setup Start
 (defmacro solarized-with-color-variables (variant &rest body)
-  (declare (indent 0))
+  (declare (indent defun))
   `(let* ((class '((class color) (min-colors 89)))
          (variant ,variant)
          (s-base03    "#002b36")
