@@ -1121,7 +1121,7 @@ customize the resulting theme."
      `(info-header-node ((,class (:inherit info-node))))
      `(info-header-xref ((,class (:inherit info-xref))))
      `(info-index-match ((,class (:inherit match))))
-     `(info-menu-header ((,class (:inherit variable-pitch :weight bold))))
+     `(info-menu-header ((,class (:inherit ,s-variable-pitch :weight bold))))
      `(info-menu-star ((,class (:foreground ,orange))))
      `(info-xref ((,class (:inherit link))))
      `(info-xref-visited ((,class (:inherit (link-visited info-xref)))))
