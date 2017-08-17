@@ -1588,6 +1588,17 @@ customize the resulting theme."
      `(neo-dir-link-face ((,class (:foreground ,blue))))
      `(neo-file-link-face ((,class (:foreground ,base0))))
      `(neo-expand-btn-face ((,class (:foreground ,base01))))
+;;;;; notmuch
+     `(notmuch-message-summary-face ((,class (:inherit highlight))))
+     `(notmuch-search-date ((,class (:inherit default))))
+     `(notmuch-search-count ((,class (:inherit default))))
+     `(notmuch-search-subject ((,class (:inherit default))))
+     `(notmuch-search-matching-authors ((,class (:inherit default))))
+     `(notmuch-search-non-matching-authors ((,class (:inherit shadow))))
+     `(notmuch-tag-face ((,class (:foreground ,yellow))))
+     `(notmuch-search-flagged-face ((,class (:foreground ,blue))))
+     `(notmuch-search-unread-face ((,class (:weight bold))))
+
 ;;;;; org-mode
      `(org-agenda-structure
        ((,class (:foreground ,base1 :background ,base02
