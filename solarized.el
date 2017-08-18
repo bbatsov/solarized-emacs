@@ -136,120 +136,120 @@ Alpha should be a float between 0 and 1."
 (defmacro solarized-with-color-variables (variant &rest body)
   (declare (indent defun))
   `(let* ((class '((class color) (min-colors 89)))
-         (variant ,variant)
-         (s-base03    "#002b36")
-         (s-base02    "#073642")
-         ;; emphasized content
-         (s-base01    "#586e75")
-         ;; primary content
-         (s-base00    "#657b83")
-         (s-base0     "#839496")
-         ;; comments
-         (s-base1     "#93a1a1")
-         ;; background highlight light
-         (s-base2     "#eee8d5")
-         ;; background light
-         (s-base3     "#fdf6e3")
+          (variant ,variant)
+          (s-base03    "#002b36")
+          (s-base02    "#073642")
+          ;; emphasized content
+          (s-base01    "#586e75")
+          ;; primary content
+          (s-base00    "#657b83")
+          (s-base0     "#839496")
+          ;; comments
+          (s-base1     "#93a1a1")
+          ;; background highlight light
+          (s-base2     "#eee8d5")
+          ;; background light
+          (s-base3     "#fdf6e3")
 
-         ;; Solarized accented colors
-         (yellow    "#b58900")
-         (orange    "#cb4b16")
-         (red       "#dc322f")
-         (magenta   "#d33682")
-         (violet    "#6c71c4")
-         (blue      "#268bd2")
-         (cyan      "#2aa198")
-         (green     "#859900")
+          ;; Solarized accented colors
+          (yellow    "#b58900")
+          (orange    "#cb4b16")
+          (red       "#dc322f")
+          (magenta   "#d33682")
+          (violet    "#6c71c4")
+          (blue      "#268bd2")
+          (cyan      "#2aa198")
+          (green     "#859900")
 
-         ;; Darker and lighter accented colors
-         ;; Only use these in exceptional circumstances!
-         (yellow-d  "#7B6000")
-         (yellow-l  "#DEB542")
-         (orange-d  "#8B2C02")
-         (orange-l  "#F2804F")
-         (red-d     "#990A1B")
-         (red-l     "#FF6E64")
-         (magenta-d "#93115C")
-         (magenta-l "#F771AC")
-         (violet-d  "#3F4D91")
-         (violet-l  "#9EA0E5")
-         (blue-d    "#00629D")
-         (blue-l    "#69B7F0")
-         (cyan-d    "#00736F")
-         (cyan-l    "#69CABF")
-         (green-d   "#546E00")
-         (green-l   "#B4C342")
+          ;; Darker and lighter accented colors
+          ;; Only use these in exceptional circumstances!
+          (yellow-d  "#7B6000")
+          (yellow-l  "#DEB542")
+          (orange-d  "#8B2C02")
+          (orange-l  "#F2804F")
+          (red-d     "#990A1B")
+          (red-l     "#FF6E64")
+          (magenta-d "#93115C")
+          (magenta-l "#F771AC")
+          (violet-d  "#3F4D91")
+          (violet-l  "#9EA0E5")
+          (blue-d    "#00629D")
+          (blue-l    "#69B7F0")
+          (cyan-d    "#00736F")
+          (cyan-l    "#69CABF")
+          (green-d   "#546E00")
+          (green-l   "#B4C342")
 
-         ;; Solarized palette names, use these instead of -fg -bg...
-         (base0 (if (eq variant 'light) s-base00 s-base0))
-         (base00 (if (eq variant 'light) s-base0 s-base00))
-         (base1 (if (eq variant 'light) s-base01 s-base1))
-         (base01 (if (eq variant 'light) s-base1 s-base01))
-         (base2 (if (eq variant 'light) s-base02 s-base2))
-         (base02 (if (eq variant 'light) s-base2 s-base02))
-         (base3 (if (eq variant 'light) s-base03 s-base3))
-         (base03 (if (eq variant 'light) s-base3 s-base03))
+          ;; Solarized palette names, use these instead of -fg -bg...
+          (base0 (if (eq variant 'light) s-base00 s-base0))
+          (base00 (if (eq variant 'light) s-base0 s-base00))
+          (base1 (if (eq variant 'light) s-base01 s-base1))
+          (base01 (if (eq variant 'light) s-base1 s-base01))
+          (base2 (if (eq variant 'light) s-base02 s-base2))
+          (base02 (if (eq variant 'light) s-base2 s-base02))
+          (base3 (if (eq variant 'light) s-base03 s-base3))
+          (base03 (if (eq variant 'light) s-base3 s-base03))
 
-         ;; Line drawing color
-         ;;
-         ;; NOTE only use this for very thin lines that are hard to see using base02, in low
-         ;; color displayes base02 might be used instead
-         (s-line (if (eq variant 'light) "#cccec4" "#284b54"))
+          ;; Line drawing color
+          ;;
+          ;; NOTE only use this for very thin lines that are hard to see using base02, in low
+          ;; color displayes base02 might be used instead
+          (s-line (if (eq variant 'light) "#cccec4" "#284b54"))
 
-         ;; Light/Dark adaptive higher/lower contrast accented colors
-         ;;
-         ;; NOTE Only use these in exceptional cirmumstances!
-         (yellow-hc (if (eq variant 'light) yellow-d yellow-l))
-         (yellow-lc (if (eq variant 'light) yellow-l yellow-d))
-         (orange-hc (if (eq variant 'light) orange-d orange-l))
-         (orange-lc (if (eq variant 'light) orange-l orange-d))
-         (red-hc (if (eq variant 'light) red-d red-l))
-         (red-lc (if (eq variant 'light) red-l red-d))
-         (magenta-hc (if (eq variant 'light) magenta-d magenta-l))
-         (magenta-lc (if (eq variant 'light) magenta-l magenta-d))
-         (violet-hc (if (eq variant 'light) violet-d violet-l))
-         (violet-lc (if (eq variant 'light) violet-l violet-d))
-         (blue-hc (if (eq variant 'light) blue-d blue-l))
-         (blue-lc (if (eq variant 'light) blue-l blue-d))
-         (cyan-hc (if (eq variant 'light) cyan-d cyan-l))
-         (cyan-lc (if (eq variant 'light) cyan-l cyan-d))
-         (green-hc (if (eq variant 'light) green-d green-l))
-         (green-lc (if (eq variant 'light) green-l green-d))
+          ;; Light/Dark adaptive higher/lower contrast accented colors
+          ;;
+          ;; NOTE Only use these in exceptional cirmumstances!
+          (yellow-hc (if (eq variant 'light) yellow-d yellow-l))
+          (yellow-lc (if (eq variant 'light) yellow-l yellow-d))
+          (orange-hc (if (eq variant 'light) orange-d orange-l))
+          (orange-lc (if (eq variant 'light) orange-l orange-d))
+          (red-hc (if (eq variant 'light) red-d red-l))
+          (red-lc (if (eq variant 'light) red-l red-d))
+          (magenta-hc (if (eq variant 'light) magenta-d magenta-l))
+          (magenta-lc (if (eq variant 'light) magenta-l magenta-d))
+          (violet-hc (if (eq variant 'light) violet-d violet-l))
+          (violet-lc (if (eq variant 'light) violet-l violet-d))
+          (blue-hc (if (eq variant 'light) blue-d blue-l))
+          (blue-lc (if (eq variant 'light) blue-l blue-d))
+          (cyan-hc (if (eq variant 'light) cyan-d cyan-l))
+          (cyan-lc (if (eq variant 'light) cyan-l cyan-d))
+          (green-hc (if (eq variant 'light) green-d green-l))
+          (green-lc (if (eq variant 'light) green-l green-d))
 
-         ;; customize based face properties
-         (s-maybe-bold (if solarized-use-less-bold
-                           'unspecified 'bold))
-         (s-maybe-italic (if solarized-use-more-italic
-                             'italic 'normal))
-         (s-variable-pitch (if solarized-use-variable-pitch
-                               'variable-pitch 'default))
-         (s-fringe-bg (if solarized-distinct-fringe-background
-                          base02 base03))
-         (s-fringe-fg base01)
+          ;; customize based face properties
+          (s-maybe-bold (if solarized-use-less-bold
+                            'unspecified 'bold))
+          (s-maybe-italic (if solarized-use-more-italic
+                              'italic 'normal))
+          (s-variable-pitch (if solarized-use-variable-pitch
+                                'variable-pitch 'default))
+          (s-fringe-bg (if solarized-distinct-fringe-background
+                           base02 base03))
+          (s-fringe-fg base01)
 
-         (s-header-line-fg (if solarized-high-contrast-mode-line
-                               base1 base0))
-         (s-header-line-bg (if solarized-high-contrast-mode-line
-                               base02 base03))
-         (s-header-line-underline (if solarized-high-contrast-mode-line
-                                      nil base02))
+          (s-header-line-fg (if solarized-high-contrast-mode-line
+                                base1 base0))
+          (s-header-line-bg (if solarized-high-contrast-mode-line
+                                base02 base03))
+          (s-header-line-underline (if solarized-high-contrast-mode-line
+                                       nil base02))
 
-         (s-mode-line-fg (if solarized-high-contrast-mode-line
-                             base03 base0))
-         (s-mode-line-bg (if solarized-high-contrast-mode-line
-                             base0 base02))
-         (s-mode-line-underline (if solarized-high-contrast-mode-line
-                                    nil s-line))
+          (s-mode-line-fg (if solarized-high-contrast-mode-line
+                              base03 base0))
+          (s-mode-line-bg (if solarized-high-contrast-mode-line
+                              base0 base02))
+          (s-mode-line-underline (if solarized-high-contrast-mode-line
+                                     nil s-line))
 
-         (s-mode-line-buffer-id-fg (if solarized-high-contrast-mode-line
-                                       'unspecified base1))
-         (s-mode-line-inactive-fg (if solarized-high-contrast-mode-line
-                                      base0 base01))
-         (s-mode-line-inactive-bg (if solarized-high-contrast-mode-line
-                                      base02 base03))
-         (s-mode-line-inactive-bc (if solarized-high-contrast-mode-line
-                                      base02 base02))
-         )
+          (s-mode-line-buffer-id-fg (if solarized-high-contrast-mode-line
+                                        'unspecified base1))
+          (s-mode-line-inactive-fg (if solarized-high-contrast-mode-line
+                                       base0 base01))
+          (s-mode-line-inactive-bg (if solarized-high-contrast-mode-line
+                                       base02 base03))
+          (s-mode-line-inactive-bc (if solarized-high-contrast-mode-line
+                                       base02 base02))
+          )
      ,@body))
 
 (defun create-solarized-theme (variant theme-name &optional childtheme)
@@ -784,7 +784,7 @@ customize the resulting theme."
      `(fic-face ((,class (:background ,base03 :foreground ,orange
                                       :weight normal :slant italic))))
      `(font-lock-fic-face ((,class (:background ,base03 :foreground ,orange
-                                      :weight normal :slant italic))))
+                                                :weight normal :slant italic))))
 ;;;;; fixmee
      `(fixmee-notice-face ((,class (:background nil :foreground ,base1
                                                 :underline nil :slant italic :weight bold))))
@@ -875,15 +875,15 @@ customize the resulting theme."
      `(git-commit-comment-heading ((,class (:foreground ,yellow :weight bold))))
 ;;;;; git-gutter
      `(git-gutter:added
-         ((,class (:weight normal
-                           :foreground ,(if solarized-emphasize-indicators
-                                            green s-fringe-fg)
+       ((,class (:weight normal
+                         :foreground ,(if solarized-emphasize-indicators
+                                          green s-fringe-fg)
                          :background ,s-fringe-bg
                          ))))
      `(git-gutter:deleted
-         ((,class (:weight normal
-                           :foreground ,(if solarized-emphasize-indicators
-                                            red s-fringe-fg)
+       ((,class (:weight normal
+                         :foreground ,(if solarized-emphasize-indicators
+                                          red s-fringe-fg)
                          :background ,s-fringe-bg
                          ))))
      `(git-gutter:modified
@@ -1064,11 +1064,11 @@ customize the resulting theme."
      `(hi-yellow ((,class (:foreground ,(solarized-color-blend yellow base1 0.5)
                                        :background,(solarized-color-blend yellow base03 0.15)))))
      `(hi-pink ((,class (:foreground ,(solarized-color-blend magenta base1 0.5)
-                                       :background,(solarized-color-blend magenta base03 0.15)))))
+                                     :background,(solarized-color-blend magenta base03 0.15)))))
      `(hi-green ((,class (:foreground ,(solarized-color-blend green base1 0.5)
-                                       :background,(solarized-color-blend green base03 0.15)))))
+                                      :background,(solarized-color-blend green base03 0.15)))))
      `(hi-blue ((,class (:foreground ,(solarized-color-blend blue base1 0.5)
-                                       :background,(solarized-color-blend blue base03 0.15)))))
+                                     :background,(solarized-color-blend blue base03 0.15)))))
      `(hi-black-b ((,class (:foreground ,base1
                                         :background ,base03
                                         :weight bold))))
@@ -1076,8 +1076,8 @@ customize the resulting theme."
                                    :foreground ,(solarized-color-blend cyan base1 0.7)
                                    :background ,(solarized-color-blend cyan base03 0.2)))))
      `(hi-green-b ((,class (:weight bold
-                           :foreground ,(solarized-color-blend green base1 0.7)
-                           :background ,(solarized-color-blend green base03 0.2)))))
+                                    :foreground ,(solarized-color-blend green base1 0.7)
+                                    :background ,(solarized-color-blend green base03 0.2)))))
      `(hi-red-b ((,class (:weight bold
                                   :foreground ,(solarized-color-blend red base1 0.7)
                                   :background ,(solarized-color-blend red base03 0.2)))))
@@ -1324,17 +1324,17 @@ customize the resulting theme."
      `(magit-diff-file-heading           ((t (:weight bold))))
      `(magit-diff-file-heading-highlight ((t (:background ,base02))))
      `(magit-diff-file-heading-selection ((t (:background ,base02
-                                              :foreground ,orange))))
+                                                          :foreground ,orange))))
      `(magit-diff-hunk-heading
        ((t (:background ,(solarized-color-blend yellow base03 0.1)))))
      `(magit-diff-hunk-heading-highlight
        ((t (:background ,(solarized-color-blend yellow base02 0.1)))))
      `(magit-diff-hunk-heading-selection
        ((t (:background ,(solarized-color-blend yellow base02 0.1)
-            :foreground ,orange
-            :weight bold))))
+                        :foreground ,orange
+                        :weight bold))))
      `(magit-diff-lines-heading          ((t (:background ,orange
-                                              :foreground ,base3))))
+                                                          :foreground ,base3))))
      `(magit-diff-context-highlight      ((t (:background ,base02))))
      `(magit-diffstat-added              ((t (:foreground ,green))))
      `(magit-diffstat-removed            ((t (:foreground ,red))))
@@ -1632,17 +1632,17 @@ customize the resulting theme."
      `(org-headline-done ((,class (:foreground ,green))))
      `(org-hide ((,class (:foreground ,base03))))
      `(org-level-1 ((,class (:inherit ,s-variable-pitch :foreground ,orange
-                             ,@(when solarized-scale-org-headlines
-                                 (list :height solarized-height-plus-4))))))
+                                      ,@(when solarized-scale-org-headlines
+                                          (list :height solarized-height-plus-4))))))
      `(org-level-2 ((,class (:inherit ,s-variable-pitch :foreground ,green
-                             ,@(when solarized-scale-org-headlines
-                                 (list :height solarized-height-plus-3))))))
+                                      ,@(when solarized-scale-org-headlines
+                                          (list :height solarized-height-plus-3))))))
      `(org-level-3 ((,class (:inherit ,s-variable-pitch :foreground ,blue
-                             ,@(when solarized-scale-org-headlines
-                                 (list :height solarized-height-plus-2))))))
+                                      ,@(when solarized-scale-org-headlines
+                                          (list :height solarized-height-plus-2))))))
      `(org-level-4 ((,class (:inherit ,s-variable-pitch :foreground ,yellow
-                             ,@(when solarized-scale-org-headlines
-                                 (list :height solarized-height-plus-1))))))
+                                      ,@(when solarized-scale-org-headlines
+                                          (list :height solarized-height-plus-1))))))
      `(org-level-5 ((,class (:inherit ,s-variable-pitch
                                       :foreground ,cyan))))
      `(org-level-6 ((,class (:inherit ,s-variable-pitch
@@ -1724,16 +1724,16 @@ customize the resulting theme."
 ;;;;; powerline
      `(powerline-active1 ((,class ,(if solarized-high-contrast-mode-line
                                        `(:background ,base00 :foreground ,base03)
-                                       `(:background ,base03 :foreground ,base00)))))
+                                     `(:background ,base03 :foreground ,base00)))))
      `(powerline-active2 ((,class ,(if solarized-high-contrast-mode-line
                                        `(:background ,base01 :foreground ,base03)
-                                       `(:background ,base02 :foreground ,base00)))))
+                                     `(:background ,base02 :foreground ,base00)))))
      `(powerline-inactive1 ((,class ,(if solarized-high-contrast-mode-line
                                          `(:background ,base03 :foreground ,base1)
-                                         `(:background ,base02 :foreground ,base01)))))
+                                       `(:background ,base02 :foreground ,base01)))))
      `(powerline-inactive2 ((,class ,(if solarized-high-contrast-mode-line
                                          `(:background ,base02 :foreground ,base1)
-                                         `(:background ,base03 :foreground ,base01)))))
+                                       `(:background ,base03 :foreground ,base01)))))
 ;;;;; rainbow-blocks
      `(rainbow-blocks-depth-1-face ((,class (:foreground ,cyan))))
      `(rainbow-blocks-depth-2-face ((,class (:foreground ,yellow))))
@@ -2174,7 +2174,7 @@ customize the resulting theme."
 ;;;;; nrepl-client
      `(nrepl-message-colors
        '(,red ,orange ,yellow ,green-d ,green-l
-                      ,blue-d ,cyan ,magenta ,violet))
+              ,blue-d ,cyan ,magenta ,violet))
 ;;;;; highlight-changes
      `(highlight-changes-colors '(,magenta ,violet))
 ;;;;; highlight-symbol
@@ -2238,9 +2238,9 @@ customize the resulting theme."
      `(xterm-color-names-bright [,base03 ,orange ,base01 ,base00
                                          ,base0 ,violet ,base1 ,base3]))
 ;;; Setup End
-     (when childtheme
-       (funcall childtheme))
-     ) ; END custom-theme-set-variables
+    (when childtheme
+      (funcall childtheme))
+    ) ; END custom-theme-set-variables
   )    ; END defun create-solarized-theme
 
 ;;; Footer
