@@ -1622,7 +1622,6 @@ customize the resulting theme."
      `(org-agenda-done ((,class (:foreground ,base01 :slant italic))))
      `(org-archived ((,class (:foreground ,base01 :weight normal))))
      `(org-block ((,class (:foreground ,base01))))
-     `(org-block-begin-line ((,class (:foreground ,base01 :slant italic))))
      `(org-checkbox ((,class (:background ,base03 :foreground ,base0
                                           :box (:line-width 1 :style released-button)))))
      `(org-code ((,class (:foreground ,base01))))
@@ -1653,6 +1652,7 @@ customize the resulting theme."
      `(org-level-8 ((,class (:inherit ,s-variable-pitch
                                       :foreground ,blue))))
      `(org-link ((,class (:foreground ,yellow :underline t))))
+     `(org-meta-line ((,class (:foreground ,base01 :slant italic))))
      `(org-sexp-date ((,class (:foreground ,violet))))
      `(org-scheduled ((,class (:foreground ,green))))
      `(org-scheduled-previously ((,class (:foreground ,cyan))))
