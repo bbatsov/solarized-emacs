@@ -616,19 +616,19 @@ customize the resulting theme."
      `(diff-changed ((,class (:foreground ,blue))))
      `(diff-removed ((,class (:foreground ,red))))
      `(diff-refine-added
-       ((((class color) (background light))
+       ((,light-class
          (:background ,(solarized-color-blend "#ddffdd" green 0.7)))
-        (((class color) (background dark))
+        (,dark-class
          (:background ,(solarized-color-blend "#446644" green 0.7)))))
      `(diff-refine-changed
-       ((((class color) (background light))
+       ((,light-class
          (:background ,(solarized-color-blend "#ddddff" blue 0.7)))
-        (((class color) (background dark))
+        (,dark-class
          (:background ,(solarized-color-blend "#444466" blue 0.7)))))
      `(diff-refine-removed
-       ((((class color) (background light))
+       ((,light-class
          (:background ,(solarized-color-blend "#ffdddd" red 0.7)))
-        (((class color) (background dark))
+        (,dark-class
          (:background ,(solarized-color-blend "#664444" red 0.7)))))
      `(diff-header  ((,class (:background ,base03))))
      `(diff-file-header
