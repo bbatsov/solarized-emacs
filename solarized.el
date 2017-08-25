@@ -136,6 +136,8 @@ Alpha should be a float between 0 and 1."
 (defmacro solarized-with-color-variables (variant &rest body)
   (declare (indent defun))
   `(let* ((class '((class color) (min-colors 89)))
+          (light-class (append '((background light)) class))
+          (dark-class (append '((background dark)) class))
           (variant ,variant)
           (s-base03    "#002b36")
           (s-base02    "#073642")
