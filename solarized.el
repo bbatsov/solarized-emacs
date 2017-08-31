@@ -1402,6 +1402,8 @@ customize the resulting theme."
 ;;;;; markdown-mode
      `(markdown-blockquote-face ((,class (:inherit font-lock-doc-face))))
      `(markdown-bold-face ((,class (:inherit bold))))
+     `(markdown-code-face ((,class (:inherit fixed-pitch :foreground ,base01
+                                             :background unspecified))))
      `(markdown-comment-face ((,class (:foreground ,base01 :strike-through t))))
      `(markdown-footnote-face ((,class (:inherit default))))
      `(markdown-header-delimiter-face ((,class (:foreground ,base01))))
