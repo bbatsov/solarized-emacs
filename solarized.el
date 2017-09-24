@@ -302,6 +302,8 @@ customize the resulting theme."
      `(compilation-mode-line-fail
        ((,class (:inherit compilation-error :foreground ,red :weight bold))))
      `(compilation-mode-line-run ((,class (:foreground ,orange :weight bold))))
+;;;;; completions
+     `(completions-annotations ((t (:foreground ,base01))))
 ;;;;; cua
      `(cua-global-mark ((,class (:background ,yellow :foreground ,base03))))
      `(cua-rectangle ((,class (:inherit region
@@ -378,8 +380,6 @@ customize the resulting theme."
      `(enh-ruby-op-face ((,class (:foreground ,base0))))
      `(erm-syn-errline ((,class (:inherit flymake-errline))))
      `(erm-syn-warnline ((,class (:inherit flymake-warnline))))
-;;;;; completions
-     `(completions-annotations ((t (:foreground ,base01))))
 ;;;;; grep
      `(grep-context-face ((,class (:foreground ,base0))))
      `(grep-error-face ((,class (:foreground ,red :weight bold :underline t))))
@@ -455,6 +455,14 @@ customize the resulting theme."
                              :inverse-video nil))))
      `(ace-jump-face-foreground
        ((,class (:foreground ,red :background ,base03 :inverse-video nil :weight bold))))
+;;;;; android-mode
+     `(android-mode-debug-face ((,class (:foreground ,green))))
+     `(android-mode-error-face ((,class (:foreground ,orange :weight bold))))
+     `(android-mode-info-face ((,class (:foreground ,base0))))
+     `(android-mode-verbose-face ((,class (:foreground ,base01))))
+     `(android-mode-warning-face ((,class (:foreground ,yellow))))
+;;;;; anzu-mode
+     `(anzu-mode-line ((,class (:foreground ,yellow :weight bold))))
 ;;;;; auctex
      `(font-latex-bold-face ((,class (:inherit bold :foreground ,base1))))
      `(font-latex-doctex-documentation-face ((,class (:background unspecified))))
@@ -494,7 +502,7 @@ customize the resulting theme."
      `(ac-gtags-selection-face ((,class (:background ,blue-lc :foreground ,blue-hc))))
      `(ac-yasnippet-candidate-face ((,class (:background ,base02 :foreground ,yellow))))
      `(ac-yasnippet-selection-face ((,class (:background ,yellow-lc :foreground ,yellow-hc))))
-;;;;; auto highlight symbol
+;;;;; auto-highlight-symbol
      `(ahs-definition-face ((,class (:foreground ,magenta :background unspecified
                                                  :slant normal))))
      `(ahs-edit-mode-face ((,class (:foreground ,base03 :background ,magenta))))
@@ -503,14 +511,6 @@ customize the resulting theme."
      `(ahs-plugin-defalt-face ((,class (:foreground ,magenta :background unspecified))))
      `(ahs-plugin-whole-buffer-face ((,class (:foreground ,magenta  :background unspecified))))
      `(ahs-warning-face ((,class (:foreground ,red :weight bold))))
-;;;;; android mode
-     `(android-mode-debug-face ((,class (:foreground ,green))))
-     `(android-mode-error-face ((,class (:foreground ,orange :weight bold))))
-     `(android-mode-info-face ((,class (:foreground ,base0))))
-     `(android-mode-verbose-face ((,class (:foreground ,base01))))
-     `(android-mode-warning-face ((,class (:foreground ,yellow))))
-;;;;; anzu-mode
-     `(anzu-mode-line ((,class (:foreground ,yellow :weight bold))))
 ;;;;; avy-mode
      `(avy-lead-face ((,class (:inherit isearch))))
      `(avy-lead-face-0 ((,class (:inherit isearch :background ,violet))))
@@ -560,6 +560,12 @@ customize the resulting theme."
      `(cider-test-failure-face ((t (:foreground ,orange :weight bold :underline t))))
      `(cider-test-error-face ((t (:foreground ,red :weight bold :underline t))))
      `(cider-test-success-face ((t (:foreground ,green :weight bold :underline t))))
+;;;;; coffee
+     `(coffee-mode-class-name ((,class (:foreground ,yellow :weight bold))))
+     `(coffee-mode-function-param ((,class (:foreground ,violet :slant italic))))
+;;;;; column-enforce-mode
+     `(column-enforce-face ((,class (:background unspecified :foreground ,magenta
+                                                 :inverse-video unspecified))))
 ;;;;; company-mode
      `(company-template-field ((,class (:background ,yellow :foreground ,base02))))
      `(company-tooltip ((,class (:background ,base02 :foreground ,cyan))))
@@ -572,9 +578,10 @@ customize the resulting theme."
      `(company-scrollbar-bg ((,class (:background ,base02 :foreground ,cyan))))
      `(company-preview ((,class (:background ,base02 :foreground ,cyan))))
      `(company-preview-common ((,class (:foreground ,base1 :underline t))))
-;;;;; column-enforce-mode
-     `(column-enforce-face ((,class (:background unspecified :foreground ,magenta
-                                                 :inverse-video unspecified))))
+;;;;; cperl-mode
+     `(cperl-array-face ((,class (:background unspecified :foreground ,blue))))
+     `(cperl-hash-face ((,class (:background unspecified :foreground ,blue))))
+     `(cperl-nonoverridable-face ((,class (:foreground ,base0 :weight bold))))
 ;;;;; cscope
      `(cscope-file-face ((,class (:foreground ,green :weight bold))))
      `(cscope-function-face ((,class (:foreground ,blue))))
@@ -587,15 +594,6 @@ customize the resulting theme."
      `(ctbl:face-continue-bar ((,class (:background ,base02 :foreground ,yellow))))
      `(ctbl:face-row-select ((,class (:background ,base02 :foreground ,base0
                                                   :underline t))))
-;;;;; coffee
-     `(coffee-mode-class-name ((,class (:foreground ,yellow :weight bold))))
-     `(coffee-mode-function-param ((,class (:foreground ,violet :slant italic))))
-
-;;;;; cperl-mode
-     `(cperl-array-face ((,class (:background unspecified :foreground ,blue))))
-     `(cperl-hash-face ((,class (:background unspecified :foreground ,blue))))
-     `(cperl-nonoverridable-face ((,class (:foreground ,base0 :weight bold))))
-
 ;;;;; custom
      `(custom-face-tag ((,class (:inherit ,s-variable-pitch :height ,solarized-height-plus-3
                                           :foreground ,violet :weight normal))))
@@ -635,6 +633,11 @@ customize the resulting theme."
      `(diff-header  ((,class (:background ,base03))))
      `(diff-file-header
        ((,class (:background ,base03 :foreground ,base0 :weight bold))))
+;;;;; diff-hl
+     `(diff-hl-change ((,class (:background ,blue-lc  :foreground ,blue-hc))))
+     `(diff-hl-delete ((,class (:background ,red-lc  :foreground ,red-hc))))
+     `(diff-hl-insert ((,class (:background ,green-lc  :foreground ,green-hc))))
+     `(diff-hl-unknown ((,class (:background ,cyan-lc   :foreground ,cyan-hc))))
 ;;;;; ediff
      `(ediff-fine-diff-A ((,class (:background ,orange-lc))))
      `(ediff-fine-diff-B ((,class (:background ,green-lc))))
@@ -721,11 +724,6 @@ customize the resulting theme."
      ;; `(ediff-odd-diff-C ((,class (:background ,base01
      ;;                                          :foreground ,base03
      ;;                                          ))))
-;;;;; diff-hl
-     `(diff-hl-change ((,class (:background ,blue-lc  :foreground ,blue-hc))))
-     `(diff-hl-delete ((,class (:background ,red-lc  :foreground ,red-hc))))
-     `(diff-hl-insert ((,class (:background ,green-lc  :foreground ,green-hc))))
-     `(diff-hl-unknown ((,class (:background ,cyan-lc   :foreground ,cyan-hc))))
 ;;;;; edts
      `(edts-face-error-line
        ((,(append '((supports :underline (:style line))) class)
@@ -764,6 +762,29 @@ customize the resulting theme."
 ;;;;; epc
      `(epc:face-title ((,class (:foreground ,blue :background ,base03
                                             :weight normal :underline nil))))
+;;;;; erc
+     `(erc-action-face ((,class (:inherit erc-default-face))))
+     `(erc-bold-face ((,class (:weight bold))))
+     `(erc-current-nick-face ((,class (:foreground ,blue :weight bold))))
+     `(erc-dangerous-host-face ((,class (:inherit font-lock-warning-face))))
+     `(erc-default-face ((,class (:foreground ,base0))))
+     `(erc-highlight-face ((,class (:inherit erc-default-face
+                                             :background ,base02))))
+     `(erc-direct-msg-face ((,class (:inherit erc-default-face))))
+     `(erc-error-face ((,class (:inherit font-lock-warning-face))))
+     `(erc-fool-face ((,class (:inherit erc-default-face))))
+     `(erc-input-face ((,class (:foreground ,yellow))))
+     `(erc-keyword-face ((,class (:foreground ,blue :weight bold))))
+     `(erc-nick-default-face ((,class (:foreground ,yellow :weight bold))))
+     `(erc-my-nick-face ((,class (:foreground ,red :weight bold))))
+     `(erc-nick-msg-face ((,class (:inherit erc-default-face))))
+     `(erc-notice-face ((,class (:foreground ,green))))
+     `(erc-pal-face ((,class (:foreground ,orange :weight bold))))
+     `(erc-prompt-face ((,class (:foreground ,orange :background ,base03 :weight bold))))
+     `(erc-timestamp-face ((,class (:foreground ,green))))
+     `(erc-underline-face ((t (:underline t))))
+;;;;; eros
+     `(eros-result-overlay-face ((t (:background unspecified))))
 ;;;;; eshell
      `(eshell-prompt ((,class (:foreground ,yellow :weight bold))))
      `(eshell-ls-archive ((,class (:foreground ,red :weight bold))))
@@ -792,22 +813,6 @@ customize the resulting theme."
 ;;;;; flx
      `(flx-highlight-face ((,class (:foreground ,blue
                                                 :weight normal :underline nil))))
-;;;;; flymake
-     `(flymake-errline
-       ((,(append '((supports :underline (:style wave))) class)
-         (:underline (:style wave :color ,red) :inherit unspecified
-                     :foreground unspecified :background unspecified))
-        (,class (:foreground ,red-hc :background ,red-lc :weight bold :underline t))))
-     `(flymake-infoline
-       ((,(append '((supports :underline (:style wave))) class)
-         (:underline (:style wave :color ,green) :inherit unspecified
-                     :foreground unspecified :background unspecified))
-        (,class (:foreground ,green-hc :background ,green-lc))))
-     `(flymake-warnline
-       ((,(append '((supports :underline (:style wave))) class)
-         (:underline (:style wave :color ,yellow) :inherit unspecified
-                     :foreground unspecified :background unspecified))
-        (,class (:foreground ,yellow-hc :background ,yellow-lc :weight bold :underline t))))
 ;;;;; flycheck
      `(flycheck-error
        ((,(append '((supports :underline (:style wave))) class)
@@ -837,6 +842,22 @@ customize the resulting theme."
                                   blue-hc base01)
                              :background ,(if solarized-emphasize-indicators
                                               blue-lc base03) :weight bold))))
+;;;;; flymake
+     `(flymake-errline
+       ((,(append '((supports :underline (:style wave))) class)
+         (:underline (:style wave :color ,red) :inherit unspecified
+                     :foreground unspecified :background unspecified))
+        (,class (:foreground ,red-hc :background ,red-lc :weight bold :underline t))))
+     `(flymake-infoline
+       ((,(append '((supports :underline (:style wave))) class)
+         (:underline (:style wave :color ,green) :inherit unspecified
+                     :foreground unspecified :background unspecified))
+        (,class (:foreground ,green-hc :background ,green-lc))))
+     `(flymake-warnline
+       ((,(append '((supports :underline (:style wave))) class)
+         (:underline (:style wave :color ,yellow) :inherit unspecified
+                     :foreground unspecified :background unspecified))
+        (,class (:foreground ,yellow-hc :background ,yellow-lc :weight bold :underline t))))
 ;;;;; flyspell
      `(flyspell-duplicate
        ((,(append '((supports :underline (:style wave))) class)
@@ -846,29 +867,6 @@ customize the resulting theme."
        ((,(append '((supports :underline (:style wave))) class)
          (:underline (:style wave :color ,red) :inherit unspecified))
         (,class (:foreground ,red :weight bold :underline t))))
-;;;;; erc
-     `(erc-action-face ((,class (:inherit erc-default-face))))
-     `(erc-bold-face ((,class (:weight bold))))
-     `(erc-current-nick-face ((,class (:foreground ,blue :weight bold))))
-     `(erc-dangerous-host-face ((,class (:inherit font-lock-warning-face))))
-     `(erc-default-face ((,class (:foreground ,base0))))
-     `(erc-highlight-face ((,class (:inherit erc-default-face
-                                             :background ,base02))))
-     `(erc-direct-msg-face ((,class (:inherit erc-default-face))))
-     `(erc-error-face ((,class (:inherit font-lock-warning-face))))
-     `(erc-fool-face ((,class (:inherit erc-default-face))))
-     `(erc-input-face ((,class (:foreground ,yellow))))
-     `(erc-keyword-face ((,class (:foreground ,blue :weight bold))))
-     `(erc-nick-default-face ((,class (:foreground ,yellow :weight bold))))
-     `(erc-my-nick-face ((,class (:foreground ,red :weight bold))))
-     `(erc-nick-msg-face ((,class (:inherit erc-default-face))))
-     `(erc-notice-face ((,class (:foreground ,green))))
-     `(erc-pal-face ((,class (:foreground ,orange :weight bold))))
-     `(erc-prompt-face ((,class (:foreground ,orange :background ,base03 :weight bold))))
-     `(erc-timestamp-face ((,class (:foreground ,green))))
-     `(erc-underline-face ((t (:underline t))))
-;;;;; eros
-     `(eros-result-overlay-face ((t (:background unspecified))))
 ;;;;; git-commit
      `(git-commit-comment-action  ((,class (:foreground ,base0  :weight bold))))
      `(git-commit-comment-branch  ((,class (:foreground ,blue   :weight bold))))
@@ -920,31 +918,6 @@ customize the resulting theme."
 ;;;;; git-timemachine
      `(git-timemachine-minibuffer-author-face ((,class (:foreground ,orange))))
      `(git-timemachine-minibuffer-detail-face ((,class (:foreground ,yellow))))
-;;;;; go-direx
-     `(go-direx-header ((,class (:foreground ,blue))))
-     `(go-direx-label ((,class (:foreground ,green))))
-     `(go-direx-package ((,class (:foreground ,base1 :weight bold))))
-;;;;;; go-guru
-     `(go-guru-hl-identifier-face ((,class (:foreground ,magenta))))
-;;;;;; go-mode
-     `(go-coverage-0 ((,class (:foreground ,orange))))
-     `(go-coverage-1 ((,class (:foreground ,(solarized-color-blend blue yellow (/ 2.0 6))))))
-     `(go-coverage-2 ((,class (:foreground ,(solarized-color-blend blue yellow (/ 3.0 6))))))
-     `(go-coverage-3 ((,class (:foreground ,(solarized-color-blend blue yellow (/ 4.0 6))))))
-     `(go-coverage-4 ((,class (:foreground ,(solarized-color-blend blue yellow (/ 5.0 6))))))
-     `(go-coverage-5 ((,class (:foreground ,blue))))
-     `(go-coverage-6 ((,class (:foreground ,(solarized-color-blend cyan blue (/ 2.0 6))))))
-     `(go-coverage-7 ((,class (:foreground ,(solarized-color-blend cyan blue (/ 3.0 6))))))
-     `(go-coverage-8 ((,class (:foreground ,(solarized-color-blend cyan blue (/ 4.0 6))))))
-     `(go-coverage-9 ((,class (:foreground ,(solarized-color-blend cyan blue (/ 5.0 6))))))
-     `(go-coverage-10 ((,class (:foreground ,cyan))))
-     `(go-coverage-covered ((,class (:foreground ,green))))
-     `(go-coverage-untracked ((,class (:foreground ,base01))))
-
-;;;;; guide-key
-     `(guide-key/highlight-command-face ((,class (:foreground ,blue))))
-     `(guide-key/key-face ((,class (:foreground ,base01))))
-     `(guide-key/prefix-command-face ((,class (:foreground ,green))))
 ;;;;; gnus
      `(gnus-group-mail-1 ((,class (:weight bold :inherit gnus-group-mail-1-empty))))
      `(gnus-group-mail-1-empty ((,class (:inherit gnus-group-news-1-empty))))
@@ -1000,6 +973,30 @@ customize the resulting theme."
      `(gnus-group-news-low-empty ((,class (:foreground ,base01))))
      `(gnus-signature ((,class (:foreground ,yellow))))
      `(gnus-x-face ((,class (:background ,base0 :foreground ,base03))))
+;;;;; go-direx
+     `(go-direx-header ((,class (:foreground ,blue))))
+     `(go-direx-label ((,class (:foreground ,green))))
+     `(go-direx-package ((,class (:foreground ,base1 :weight bold))))
+;;;;; go-guru
+     `(go-guru-hl-identifier-face ((,class (:foreground ,magenta))))
+;;;;; go-mode
+     `(go-coverage-0 ((,class (:foreground ,orange))))
+     `(go-coverage-1 ((,class (:foreground ,(solarized-color-blend blue yellow (/ 2.0 6))))))
+     `(go-coverage-2 ((,class (:foreground ,(solarized-color-blend blue yellow (/ 3.0 6))))))
+     `(go-coverage-3 ((,class (:foreground ,(solarized-color-blend blue yellow (/ 4.0 6))))))
+     `(go-coverage-4 ((,class (:foreground ,(solarized-color-blend blue yellow (/ 5.0 6))))))
+     `(go-coverage-5 ((,class (:foreground ,blue))))
+     `(go-coverage-6 ((,class (:foreground ,(solarized-color-blend cyan blue (/ 2.0 6))))))
+     `(go-coverage-7 ((,class (:foreground ,(solarized-color-blend cyan blue (/ 3.0 6))))))
+     `(go-coverage-8 ((,class (:foreground ,(solarized-color-blend cyan blue (/ 4.0 6))))))
+     `(go-coverage-9 ((,class (:foreground ,(solarized-color-blend cyan blue (/ 5.0 6))))))
+     `(go-coverage-10 ((,class (:foreground ,cyan))))
+     `(go-coverage-covered ((,class (:foreground ,green))))
+     `(go-coverage-untracked ((,class (:foreground ,base01))))
+;;;;; guide-key
+     `(guide-key/highlight-command-face ((,class (:foreground ,blue))))
+     `(guide-key/key-face ((,class (:foreground ,base01))))
+     `(guide-key/prefix-command-face ((,class (:foreground ,green))))
 ;;;;; helm
      ;; These probably needs tweaking.
      `(helm-apt-deinstalled ((,class (:foreground ,base01))))
@@ -1178,7 +1175,9 @@ customize the resulting theme."
      `(jabber-roster-user-offline ((,class (:foreground ,base01))))
      `(jabber-roster-user-online ((,class (:weight bold :foreground ,blue))))
      `(jabber-roster-user-xa ((,class (:slant italic :foreground ,magenta))))
-;;;;; js2-mode colors
+;;;;; jedi
+     `(jedi:highlight-function-argument ((,class (:inherit bold))))
+;;;;; js2-mode
      `(js2-error ((,class (:foreground ,red))))
      `(js2-external-variable ((,class (:foreground ,orange))))
      `(js2-function-param ((,class (:foreground ,green))))
@@ -1192,7 +1191,7 @@ customize the resulting theme."
      `(js2-private-function-call ((,class (:foreground ,yellow))))
      `(js2-private-member ((,class (:foreground ,blue))))
      `(js2-warning ((,class (:underline ,orange))))
-;;;;; js3-mode colors
+;;;;; js3-mode
      `(js3-error ((,class (:foreground ,red))))
      `(js3-external-variable ((,class (:foreground ,orange))))
      `(js3-function-param ((,class (:foreground ,green))))
@@ -1206,8 +1205,6 @@ customize the resulting theme."
      `(js3-private-function-call ((,class (:foreground ,yellow))))
      `(js3-private-member ((,class (:foreground ,blue))))
      `(js3-warning ((,class (:underline ,orange))))
-;;;;; jedi
-     `(jedi:highlight-function-argument ((,class (:inherit bold))))
 ;;;;; kite
      ;; Sadly kite is not very stable for me so these faces might miss out things.
      `(bg:kite-dataReceived ((,class (:background ,magenta))))
@@ -1429,8 +1426,6 @@ customize the resulting theme."
      `(markdown-pre-face ((,class (:foreground ,base01))))
      `(markdown-reference-face ((,class (:inherit default :foreground ,base01))))
      `(markdown-url-face ((,class (:foreground ,base01))))
-;;;;; multiple-cursors
-     `(mc/cursor-face ((,class (:inherit cursor :inverse-video nil))))
 ;;;;; message-mode
      `(message-cited-text ((,class (:foreground ,base01))))
      `(message-header-name ((,class (:foreground ,base01))))
@@ -1522,6 +1517,8 @@ customize the resulting theme."
      `(mu4e-view-header-value-face ((,class (:foreground ,cyan :weight normal :slant normal))))
      `(mu4e-view-link-face ((,class (:inherit link))))
      `(mu4e-view-special-header-value-face ((,class (:foreground ,blue :weight normal :underline nil))))
+;;;;; multiple-cursors
+     `(mc/cursor-face ((,class (:inherit cursor :inverse-video nil))))
 ;;;;; mumamo
      `(mumamo-background-chunk-submode1 ((,class (:background ,base02))))
 ;;;;; nav
@@ -1703,13 +1700,10 @@ customize the resulting theme."
      `(paren-face  ((,class (:foreground ,base01))))
 ;;;;; perspective
      `(persp-selected-face ((,class (:foreground ,yellow))))
-;;;;; pretty-mode
-     `(pretty-mode-symbol-face  ((,class (:foreground ,yellow :weight normal))))
-;;;;; prodigy
-     `(prodigy-green-face ((,class (:foreground ,green))))
-     `(prodigy-red-face ((,class (:foreground ,orange))))
-     `(prodigy-yellow-face ((,class (:foreground ,yellow))))
-     `(prodigy-line-face ((,class (:background ,base02))))
+;;;;; pophint
+     `(pophint:tip-face ((,class (:background ,magenta :foreground ,base03))))
+     `(pophint:match-face ((,class (:background ,blue :foreground ,base03))))
+     `(pophint:pos-tip-face ((,class (:background ,base02 :foreground ,base0))))
 ;;;;; popup
      `(popup-face ((,class (:background ,base02 :foreground ,base0))))
      `(popup-isearch-match ((,class (:background ,yellow :foreground ,base03))))
@@ -1719,10 +1713,6 @@ customize the resulting theme."
      `(popup-scroll-bar-background-face ((,class (:background ,base01))))
      `(popup-scroll-bar-foreground-face ((,class (:background ,base1))))
      `(popup-tip-face ((,class (:background ,base02 :foreground ,base0))))
-;;;;; pophint
-     `(pophint:tip-face ((,class (:background ,magenta :foreground ,base03))))
-     `(pophint:match-face ((,class (:background ,blue :foreground ,base03))))
-     `(pophint:pos-tip-face ((,class (:background ,base02 :foreground ,base0))))
 ;;;;; powerline
      `(powerline-active1 ((,class ,(if solarized-high-contrast-mode-line
                                        `(:background ,base00 :foreground ,base03)
@@ -1736,6 +1726,13 @@ customize the resulting theme."
      `(powerline-inactive2 ((,class ,(if solarized-high-contrast-mode-line
                                          `(:background ,base02 :foreground ,base1)
                                        `(:background ,base03 :foreground ,base01)))))
+;;;;; pretty-mode
+     `(pretty-mode-symbol-face  ((,class (:foreground ,yellow :weight normal))))
+;;;;; prodigy
+     `(prodigy-green-face ((,class (:foreground ,green))))
+     `(prodigy-red-face ((,class (:foreground ,orange))))
+     `(prodigy-yellow-face ((,class (:foreground ,yellow))))
+     `(prodigy-line-face ((,class (:background ,base02))))
 ;;;;; rainbow-blocks
      `(rainbow-blocks-depth-1-face ((,class (:foreground ,cyan))))
      `(rainbow-blocks-depth-2-face ((,class (:foreground ,yellow))))
@@ -1762,13 +1759,6 @@ customize the resulting theme."
      `(rainbow-delimiters-depth-12-face ((,class (:foreground ,violet))))
      `(rainbow-delimiters-unmatched-face
        ((,class (:foreground ,base0 :background ,base03 :inverse-video t))))
-;;;;; rst-mode
-     `(rst-level-1 ((,class (:inherit org-level-1))))
-     `(rst-level-2 ((,class (:inherit org-level-2))))
-     `(rst-level-3 ((,class (:inherit org-level-3))))
-     `(rst-level-4 ((,class (:inherit org-level-4))))
-     `(rst-level-5 ((,class (:inherit org-level-5))))
-     `(rst-level-6 ((,class (:inherit org-level-6))))
 ;;;;; rpm-mode
      `(rpm-spec-dir-face ((,class (:foreground ,green))))
      `(rpm-spec-doc-face ((,class (:foreground ,green))))
@@ -1779,13 +1769,29 @@ customize the resulting theme."
      `(rpm-spec-section-face ((,class (:foreground ,yellow))))
      `(rpm-spec-tag-face ((,class (:foreground ,blue))))
      `(rpm-spec-var-face ((,class (:foreground ,red))))
+;;;;; rst-mode
+     `(rst-level-1 ((,class (:inherit org-level-1))))
+     `(rst-level-2 ((,class (:inherit org-level-2))))
+     `(rst-level-3 ((,class (:inherit org-level-3))))
+     `(rst-level-4 ((,class (:inherit org-level-4))))
+     `(rst-level-5 ((,class (:inherit org-level-5))))
+     `(rst-level-6 ((,class (:inherit org-level-6))))
 ;;;;; sh-mode
      `(sh-quoted-exec ((,class (:foreground ,violet :weight bold))))
      `(sh-escaped-newline ((,class (:foreground ,yellow :weight bold))))
      `(sh-heredoc ((,class (:foreground ,yellow :weight bold))))
+;;;;; show-paren
+     `(show-paren-match
+       ((,class (:foreground ,magenta :background unspecified
+                             :weight ,s-maybe-bold))))
+     `(show-paren-mismatch
+       ((,class (:foreground ,base02 :background ,red
+                             :weight ,s-maybe-bold))))
 ;;;;; skewer-mode
      `(skewer-error-face ((,class (:foreground ,orange :underline nil))))
      `(skewer-repl-log-face ((,class (:foreground ,violet))))
+;;;;; slime
+     `(slime-repl-inputed-output-face ((,class (:foreground ,red))))
 ;;;;; smart-mode-line
      ;; use (setq sml/theme nil) to enable Solarized for sml
      `(sml/filename ((,class (:foreground ,base1 :weight bold))))
@@ -1810,19 +1816,37 @@ customize the resulting theme."
      `(sp-show-pair-mismatch-face
        ((,class (:foreground ,base02 :background ,red
                              :weight ,s-maybe-bold))))
-;;;;; show-paren
-     `(show-paren-match
-       ((,class (:foreground ,magenta :background unspecified
-                             :weight ,s-maybe-bold))))
-     `(show-paren-mismatch
-       ((,class (:foreground ,base02 :background ,red
-                             :weight ,s-maybe-bold))))
+;;;;; speedbar
+     `(speedbar-button-face ((,class (:inherit ,s-variable-pitch
+                                               :foreground ,base01))))
+     `(speedbar-directory-face ((,class (:inherit ,s-variable-pitch :foreground ,blue))))
+     `(speedbar-file-face ((,class (:inherit ,s-variable-pitch :foreground ,base0))))
+     `(speedbar-highlight-face ((,class (:inherit ,s-variable-pitch :background ,base02))))
+     `(speedbar-selected-face ((,class (:inherit ,s-variable-pitch
+                                                 :foreground ,yellow :underline t))))
+     `(speedbar-separator-face ((,class (:inherit ,s-variable-pitch
+                                                  :background ,blue :foreground ,base03
+                                                  :overline ,cyan-lc))))
+     `(speedbar-tag-face ((,class (:inherit ,s-variable-pitch :foreground ,green))))
+;;;;; stripe-buffer
+     `(stripe-highlight ((,class (:background ,base02))))
+;;;;; structured-haskell
+     `(shm-current-face ((,class (:background ,base02))))
+     `(shm-quarantine-face ((,class (:background ,base01))))
 ;;;;; swiper
      `(swiper-line-face ((,class (:background ,base02))))
      `(swiper-match-face-1 ((,class (:weight bold :foreground ,base1))))
      `(swiper-match-face-2 ((,class (:weight bold :foreground ,yellow))))
      `(swiper-match-face-3 ((,class (:weight bold :foreground ,yellow))))
      `(swiper-match-face-4 ((,class (:weight bold :foreground ,yellow))))
+;;;;; swoop
+     `(swoop-face-header-format-line ((,class (:foreground ,yellow :weight bold
+                                                           :height unspecified))))
+     `(swoop-face-line-buffer-name ((,class (:background ,base02 :foreground ,base1
+                                                         :weight bold :height unspecified))))
+     `(swoop-face-line-number ((,class (:foreground ,base01))))
+     `(swoop-face-target-line ((,class (:background ,base02 :foreground unspecified))))
+     `(swoop-face-target-words ((,class (:background unspecified :foreground ,magenta))))
 ;;;;; sx (WIP)
      `(sx-custom-button ((,class (:background ,base02 :foreground ,base1
                                               :box (:line-width 2 :style released-button :height 0.9)))))
@@ -1881,26 +1905,6 @@ customize the resulting theme."
      `(syslog-su ((,class (:background unspecified
                                        :foreground ,violet
                                        :weight normal))))
-;;;;; slime
-     `(slime-repl-inputed-output-face ((,class (:foreground ,red))))
-;;;;; speedbar
-     `(speedbar-button-face ((,class (:inherit ,s-variable-pitch
-                                               :foreground ,base01))))
-     `(speedbar-directory-face ((,class (:inherit ,s-variable-pitch :foreground ,blue))))
-     `(speedbar-file-face ((,class (:inherit ,s-variable-pitch :foreground ,base0))))
-     `(speedbar-highlight-face ((,class (:inherit ,s-variable-pitch :background ,base02))))
-     `(speedbar-selected-face ((,class (:inherit ,s-variable-pitch
-                                                 :foreground ,yellow :underline t))))
-     `(speedbar-separator-face ((,class (:inherit ,s-variable-pitch
-                                                  :background ,blue :foreground ,base03
-                                                  :overline ,cyan-lc))))
-     `(speedbar-tag-face ((,class (:inherit ,s-variable-pitch :foreground ,green))))
-;;;;; stripe-buffer
-     `(stripe-highlight ((,class (:background ,base02))))
-;;;;; structured-haskell
-     `(shm-current-face ((,class (:background ,base02))))
-     `(shm-quarantine-face ((,class (:background ,base01))))
-;;;;; sunrise commander
 ;;;;;; headings
      `(sr-active-path-face ((,class (:background ,blue :foreground ,base03
                                                  :height ,solarized-height-plus-1  :weight bold))))
@@ -1933,14 +1937,6 @@ customize the resulting theme."
 ;;;;;; misc
      `(sr-clex-hotchar-face ((,class (:background ,red  :foreground ,base03
                                                   :weight bold))))
-;;;;; swoop
-     `(swoop-face-header-format-line ((,class (:foreground ,yellow :weight bold
-                                                           :height unspecified))))
-     `(swoop-face-line-buffer-name ((,class (:background ,base02 :foreground ,base1
-                                                         :weight bold :height unspecified))))
-     `(swoop-face-line-number ((,class (:foreground ,base01))))
-     `(swoop-face-target-line ((,class (:background ,base02 :foreground unspecified))))
-     `(swoop-face-target-words ((,class (:background unspecified :foreground ,magenta))))
 ;;;;; table
      `(table-cell ((,class (:foreground ,base0 :background ,base02))))
 ;;;;; term
@@ -2008,6 +2004,33 @@ customize the resulting theme."
      `(w3m-tab-unselected-retrieving
        ((,class (:background ,base02 :foreground ,orange))))
      `(w3m-tab-unselected-unseen ((,class (:background ,base02 :foreground ,violet))))
+;;;;; wanderlust
+     `(wl-highlight-folder-few-face ((,class (:foreground ,red))))
+     `(wl-highlight-folder-many-face ((,class (:foreground ,red))))
+     `(wl-highlight-folder-path-face ((,class (:foreground ,orange))))
+     `(wl-highlight-folder-unread-face ((,class (:foreground ,blue))))
+     `(wl-highlight-folder-zero-face ((,class (:foreground ,base0))))
+     `(wl-highlight-folder-unknown-face ((,class (:foreground ,blue))))
+     `(wl-highlight-message-citation-header ((,class (:foreground ,red))))
+     `(wl-highlight-message-cited-text-1 ((,class (:foreground ,red))))
+     `(wl-highlight-message-cited-text-2 ((,class (:foreground ,green))))
+     `(wl-highlight-message-cited-text-3 ((,class (:foreground ,blue))))
+     `(wl-highlight-message-cited-text-4 ((,class (:foreground ,blue))))
+     `(wl-highlight-message-header-contents-face ((,class (:foreground ,green))))
+     `(wl-highlight-message-headers-face ((,class (:foreground ,red))))
+     `(wl-highlight-message-important-header-contents ((,class (:foreground ,green))))
+     `(wl-highlight-message-header-contents ((,class (:foreground ,green))))
+     `(wl-highlight-message-important-header-contents2 ((,class (:foreground ,green))))
+     `(wl-highlight-message-signature ((,class (:foreground ,green))))
+     `(wl-highlight-message-unimportant-header-contents ((,class (:foreground ,base0))))
+     `(wl-highlight-summary-answered-face ((,class (:foreground ,blue))))
+     `(wl-highlight-summary-disposed-face ((,class (:foreground ,base0 :slant italic))))
+     `(wl-highlight-summary-new-face ((,class (:foreground ,blue))))
+     `(wl-highlight-summary-normal-face ((,class (:foreground ,base0))))
+     `(wl-highlight-summary-thread-top-face ((,class (:foreground ,yellow))))
+     `(wl-highlight-thread-indent-face ((,class (:foreground ,magenta))))
+     `(wl-highlight-summary-refiled-face ((,class (:foreground ,base0))))
+     `(wl-highlight-summary-displaying-face ((,class (:underline t :weight bold))))
 ;;;;; web-mode
      `(web-mode-builtin-face ((,class (:inherit font-lock-builtin-face))))
      `(web-mode-comment-face ((,class (:foreground ,base01))))
@@ -2071,12 +2094,20 @@ customize the resulting theme."
      `(weather-metno-entry ((,class (:foreground ,cyan))))
      `(weather-metno-footer ((,class (:inherit font-lock-comment-face))))
      `(weather-metno-header ((,class (:inherit header-line))))
+;;;;; weechat
+     `(weechat-error-face ((,class (:inherit error))))
+     `(weechat-highlight-face ((,class (:foreground ,base0 :weight bold))))
+     `(weechat-nick-self-face ((,class (:foreground ,base01 :weight unspecified))))
+     `(weechat-prompt-face ((,class (:inherit minibuffer-prompt))))
+     `(weechat-time-face ((,class (:foreground ,base01))))
 ;;;;; wgrep
      `(wgrep-delete-face ((,class (:background unspecified :foreground ,blue))))
      `(wgrep-done-face ((,class (:foreground ,green))))
      `(wgrep-face ((,class (:background unspecified :foreground ,blue))))
      `(wgrep-file-face ((,class (:background unspecified :foreground ,magenta))))
      `(wgrep-reject-face ((,class (:foreground ,red :weight unspecified))))
+;;;;; which-func-mode
+     `(which-func ((,class (:foreground ,green))))
 ;;;;; whitespace-mode
      `(whitespace-space ((,class (:background unspecified :foreground ,base01
                                               :inverse-video unspecified :slant italic))))
@@ -2098,41 +2129,6 @@ customize the resulting theme."
                                               :inverse-video t))))
      `(whitespace-space-after-tab ((,class (:background unspecified :foreground ,orange
                                                         :inverse-video t :weight bold))))
-;;;;; wanderlust
-     `(wl-highlight-folder-few-face ((,class (:foreground ,red))))
-     `(wl-highlight-folder-many-face ((,class (:foreground ,red))))
-     `(wl-highlight-folder-path-face ((,class (:foreground ,orange))))
-     `(wl-highlight-folder-unread-face ((,class (:foreground ,blue))))
-     `(wl-highlight-folder-zero-face ((,class (:foreground ,base0))))
-     `(wl-highlight-folder-unknown-face ((,class (:foreground ,blue))))
-     `(wl-highlight-message-citation-header ((,class (:foreground ,red))))
-     `(wl-highlight-message-cited-text-1 ((,class (:foreground ,red))))
-     `(wl-highlight-message-cited-text-2 ((,class (:foreground ,green))))
-     `(wl-highlight-message-cited-text-3 ((,class (:foreground ,blue))))
-     `(wl-highlight-message-cited-text-4 ((,class (:foreground ,blue))))
-     `(wl-highlight-message-header-contents-face ((,class (:foreground ,green))))
-     `(wl-highlight-message-headers-face ((,class (:foreground ,red))))
-     `(wl-highlight-message-important-header-contents ((,class (:foreground ,green))))
-     `(wl-highlight-message-header-contents ((,class (:foreground ,green))))
-     `(wl-highlight-message-important-header-contents2 ((,class (:foreground ,green))))
-     `(wl-highlight-message-signature ((,class (:foreground ,green))))
-     `(wl-highlight-message-unimportant-header-contents ((,class (:foreground ,base0))))
-     `(wl-highlight-summary-answered-face ((,class (:foreground ,blue))))
-     `(wl-highlight-summary-disposed-face ((,class (:foreground ,base0 :slant italic))))
-     `(wl-highlight-summary-new-face ((,class (:foreground ,blue))))
-     `(wl-highlight-summary-normal-face ((,class (:foreground ,base0))))
-     `(wl-highlight-summary-thread-top-face ((,class (:foreground ,yellow))))
-     `(wl-highlight-thread-indent-face ((,class (:foreground ,magenta))))
-     `(wl-highlight-summary-refiled-face ((,class (:foreground ,base0))))
-     `(wl-highlight-summary-displaying-face ((,class (:underline t :weight bold))))
-;;;;; weechat
-     `(weechat-error-face ((,class (:inherit error))))
-     `(weechat-highlight-face ((,class (:foreground ,base0 :weight bold))))
-     `(weechat-nick-self-face ((,class (:foreground ,base01 :weight unspecified))))
-     `(weechat-prompt-face ((,class (:inherit minibuffer-prompt))))
-     `(weechat-time-face ((,class (:foreground ,base01))))
-;;;;; which-func-mode
-     `(which-func ((,class (:foreground ,green))))
 ;;;;; window-number-mode
      `(window-number-face ((,class (:foreground ,green))))
 ;;;;; yascroll
