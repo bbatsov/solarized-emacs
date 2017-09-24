@@ -263,24 +263,54 @@ customize the resulting theme."
     (custom-theme-set-faces
      theme-name
 ;;;; Built-in
-;;;;; basic coloring
-     `(default ((,class (:foreground ,base0 :background ,base03))))
-     `(shadow ((,class (:foreground ,base01))))
-     `(match ((,class (:background ,base02 :foreground ,base1 :weight bold))))
+;;;;; basic faces
+     '(button ((t (:underline t))))
      `(cursor ((,class (:foreground ,base03 :background ,base0
                                     :inverse-video t))))
+     `(default ((,class (:foreground ,base0 :background ,base03))))
+     `(error ((,class (:foreground ,orange))))
      `(escape-glyph ((,class (:foreground ,violet))))
      `(fringe ((,class (:foreground ,s-fringe-fg :background ,s-fringe-bg))))
+     `(header-line
+       ((,class (:inverse-video unspecified
+                                :overline nil
+                                :underline ,s-header-line-underline
+                                :foreground ,s-header-line-fg
+                                :background ,s-header-line-bg
+                                :box (:line-width 2 :color ,s-header-line-bg
+                                                  :style unspecified)))))
      `(highlight ((,class (:background ,base02))))
-     `(link ((,class (:foreground ,yellow :underline t :weight bold))))
-     `(link-visited ((,class (:foreground ,yellow :underline t :weight normal))))
-     `(success ((,class (:foreground ,green ))))
-     `(warning ((,class (:foreground ,yellow ))))
-     `(error ((,class (:foreground ,orange))))
      `(lazy-highlight ((,class (:foreground ,base03 :background ,yellow
                                             :weight normal))))
-     `(widget-field ((,class (:background ,base02))))
-     '(button ((t (:underline t))))
+     `(link ((,class (:foreground ,yellow :underline t :weight bold))))
+     `(link-visited ((,class (:foreground ,yellow :underline t :weight normal))))
+     `(match ((,class (:background ,base02 :foreground ,base1 :weight bold))))
+     `(menu ((,class (:foreground ,base0 :background ,base03))))
+     `(minibuffer-prompt ((,class (:foreground ,base0))))
+     `(mode-line
+       ((,class (:inverse-video unspecified
+                                :overline ,s-mode-line-bg
+                                :underline ,s-mode-line-underline
+                                :foreground ,s-mode-line-fg
+                                :background ,s-mode-line-bg
+                                :box (:line-width 1 :color ,s-mode-line-bg
+                                                  :style unspecified)))))
+     `(mode-line-buffer-id ((,class (:foreground ,s-mode-line-buffer-id-fg :weight bold))))
+     `(mode-line-inactive
+       ((,class (:inverse-video unspecified
+                                :overline ,s-mode-line-inactive-bc
+                                :underline ,s-mode-line-underline
+                                :foreground ,s-mode-line-inactive-fg
+                                :background ,s-mode-line-inactive-bg
+                                :box (:line-width 1 :color ,s-mode-line-inactive-bg
+                                                  :style unspecified)))))
+     `(region ((,class (:foreground ,base03 :background ,base1))))
+     `(secondary-selection ((,class (:background ,base02))))
+     `(shadow ((,class (:foreground ,base01))))
+     `(success ((,class (:foreground ,green ))))
+     `(trailing-whitespace ((,class (:background ,red))))
+     `(vertical-border ((,class (:foreground ,s-line))))
+     `(warning ((,class (:foreground ,yellow ))))
 ;;;;; compilation
      `(compilation-column-face ((,class (:foreground ,cyan :underline nil))))
      `(compilation-column-number ((,class (:inherit font-lock-doc-face :foreground ,cyan
@@ -392,42 +422,8 @@ customize the resulting theme."
      `(Man-overstrike ((,class (:foreground ,blue :weight bold))))
      `(Man-reverse ((,class (:foreground ,orange))))
      `(Man-underline ((,class (:foreground ,green :underline t))))
-;;;;; misc faces
-     `(menu ((,class (:foreground ,base0 :background ,base03))))
-     `(minibuffer-prompt ((,class (:foreground ,base0))))
-     `(mode-line
-       ((,class (:inverse-video unspecified
-                                :overline ,s-mode-line-bg
-                                :underline ,s-mode-line-underline
-                                :foreground ,s-mode-line-fg
-                                :background ,s-mode-line-bg
-                                :box (:line-width 1 :color ,s-mode-line-bg
-                                                  :style unspecified)
-                                ))))
-     `(mode-line-buffer-id ((,class (:foreground ,s-mode-line-buffer-id-fg :weight bold))))
-     `(mode-line-inactive
-       ((,class (:inverse-video unspecified
-                                :overline ,s-mode-line-inactive-bc
-                                :underline ,s-mode-line-underline
-                                :foreground ,s-mode-line-inactive-fg
-                                :background ,s-mode-line-inactive-bg
-                                :box (:line-width 1 :color ,s-mode-line-inactive-bg
-                                                  :style unspecified)
-                                ))))
-     `(header-line
-       ((,class (:inverse-video unspecified
-                                :overline nil
-                                :underline ,s-header-line-underline
-                                :foreground ,s-header-line-fg
-                                :background ,s-header-line-bg
-                                :box (:line-width 2 :color ,s-header-line-bg
-                                                  :style unspecified)
-                                ))))
-     `(region ((,class (:foreground ,base03 :background ,base1))))
-     `(secondary-selection ((,class (:background ,base02))))
-
-     `(trailing-whitespace ((,class (:background ,red))))
-     `(vertical-border ((,class (:foreground ,s-line))))
+;;;;; wid-edit
+     `(widget-field ((,class (:background ,base02))))
 ;;;;; font lock
      `(font-lock-builtin-face ((,class (:foreground ,base0 :weight ,s-maybe-bold
                                                     :slant ,s-maybe-italic))))
