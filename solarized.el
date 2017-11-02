@@ -1593,6 +1593,8 @@ customize the resulting theme."
      `(notmuch-tag-face ((,class (:foreground ,yellow))))
      `(notmuch-search-flagged-face ((,class (:foreground ,blue))))
      `(notmuch-search-unread-face ((,class (:weight bold))))
+     `(notmuch-tree-match-author-face ((,class (:foreground ,blue))))
+     `(notmuch-tree-match-tag-face ((,class (:foreground ,yellow))))
 
 ;;;;; org-mode
      `(org-agenda-structure
