@@ -498,6 +498,8 @@ customize the resulting theme."
      `(ac-gtags-selection-face ((,class (:background ,blue-lc :foreground ,blue-hc))))
      `(ac-yasnippet-candidate-face ((,class (:background ,base02 :foreground ,yellow))))
      `(ac-yasnippet-selection-face ((,class (:background ,yellow-lc :foreground ,yellow-hc))))
+;;;;; auto-dim-other-buffers
+     `(auto-dim-other-buffers-face ((,class (:background ,base02))))
 ;;;;; auto-highlight-symbol
      `(ahs-definition-face ((,class (:foreground ,magenta :background unspecified
                                                  :slant normal))))
