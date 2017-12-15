@@ -867,7 +867,12 @@ customize the resulting theme."
         (,class (:foreground ,red :weight bold :underline t))))
 ;;;;; git-commit
      `(git-commit-comment-action  ((,class (:foreground ,base0  :weight bold))))
-     `(git-commit-comment-branch  ((,class (:foreground ,blue   :weight bold))))
+     `(git-commit-comment-branch ; obsolete
+       ((,class (:foreground ,blue :weight bold))))
+     `(git-commit-comment-branch-local
+       ((,class (:foreground ,blue :weight bold))))
+     `(git-commit-comment-branch-remote
+       ((,class (:foreground ,green :weight bold))))
      `(git-commit-comment-heading ((,class (:foreground ,yellow :weight bold))))
 ;;;;; git-gutter
      `(git-gutter:added
