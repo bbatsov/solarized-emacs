@@ -367,7 +367,7 @@ customize the resulting theme."
      `(dired-async-message ((,light-class (:background ,yellow-l ))
                             (,dark-class (:background ,yellow ))))
      `(dired-async-mode-message ((,light-class (:background ,red-l))
-                                 (,dark-class (:background red))))
+                                 (,dark-class (:background ,red))))
 ;;;;; dired-efap
      `(dired-efap-face ((,class (:box nil
                                       :background ,base02
