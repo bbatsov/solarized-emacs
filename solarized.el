@@ -1328,6 +1328,8 @@ customize the resulting theme."
      `(lusty-file-face ((,class nil)))
      `(lusty-match-face ((,class (:inherit ido-first-match))))
      `(lusty-slash-face ((,class (:foreground ,cyan :weight bold))))
+;;;;; macrostep
+     `(macrostep-expansion-highlight-face ((,class (:background ,base02))))
 ;;;;; magit
 ;;;;;; headings and diffs
      `(magit-section-highlight           ((t (:background ,base02))))
