@@ -2189,6 +2189,8 @@ customize the resulting theme."
               ,blue-d ,cyan ,magenta ,violet))
 ;;;;; highlight-changes
      `(highlight-changes-colors '(,magenta ,violet))
+;;;;; highlight-parentheses
+     `(hl-paren-colors '(,cyan ,yellow ,blue ,violet ,green))
 ;;;;; highlight-symbol
      `(highlight-symbol-foreground-color ,base1)
      `(highlight-symbol-colors
