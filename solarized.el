@@ -267,7 +267,7 @@ customize the resulting theme."
 ;;;; Built-in
 ;;;;; basic faces
      '(button ((t (:underline t))))
-     `(cursor ((,class (:foreground ,base03 :background ,base0
+     `(cursor ((,class (:foreground ,base03 :background ,base3
                                     :inverse-video t))))
      `(default ((,class (:foreground ,base0 :background ,base03))))
      `(error ((,class (:foreground ,orange))))
