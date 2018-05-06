@@ -1418,20 +1418,17 @@ customize the resulting theme."
      `(magit-bisect-skip ((t (:foreground ,yellow))))
      `(magit-bisect-bad  ((t (:foreground ,red))))
 ;;;;;; blame
-     `(magit-blame-heading ((t (:background ,base02 :foreground ,violet
-                                            :weight bold :slant normal :box (:color ,base02 :line-width 2)))))
-     `(magit-blame-hash    ((t (:background ,base02 :foreground ,violet
-                                            :weight normal :slant normal :box (:color ,base02 :line-width 2)))))
-     `(magit-blame-name    ((t (:background ,base02 :foreground ,violet
-                                            :weight normal :slant normal :box (:color ,base02 :line-width 2)))))
-     `(magit-blame-date    ((t (:background ,base02 :foreground ,violet
-                                            :weight bold :slant normal :box (:color ,base02 :line-width 2)))))
-     `(magit-blame-summary ((t (:background ,base02 :foreground ,base0
-                                            :weight bold :slant normal :box (:color ,base02 :line-width 2)))))
+     `(magit-blame-highlight ((t (:background ,base02))))
+     `(magit-blame-heading   ((t (:inherit magit-blame-highlight
+                                           :box (:color ,base02 :line-width 2)))))
+     `(magit-blame-summary   ((t (:foreground ,base0))))
+     `(magit-blame-hash      ((t (:foreground ,violet))))
+     `(magit-blame-name      ((t (:foreground ,violet))))
+     `(magit-blame-date      ((t (:foreground ,violet))))
 ;;;;;; references etc.
      `(magit-dimmed         ((t (:foreground ,base01))))
      `(magit-hash           ((t (:foreground ,base01))))
-     `(magit-tag            ((t (:foreground ,cyan :weight bold))))
+     `(magit-tag            ((t (:foreground ,cyan   :weight bold))))
      `(magit-branch-remote  ((t (:foreground ,green  :weight bold))))
      `(magit-branch-local   ((t (:foreground ,blue   :weight bold))))
      `(magit-branch-current ((t (:foreground ,blue   :weight bold :box t))))
