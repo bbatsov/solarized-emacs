@@ -1348,6 +1348,11 @@ customize the resulting theme."
      `(kite-tag-delimiter-face ((,class (:inherit kite-delimiter-face))))
      `(kite-tag-slash-face ((,class (:inherit kite-name-face))))
      `(kite-undefined ((,class (:inherit font-lock-constant-face))))
+;;;;; langtool
+     `(langtool-errline ((,(append '((supports :underline (:style wave))) class)
+                          (:underline (:style wave :color ,green) :inherit unspecified))
+                         (,class (:foreground ,red :weight bold :underline t))))
+     `(langtool-correction-face ((,class (:inherit default :weight bold))))
 ;;;;; ledger-mode
      `(ledger-font-payee-uncleared-face ((t (:foreground ,red))))
      `(ledger-font-payee-cleared-face ((t (:foreground ,green :weight normal))))
