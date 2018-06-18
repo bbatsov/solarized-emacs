@@ -1436,6 +1436,7 @@ customize the resulting theme."
      `(magit-blame-date      ((t (:foreground ,violet))))
 ;;;;;; references etc.
      `(magit-dimmed         ((t (:foreground ,base01))))
+     `(magit-filename       ((t (:foreground ,violet))))
      `(magit-hash           ((t (:foreground ,base01))))
      `(magit-tag            ((t (:foreground ,cyan   :weight bold))))
      `(magit-branch-remote  ((t (:foreground ,green  :weight bold))))
