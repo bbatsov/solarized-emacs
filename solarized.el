@@ -1169,6 +1169,11 @@ customize the resulting theme."
      `(ido-virtual ((,class (:foreground ,cyan))))
 ;;;;; iedit-mode
      `(iedit-occurrence ((,class (:background ,base03 :foreground ,magenta :bold t))))
+;;;;; imenu-list
+     `(imenu-list-entry-face-0 ((,class (:inherit font-lock-type-face))))
+     `(imenu-list-entry-face-1 ((,class (:inherit font-lock-function-name-face))))
+     `(imenu-list-entry-face-2 ((,class (:inherit font-lock-variable-name-face))))
+     `(imenu-list-entry-face-3 ((,class (:inherit font-lock-string-face))))
 ;;;;; info
      `(info-title-1 ((,class (:foreground ,base1 :weight bold))))
      `(info-title-2 ((,class (:foreground ,base1 :weight bold))))
