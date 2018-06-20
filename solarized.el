@@ -1366,10 +1366,10 @@ customize the resulting theme."
      `(ledger-font-reconciler-pending-face ((t (:foreground ,yellow :weight normal))))
      `(ledger-font-report-clickable-face ((t (:foreground ,yellow :weight normal))))
 ;;;;; linum-mode
-     `(linum ((,class (:weight normal :underline nil :foreground ,s-fringe-fg :background ,s-fringe-bg))))
+     `(linum ((,class (:weight thin :underline nil :foreground ,s-fringe-fg :background ,s-fringe-bg))))
      `(linum-relative-current-face ((,class (:inherit linum))))
 ;;;;; display-line-number-mode
-     `(line-number ((,class (:weight normal :underline nil :foreground ,s-fringe-fg :background ,s-fringe-bg))))
+     `(line-number ((,class (:weight thin :underline nil :foreground ,s-fringe-fg :background ,s-fringe-bg))))
 ;;;;; lsp-ui
      `(lsp-ui-sideline-code-action ((,class (:foreground ,yellow :weight normal))))
 ;;;;; lusty-explorer
