@@ -112,7 +112,12 @@ Related discussion: https://github.com/bbatsov/solarized-emacs/issues/158"
   :group 'solarized)
 
 (defcustom solarized-scale-org-headlines t
-  "Whether scaling of outline-headlines should apply to `org-mode' headlines."
+  "Whether `org-mode' headlines should be scaled."
+  :type 'boolean
+  :group 'solarized)
+
+(defcustom solarized-scale-outline-headlines t
+  "Whether `outline-mode' headlines should be scaled."
   :type 'boolean
   :group 'solarized)
 
@@ -1761,14 +1766,22 @@ customize the resulting theme."
      `(org-latex-and-export-specials ((,class (:foreground ,orange))))
      `(org-mode-line-clock-overrun ((,class (:inherit mode-line :background ,red))))
 ;;;;; outline
-     `(outline-1 ((,class (:inherit org-level-1 :height ,solarized-height-plus-4))))
-     `(outline-2 ((,class (:inherit org-level-2 :height ,solarized-height-plus-3))))
-     `(outline-3 ((,class (:inherit org-level-3 :height ,solarized-height-plus-2))))
-     `(outline-4 ((,class (:inherit org-level-4 :height ,solarized-height-plus-1))))
-     `(outline-5 ((,class (:inherit org-level-5))))
-     `(outline-6 ((,class (:inherit org-level-6))))
-     `(outline-7 ((,class (:inherit org-level-7))))
-     `(outline-8 ((,class (:inherit org-level-8))))
+     `(outline-1 ((,class (:inherit ,s-variable-pitch :foreground ,orange
+                                    ,@(and solarized-scale-outline-headlines
+                                           (list :height solarized-height-plus-4))))))
+     `(outline-2 ((,class (:inherit ,s-variable-pitch :foreground ,green
+                                    ,@(and solarized-scale-outline-headlines
+                                           (list :height solarized-height-plus-3))))))
+     `(outline-3 ((,class (:inherit ,s-variable-pitch :foreground ,blue
+                                    ,@(and solarized-scale-outline-headlines
+                                           (list :height solarized-height-plus-2))))))
+     `(outline-4 ((,class (:inherit ,s-variable-pitch :foreground ,yellow
+                                    ,@(when solarized-scale-outline-headlines
+                                        (list :height solarized-height-plus-1))))))
+     `(outline-5 ((,class (:inherit ,s-variable-pitch :foreground ,cyan))))
+     `(outline-6 ((,class (:inherit ,s-variable-pitch :foreground ,green))))
+     `(outline-7 ((,class (:inherit ,s-variable-pitch :foreground ,red))))
+     `(outline-8 ((,class (:inherit ,s-variable-pitch :foreground ,blue))))
 ;;;;; paren-face
      `(paren-face  ((,class (:foreground ,base01))))
 ;;;;; perspective
