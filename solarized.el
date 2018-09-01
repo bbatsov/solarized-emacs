@@ -1224,7 +1224,7 @@ customize the resulting theme."
        ((,class (:foreground ,orange :background ,base02))))
 ;;;;; ivy
      `(ivy-confirm-face ((,class (:foreground ,green))))
-     `(ivy-current-match ((,class (:weight bold :background ,base02))))
+     `(ivy-current-match ((,class (:weight bold :background ,base02 :underline t))))
      `(ivy-match-required-face ((,class (:foreground ,red))))
      `(ivy-minibuffer-match-face-1 ((,class (:foreground ,base1))))
      `(ivy-minibuffer-match-face-2 ((,class (:foreground ,yellow))))
