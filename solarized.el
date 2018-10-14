@@ -296,20 +296,20 @@ customize the resulting theme."
      `(minibuffer-prompt ((,class (:foreground ,base0))))
      `(mode-line
        ((,class (:inverse-video unspecified
-                                :overline ,s-mode-line-bg
-                                :underline ,s-mode-line-underline
-                                :foreground ,s-mode-line-fg
-                                :background ,s-mode-line-bg
-                                :box (:line-width 1 :color ,s-mode-line-bg
+                                :overline ,base00
+                                :underline ,base00
+                                :foreground ,base00
+                                :background ,base03
+                                :box (:line-width 1 :color ,base00
                                                   :style unspecified)))))
      `(mode-line-buffer-id ((,class (:foreground ,s-mode-line-buffer-id-fg :weight bold))))
      `(mode-line-inactive
        ((,class (:inverse-video unspecified
-                                :overline ,s-mode-line-inactive-bc
-                                :underline ,s-mode-line-underline
-                                :foreground ,s-mode-line-inactive-fg
-                                :background ,s-mode-line-inactive-bg
-                                :box (:line-width 1 :color ,s-mode-line-inactive-bg
+                                :overline ,base01
+                                :underline ,base01
+                                :foreground ,base01
+                                :background ,base03
+                                :box (:line-width 1 :color ,base01
                                                   :style unspecified)))))
      `(region ((,class (:foreground ,base03 :background ,base1))))
      `(secondary-selection ((,class (:background ,base02))))
