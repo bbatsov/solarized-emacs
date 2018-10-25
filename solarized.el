@@ -2049,6 +2049,15 @@ customize the resulting theme."
      ;; zencoding uses this.
      `(tooltip ((,class (:background ,yellow-lc :foreground ,yellow-hc
                                      :inherit ,s-variable-pitch))))
+;;;;; transient
+     `(transient-heading             ((t (:foreground ,yellow  :weight bold))))
+     `(transient-key                 ((t (:foreground ,base1   :weight bold))))
+     `(transient-argument            ((t (:foreground ,cyan    :weight bold))))
+     `(transient-value               ((t (:foreground ,cyan    :weight bold))))
+     `(transient-inactive-argument   ((t (:foreground ,base01  :weight normal))))
+     `(transient-inactive-value      ((t (:foreground ,base01  :weight normal))))
+     `(transient-unreachable         ((t (:foreground ,base01  :weight normal))))
+     `(transient-unreachable-key     ((t (:foreground ,base01  :weight normal))))
 ;;;;; tuareg
      `(tuareg-font-lock-governing-face ((,class (:foreground ,magenta :weight bold))))
      `(tuareg-font-lock-multistage-face ((,class (:foreground ,blue :background ,base02
