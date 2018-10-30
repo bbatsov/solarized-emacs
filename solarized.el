@@ -1782,6 +1782,11 @@ customize the resulting theme."
      `(outline-6 ((,class (:inherit ,s-variable-pitch :foreground ,green))))
      `(outline-7 ((,class (:inherit ,s-variable-pitch :foreground ,red))))
      `(outline-8 ((,class (:inherit ,s-variable-pitch :foreground ,blue))))
+;;;;; outline-minor-faces
+     `(outline-minor-0 ((,class (:weight bold :background ,s-base2))))
+     `(outline-minor-1
+       ((,class (:inherit (outline-minor-0 outline-1)
+                 :background ,(solarized-color-blend s-base3 yellow .9)))))
 ;;;;; paren-face
      `(paren-face  ((,class (:foreground ,base01))))
 ;;;;; perspective
