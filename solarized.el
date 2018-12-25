@@ -1896,6 +1896,14 @@ customize the resulting theme."
      `(sml/vc-edited ((,class (:foreground ,green))))
      `(sml/charging ((,class (:foreground ,base1))))
      `(sml/discharging ((,class (:foreground ,base1 :weight bold))))
+;;;;; solaire
+     `(solaire-default-face ((,class (:inherit default :background ,(solarized-color-blend base02 base03 0.5)))))
+     `(solaire-minibuffer-face ((,class (:inherit default :background ,(solarized-color-blend base02 base03 0.5)))))
+     `(solaire-line-number-face ((,class (:inherit (line-number solaire-default-face) :background ,(solarized-color-blend base02 base03 0.5)))))
+     `(solaire-hl-line-face ((,class (:inherit hl-line :background ,(solarized-color-blend base02 base03 0.95)))))
+     `(solaire-org-hide-face ((,class (:inherit org-hide :background ,(solarized-color-blend base02 base03 0.5)))))
+     `(solaire-mode-line-face ((,class (:inherit default :background ,s-mode-line-bg))))
+     `(solaire-mode-line-inactive-face ((,class (:inherit default :background ,s-mode-line-inactive-bg))))
 ;;;;; smartparens
      `(sp-pair-overlay-face ((,class (:background ,base02))))
      `(sp-wrap-overlay-face ((,class (:background ,base02))))
