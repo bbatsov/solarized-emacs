@@ -2063,6 +2063,12 @@ customize the resulting theme."
      `(transient-inactive-value      ((t (:foreground ,base01  :weight normal))))
      `(transient-unreachable         ((t (:foreground ,base01  :weight normal))))
      `(transient-unreachable-key     ((t (:foreground ,base01  :weight normal))))
+     `(transient-enabled-suffix      ((t (:foreground ,s-base3
+                                          :background ,green
+                                          :weight bold))))
+     `(transient-disabled-suffix     ((t (:foreground ,s-base3
+                                          :background ,red
+                                          :weight bold))))
 ;;;;; tuareg
      `(tuareg-font-lock-governing-face ((,class (:foreground ,magenta :weight bold))))
      `(tuareg-font-lock-multistage-face ((,class (:foreground ,blue :background ,base02
