@@ -594,7 +594,7 @@ customize the resulting theme."
      `(cider-result-overlay-face ((t (:background unspecified))))
      `(cider-enlightened-face ((t (:box (:color ,magenta :line-width -1)))))
      `(cider-enlightened-local-face ((t (:weight bold :foreground ,green-l))))
-     `(cider-deprecated-face ((t (:background ,yellow))))
+     `(cider-deprecated-face ((t (:underline (:color ,yellow)))))
      `(cider-instrumented-face ((t (:box (:color ,red-l :line-width -1)))))
      `(cider-traced-face ((t (:box (:color ,cyan :line-width -1)))))
      `(cider-fringe-good-face ((t (:foreground ,green-l))))
