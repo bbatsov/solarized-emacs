@@ -2069,6 +2069,10 @@ customize the resulting theme."
      `(transient-disabled-suffix     ((t (:foreground ,s-base3
                                           :background ,red
                                           :weight bold))))
+     `(transient-nonstandard-key
+       ((t (:underline nil :background ,(solarized-color-blend yellow-l s-base3 0.2)))))
+     `(transient-mismatched-key
+       ((t (:underline nil :background ,(solarized-color-blend red-l s-base3 0.2)))))
 ;;;;; tuareg
      `(tuareg-font-lock-governing-face ((,class (:foreground ,magenta :weight bold))))
      `(tuareg-font-lock-multistage-face ((,class (:foreground ,blue :background ,base02
