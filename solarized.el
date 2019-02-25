@@ -2038,9 +2038,9 @@ customize the resulting theme."
      `(tabbar-button-highlight ((,class (:inherit tabbar-default))))
      `(tabbar-default ((,class (:background ,base03 :foreground ,base3 :height 0.9))))
      `(tabbar-highlight ((,class (:underline t))))
-     `(tabbar-selected ((,class (:inherit tabbar-default :background ,base03 :foreground ,base3 :weight light :height 140))))
+     `(tabbar-selected ((,class (:inherit tabbar-default :background ,base03 :foreground ,base3 :weight bold :height 140))))
      `(tabbar-separator ((,class (:inherit tabbar-default))))
-     `(tabbar-unselected ((,class (:inherit tabbar-default :background ,base02 :weight light :height 140))))
+     `(tabbar-unselected ((,class (:inherit tabbar-default :background ,base02 :weight light :slant italic :height 140))))
 
 ;;;;; table
      `(table-cell ((,class (:foreground ,base0 :background ,base02))))
