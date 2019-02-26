@@ -2034,15 +2034,15 @@ customize the resulting theme."
      `(sr-clex-hotchar-face ((,class (:background ,red  :foreground ,base03
                                                   :weight bold))))
 ;;;;; tabbar
-     `(tabbar-button ((,class (:inherit tabbar-default))))
-     `(tabbar-button-highlight ((,class (:inherit tabbar-default))))
-     `(tabbar-default ((,class (:background ,base03 :foreground ,base3 :height 0.9))))
+     `(tabbar-default ((,class (:foreground ,base03 :background ,base03))))
      `(tabbar-highlight ((,class (:underline t))))
-     `(tabbar-selected ((,class (:inherit tabbar-default :background ,base03 :foreground ,base3 :weight bold :height 140))))
-     `(tabbar-selected-modified ((,class (:inherit tabbar-default :background ,base03 :foreground ,blue :weight bold :height 140))))
-     `(tabbar-separator ((,class (:inherit tabbar-default))))
-     `(tabbar-unselected ((,class (:inherit tabbar-default :background ,base02 :weight light :slant italic :height 140))))
-     `(tabbar-modified ((,class (:inherit tabbar-default :background ,base02 :foreground ,blue :weight light :slant italic :height 140))))
+     `(tabbar-button ((,class (:foreground ,base3 :background ,base03))))
+     `(tabbar-button-highlight ((,class (:inherit 'tabbar-button :inverse-video t))))
+     `(tabbar-modified ((,class (:inherit tabbar-button :foreground ,blue :weight light :slant italic))))
+     `(tabbar-unselected ((,class (:inherit tabbar-default :background ,base02 :slant italic :underline nil :box (:line-width 1 :color ,base03)))))
+     `(tabbar-unselected-modified ((,class (:inherit tabbar-modified :background ,base02 :underline nil :box (:line-width 1 :color ,base03)))))
+     `(tabbar-selected ((,class (:inherit tabbar-default :foreground ,base3 :background ,base03 :weight bold :underline nil :box (:line-width 1 :color ,base03)))))
+     `(tabbar-selected-modified ((,class (:inherit tabbar-selected :foreground ,blue :underline nil :box (:line-width 1 :color ,base03)))))
 
 ;;;;; table
      `(table-cell ((,class (:foreground ,base0 :background ,base02))))
