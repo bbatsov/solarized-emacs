@@ -27,6 +27,18 @@ This package will install two variants of the theme - `solarized-light-theme`
 and `solarized-dark-theme`. You can load one of the theme variants with `M-x
 load-theme`.
 
+To load it automatically on Emacs startup add this to your init file:
+
+```el
+(load-theme 'solarized-light t)
+```
+
+or
+
+```el
+(load-theme 'solarized-dark t)
+```
+
 (If you want to install manually that procedure is briefly documented in the
 FAQ at the end of this document.)
 
