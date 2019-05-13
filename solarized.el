@@ -5,7 +5,7 @@
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; Author: Thomas Frössman <thomasf@jossystem.se>
 ;; URL: http://github.com/bbatsov/solarized-emacs
-;; Version: 1.2.2
+;; Version: 1.3.0
 ;; Package-Requires: ((emacs "24") (dash "2.16"))
 ;; Keywords: themes, solarized
 
