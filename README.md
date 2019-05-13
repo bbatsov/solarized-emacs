@@ -18,14 +18,13 @@ customizations and `deftheme` and does not require the
 ## Installation
 
 Solarized for Emacs is available for installation via the
-[MELPA](http://melpa.org) and
-[Marmalade](http://marmalade-repo.org/) `package.el`
-repositories. Assuming you've set one of the them up (I recommend
-MELPA) you can install solarized like this:
+[MELPA](http://melpa.org)  `package.el`
+repository. Assuming you've set it up you can install Solarized like this:
 
 `M-x package-install solarized-theme`
 
-Afterwards - business as usual, just load one of the theme variants with `M-x
+This package will install two variants of the theme - `solarized-light-theme`
+and `solarized-dark-theme`. You can load one of the theme variants with `M-x
 load-theme`.
 
 (If you want to install manually that procedure is briefly documented in the
