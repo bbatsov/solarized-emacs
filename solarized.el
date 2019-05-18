@@ -274,10 +274,11 @@ customize the resulting theme."
 When optional argument CHILDTHEME function is supplied it's invoked to further
 customize the resulting theme."
 ;;; Color palette
-  (solarized-with-color-variables variant
+  (eval
+  `(solarized-with-color-variables ,variant
 ;;; Theme Faces
     (custom-theme-set-faces
-     theme-name
+     ,theme-name
 ;;;; Built-in
 ;;;;; basic faces
      '(button ((t (:underline t))))
@@ -2310,7 +2311,7 @@ customize the resulting theme."
      ) ; END custom-theme-set-faces
 ;;; Theme Variables
     (custom-theme-set-variables
-     theme-name
+     ,theme-name
 ;;;;; ansi-colors
      `(ansi-color-names-vector
        [,base02 ,red ,green ,yellow ,blue ,magenta ,cyan ,base00])
@@ -2392,9 +2393,10 @@ customize the resulting theme."
      `(xterm-color-names-bright [,base03 ,orange ,base01 ,base00
                                          ,base0 ,violet ,base1 ,base3]))
 ;;; Setup End
-    (when childtheme
-      (funcall childtheme))
+    (when ,childtheme
+      (funcall ,childtheme))
     ) ; END custom-theme-set-variables
+   )
   )    ; END defun create-solarized-theme
 
 ;;; Footer
