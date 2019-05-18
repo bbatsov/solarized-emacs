@@ -266,6 +266,13 @@ Alpha should be a float between 0 and 1."
 
 When optional argument CHILDTHEME function is supplied it's invoked to further
 customize the resulting theme."
+  (solarized-definition variant theme-name childtheme))
+
+(defun solarized-definition (variant theme-name &optional childtheme)
+  "Create a VARIANT of the theme named THEME-NAME.
+
+When optional argument CHILDTHEME function is supplied it's invoked to further
+customize the resulting theme."
 ;;; Color palette
   (solarized-with-color-variables variant
 ;;; Theme Faces
