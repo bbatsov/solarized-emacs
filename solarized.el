@@ -126,18 +126,74 @@ Related discussion: https://github.com/bbatsov/solarized-emacs/issues/158"
 ;;; Utilities
 
 ;;;###autoload
-(defun solarized-color-blend (color1 color2 alpha)
+(defun solarized-color-blend (color1 color2 alpha &optional digits-per-component)
   "Blends COLOR1 onto COLOR2 with ALPHA.
 
 COLOR1 and COLOR2 should be color names (e.g. \"white\") or RGB
 triplet strings (e.g. \"#ff12ec\").
 
-Alpha should be a float between 0 and 1."
+Alpha should be a float between 0 and 1.
+
+Optional argument DIGITS-PER-COMPONENT can be either 4 (the default) or 2;
+use the latter if you need a 24-bit specification of a color."
   (apply 'color-rgb-to-hex
-         (-zip-with '(lambda (it other)
-                       (+ (* alpha it) (* other (- 1 alpha))))
-                    (color-name-to-rgb color1)
-                    (color-name-to-rgb color2))))
+         `(,@(-zip-with '(lambda (it other)
+                           (+ (* alpha it) (* other (- 1 alpha))))
+                        (color-name-to-rgb color1)
+                        (color-name-to-rgb color2))
+           ,digits-per-component)))
+
+(defun colarized-create-color-pallet (core-pallet)
+  "Create color-pallet from CORE-PALLET.
+
+The Returned color-pallet has the same format as `solarized-color-pallet'"
+  (let ((darkest-base   (nth 0 core-pallet))
+        (brightest-base (nth 1 core-pallet))
+        (yellow         (nth 2 core-pallet))
+        (orange         (nth 3 core-pallet))
+        (red            (nth 4 core-pallet))
+        (magenta        (nth 5 core-pallet))
+        (violet         (nth 6 core-pallet))
+        (blue           (nth 7 core-pallet))
+        (cyan           (nth 8 core-pallet))
+        (green          (nth 9 core-pallet)))
+    `((s-base03  ,(solarized-color-blend darkest-base brightest-base 1.00 2))
+      (s-base02  ,(solarized-color-blend darkest-base brightest-base 0.97 2))
+      (s-base01  ,(solarized-color-blend darkest-base brightest-base 0.65 2))
+      (s-base00  ,(solarized-color-blend darkest-base brightest-base 0.60 2))
+      (s-base0   ,(solarized-color-blend darkest-base brightest-base 0.48 2))
+      (s-base1   ,(solarized-color-blend darkest-base brightest-base 0.42 2))
+      (s-base2   ,(solarized-color-blend darkest-base brightest-base 0.06 2))
+      (s-base3   ,(solarized-color-blend darkest-base brightest-base 0.00 2))
+
+      ;; Solarized accented colors
+      (yellow    ,yellow)
+      (orange    ,orange)
+      (red       ,red)
+      (magenta   ,magenta)
+      (violet    ,violet)
+      (blue      ,blue)
+      (cyan      ,cyan)
+      (green     ,green)
+
+      ;; Darker and lighter accented colors
+      ;; Only use these in exceptional circumstances!
+      (yellow-d  ,(solarized-color-blend yellow  darkest-base   0.80 2))
+      (yellow-l  ,(solarized-color-blend yellow  brightest-base 0.80 2))
+      (orange-d  ,(solarized-color-blend orange  darkest-base   0.80 2))
+      (orange-l  ,(solarized-color-blend orange  brightest-base 0.80 2))
+      (red-d     ,(solarized-color-blend red     darkest-base   0.80 2))
+      (red-l     ,(solarized-color-blend red     brightest-base 0.80 2))
+      (magenta-d ,(solarized-color-blend magenta darkest-base   0.80 2))
+      (magenta-l ,(solarized-color-blend magenta brightest-base 0.80 2))
+      (violet-d  ,(solarized-color-blend violet  darkest-base   0.80 2))
+      (violet-l  ,(solarized-color-blend violet  brightest-base 0.80 2))
+      (blue-d    ,(solarized-color-blend blue    darkest-base   0.80 2))
+      (blue-l    ,(solarized-color-blend blue    brightest-base 0.80 2))
+      (cyan-d    ,(solarized-color-blend cyan    darkest-base   0.80 2))
+      (cyan-l    ,(solarized-color-blend cyan    brightest-base 0.80 2))
+      (green-d   ,(solarized-color-blend green   darkest-base   0.80 2))
+      (green-l   ,(solarized-color-blend green   brightest-base 0.80 2)))))
 
 (defcustom solarized-color-pallet
   '((s-base03  "#002b36")
@@ -271,6 +327,17 @@ Alpha should be a float between 0 and 1."
 When optional argument CHILDTHEME function is supplied it's invoked to further
 customize the resulting theme."
   (solarized-definition variant theme-name solarized-color-pallet childtheme))
+
+(defun create-solarized-theme-with-pallet (variant theme-name core-pallet &optional childtheme)
+  "Create a VARIANT of the theme named THEME-NAME with CORE-PALLET.
+
+When optional argument CHILDTHEME function is supplied it's invoked to further
+customize the resulting theme.
+
+CORE-PALLET is core color-pallet, passed"
+  (declare (indent 2))
+  (let ((color-pallet (colarized-create-color-pallet core-pallet)))
+    (solarized-definition variant theme-name color-pallet childtheme)))
 
 (defun solarized-definition (variant theme-name color-pallet &optional childtheme)
   "Create a VARIANT of the theme named THEME-NAME.
