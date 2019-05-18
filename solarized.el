@@ -337,6 +337,10 @@ customize the resulting theme.
 CORE-PALLET is core color-pallet, passed"
   (declare (indent 2))
   (let ((color-pallet (colarized-create-color-pallet core-pallet)))
+    (eval
+     `(deftheme ,theme-name
+        ,(format "The %s-%s colour theme of Solarized colour theme flavor."
+                 (symbol-name theme-name) (symbol-name variant))))
     (solarized-definition variant theme-name color-pallet childtheme)))
 
 (defun solarized-definition (variant theme-name color-pallet &optional childtheme)
