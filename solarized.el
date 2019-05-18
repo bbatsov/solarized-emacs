@@ -139,55 +139,59 @@ Alpha should be a float between 0 and 1."
                     (color-name-to-rgb color1)
                     (color-name-to-rgb color2))))
 
+(defcustom solarized-color-pallet
+  '((s-base03  "#002b36")
+    (s-base02  "#073642")
+    ;; emphasized content
+    (s-base01  "#586e75")
+    ;; primary content
+    (s-base00  "#657b83")
+    (s-base0   "#839496")
+    ;; comments
+    (s-base1   "#93a1a1")
+    ;; background highlight light
+    (s-base2   "#eee8d5")
+    ;; background light
+    (s-base3   "#fdf6e3")
+
+    ;; Solarized accented colors
+    (yellow    "#b58900")
+    (orange    "#cb4b16")
+    (red       "#dc322f")
+    (magenta   "#d33682")
+    (violet    "#6c71c4")
+    (blue      "#268bd2")
+    (cyan      "#2aa198")
+    (green     "#859900")
+
+    ;; Darker and lighter accented colors
+    ;; Only use these in exceptional circumstances!
+    (yellow-d  "#7B6000")
+    (yellow-l  "#DEB542")
+    (orange-d  "#8B2C02")
+    (orange-l  "#F2804F")
+    (red-d     "#990A1B")
+    (red-l     "#FF6E64")
+    (magenta-d "#93115C")
+    (magenta-l "#F771AC")
+    (violet-d  "#3F4D91")
+    (violet-l  "#9EA0E5")
+    (blue-d    "#00629D")
+    (blue-l    "#69B7F0")
+    (cyan-d    "#00736F")
+    (cyan-l    "#69CABF")
+    (green-d   "#546E00")
+    (green-l   "#B4C342"))
+  "solarized color pallet")
+
 ;;; Setup Start
-(defmacro solarized-with-color-variables (variant &rest body)
+(defmacro solarized-with-color-variables (variant color-pallet &rest body)
   (declare (indent defun))
   `(let* ((class '((class color) (min-colors 89)))
           (light-class (append '((background light)) class))
           (dark-class (append '((background dark)) class))
           (variant ,variant)
-          (s-base03    "#002b36")
-          (s-base02    "#073642")
-          ;; emphasized content
-          (s-base01    "#586e75")
-          ;; primary content
-          (s-base00    "#657b83")
-          (s-base0     "#839496")
-          ;; comments
-          (s-base1     "#93a1a1")
-          ;; background highlight light
-          (s-base2     "#eee8d5")
-          ;; background light
-          (s-base3     "#fdf6e3")
-
-          ;; Solarized accented colors
-          (yellow    "#b58900")
-          (orange    "#cb4b16")
-          (red       "#dc322f")
-          (magenta   "#d33682")
-          (violet    "#6c71c4")
-          (blue      "#268bd2")
-          (cyan      "#2aa198")
-          (green     "#859900")
-
-          ;; Darker and lighter accented colors
-          ;; Only use these in exceptional circumstances!
-          (yellow-d  "#7B6000")
-          (yellow-l  "#DEB542")
-          (orange-d  "#8B2C02")
-          (orange-l  "#F2804F")
-          (red-d     "#990A1B")
-          (red-l     "#FF6E64")
-          (magenta-d "#93115C")
-          (magenta-l "#F771AC")
-          (violet-d  "#3F4D91")
-          (violet-l  "#9EA0E5")
-          (blue-d    "#00629D")
-          (blue-l    "#69B7F0")
-          (cyan-d    "#00736F")
-          (cyan-l    "#69CABF")
-          (green-d   "#546E00")
-          (green-l   "#B4C342")
+          ,@(eval color-pallet)
 
           ;; Solarized palette names, use these instead of -fg -bg...
           (base0 (if (eq variant 'light) s-base00 s-base0))
@@ -266,16 +270,16 @@ Alpha should be a float between 0 and 1."
 
 When optional argument CHILDTHEME function is supplied it's invoked to further
 customize the resulting theme."
-  (solarized-definition variant theme-name childtheme))
+  (solarized-definition variant theme-name solarized-color-pallet childtheme))
 
-(defun solarized-definition (variant theme-name &optional childtheme)
+(defun solarized-definition (variant theme-name color-pallet &optional childtheme)
   "Create a VARIANT of the theme named THEME-NAME.
 
 When optional argument CHILDTHEME function is supplied it's invoked to further
 customize the resulting theme."
 ;;; Color palette
   (eval
-  `(solarized-with-color-variables ,variant
+  `(solarized-with-color-variables ,variant color-pallet
 ;;; Theme Faces
     (custom-theme-set-faces
      ,theme-name
