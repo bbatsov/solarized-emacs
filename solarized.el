@@ -247,7 +247,7 @@ The Returned color-pallet has the same format as `solarized-color-pallet'"
           (light-class (append '((background light)) class))
           (dark-class (append '((background dark)) class))
           (variant ,variant)
-          ,@(eval color-pallet)
+          ,@color-pallet
 
           ;; Solarized palette names, use these instead of -fg -bg...
           (base0 (if (eq variant 'light) s-base00 s-base0))
@@ -346,10 +346,10 @@ When optional argument CHILDTHEME function is supplied it's invoked to further
 customize the resulting theme."
 ;;; Color palette
   (eval
-  `(solarized-with-color-variables ,variant color-pallet
+  `(solarized-with-color-variables ',variant ,color-pallet
 ;;; Theme Faces
     (custom-theme-set-faces
-     ,theme-name
+     ',theme-name
 ;;;; Built-in
 ;;;;; basic faces
      '(button ((t (:underline t))))
@@ -2382,7 +2382,7 @@ customize the resulting theme."
      ) ; END custom-theme-set-faces
 ;;; Theme Variables
     (custom-theme-set-variables
-     ,theme-name
+     ',theme-name
 ;;;;; ansi-colors
      `(ansi-color-names-vector
        [,base02 ,red ,green ,yellow ,blue ,magenta ,cyan ,base00])
