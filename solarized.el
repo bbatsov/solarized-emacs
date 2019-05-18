@@ -2468,8 +2468,8 @@ customize the resulting theme."
      `(xterm-color-names-bright [,base03 ,orange ,base01 ,base00
                                          ,base0 ,violet ,base1 ,base3]))
 ;;; Setup End
-    (when ,childtheme
-      (funcall ,childtheme))
+    ,(when childtheme
+      `(funcall ',childtheme))
     ) ; END custom-theme-set-variables
    )
   )    ; END defun create-solarized-theme
