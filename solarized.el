@@ -143,20 +143,20 @@ use the latter if you need a 24-bit specification of a color."
                         (color-name-to-rgb color2))
            ,digits-per-component)))
 
-(defun colarized-create-color-pallet (core-pallet)
-  "Create color-pallet from CORE-PALLET.
+(defun colarized-create-color-palette (core-palette)
+  "Create color-palette from CORE-PALETTE.
 
-The Returned color-pallet has the same format as `solarized-color-pallet'"
-  (let ((darkest-base   (nth 0 core-pallet))
-        (brightest-base (nth 1 core-pallet))
-        (yellow         (nth 2 core-pallet))
-        (orange         (nth 3 core-pallet))
-        (red            (nth 4 core-pallet))
-        (magenta        (nth 5 core-pallet))
-        (violet         (nth 6 core-pallet))
-        (blue           (nth 7 core-pallet))
-        (cyan           (nth 8 core-pallet))
-        (green          (nth 9 core-pallet)))
+The Returned color-palette has the same format as `solarized-color-palette'"
+  (let ((darkest-base   (nth 0 core-palette))
+        (brightest-base (nth 1 core-palette))
+        (yellow         (nth 2 core-palette))
+        (orange         (nth 3 core-palette))
+        (red            (nth 4 core-palette))
+        (magenta        (nth 5 core-palette))
+        (violet         (nth 6 core-palette))
+        (blue           (nth 7 core-palette))
+        (cyan           (nth 8 core-palette))
+        (green          (nth 9 core-palette)))
     `((s-base03  ,(solarized-color-blend darkest-base brightest-base 1.00 2))
       (s-base02  ,(solarized-color-blend darkest-base brightest-base 0.97 2))
       (s-base01  ,(solarized-color-blend darkest-base brightest-base 0.65 2))
@@ -195,7 +195,7 @@ The Returned color-pallet has the same format as `solarized-color-pallet'"
       (green-d   ,(solarized-color-blend green   darkest-base   0.80 2))
       (green-l   ,(solarized-color-blend green   brightest-base 0.80 2)))))
 
-(defcustom solarized-color-pallet
+(defcustom solarized-color-palette
   '((s-base03  "#002b36")
     (s-base02  "#073642")
     ;; emphasized content
@@ -238,16 +238,16 @@ The Returned color-pallet has the same format as `solarized-color-pallet'"
     (cyan-l    "#69CABF")
     (green-d   "#546E00")
     (green-l   "#B4C342"))
-  "solarized color pallet")
+  "solarized color palette")
 
 ;;; Setup Start
-(defmacro solarized-with-color-variables (variant color-pallet &rest body)
+(defmacro solarized-with-color-variables (variant color-palette &rest body)
   (declare (indent defun))
   `(let* ((class '((class color) (min-colors 89)))
           (light-class (append '((background light)) class))
           (dark-class (append '((background dark)) class))
           (variant ,variant)
-          ,@color-pallet
+          ,@color-palette
 
           ;; Solarized palette names, use these instead of -fg -bg...
           (base0 (if (eq variant 'light) s-base00 s-base0))
@@ -326,31 +326,31 @@ The Returned color-pallet has the same format as `solarized-color-pallet'"
 
 When optional argument CHILDTHEME function is supplied it's invoked to further
 customize the resulting theme."
-  (solarized-definition variant theme-name solarized-color-pallet childtheme))
+  (solarized-definition variant theme-name solarized-color-palette childtheme))
 
-(defun create-solarized-theme-with-pallet (variant theme-name core-pallet &optional childtheme)
-  "Create a VARIANT of the theme named THEME-NAME with CORE-PALLET.
+(defun create-solarized-theme-with-palette (variant theme-name core-palette &optional childtheme)
+  "Create a VARIANT of the theme named THEME-NAME with CORE-PALETTE.
 
 When optional argument CHILDTHEME function is supplied it's invoked to further
 customize the resulting theme.
 
-CORE-PALLET is core color-pallet, passed"
+CORE-PALETTE is core color-palette, passed"
   (declare (indent 2))
-  (let ((color-pallet (colarized-create-color-pallet core-pallet)))
+  (let ((color-palette (colarized-create-color-palette core-palette)))
     (eval
      `(deftheme ,theme-name
         ,(format "The %s-%s colour theme of Solarized colour theme flavor."
                  (symbol-name theme-name) (symbol-name variant))))
-    (solarized-definition variant theme-name color-pallet childtheme)))
+    (solarized-definition variant theme-name color-palette childtheme)))
 
-(defun solarized-definition (variant theme-name color-pallet &optional childtheme)
+(defun solarized-definition (variant theme-name color-palette &optional childtheme)
   "Create a VARIANT of the theme named THEME-NAME.
 
 When optional argument CHILDTHEME function is supplied it's invoked to further
 customize the resulting theme."
 ;;; Color palette
   (eval
-  `(solarized-with-color-variables ',variant ,color-pallet
+  `(solarized-with-color-variables ',variant ,color-palette
 ;;; Theme Faces
     (custom-theme-set-faces
      ',theme-name
