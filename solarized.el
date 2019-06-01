@@ -1,11 +1,13 @@
 ;;; solarized.el --- Solarized for Emacs.
 
-;; Copyright (C) 2011-2016 Bozhidar Batsov
+;; Copyright (C) 2011-2019 Bozhidar Batsov
 
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; Author: Thomas Frössman <thomasf@jossystem.se>
 ;; URL: http://github.com/bbatsov/solarized-emacs
-;; Version: 1.2.2
+;; Version: 1.3.0
+;; Package-Requires: ((emacs "24") (dash "2.16"))
+;; Keywords: themes, solarized
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -1668,10 +1670,13 @@ customize the resulting theme."
      `(notmuch-search-matching-authors ((,class (:inherit default))))
      `(notmuch-search-non-matching-authors ((,class (:inherit shadow))))
      `(notmuch-tag-face ((,class (:foreground ,yellow))))
+     `(notmuch-tag-unread ((,class (:foreground ,magenta))))
      `(notmuch-search-flagged-face ((,class (:foreground ,blue))))
      `(notmuch-search-unread-face ((,class (:weight bold))))
      `(notmuch-tree-match-author-face ((,class (:foreground ,blue))))
-     `(notmuch-tree-match-tag-face ((,class (:foreground ,yellow))))
+     `(notmuch-tree-match-date-face ((,class (:foreground ,yellow))))
+     `(notmuch-tree-match-tag-face ((,class (:foreground ,cyan))))
+     `(notmuch-tree-no-match-face ((,class (:inherit font-lock-comment-face))))
 
 ;;;;; org-mode
      `(org-agenda-structure
@@ -1896,6 +1901,14 @@ customize the resulting theme."
      `(sml/vc-edited ((,class (:foreground ,green))))
      `(sml/charging ((,class (:foreground ,base1))))
      `(sml/discharging ((,class (:foreground ,base1 :weight bold))))
+;;;;; solaire
+     `(solaire-default-face ((,class (:inherit default :background ,(solarized-color-blend base02 base03 0.5)))))
+     `(solaire-minibuffer-face ((,class (:inherit default :background ,(solarized-color-blend base02 base03 0.5)))))
+     `(solaire-line-number-face ((,class (:inherit (line-number solaire-default-face) :background ,(solarized-color-blend base02 base03 0.5)))))
+     `(solaire-hl-line-face ((,class (:inherit hl-line :background ,(solarized-color-blend base02 base03 0.95)))))
+     `(solaire-org-hide-face ((,class (:inherit org-hide :background ,(solarized-color-blend base02 base03 0.5)))))
+     `(solaire-mode-line-face ((,class (:inherit default :background ,s-mode-line-bg))))
+     `(solaire-mode-line-inactive-face ((,class (:inherit default :background ,s-mode-line-inactive-bg))))
 ;;;;; smartparens
      `(sp-pair-overlay-face ((,class (:background ,base02))))
      `(sp-wrap-overlay-face ((,class (:background ,base02))))
@@ -2033,6 +2046,17 @@ customize the resulting theme."
 ;;;;;; misc
      `(sr-clex-hotchar-face ((,class (:background ,red  :foreground ,base03
                                                   :weight bold))))
+;;;;; tabbar
+     `(tabbar-default ((,class (:foreground ,base03 :background ,base03))))
+     `(tabbar-highlight ((,class (:underline t))))
+     `(tabbar-button ((,class (:foreground ,base3 :background ,base03))))
+     `(tabbar-button-highlight ((,class (:inherit 'tabbar-button :inverse-video t))))
+     `(tabbar-modified ((,class (:inherit tabbar-button :foreground ,blue :weight light :slant italic))))
+     `(tabbar-unselected ((,class (:inherit tabbar-default :background ,base02 :slant italic :underline nil :box (:line-width 1 :color ,base03)))))
+     `(tabbar-unselected-modified ((,class (:inherit tabbar-modified :background ,base02 :underline nil :box (:line-width 1 :color ,base03)))))
+     `(tabbar-selected ((,class (:inherit tabbar-default :foreground ,base3 :background ,base03 :weight bold :underline nil :box (:line-width 1 :color ,base03)))))
+     `(tabbar-selected-modified ((,class (:inherit tabbar-selected :foreground ,blue :underline nil :box (:line-width 1 :color ,base03)))))
+
 ;;;;; table
      `(table-cell ((,class (:foreground ,base0 :background ,base02))))
 ;;;;; term
