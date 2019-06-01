@@ -148,6 +148,7 @@ Alpha should be a float between 0 and 1."
           (variant ,variant)
           (s-base03    "#002b36")
           (s-base02    "#073642")
+          (solaire-dark "#001F27")
           ;; emphasized content
           (s-base01    "#586e75")
           ;; primary content
@@ -198,6 +199,7 @@ Alpha should be a float between 0 and 1."
           (base02 (if (eq variant 'light) s-base2 s-base02))
           (base3 (if (eq variant 'light) s-base03 s-base3))
           (base03 (if (eq variant 'light) s-base3 s-base03))
+          (solaire-base (if (eq variant 'light) s-base2 solaire-dark))
 
           ;; Line drawing color
           ;;
@@ -1902,12 +1904,12 @@ customize the resulting theme."
      `(sml/charging ((,class (:foreground ,base1))))
      `(sml/discharging ((,class (:foreground ,base1 :weight bold))))
 ;;;;; solaire
-     `(solaire-default-face ((,class (:inherit default :background ,(solarized-color-blend base02 base03 0.5)))))
-     `(solaire-minibuffer-face ((,class (:inherit default :background ,(solarized-color-blend base02 base03 0.5)))))
-     `(solaire-line-number-face ((,class (:inherit (line-number solaire-default-face) :background ,(solarized-color-blend base02 base03 0.5)))))
+     `(solaire-default-face ((,class (:inherit default :background ,solaire-base))))
+     `(solaire-minibuffer-face ((,class (:inherit default :background ,solaire-base))))
+     `(solaire-line-number-face ((,class (:inherit (line-number solaire-default-face) :background ,solaire-base))))
      `(solaire-hl-line-face ((,class (:inherit hl-line :background ,(solarized-color-blend base02 base03 0.95)))))
-     `(solaire-org-hide-face ((,class (:inherit org-hide :background ,(solarized-color-blend base02 base03 0.5)))))
-     `(solaire-mode-line-face ((,class (:inherit default :background ,s-mode-line-bg))))
+     `(solaire-org-hide-face ((,class (:inherit org-hide :background ,solaire-base))))
+     `(solaire-mode-line-face ((,class (:inherit default :background ,solaire-base))))
      `(solaire-mode-line-inactive-face ((,class (:inherit default :background ,s-mode-line-inactive-bg))))
 ;;;;; smartparens
      `(sp-pair-overlay-face ((,class (:background ,base02))))
@@ -2052,7 +2054,7 @@ customize the resulting theme."
      `(tabbar-button ((,class (:foreground ,base3 :background ,base03))))
      `(tabbar-button-highlight ((,class (:inherit 'tabbar-button :inverse-video t))))
      `(tabbar-modified ((,class (:inherit tabbar-button :foreground ,blue :weight light :slant italic))))
-     `(tabbar-unselected ((,class (:inherit tabbar-default :background ,base02 :slant italic :underline nil :box (:line-width 1 :color ,base03)))))
+     `(tabbar-unselected ((,class (:inherit tabbar-default :foreground ,base3 :background ,base02 :slant italic :underline nil :box (:line-width 1 :color ,base03)))))
      `(tabbar-unselected-modified ((,class (:inherit tabbar-modified :background ,base02 :underline nil :box (:line-width 1 :color ,base03)))))
      `(tabbar-selected ((,class (:inherit tabbar-default :foreground ,base3 :background ,base03 :weight bold :underline nil :box (:line-width 1 :color ,base03)))))
      `(tabbar-selected-modified ((,class (:inherit tabbar-selected :foreground ,blue :underline nil :box (:line-width 1 :color ,base03)))))
