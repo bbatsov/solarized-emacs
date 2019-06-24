@@ -664,6 +664,12 @@ customize the resulting theme."
                                                    :box (:line-width 2 :style pressed-button)))))
      `(custom-button-unraised ((,class (:inherit underline))))
      `(custom-button-pressed-unraised ((,class (:inherit custom-button-unraised :foreground ,magenta))))
+;;;;; deadgrep
+     `(deadgrep-filename-face ((,class (:foreground ,base01 :underline t))))
+     `(deadgrep-match-face ((,class (:background ,base02 :foreground ,base1))))
+     `(deadgrep-meta-face ((,class (:inherit font-lock-comment-face))))
+     `(deadgrep-regexp-metachar-face ((,class (:inherit font-lock-constant-face))))
+     `(deadgrep-search-term-face ((,class (:inherit font-lock-variable-name-face))))
 ;;;;; diff
      `(diff-added   ((,class (:foreground ,green))))
      `(diff-changed ((,class (:foreground ,blue))))
