@@ -143,6 +143,7 @@ use the latter if you need a 24-bit specification of a color."
                         (color-name-to-rgb color2))
            ,digits-per-component)))
 
+;;;###autoload
 (defun colarized-create-color-palette (core-palette)
   "Create color-palette from CORE-PALETTE.
 
