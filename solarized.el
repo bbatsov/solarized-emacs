@@ -612,7 +612,9 @@ customize the resulting theme."
 ;;;;; column-enforce-mode
      `(column-enforce-face ((,class (:background unspecified :foreground ,magenta
                                                  :inverse-video unspecified))))
-;;;;; company-mode
+;;;; col-highlight
+     `(col-highlight ((,class (:background ,base02))))
+;;;; company-mode
      `(company-echo ((,class nil)))
      `(company-echo-common ((,class (:background ,red))))
      `(company-preview ((,class (:background ,base02 :foreground ,base1))))
