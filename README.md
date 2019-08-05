@@ -119,7 +119,7 @@ Save the following files into `~/.emacs.d/themes`:
 * [solarized-light-theme.el](https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-light-theme.el)
 * [solarized-dark-theme.el](https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-dark-theme.el)
 
-Add this your `.emacs.d`:
+Add this your `.emacs` init file:
 
 ```el
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
