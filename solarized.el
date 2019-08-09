@@ -2316,8 +2316,6 @@ customize the resulting theme."
      `(cua-overwrite-cursor-color ,yellow)
 ;;;;; fill-column-indicator
      `(fci-rule-color ,base02)
-;;;;; magit
-     `(magit-diff-use-overlays nil)
 ;;;;; nrepl-client
      `(nrepl-message-colors
        '(,red ,orange ,yellow ,green-d ,green-l
