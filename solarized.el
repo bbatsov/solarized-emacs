@@ -1711,8 +1711,6 @@ customize the resulting theme."
      `(org-agenda-done ((,class (:foreground ,base01 :slant italic))))
      `(org-archived ((,class (:foreground ,base01 :weight normal))))
      `(org-block ((,class nil)))
-     `(org-block-begin-line ((,class (:inherit org-meta-line :underline t))))
-     `(org-block-end-line ((,class (:inherit org-meta-line :overline t))))
      `(org-checkbox ((,class (:background ,base03 :foreground ,base0
                                           :box (:line-width 1 :style released-button)))))
      `(org-code ((,class (:foreground ,base01))))
@@ -1744,7 +1742,6 @@ customize the resulting theme."
                                       :foreground ,blue))))
      `(org-link ((,class (:foreground ,yellow :underline t))))
      `(org-meta-line ((,class (:foreground ,base01 :slant italic))))
-     `(org-macro ((,class (:foreground ,s-base1))))
      `(org-sexp-date ((,class (:foreground ,violet))))
      `(org-scheduled ((,class (:foreground ,green))))
      `(org-scheduled-previously ((,class (:foreground ,cyan))))
