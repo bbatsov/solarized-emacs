@@ -124,13 +124,41 @@ Related discussion: https://github.com/bbatsov/solarized-emacs/issues/158"
   :group 'solarized)
 
 (defcustom solarized-termcolors nil
-  "Use terminal color scheme instead of the 256 colors palette."
+  "Use terminal color scheme for base colors, instead of the 256 color palette."
   :type 'boolean
   :group 'solarized)
 
 ;;; Utilities
 
 ;;;###autoload
+(setq solarized-termcolors-hex
+      '(("brightblack"   . "#002b36")
+        ("black"         . "#073642")
+        ("brightgreen"   . "#586e75")
+        ("brightyellow"  . "#657b83")
+        ("brightblue"    . "#839496")
+        ("brightcyan"    . "#93a1a1")
+        ("white"         . "#eee8d5")
+        ("brightwhite"   . "#fdf6e3")
+        ("yellow"        . "#b58900")
+        ("brightred"     . "#cb4b16")
+        ("red"           . "#dc322f")
+        ("magenta"       . "#d33682")
+        ("brightmagenta" . "#6c71c4")
+        ("blue"          . "#268bd2")
+        ("cyan"          . "#2aa198")
+        ("green"         . "#859900")))
+
+(defun solarized-color-to-rgb (color)
+  "Get RGB value for COLOR.
+
+COLOR should be a color name or an RGB triplet string (e.g. \"#ff12ec\")."
+  (let* ((color-is-hex (string-prefix-p "#" color))
+         (color-name (if (and solarized-termcolors (not color-is-hex))
+                         (cdr (assoc color solarized-termcolors-hex))
+                       color)))
+    (color-name-to-rgb color-name)))
+
 (defun solarized-color-blend (color1 color2 alpha)
   "Blends COLOR1 onto COLOR2 with ALPHA.
 
@@ -138,13 +166,12 @@ COLOR1 and COLOR2 should be color names (e.g. \"white\") or RGB
 triplet strings (e.g. \"#ff12ec\").
 
 Alpha should be a float between 0 and 1."
-  (if solarized-termcolors
-      (if (< alpha 0.5) color2 color1)
-      (apply 'color-rgb-to-hex
-             (-zip-with '(lambda (it other)
-                           (+ (* alpha it) (* other (- 1 alpha))))
-                        (color-name-to-rgb color1)
-                        (color-name-to-rgb color2)))))
+  (apply 'color-rgb-to-hex
+         (-zip-with '(lambda (it other)
+                       (+ (* alpha it) (* other (- 1 alpha))))
+                    (solarized-color-to-rgb color1)
+                    (solarized-color-to-rgb color2))))
+
 
 ;;; Setup Start
 (defmacro solarized-with-color-variables (variant &rest body)
