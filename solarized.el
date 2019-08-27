@@ -123,9 +123,42 @@ Related discussion: https://github.com/bbatsov/solarized-emacs/issues/158"
   :type 'boolean
   :group 'solarized)
 
+(defcustom solarized-termcolors nil
+  "Use terminal color scheme for base colors, instead of the 256 color palette."
+  :type 'boolean
+  :group 'solarized)
+
 ;;; Utilities
 
 ;;;###autoload
+(setq solarized-termcolors-hex
+      '(("brightblack"   . "#002b36")
+        ("black"         . "#073642")
+        ("brightgreen"   . "#586e75")
+        ("brightyellow"  . "#657b83")
+        ("brightblue"    . "#839496")
+        ("brightcyan"    . "#93a1a1")
+        ("white"         . "#eee8d5")
+        ("brightwhite"   . "#fdf6e3")
+        ("yellow"        . "#b58900")
+        ("brightred"     . "#cb4b16")
+        ("red"           . "#dc322f")
+        ("magenta"       . "#d33682")
+        ("brightmagenta" . "#6c71c4")
+        ("blue"          . "#268bd2")
+        ("cyan"          . "#2aa198")
+        ("green"         . "#859900")))
+
+(defun solarized-color-to-rgb (color)
+  "Get RGB value for COLOR.
+
+COLOR should be a color name or an RGB triplet string (e.g. \"#ff12ec\")."
+  (let* ((color-is-hex (string-prefix-p "#" color))
+         (color-name (if (and solarized-termcolors (not color-is-hex))
+                         (cdr (assoc color solarized-termcolors-hex))
+                       color)))
+    (color-name-to-rgb color-name)))
+
 (defun solarized-color-blend (color1 color2 alpha)
   "Blends COLOR1 onto COLOR2 with ALPHA.
 
@@ -136,8 +169,9 @@ Alpha should be a float between 0 and 1."
   (apply 'color-rgb-to-hex
          (-zip-with '(lambda (it other)
                        (+ (* alpha it) (* other (- 1 alpha))))
-                    (color-name-to-rgb color1)
-                    (color-name-to-rgb color2))))
+                    (solarized-color-to-rgb color1)
+                    (solarized-color-to-rgb color2))))
+
 
 ;;; Setup Start
 (defmacro solarized-with-color-variables (variant &rest body)
@@ -146,29 +180,29 @@ Alpha should be a float between 0 and 1."
           (light-class (append '((background light)) class))
           (dark-class (append '((background dark)) class))
           (variant ,variant)
-          (s-base03    "#002b36")
-          (s-base02    "#073642")
+          (s-base03    (if solarized-termcolors "brightblack"  "#002b36"))
+          (s-base02    (if solarized-termcolors "black"        "#073642"))
           ;; emphasized content
-          (s-base01    "#586e75")
+          (s-base01    (if solarized-termcolors "brightgreen"  "#586e75"))
           ;; primary content
-          (s-base00    "#657b83")
-          (s-base0     "#839496")
+          (s-base00    (if solarized-termcolors "brightyellow" "#657b83"))
+          (s-base0     (if solarized-termcolors "brightblue"   "#839496"))
           ;; comments
-          (s-base1     "#93a1a1")
+          (s-base1     (if solarized-termcolors "brightcyan"   "#93a1a1"))
           ;; background highlight light
-          (s-base2     "#eee8d5")
+          (s-base2     (if solarized-termcolors "white"        "#eee8d5"))
           ;; background light
-          (s-base3     "#fdf6e3")
+          (s-base3     (if solarized-termcolors "brightwhite"  "#fdf6e3"))
 
           ;; Solarized accented colors
-          (yellow    "#b58900")
-          (orange    "#cb4b16")
-          (red       "#dc322f")
-          (magenta   "#d33682")
-          (violet    "#6c71c4")
-          (blue      "#268bd2")
-          (cyan      "#2aa198")
-          (green     "#859900")
+          (yellow    (if solarized-termcolors "yellow"        "#b58900"))
+          (orange    (if solarized-termcolors "brightred"     "#cb4b16"))
+          (red       (if solarized-termcolors "red"           "#dc322f"))
+          (magenta   (if solarized-termcolors "magenta"       "#d33682"))
+          (violet    (if solarized-termcolors "brightmagenta" "#6c71c4"))
+          (blue      (if solarized-termcolors "blue"          "#268bd2"))
+          (cyan      (if solarized-termcolors "cyan"          "#2aa198"))
+          (green     (if solarized-termcolors "green"         "#859900"))
 
           ;; Darker and lighter accented colors
           ;; Only use these in exceptional circumstances!
