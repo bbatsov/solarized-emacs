@@ -3,10 +3,12 @@
 [![MELPA Stable](http://stable.melpa.org/packages/solarized-theme-badge.svg)](http://stable.melpa.org/#/solarized-theme)
 [![Join the chat at https://gitter.im/bbatsov/solarized-emacs](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/bbatsov/solarized-emacs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-## Solarized for Emacs
+# Solarized for Emacs
 
 Solarized for Emacs is an Emacs port of the [Solarized theme for vim](http://ethanschoonover.com/solarized),
 developed by Ethan Schoonover.
+
+You can find several screenshots of Solarized for Emacs [here](https://emacsthemes.com/themes/solarized-themes.html).
 
 Solarized for Emacs is tested only under Emacs 24, but should be
 working under Emacs 23 as well. The theme is implemented in terms of
@@ -16,15 +18,26 @@ customizations and `deftheme` and does not require the
 ## Installation
 
 Solarized for Emacs is available for installation via the
-[MELPA](http://melpa.org) and
-[Marmalade](http://marmalade-repo.org/) `package.el`
-repositories. Assuming you've set one of the them up (I recommend
-MELPA) you can install solarized like this:
+[MELPA](http://melpa.org)  `package.el`
+repository. Assuming you've set it up you can install Solarized like this:
 
 `M-x package-install solarized-theme`
 
-Afterwards - business as usual, just load one of the theme variants with `M-x
+This package will install two variants of the theme - `solarized-light-theme`
+and `solarized-dark-theme`. You can load one of the theme variants with `M-x
 load-theme`.
+
+To load it automatically on Emacs startup add this to your init file:
+
+```el
+(load-theme 'solarized-light t)
+```
+
+or
+
+```el
+(load-theme 'solarized-dark t)
+```
 
 (If you want to install manually that procedure is briefly documented in the
 FAQ at the end of this document.)
