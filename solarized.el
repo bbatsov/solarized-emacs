@@ -845,8 +845,8 @@ customize the resulting theme."
 ;;;;; diff-hl
      `(diff-hl-change ((,class (:background ,s-diff-C-bg :foreground ,s-diff-C-fg))))
      `(diff-hl-delete ((,class (:background ,s-diff-A-bg :foreground ,s-diff-A-fg))))
-     `(diff-hl-insert ((,class (:background ,s-diff-fine-B-bg :foreground ,s-diff-fine-B-fg))))
-     `(diff-hl-reverted-hunk-highlight ((,class (:background ,s-diff-fine-C-bg :foreground ,s-diff-fine-C-fg))))
+     `(diff-hl-insert ((,class (:background ,s-diff-B-bg :foreground ,s-diff-B-fg))))
+     `(diff-hl-reverted-hunk-highlight ((,class (:background ,s-diff-Ancestor-bg :foreground ,s-diff-Ancestor-fg))))
 ;;;;; ediff
      `(ediff-even-diff-A ((t (:background ,base02))))
      `(ediff-even-diff-Ancestor ((,class (:foreground ,s-diff-context-fg))))
