@@ -51,6 +51,11 @@
 The theme has to be reloaded after changing anything in this group."
   :group 'faces)
 
+(defcustom solarized-theme-dir (locate-user-emacs-file "themes/")
+  "Directory to save theme file."
+  :type 'directory
+  :group 'solarized)
+
 (defcustom solarized-distinct-fringe-background nil
   "Make the fringe background different from the normal background color.
 Also affects `linum-mode' background."
@@ -126,68 +131,129 @@ Related discussion: https://github.com/bbatsov/solarized-emacs/issues/158"
 ;;; Utilities
 
 ;;;###autoload
-(defun solarized-color-blend (color1 color2 alpha)
+(defun solarized-color-blend (color1 color2 alpha &optional digits-per-component)
   "Blends COLOR1 onto COLOR2 with ALPHA.
 
 COLOR1 and COLOR2 should be color names (e.g. \"white\") or RGB
 triplet strings (e.g. \"#ff12ec\").
 
-Alpha should be a float between 0 and 1."
+Alpha should be a float between 0 and 1.
+
+Optional argument DIGITS-PER-COMPONENT can be either 4 (the default) or 2;
+use the latter if you need a 24-bit specification of a color."
   (apply 'color-rgb-to-hex
-         (-zip-with '(lambda (it other)
-                       (+ (* alpha it) (* other (- 1 alpha))))
-                    (color-name-to-rgb color1)
-                    (color-name-to-rgb color2))))
+         `(,@(-zip-with '(lambda (it other)
+                           (+ (* alpha it) (* other (- 1 alpha))))
+                        (color-name-to-rgb color1)
+                        (color-name-to-rgb color2))
+           ,digits-per-component)))
+
+;;;###autoload
+(defun solarized-create-color-palette (core-palette)
+  "Create color-palette from CORE-PALETTE.
+
+The Returned color-palette has the same format as `solarized-color-palette'"
+  (let ((darkest-base   (nth 0 core-palette))
+        (brightest-base (nth 1 core-palette))
+        (yellow         (nth 2 core-palette))
+        (orange         (nth 3 core-palette))
+        (red            (nth 4 core-palette))
+        (magenta        (nth 5 core-palette))
+        (violet         (nth 6 core-palette))
+        (blue           (nth 7 core-palette))
+        (cyan           (nth 8 core-palette))
+        (green          (nth 9 core-palette)))
+    `((s-base03  . ,(solarized-color-blend darkest-base brightest-base 1.00 2))
+      (s-base02  . ,(solarized-color-blend darkest-base brightest-base 0.97 2))
+      (s-base01  . ,(solarized-color-blend darkest-base brightest-base 0.65 2))
+      (s-base00  . ,(solarized-color-blend darkest-base brightest-base 0.60 2))
+      (s-base0   . ,(solarized-color-blend darkest-base brightest-base 0.48 2))
+      (s-base1   . ,(solarized-color-blend darkest-base brightest-base 0.42 2))
+      (s-base2   . ,(solarized-color-blend darkest-base brightest-base 0.06 2))
+      (s-base3   . ,(solarized-color-blend darkest-base brightest-base 0.00 2))
+
+      ;; Solarized accented colors
+      (yellow    . ,yellow)
+      (orange    . ,orange)
+      (red       . ,red)
+      (magenta   . ,magenta)
+      (violet    . ,violet)
+      (blue      . ,blue)
+      (cyan      . ,cyan)
+      (green     . ,green)
+
+      ;; Darker and lighter accented colors
+      ;; Only use these in exceptional circumstances!
+      (yellow-d  . ,(solarized-color-blend yellow  darkest-base   0.80 2))
+      (yellow-l  . ,(solarized-color-blend yellow  brightest-base 0.80 2))
+      (orange-d  . ,(solarized-color-blend orange  darkest-base   0.80 2))
+      (orange-l  . ,(solarized-color-blend orange  brightest-base 0.80 2))
+      (red-d     . ,(solarized-color-blend red     darkest-base   0.80 2))
+      (red-l     . ,(solarized-color-blend red     brightest-base 0.80 2))
+      (magenta-d . ,(solarized-color-blend magenta darkest-base   0.80 2))
+      (magenta-l . ,(solarized-color-blend magenta brightest-base 0.80 2))
+      (violet-d  . ,(solarized-color-blend violet  darkest-base   0.80 2))
+      (violet-l  . ,(solarized-color-blend violet  brightest-base 0.80 2))
+      (blue-d    . ,(solarized-color-blend blue    darkest-base   0.80 2))
+      (blue-l    . ,(solarized-color-blend blue    brightest-base 0.80 2))
+      (cyan-d    . ,(solarized-color-blend cyan    darkest-base   0.80 2))
+      (cyan-l    . ,(solarized-color-blend cyan    brightest-base 0.80 2))
+      (green-d   . ,(solarized-color-blend green   darkest-base   0.80 2))
+      (green-l   . ,(solarized-color-blend green   brightest-base 0.80 2)))))
+
+(defvar solarized-color-palette-alist
+  '((s-base03  . "#002b36")
+    (s-base02  . "#073642")
+    ;; emphasized content
+    (s-base01  . "#586e75")
+    ;; primary content
+    (s-base00  . "#657b83")
+    (s-base0   . "#839496")
+    ;; comments
+    (s-base1   . "#93a1a1")
+    ;; background highlight light
+    (s-base2   . "#eee8d5")
+    ;; background light
+    (s-base3   . "#fdf6e3")
+
+    ;; Solarized accented colors
+    (yellow    . "#b58900")
+    (orange    . "#cb4b16")
+    (red       . "#dc322f")
+    (magenta   . "#d33682")
+    (violet    . "#6c71c4")
+    (blue      . "#268bd2")
+    (cyan      . "#2aa198")
+    (green     . "#859900")
+
+    ;; Darker and lighter accented colors
+    ;; Only use these in exceptional circumstances!
+    (yellow-d  . "#7B6000")
+    (yellow-l  . "#DEB542")
+    (orange-d  . "#8B2C02")
+    (orange-l  . "#F2804F")
+    (red-d     . "#990A1B")
+    (red-l     . "#FF6E64")
+    (magenta-d . "#93115C")
+    (magenta-l . "#F771AC")
+    (violet-d  . "#3F4D91")
+    (violet-l  . "#9EA0E5")
+    (blue-d    . "#00629D")
+    (blue-l    . "#69B7F0")
+    (cyan-d    . "#00736F")
+    (cyan-l    . "#69CABF")
+    (green-d   . "#546E00")
+    (green-l   . "#B4C342"))
+  "The solarized color palette alist.")
 
 ;;; Setup Start
-(defmacro solarized-with-color-variables (variant &rest body)
+(defmacro solarized-with-color-variables (variant color-palette &rest body)
   (declare (indent defun))
   `(let* ((class '((class color) (min-colors 89)))
           (light-class (append '((background light)) class))
           (dark-class (append '((background dark)) class))
           (variant ,variant)
-          (s-base03    "#002b36")
-          (s-base02    "#073642")
-          ;; emphasized content
-          (s-base01    "#586e75")
-          ;; primary content
-          (s-base00    "#657b83")
-          (s-base0     "#839496")
-          ;; comments
-          (s-base1     "#93a1a1")
-          ;; background highlight light
-          (s-base2     "#eee8d5")
-          ;; background light
-          (s-base3     "#fdf6e3")
-
-          ;; Solarized accented colors
-          (yellow    "#b58900")
-          (orange    "#cb4b16")
-          (red       "#dc322f")
-          (magenta   "#d33682")
-          (violet    "#6c71c4")
-          (blue      "#268bd2")
-          (cyan      "#2aa198")
-          (green     "#859900")
-
-          ;; Darker and lighter accented colors
-          ;; Only use these in exceptional circumstances!
-          (yellow-d  "#7B6000")
-          (yellow-l  "#DEB542")
-          (orange-d  "#8B2C02")
-          (orange-l  "#F2804F")
-          (red-d     "#990A1B")
-          (red-l     "#FF6E64")
-          (magenta-d "#93115C")
-          (magenta-l "#F771AC")
-          (violet-d  "#3F4D91")
-          (violet-l  "#9EA0E5")
-          (blue-d    "#00629D")
-          (blue-l    "#69B7F0")
-          (cyan-d    "#00736F")
-          (cyan-l    "#69CABF")
-          (green-d   "#546E00")
-          (green-l   "#B4C342")
+          ,@(mapcar (lambda (elm) `(,(car elm) ,(cdr elm))) color-palette)
 
           ;; Solarized palette names, use these instead of -fg -bg...
           (base0 (if (eq variant 'light) s-base00 s-base0))
@@ -261,16 +327,63 @@ Alpha should be a float between 0 and 1."
           )
      ,@body))
 
+(defun create-solarized-theme-file (variant theme-name core-palette &optional childtheme overwrite)
+  "Create a VARIANT of the theme named THEME-NAME with CORE-PALETTE.
+
+When optional argument CHILDTHEME function is supplied it's invoked to further
+customize the resulting theme.
+
+CORE-PALETTE is core color-palette.
+If OVERWRITE is non-nil, overwrite theme file if exist."
+  (declare (indent 2))
+  (add-to-list 'custom-theme-load-path solarized-theme-dir)
+  (let ((path (expand-file-name (format "%s.el" theme-name)
+                                solarized-theme-dir)))
+    (unless (file-directory-p solarized-theme-dir)
+      (make-directory solarized-theme-dir))
+    (when (or overwrite (not (file-readable-p path)))
+      (with-temp-file (expand-file-name (format "%s-theme.el" theme-name)
+                                        solarized-theme-dir)
+        (mapc (lambda (elm)
+                (insert (pp-to-string elm)))
+              `((require 'solarized)
+                (deftheme ,theme-name
+                  ,(format "The %s colour theme of Solarized colour theme flavor." theme-name))
+                (let ((custom--inhibit-theme-enable nil))
+                  (create-solarized-theme-with-palette ',variant ',theme-name ',core-palette ',childtheme))
+                (provide-theme ',theme-name)
+                (provide ',(intern (format "%s-theme" theme-name)))))))
+    path))
+
 (defun create-solarized-theme (variant theme-name &optional childtheme)
   "Create a VARIANT of the theme named THEME-NAME.
 
 When optional argument CHILDTHEME function is supplied it's invoked to further
 customize the resulting theme."
+  (solarized-definition variant theme-name solarized-color-palette-alist childtheme))
+
+(defun create-solarized-theme-with-palette (variant theme-name core-palette &optional childtheme)
+  "Create a VARIANT of the theme named THEME-NAME with CORE-PALETTE.
+
+When optional argument CHILDTHEME function is supplied it's invoked to further
+customize the resulting theme.
+
+CORE-PALETTE is core color-palette, passed"
+  (declare (indent 2))
+  (let ((color-palette (solarized-create-color-palette core-palette)))
+    (solarized-definition variant theme-name color-palette childtheme)))
+
+(defun solarized-definition (variant theme-name color-palette &optional childtheme)
+  "Create a VARIANT of the theme named THEME-NAME.
+
+When optional argument CHILDTHEME function is supplied it's invoked to further
+customize the resulting theme."
 ;;; Color palette
-  (solarized-with-color-variables variant
+  (eval
+  `(solarized-with-color-variables ',variant ,color-palette
 ;;; Theme Faces
     (custom-theme-set-faces
-     theme-name
+     ',theme-name
 ;;;; Built-in
 ;;;;; basic faces
      '(button ((t (:underline t))))
@@ -2303,7 +2416,7 @@ customize the resulting theme."
      ) ; END custom-theme-set-faces
 ;;; Theme Variables
     (custom-theme-set-variables
-     theme-name
+     ',theme-name
 ;;;;; ansi-colors
      `(ansi-color-names-vector
        [,base02 ,red ,green ,yellow ,blue ,magenta ,cyan ,base00])
@@ -2385,9 +2498,10 @@ customize the resulting theme."
      `(xterm-color-names-bright [,base03 ,orange ,base01 ,base00
                                          ,base0 ,violet ,base1 ,base3]))
 ;;; Setup End
-    (when childtheme
-      (funcall childtheme))
+    ,(when childtheme
+      `(funcall ',childtheme))
     ) ; END custom-theme-set-variables
+   )
   )    ; END defun create-solarized-theme
 
 ;;; Footer
