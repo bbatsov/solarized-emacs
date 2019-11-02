@@ -12,8 +12,6 @@
 
 (setq safe-local-variable-values '((eval when (fboundp 'rainbow-mode) (rainbow-mode 1))))
 
-(global-set-key (kbd "C-h h") 'ibuffer)
-
 (setq
  solarized-distinct-fringe-background nil
  solarized-distinct-doc-face nil
@@ -44,7 +42,13 @@
         (require-package package min-version t)))))
 
 (mapc 'require-package
-      '(dash flx-ido projectile web-mode haskell-mode go-mode js2-mode markdown-mode))
+      '(dash flx-ido projectile web-mode haskell-mode go-mode js2-mode markdown-mode magit smartparens))
+
+(smartparens-global-mode)
+(show-smartparens-global-mode)
+
+(global-set-key (kbd "C-h h") 'ibuffer)
+(global-set-key (kbd "C-h g") 'magit)
 
 (setq
  projectile-sort-order 'recently-active
