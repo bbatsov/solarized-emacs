@@ -2515,7 +2515,6 @@ customize the resulting theme."
 
 ;; Local Variables:
 ;; no-byte-compile: t
-;; eval: (when (fboundp 'rainbow-mode) (rainbow-mode 1))
 ;; indent-tabs-mode: nil
 ;; fill-column: 95
 ;; End:
