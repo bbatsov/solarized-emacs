@@ -1,5 +1,0 @@
-* What is this?
-At the moment early sketches that might become something. 
-
-The idea is to automate screenshooting to allow reviewing theme changes more
-quickly.

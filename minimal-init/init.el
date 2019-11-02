@@ -21,7 +21,7 @@
         (require-package package min-version t)))))
 
 (mapc 'require-package
-      '(dash flx-ido projectile))
+      '(dash flx-ido projectile web-mode haskell-mode go-mode js2-mode markdown-mode))
 
 (setq
  projectile-sort-order 'recently-active
