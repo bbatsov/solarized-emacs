@@ -248,6 +248,8 @@ The Returned color-palette has the same format as `solarized-color-palette'"
 
 ;;; Setup Start
 (defmacro solarized-with-color-variables (variant color-palette &rest body)
+  "Eval BODY in solarized COLOR-PALETTE.
+VARIANT is 'dark or 'light."
   (declare (indent defun))
   `(let* ((class '((class color) (min-colors 89)))
           (light-class (append '((background light)) class))
@@ -367,13 +369,13 @@ customize the resulting theme."
 When optional argument CHILDTHEME function is supplied it's invoked to further
 customize the resulting theme.
 
-CORE-PALETTE is core color-palette, passed"
+CORE-PALETTE is core color-palette."
   (declare (indent 2))
   (let ((color-palette (solarized-create-color-palette core-palette)))
     (solarized-definition variant theme-name color-palette childtheme)))
 
 (defun solarized-definition (variant theme-name color-palette &optional childtheme)
-  "Create a VARIANT of the theme named THEME-NAME.
+  "Create a VARIANT of the theme named THEME-NAME with COLOR-PALETTE.
 
 When optional argument CHILDTHEME function is supplied it's invoked to further
 customize the resulting theme."
