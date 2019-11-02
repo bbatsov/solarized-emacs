@@ -23,7 +23,6 @@
 
 (require 'solarized)
 
-
 (deftheme solarized-wombat-dark "The the dark solarized theme with the wombat palette")
 
 (create-solarized-theme-with-palette 'dark 'solarized-wombat-dark
@@ -48,9 +47,7 @@
      `(mode-line-buffer-id ((,class (:foreground ,base3 :weight bold))))
      `(minibuffer-prompt ((,class (:foreground ,base1)))))))
 
-
 (provide-theme 'solarized-wombat-dark)
-
 
 (provide 'solarized-wombat-dark-theme)
 ;;; solarized-wombat-dark-theme.el ends here
