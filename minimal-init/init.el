@@ -1,12 +1,35 @@
-
 (let* ((init-dir (file-name-as-directory (file-name-directory load-file-name)))
-       (elisp-dir (expand-file-name ".." init-dir)))
+       (elisp-dir (expand-file-name ".." init-dir))
+       (childtheme-dir (expand-file-name "../child-theme-example" init-dir))
+       (childtheme-themes-dir (expand-file-name "themes" childtheme-dir))
+       )
 
   (add-to-list 'load-path elisp-dir)
-  (setq custom-theme-load-path (list elisp-dir)
+  (add-to-list 'load-path childtheme-dir)
+  (setq custom-theme-load-path (list elisp-dir childtheme-themes-dir)
         package-user-dir (expand-file-name "elpa" init-dir)
         package-archives '(("gnu" . "https://elpa.gnu.org/packages/") ("melpa" . "https://melpa.org/packages/"))))
 
+(setq safe-local-variable-values '((eval when (fboundp 'rainbow-mode) (rainbow-mode 1))))
+
+(global-set-key (kbd "C-h h") 'ibuffer)
+
+(setq
+ solarized-distinct-fringe-background nil
+ solarized-distinct-doc-face nil
+ solarized-use-variable-pitch t
+ solarized-use-less-bold t
+ solarized-use-more-italic t
+ solarized-emphasize-indicators t
+ solarized-high-contrast-mode-line nil
+ solarized-height-minus-1 0.8
+ solarized-height-plus-1 1.1
+ solarized-height-plus-2 1.15
+ solarized-height-plus-3 1.2
+ solarized-height-plus-4 1.3
+ solarized-scale-org-headlines t
+ solarized-scale-outline-headlines t
+)
 
 (require 'package)
 (package-initialize)
@@ -37,6 +60,7 @@
 
 (require 'solarized)
 
-
-(load-theme 'solarized-dark)
-(load-theme 'solarized-light)
+(load-theme 'my-solarized-dark t)
+(load-theme 'my-solarized-light t)
+(load-theme 'solarized-dark t)
+(load-theme 'solarized-light t)
