@@ -349,7 +349,8 @@ If OVERWRITE is non-nil, overwrite theme file if exist."
               `((require 'solarized)
                 (deftheme ,theme-name
                   ,(format "The %s colour theme of Solarized colour theme flavor." theme-name))
-                (create-solarized-theme-with-palette ',variant ',theme-name ',core-palette ',childtheme)
+                (let ((custom--inhibit-theme-enable nil))
+                  (create-solarized-theme-with-palette ',variant ',theme-name ',core-palette ',childtheme))
                 (provide-theme ',theme-name)
                 (provide ',(intern (format "%s-theme" theme-name)))))))
     path))
