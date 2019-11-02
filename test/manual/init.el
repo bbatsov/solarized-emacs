@@ -1,5 +1,5 @@
 (let* ((init-dir (file-name-as-directory (file-name-directory load-file-name)))
-       (elisp-dir (expand-file-name ".." init-dir))
+       (elisp-dir (expand-file-name "../../" init-dir))
        (childtheme-dir (expand-file-name "../child-theme-example" init-dir))
        (childtheme-themes-dir (expand-file-name "themes" childtheme-dir))
        )
