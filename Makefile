@@ -30,5 +30,8 @@ clean:
 # test: elpa
 # 	$(CASK) exec buttercup -L .
 
-test: elpa
+manualtest: elpa
 	$(CASK) exec emacs -q -l ./minimal-init/init.el
+
+test: compile
+	$(CASK) exec buttercup -L .
