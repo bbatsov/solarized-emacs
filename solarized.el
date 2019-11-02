@@ -144,7 +144,7 @@ use the latter if you need a 24-bit specification of a color."
            ,digits-per-component)))
 
 ;;;###autoload
-(defun colarized-create-color-palette (core-palette)
+(defun solarized-create-color-palette (core-palette)
   "Create color-palette from CORE-PALETTE.
 
 The Returned color-palette has the same format as `solarized-color-palette'"
@@ -337,7 +337,7 @@ customize the resulting theme.
 
 CORE-PALETTE is core color-palette, passed"
   (declare (indent 2))
-  (let ((color-palette (colarized-create-color-palette core-palette)))
+  (let ((color-palette (solarized-create-color-palette core-palette)))
     (eval
      `(deftheme ,theme-name
         ,(format "The %s-%s colour theme of Solarized colour theme flavor."
