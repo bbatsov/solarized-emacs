@@ -323,8 +323,7 @@ The Returned color-palette has the same format as `solarized-color-palette'"
           (s-mode-line-inactive-bg (if solarized-high-contrast-mode-line
                                        base02 base03))
           (s-mode-line-inactive-bc (if solarized-high-contrast-mode-line
-                                       base02 base02))
-          )
+                                       base02 base02)))
      ,@body))
 
 (defun create-solarized-theme-file (variant theme-name core-palette &optional childtheme overwrite)
@@ -1069,26 +1068,22 @@ customize the resulting theme."
          ((,class (:weight normal
                            :foreground ,(if solarized-emphasize-indicators
                                             green s-fringe-fg)
-                           :background ,s-fringe-bg
-                           ))))
+                           :background ,s-fringe-bg))))
        `(git-gutter:deleted
          ((,class (:weight normal
                            :foreground ,(if solarized-emphasize-indicators
                                             red s-fringe-fg)
-                           :background ,s-fringe-bg
-                           ))))
+                           :background ,s-fringe-bg))))
        `(git-gutter:modified
          ((,class (:weight normal
                            :foreground ,(if solarized-emphasize-indicators
                                             blue s-fringe-fg)
-                           :background ,s-fringe-bg
-                           ))))
+                           :background ,s-fringe-bg))))
        `(git-gutter:unchanged
          ((,class (:weight normal
                            :foreground ,(if solarized-emphasize-indicators
                                             base01 s-fringe-fg)
-                           :background ,s-fringe-bg
-                           ))))
+                           :background ,s-fringe-bg))))
 ;;;;; git-gutter-fr
        `(git-gutter-fr:added ((,class (:foreground ,green  :weight bold))))
        `(git-gutter-fr:deleted ((,class (:foreground ,red :weight bold))))
@@ -2412,8 +2407,7 @@ customize the resulting theme."
        `(ztreep-expand-sign-face ((,class (:foreground ,base01))))
        `(ztreep-header-face ((,class (:foreground ,base01 :weight bold :height 1.2))))
        `(ztreep-leaf-face ((,class (:foreground  ,base0))))
-       `(ztreep-node-face ((,class (:foreground ,blue))))
-       ) ; END custom-theme-set-faces
+       `(ztreep-node-face ((,class (:foreground ,blue)))))
 ;;; Theme Variables
       (custom-theme-set-variables
        ',theme-name
@@ -2499,10 +2493,7 @@ customize the resulting theme."
                                            ,base0 ,violet ,base1 ,base3]))
 ;;; Setup End
       ,(when childtheme
-         `(funcall ',childtheme))
-      ) ; END custom-theme-set-variables
-   )
-  )    ; END defun create-solarized-theme
+         `(funcall ',childtheme)))))
 
 ;;; Footer
 
