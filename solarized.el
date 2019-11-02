@@ -328,7 +328,7 @@ VARIANT is 'dark or 'light."
                                        base02 base02)))
      ,@body))
 
-(defun create-solarized-theme-file (variant theme-name core-palette &optional childtheme overwrite)
+(defun solarized-create-theme-file (variant theme-name core-palette &optional childtheme overwrite)
   "Create a VARIANT of the theme named THEME-NAME with CORE-PALETTE.
 
 When optional argument CHILDTHEME function is supplied it's invoked to further
@@ -351,19 +351,19 @@ If OVERWRITE is non-nil, overwrite theme file if exist."
                 (deftheme ,theme-name
                   ,(format "The %s colour theme of Solarized colour theme flavor." theme-name))
                 (let ((custom--inhibit-theme-enable nil))
-                  (create-solarized-theme-with-palette ',variant ',theme-name ',core-palette ',childtheme))
+                  (solarized-create-theme-with-palette ',variant ',theme-name ',core-palette ',childtheme))
                 (provide-theme ',theme-name)
                 (provide ',(intern (format "%s-theme" theme-name)))))))
     path))
 
-(defun create-solarized-theme (variant theme-name &optional childtheme)
+(defun solarized-create-theme (variant theme-name &optional childtheme)
   "Create a VARIANT of the theme named THEME-NAME.
 
 When optional argument CHILDTHEME function is supplied it's invoked to further
 customize the resulting theme."
   (solarized-definition variant theme-name solarized-color-palette-alist childtheme))
 
-(defun create-solarized-theme-with-palette (variant theme-name core-palette &optional childtheme)
+(defun solarized-create-theme-with-palette (variant theme-name core-palette &optional childtheme)
   "Create a VARIANT of the theme named THEME-NAME with CORE-PALETTE.
 
 When optional argument CHILDTHEME function is supplied it's invoked to further
@@ -373,6 +373,10 @@ CORE-PALETTE is core color-palette."
   (declare (indent 2))
   (let ((color-palette (solarized-create-color-palette core-palette)))
     (solarized-definition variant theme-name color-palette childtheme)))
+
+(define-obsolete-function-alias create-solarized-theme-file         solarized-create-theme-file)
+(define-obsolete-function-alias create-solarized-theme              solarized-create-theme)
+(define-obsolete-function-alias create-solarized-theme-with-palette solarized-create-theme-with-palette)
 
 (defun solarized-definition (variant theme-name color-palette &optional childtheme)
   "Create a VARIANT of the theme named THEME-NAME with COLOR-PALETTE.
