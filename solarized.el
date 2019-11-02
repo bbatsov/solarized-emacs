@@ -51,6 +51,11 @@
 The theme has to be reloaded after changing anything in this group."
   :group 'faces)
 
+(defcustom solarized-theme-dir (locate-user-emacs-file "themes/")
+  "Directory to save theme file."
+  :type 'directory
+  :group 'solarized)
+
 (defcustom solarized-distinct-fringe-background nil
   "Make the fringe background different from the normal background color.
 Also affects `linum-mode' background."
@@ -322,6 +327,33 @@ The Returned color-palette has the same format as `solarized-color-palette'"
           )
      ,@body))
 
+(defun create-solarized-theme-file (variant theme-name core-palette &optional childtheme overwrite)
+  "Create a VARIANT of the theme named THEME-NAME with CORE-PALETTE.
+
+When optional argument CHILDTHEME function is supplied it's invoked to further
+customize the resulting theme.
+
+CORE-PALETTE is core color-palette.
+If OVERWRITE is non-nil, overwrite theme file if exist."
+  (declare (indent 2))
+  (add-to-list 'custom-theme-load-path solarized-theme-dir)
+  (let ((path (expand-file-name (format "%s.el" theme-name)
+                                solarized-theme-dir)))
+    (unless (file-directory-p solarized-theme-dir)
+      (make-directory solarized-theme-dir))
+    (when (or overwrite (not (file-readable-p path)))
+      (with-temp-file (expand-file-name (format "%s-theme.el" theme-name)
+                                        solarized-theme-dir)
+        (mapc (lambda (elm)
+                (insert (pp-to-string elm)))
+              `((require 'solarized)
+                (deftheme ,theme-name
+                  ,(format "The %s colour theme of Solarized colour theme flavor." theme-name))
+                (create-solarized-theme-with-palette ',variant ',theme-name ',core-palette ',childtheme)
+                (provide-theme ',theme-name)
+                (provide ',(intern (format "%s-theme" theme-name)))))))
+    path))
+
 (defun create-solarized-theme (variant theme-name &optional childtheme)
   "Create a VARIANT of the theme named THEME-NAME.
 
@@ -338,10 +370,6 @@ customize the resulting theme.
 CORE-PALETTE is core color-palette, passed"
   (declare (indent 2))
   (let ((color-palette (solarized-create-color-palette core-palette)))
-    (eval
-     `(deftheme ,theme-name
-        ,(format "The %s-%s colour theme of Solarized colour theme flavor."
-                 (symbol-name theme-name) (symbol-name variant))))
     (solarized-definition variant theme-name color-palette childtheme)))
 
 (defun solarized-definition (variant theme-name color-palette &optional childtheme)
