@@ -374,9 +374,9 @@ CORE-PALETTE is core color-palette."
   (let ((color-palette (solarized-create-color-palette core-palette)))
     (solarized-definition variant theme-name color-palette childtheme)))
 
-(define-obsolete-function-alias create-solarized-theme-file         solarized-create-theme-file)
-(define-obsolete-function-alias create-solarized-theme              solarized-create-theme)
-(define-obsolete-function-alias create-solarized-theme-with-palette solarized-create-theme-with-palette)
+(define-obsolete-function-alias 'create-solarized-theme-file         'solarized-create-theme-file)
+(define-obsolete-function-alias 'create-solarized-theme              'solarized-create-theme)
+(define-obsolete-function-alias 'create-solarized-theme-with-palette 'solarized-create-theme-with-palette)
 
 (defun solarized-definition (variant theme-name color-palette &optional childtheme)
   "Create a VARIANT of the theme named THEME-NAME with COLOR-PALETTE.
