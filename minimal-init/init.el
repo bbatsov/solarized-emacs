@@ -3,14 +3,14 @@
 
 (defun dev-set-solarized-settings ()
   (interactive)
-  (setq
+  (setq-default
    solarized-distinct-fringe-background nil
    solarized-distinct-doc-face nil
    solarized-use-variable-pitch t
-   solarized-use-less-bold nil
+   solarized-use-less-bold t
    solarized-use-more-italic t
    solarized-emphasize-indicators t
-   solarized-high-contrast-mode-line t
+   solarized-high-contrast-mode-line nil
    solarized-height-minus-1 0.8
    solarized-height-plus-1 1.1
    solarized-height-plus-2 1.15
