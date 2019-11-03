@@ -1,3 +1,7 @@
 elpa*
 .cask
 *.elc
+*~
+\#*\#
+.\#*
+tramp
