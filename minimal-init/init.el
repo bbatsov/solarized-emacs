@@ -81,7 +81,7 @@
   (interactive)
   (dev-save-elisp-buffers)
   (load "solarized")
-  (let ((themes custom-enabled-themes))
+  (let ((themes (reverse custom-enabled-themes)))
     (dev-disable-all-themes)
     (dolist (v themes)
       (load-theme v t))))
