@@ -30,5 +30,11 @@ clean:
 # test: elpa
 # 	$(CASK) exec buttercup -L .
 
+run:
+	$(CASK) exec emacs -q -l ./minimal-init/init.el ${ARGS}
+
 test: elpa
-	$(CASK) exec emacs -q -l ./minimal-init/init.el
+	$(MAKE) run
+
+dev: clean elpa
+	$(MAKE) ARGS="minimal-init/test-files/* minimal-init/init.el *-theme.el solarized.el" run
