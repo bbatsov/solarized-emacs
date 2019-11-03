@@ -1,5 +1,26 @@
 ;; this init file is primarily focused around developing and
 ;; evaluating theming outside of ones own emacs.d.
+
+(defun dev-set-solarized-settings ()
+  (interactive)
+  (setq
+   solarized-distinct-fringe-background nil
+   solarized-distinct-doc-face nil
+   solarized-use-variable-pitch t
+   solarized-use-less-bold nil
+   solarized-use-more-italic t
+   solarized-emphasize-indicators t
+   solarized-high-contrast-mode-line t
+   solarized-height-minus-1 0.8
+   solarized-height-plus-1 1.1
+   solarized-height-plus-2 1.15
+   solarized-height-plus-3 1.2
+   solarized-height-plus-4 1.3
+   solarized-scale-org-headlines t
+   solarized-scale-outline-headlines t
+   ;; end
+   ))
+
 (setq pop-up-frame-function nil
       inhibit-startup-screen t
       initial-scratch-message nil
@@ -8,7 +29,7 @@
       create-lockfiles nil
       display-buffer-alist
       '((".*" (display-buffer-reuse-window
-	       display-buffer-same-window)))
+               display-buffer-same-window)))
       enable-local-variables nil)
 
 (require 'subr-x)
@@ -25,18 +46,18 @@
 
 (when load-file-name
   (let* ((init-dir (file-name-as-directory (file-name-directory load-file-name)))
-	 (elisp-dir (expand-file-name ".." init-dir))
-	 (childtheme-dir (expand-file-name "../child-theme-example" init-dir))
-	 (childtheme-themes-dir (expand-file-name "themes" childtheme-dir)))
+         (elisp-dir (expand-file-name ".." init-dir))
+         (childtheme-dir (expand-file-name "../child-theme-example" init-dir))
+         (childtheme-themes-dir (expand-file-name "themes" childtheme-dir)))
 
     (defvar dev-project-root elisp-dir)
 
     (add-to-list 'load-path elisp-dir)
     (add-to-list 'load-path childtheme-dir)
     (setq custom-theme-load-path (list elisp-dir childtheme-themes-dir)
-	  package-user-dir (expand-file-name "elpa" init-dir)
-	  package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
-			     ("melpa" . "https://melpa.org/packages/")))))
+          package-user-dir (expand-file-name "elpa" init-dir)
+          package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+                             ("melpa" . "https://melpa.org/packages/")))))
 
 
 (defun dev-themes ()
@@ -50,15 +71,15 @@
 (defun dev-cycle-themes (&optional themes)
   (interactive)
   (let* ((themes (or themes (dev-themes)))
-	 (current-theme-candidate (and custom-enabled-themes (car custom-enabled-themes)))
-	 (current-theme (if (member current-theme-candidate themes)
-			    current-theme-candidate
-			  (car themes)))
-	 (next-theme (if (not current-theme)
-			 dev-default-theme
-		       (nth (mod (+ 1 (seq-position themes current-theme))
-				 (length themes))
-			    themes))))
+         (current-theme-candidate (and custom-enabled-themes (car custom-enabled-themes)))
+         (current-theme (if (member current-theme-candidate themes)
+                            current-theme-candidate
+                          (car themes)))
+         (next-theme (if (not current-theme)
+                         dev-default-theme
+                       (nth (mod (+ 1 (seq-position themes current-theme))
+                                 (length themes))
+                            themes))))
     (dev-disable-all-themes)
     (message "loading theme: %s" next-theme)
     (load-theme next-theme t)))
@@ -83,10 +104,12 @@
   (unless dev-reload-theme-last-setting
     (setq dev-reload-theme-last-setting (copy-sequence custom-enabled-themes)))
   (dev-save-elisp-buffers)
-  (unload-feature 'solarized t)
+  (ignore-errors
+    (unload-feature 'solarized t))
+  (dev-set-solarized-settings)
   (load-library "solarized")
   (let ((themes (reverse (or dev-reload-theme-last-setting
-			     custom-enabled-themes))))
+                             custom-enabled-themes))))
     (dev-disable-all-themes)
     (dolist (v themes)
       (load-theme v t)))
@@ -96,10 +119,10 @@
 (defun dev-save-elisp-buffers ()
   (interactive)
   (save-some-buffers 'no-confirm
-		     (lambda ()
-		       (and buffer-file-name
-			    (eq major-mode 'emacs-lisp-mode)
-			    (string-prefix-p dev-project-root buffer-file-name)))))
+                     (lambda ()
+                       (and buffer-file-name
+                            (eq major-mode 'emacs-lisp-mode)
+                            (string-prefix-p dev-project-root buffer-file-name)))))
 
 (defun dev-switch-buffer-solarized ()
   (interactive)
@@ -111,35 +134,35 @@
   (dolist
       (p custom-theme-load-path)
     (let* (
-	   (current-theme (and custom-enabled-themes (car custom-enabled-themes)))
-	   (current-theme-filename (expand-file-name (concat (symbol-name current-theme) "-theme.el") p)))
+           (current-theme (and custom-enabled-themes (car custom-enabled-themes)))
+           (current-theme-filename (expand-file-name (concat (symbol-name current-theme) "-theme.el") p)))
       (if (file-exists-p current-theme-filename)
-	  (find-file current-theme-filename)))))
+          (find-file current-theme-filename)))))
 (global-set-key (kbd "<f10>") 'dev-switch-buffer-current-theme)
 
 (defvar dev-tf-current-buffer nil)
 (defun dev-tf-switch-buffer (&optional backwards)
   (let* ((cur (current-buffer))
-	 (all (seq-filter '(lambda (b)
-			     (let ((filen (buffer-file-name b)))
-			       (and
-				filen
-				(string-suffix-p "/test-files/" (file-name-directory filen)))))
-			  (buffer-list)))
+         (all (seq-filter '(lambda (b)
+                             (let ((filen (buffer-file-name b)))
+                               (and
+                                filen
+                                (string-suffix-p "/test-files/" (file-name-directory filen)))))
+                          (buffer-list)))
 
-	 (all-len  (length all))
-	 (all-sorted (cl-sort all 'string-lessp :key '(lambda (b) (downcase (buffer-file-name b)))))
-	 (cur-idx-pos (seq-position all-sorted cur))
-	 (next-idx-pos (cond
-			((not cur-idx-pos) 0)
-			((and backwards (= cur-idx-pos 0) ) (- all-len 1))
-			((and (not backwards) (= cur-idx-pos (- all-len 1))) 0)
-			(t (+ cur-idx-pos (if backwards -1 1)))))
-	 (next-buf (if (and (not cur-idx-pos)
-			    (bufferp dev-tf-current-buffer)
-			    (buffer-live-p dev-tf-current-buffer))
-		       dev-tf-current-buffer
-		     (elt all-sorted next-idx-pos))))
+         (all-len  (length all))
+         (all-sorted (cl-sort all 'string-lessp :key '(lambda (b) (downcase (buffer-file-name b)))))
+         (cur-idx-pos (seq-position all-sorted cur))
+         (next-idx-pos (cond
+                        ((not cur-idx-pos) 0)
+                        ((and backwards (= cur-idx-pos 0) ) (- all-len 1))
+                        ((and (not backwards) (= cur-idx-pos (- all-len 1))) 0)
+                        (t (+ cur-idx-pos (if backwards -1 1)))))
+         (next-buf (if (and (not cur-idx-pos)
+                            (bufferp dev-tf-current-buffer)
+                            (buffer-live-p dev-tf-current-buffer))
+                       dev-tf-current-buffer
+                     (elt all-sorted next-idx-pos))))
 
     (setq dev-tf-current-buffer next-buf)
     (switch-to-buffer next-buf)))
@@ -154,23 +177,9 @@
   (dev-tf-switch-buffer t))
 (global-set-key (kbd "<f12>") 'dev-tf-switch-buffer-prev)
 
-(setq
- solarized-distinct-fringe-background nil
- solarized-distinct-doc-face nil
- solarized-use-variable-pitch t
- solarized-use-less-bold t
- solarized-use-more-italic t
- solarized-emphasize-indicators t
- solarized-high-contrast-mode-line nil
- solarized-height-minus-1 0.8
- solarized-height-plus-1 1.1
- solarized-height-plus-2 1.15
- solarized-height-plus-3 1.2
- solarized-height-plus-4 1.3
- solarized-scale-org-headlines t
- solarized-scale-outline-headlines t
- ;; end
- )
+
+
+(dev-set-solarized-settings)
 
 (require 'package)
 (package-initialize)
@@ -179,21 +188,21 @@
   (if (package-installed-p package min-version)
       t
     (if (or (assoc package package-archive-contents) no-refresh)
-	(package-install package)
+        (package-install package)
       (progn
-	(package-refresh-contents)
-	(require-package package min-version t)))))
+        (package-refresh-contents)
+        (require-package package min-version t)))))
 
 
 (mapc 'require-package
       '(;; required by solarized
-	dash
-	;; utility/convinience
-	flx-ido projectile
-	;; utility/convinience + face testing
-	magit smartparens
-	;; editor major modes for face testing
-	web-mode haskell-mode go-mode js2-mode markdown-mode rust-mode))
+        dash
+        ;; utility/convinience
+        flx-ido projectile
+        ;; utility/convinience + face testing
+        magit smartparens
+        ;; editor major modes for face testing
+        web-mode haskell-mode go-mode js2-mode markdown-mode rust-mode))
 
 (when load-file-name
   (smartparens-global-mode)
