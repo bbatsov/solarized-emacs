@@ -30,7 +30,12 @@
       display-buffer-alist
       '((".*" (display-buffer-reuse-window
                display-buffer-same-window)))
-      enable-local-variables nil)
+      enable-local-variables nil
+      ediff-window-setup-function 'ediff-setup-windows-plain
+      ediff-diff-options "-w"
+      magit-diff-refine-hunk 'all
+      ;;ediff-merge-split-window-function ediff-split-window-function
+      )
 
 (require 'subr-x)
 
