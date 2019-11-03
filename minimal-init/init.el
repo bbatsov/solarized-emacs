@@ -77,14 +77,20 @@
     (disable-theme v)))
 (global-set-key (kbd "<f4>") 'dev-disable-all-themes)
 
+(defvar dev-reload-theme-last-setting nil)
 (defun dev-reload-theme()
   (interactive)
+  (unless dev-reload-theme-last-setting
+    (setq dev-reload-theme-last-setting (copy-sequence custom-enabled-themes)))
   (dev-save-elisp-buffers)
-  (load "solarized")
-  (let ((themes (reverse custom-enabled-themes)))
+  (unload-feature 'solarized t)
+  (load-library "solarized")
+  (let ((themes (reverse (or dev-reload-theme-last-setting
+			     custom-enabled-themes))))
     (dev-disable-all-themes)
     (dolist (v themes)
-      (load-theme v t))))
+      (load-theme v t)))
+  (setq dev-reload-theme-last-setting nil))
 (global-set-key (kbd "<f5>") 'dev-reload-theme)
 
 (defun dev-save-elisp-buffers ()
