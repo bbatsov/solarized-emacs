@@ -35,10 +35,9 @@ get_files v3.7.0
 git checkout v3
 get_files v3.8.0
 git checkout master
-
 git checkout v2
-
+git worktree add v3 v3
+git worktree add v1 v1
+(diff v1/inspect.py inspect.py > inspect_v1-v2.diff) || true
 git merge v3 || true
-
-
 git diff --color | cat
