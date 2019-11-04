@@ -32,10 +32,12 @@
                display-buffer-same-window)))
       enable-local-variables nil
       web-mode-enable-engine-detection t
-      ediff-window-setup-function 'ediff-setup-windows-plain
-      ediff-diff-options "-w"
+      ediff-make-buffers-readonly-at-startup nil
+      ediff-diff-options ""
       magit-diff-refine-hunk 'all
-      ;;ediff-merge-split-window-function ediff-split-window-function
+      magit-diff-refine-ignore-whitespace nil
+      ediff-window-setup-function 'ediff-setup-windows-plain
+      ;;
       )
 
 (require 'subr-x)
@@ -64,7 +66,9 @@
           package-user-dir (expand-file-name "elpa" init-dir)
           package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                              ("melpa" . "https://melpa.org/packages/")))))
-
+(defun dev-open-merge()
+  (interactive)
+  (find-file (expand-file-name "minimal-init/test-repo/" dev-project-root)))
 
 (defun dev-themes ()
   "get list of all themes"

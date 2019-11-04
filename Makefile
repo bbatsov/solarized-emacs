@@ -38,3 +38,10 @@ test: elpa
 
 dev: clean elpa
 	$(MAKE) ARGS="minimal-init/test-files/* minimal-init/init.el *-theme.el solarized.el" run
+
+dev-merge: clean elpa
+	rm -rf minimal-init/test-repo
+	git clone minimal-init/test.git minimal-init/test-repo
+	git -C minimal-init/test-repo checkout v2
+	git -C minimal-init/test-repo merge origin/v1 || exit 0
+	$(MAKE) ARGS="minimal-init/init.el *-theme.el solarized.el minimal-init/test-repo" run
