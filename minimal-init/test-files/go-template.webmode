@@ -1,0 +1,62 @@
+<!-- -*- engine:go -*- -->
+{{if .User.HasPermission "feature-a"}}
+  <div class="feature">
+    <h3>Feature A</h3>
+    <p>Some other stuff here...</p>
+  </div>
+{{else}}
+  <div class="feature disabled">
+    <h3>Feature A</h3>
+    <p>To enable Feature A please upgrade your plan</p>
+  </div>
+{{end}}
+
+{{if .User.HasPermission "feature-b"}}
+  <div class="feature">
+    <h3>Feature B</h3>
+    <p>Some other stuff here...</p>
+  </div>
+{{else}}
+  <div class="feature disabled">
+    <h3>Feature B</h3>
+    <p>To enable Feature B please upgrade your plan</p>
+  </div>
+{{end}}
+
+<pre>
+{{with .Account -}}
+Dear {{.FirstName}} {{.LastName}},
+{{- end}}
+
+Below are your account statement details for period from {{.FromDate | formatAsDate}} to {{.ToDate | formatAsDate}}.
+
+{{if .Purchases -}}
+    Your purchases:
+    {{- range .Purchases }}
+        {{ .Date | formatAsDate}} {{ printf "%-20s" .Description }} {{.AmountInCents | formatAsDollars -}}
+    {{- end}}
+{{- else}}
+You didn't make any purchases during the period.
+{{- end}}
+
+{{$note := urgentNote .Account -}}
+{{if $note -}}
+Note: {{$note}}
+{{- end}}
+
+Best Wishes,
+Customer Service
+</pre>
+
+<style>
+  .feature {
+    border: 1px solid #eee;
+    padding: 10px;
+    margin: 5px;
+    width: 45%;
+    display: inline-block;
+  }
+  .disabled {
+    color: #ccc;
+  }
+</style>

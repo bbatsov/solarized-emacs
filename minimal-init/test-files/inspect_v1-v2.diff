@@ -1,0 +1,223 @@
+21c21
+<     formatargspec(), formatargvalues() - format an argument spec
+---
+>     formatargvalues() - format an argument spec
+34c34
+< import ast
+---
+> import abc
+256,267c256,273
+<         co_argcount     number of arguments (not including * or ** args)
+<         co_code         string of raw compiled bytecode
+<         co_consts       tuple of constants used in the bytecode
+<         co_filename     name of file in which this code object was created
+<         co_firstlineno  number of first line in Python source code
+<         co_flags        bitmap: 1=optimized | 2=newlocals | 4=*arg | 8=**arg
+<         co_lnotab       encoded mapping of line numbers to bytecode indices
+<         co_name         name with which this code object was defined
+<         co_names        tuple of names of local variables
+<         co_nlocals      number of local variables
+<         co_stacksize    virtual machine stack space required
+<         co_varnames     tuple of names of arguments and local variables"""
+---
+>         co_argcount         number of arguments (not including *, ** args
+>                             or keyword only arguments)
+>         co_code             string of raw compiled bytecode
+>         co_cellvars         tuple of names of cell variables
+>         co_consts           tuple of constants used in the bytecode
+>         co_filename         name of file in which this code object was created
+>         co_firstlineno      number of first line in Python source code
+>         co_flags            bitmap: 1=optimized | 2=newlocals | 4=*arg | 8=**arg
+>                             | 16=nested | 32=generator | 64=nofree | 128=coroutine
+>                             | 256=iterable_coroutine | 512=async_generator
+>         co_freevars         tuple of names of free variables
+>         co_kwonlyargcount   number of keyword only arguments (not including ** arg)
+>         co_lnotab           encoded mapping of line numbers to bytecode indices
+>         co_name             name with which this code object was defined
+>         co_names            tuple of names of local variables
+>         co_nlocals          number of local variables
+>         co_stacksize        virtual machine stack space required
+>         co_varnames         tuple of names of arguments and local variables"""
+288c294,314
+<     return bool(isinstance(object, type) and object.__flags__ & TPFLAGS_IS_ABSTRACT)
+---
+>     if not isinstance(object, type):
+>         return False
+>     if object.__flags__ & TPFLAGS_IS_ABSTRACT:
+>         return True
+>     if not issubclass(type(object), abc.ABCMeta):
+>         return False
+>     if hasattr(object, '__abstractmethods__'):
+>         # It looks like ABCMeta.__new__ has finished running;
+>         # TPFLAGS_IS_ABSTRACT should have been accurate.
+>         return False
+>     # It looks like ABCMeta.__new__ has not finished running yet; we're
+>     # probably in __init_subclass__. We'll look for abstractmethods manually.
+>     for name, value in object.__dict__.items():
+>         if getattr(value, "__isabstractmethod__", False):
+>             return True
+>     for base in object.__bases__:
+>         for name in getattr(base, "__abstractmethods__", ()):
+>             value = getattr(object, name, None)
+>             if getattr(value, "__isabstractmethod__", False):
+>                 return True
+>     return False
+365c391
+<     metamro = tuple([cls for cls in metamro if cls not in (type, object)])
+---
+>     metamro = tuple(cls for cls in metamro if cls not in (type, object))
+433c459
+<         if isinstance(dict_obj, staticmethod):
+---
+>         if isinstance(dict_obj, (staticmethod, types.BuiltinMethodType)):
+436c462
+<         elif isinstance(dict_obj, classmethod):
+---
+>         elif isinstance(dict_obj, (classmethod, types.ClassMethodDescriptorType)):
+481c507,510
+<     memo = {id(f)} # Memoise by id to tolerate non-hashable objects
+---
+>     # Memoise by id to tolerate non-hashable objects, but store objects to
+>     # ensure they aren't destroyed, which would allow their IDs to be reused.
+>     memo = {id(f): f}
+>     recursion_limit = sys.getrecursionlimit()
+485c514
+<         if id_func in memo:
+---
+>         if (id_func in memo) or (len(memo) >= recursion_limit):
+487c516
+<         memo.add(id_func)
+---
+>         memo[id_func] = func
+616c645
+<         if hasattr(object, '__file__'):
+---
+>         if getattr(object, '__file__', None):
+622c651
+<             if hasattr(object, '__file__'):
+---
+>             if getattr(object, '__file__', None):
+635,636c664,666
+<     raise TypeError('{!r} is not a module, class, method, '
+<                     'function, traceback, frame, or code object'.format(object))
+---
+>     raise TypeError('module, class, method, function, traceback, frame, or '
+>                     'code object was expected, got {}'.format(
+>                     type(object).__name__))
+1184c1214,1226
+<     function to format the sequence of arguments."""
+---
+>     function to format the sequence of arguments.
+> 
+>     Deprecated since Python 3.5: use the `signature` function and `Signature`
+>     objects.
+>     """
+> 
+>     from warnings import warn
+> 
+>     warn("`formatargspec` is deprecated since Python 3.5. Use `signature` and "
+>          "the `Signature` object directly",
+>          DeprecationWarning,
+>          stacklevel=2)
+> 
+1353c1395
+<         raise TypeError("'{!r}' is not a Python function".format(func))
+---
+>         raise TypeError("{!r} is not a Python function".format(func))
+1419d1460
+<             start = max(start, 1)
+1597c1638
+<         raise TypeError("'{!r}' is not a Python generator".format(generator))
+---
+>         raise TypeError("{!r} is not a Python generator".format(generator))
+1912a1954,1956
+>     # Lazy import ast because it's relatively heavy and
+>     # it's not used for other than this function.
+>     import ast
+2218d2261
+< 
+2220,2222c2263,2272
+<             new_params = (first_wrapped_param,) + tuple(sig.parameters.values())
+< 
+<             return sig.replace(parameters=new_params)
+---
+>             if first_wrapped_param.kind is Parameter.VAR_POSITIONAL:
+>                 # First argument of the wrapped callable is `*args`, as in
+>                 # `partialmethod(lambda *args)`.
+>                 return sig
+>             else:
+>                 sig_params = tuple(sig.parameters.values())
+>                 assert (not sig_params or
+>                         first_wrapped_param is not sig_params[0])
+>                 new_params = (first_wrapped_param,) + sig_params
+>                 return sig.replace(parameters=new_params)
+2366a2417,2426
+> _PARAM_NAME_MAPPING = {
+>     _POSITIONAL_ONLY: 'positional-only',
+>     _POSITIONAL_OR_KEYWORD: 'positional or keyword',
+>     _VAR_POSITIONAL: 'variadic positional',
+>     _KEYWORD_ONLY: 'keyword-only',
+>     _VAR_KEYWORD: 'variadic keyword'
+> }
+> 
+> _get_paramkind_descr = _PARAM_NAME_MAPPING.__getitem__
+> 
+2401,2406c2461,2464
+< 
+<         if kind not in (_POSITIONAL_ONLY, _POSITIONAL_OR_KEYWORD,
+<                         _VAR_POSITIONAL, _KEYWORD_ONLY, _VAR_KEYWORD):
+<             raise ValueError("invalid value for 'Parameter.kind' attribute")
+<         self._kind = kind
+< 
+---
+>         try:
+>             self._kind = _ParameterKind(kind)
+>         except ValueError:
+>             raise ValueError(f'value {kind!r} is not a valid Parameter.kind')
+2408,2409c2466,2468
+<             if kind in (_VAR_POSITIONAL, _VAR_KEYWORD):
+<                 msg = '{} parameters cannot have default values'.format(kind)
+---
+>             if self._kind in (_VAR_POSITIONAL, _VAR_KEYWORD):
+>                 msg = '{} parameters cannot have default values'
+>                 msg = msg.format(_get_paramkind_descr(self._kind))
+2418c2477,2478
+<             raise TypeError("name must be a str, not a {!r}".format(name))
+---
+>             msg = 'name must be a str, not a {}'.format(type(name).__name__)
+>             raise TypeError(msg)
+2425,2429c2485,2488
+<             if kind != _POSITIONAL_OR_KEYWORD:
+<                 raise ValueError(
+<                     'implicit arguments must be passed in as {}'.format(
+<                         _POSITIONAL_OR_KEYWORD
+<                     )
+---
+>             if self._kind != _POSITIONAL_OR_KEYWORD:
+>                 msg = (
+>                     'implicit arguments must be passed as '
+>                     'positional or keyword arguments, not {}'
+2430a2490,2491
+>                 msg = msg.format(_get_paramkind_descr(self._kind))
+>                 raise ValueError(msg)
+2489c2550
+<             formatted = '{}:{}'.format(formatted,
+---
+>             formatted = '{}: {}'.format(formatted,
+2493c2554,2557
+<             formatted = '{}={}'.format(formatted, repr(self._default))
+---
+>             if self._annotation is not _empty:
+>                 formatted = '{} = {}'.format(formatted, repr(self._default))
+>             else:
+>                 formatted = '{}={}'.format(formatted, repr(self._default))
+2698,2699c2762,2767
+<                         msg = 'wrong parameter order: {!r} before {!r}'
+<                         msg = msg.format(top_kind, kind)
+---
+>                         msg = (
+>                             'wrong parameter order: {} parameter before {} '
+>                             'parameter'
+>                         )
+>                         msg = msg.format(_get_paramkind_descr(top_kind),
+>                                          _get_paramkind_descr(kind))
