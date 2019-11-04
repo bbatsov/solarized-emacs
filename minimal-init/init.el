@@ -31,6 +31,7 @@
       '((".*" (display-buffer-reuse-window
                display-buffer-same-window)))
       enable-local-variables nil
+      web-mode-enable-engine-detection t
       ediff-window-setup-function 'ediff-setup-windows-plain
       ediff-diff-options "-w"
       magit-diff-refine-hunk 'all
@@ -207,7 +208,11 @@
         ;; utility/convinience + face testing
         magit smartparens
         ;; editor major modes for face testing
-        web-mode haskell-mode go-mode js2-mode markdown-mode rust-mode))
+        web-mode haskell-mode go-mode js2-mode markdown-mode rust-mode php-mode))
+
+(setq auto-mode-alist
+      (append '(("\\.webmode\\'" . web-mode))
+       auto-mode-alist))
 
 (when load-file-name
   (smartparens-global-mode)
