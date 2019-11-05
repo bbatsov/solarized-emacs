@@ -354,7 +354,7 @@ VARIANT is 'dark or 'light."
                               (solarized-color-blend "#00547f" blue 0.7)))
           (s-diff-fine-C-fg (if (eq variant 'light) "#00547f" "#d6e5e5"))
 
-          (s-diff-context-fg (if (eq variant 'light) "grey50" "grey70"))
+          (s-diff-context-fg (if (eq variant 'light) base02 "grey70"))
 
           (s-diff-heading-bg (solarized-color-blend yellow base03 0.1))
 
