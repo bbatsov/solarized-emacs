@@ -358,10 +358,8 @@ VARIANT is 'dark or 'light."
                                 (solarized-color-blend "#d6e5e5" blue 0.7)
                               (solarized-color-blend "#00547f" blue 0.7)))
           (s-diff-fine-C-fg (if (eq variant 'light) "#00547f" "#d6e5e5"))
-
-          (s-diff-context-fg (if (eq variant 'light) base02 "grey70"))
-
-          (s-diff-heading-bg (solarized-color-blend yellow base03 0.1))
+          (s-diff-context-fg (if (eq variant 'light) base0 (solarized-color-blend base1 base2 0.6)))
+          (s-diff-heading-bg (if (eq variant 'light) (solarized-color-blend yellow base03 0.1) base02))
 
           (s-diffstat-added-fg green)
           (s-diffstat-changed-fg blue)
@@ -854,11 +852,11 @@ customize the resulting theme."
        `(diff-hl-reverted-hunk-highlight ((,class (:background ,s-diff-Ancestor-bg :foreground ,s-diff-Ancestor-fg))))
 ;;;;; ediff
        `(ediff-even-diff-A ((t (:background ,base02))))
-       `(ediff-even-diff-Ancestor ((,class (:foreground ,s-diff-context-fg))))
+       `(ediff-even-diff-Ancestor ((t (:background ,base02))))
        `(ediff-even-diff-B ((t (:background ,base02))))
        `(ediff-even-diff-C ((t (:background ,base02))))
        `(ediff-odd-diff-A ((t (:background ,base02))))
-       `(ediff-odd-diff-Ancestor ((,class (:foreground ,s-diff-context-fg))))
+       `(ediff-odd-diff-Ancestor ((t (:background ,base02))))
        `(ediff-odd-diff-B ((t (:background ,base02))))
        `(ediff-odd-diff-C ((t (:background ,base02))))
        `(ediff-current-diff-A ((,class (:background ,s-diff-A-bg :foreground ,s-diff-A-fg))))
