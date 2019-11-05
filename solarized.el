@@ -163,14 +163,14 @@ The Returned color-palette has the same format as `solarized-color-palette'"
         (blue           (nth 7 core-palette))
         (cyan           (nth 8 core-palette))
         (green          (nth 9 core-palette)))
-    `((s-base03  . ,(solarized-color-blend darkest-base brightest-base 1.00 2))
-      (s-base02  . ,(solarized-color-blend darkest-base brightest-base 0.97 2))
-      (s-base01  . ,(solarized-color-blend darkest-base brightest-base 0.65 2))
-      (s-base00  . ,(solarized-color-blend darkest-base brightest-base 0.60 2))
-      (s-base0   . ,(solarized-color-blend darkest-base brightest-base 0.48 2))
-      (s-base1   . ,(solarized-color-blend darkest-base brightest-base 0.42 2))
-      (s-base2   . ,(solarized-color-blend darkest-base brightest-base 0.06 2))
-      (s-base3   . ,(solarized-color-blend darkest-base brightest-base 0.00 2))
+    `((base03  . ,(solarized-color-blend darkest-base brightest-base 1.00 2))
+      (base02  . ,(solarized-color-blend darkest-base brightest-base 0.97 2))
+      (base01  . ,(solarized-color-blend darkest-base brightest-base 0.65 2))
+      (base00  . ,(solarized-color-blend darkest-base brightest-base 0.60 2))
+      (base0   . ,(solarized-color-blend darkest-base brightest-base 0.48 2))
+      (base1   . ,(solarized-color-blend darkest-base brightest-base 0.42 2))
+      (base2   . ,(solarized-color-blend darkest-base brightest-base 0.06 2))
+      (base3   . ,(solarized-color-blend darkest-base brightest-base 0.00 2))
 
       ;; Solarized accented colors
       (yellow    . ,yellow)
@@ -202,19 +202,15 @@ The Returned color-palette has the same format as `solarized-color-palette'"
       (green-l   . ,(solarized-color-blend green   brightest-base 0.80 2)))))
 
 (defvar solarized-color-palette-alist
-  '((s-base03  . "#002b36")
-    (s-base02  . "#073642")
-    ;; emphasized content
-    (s-base01  . "#586e75")
-    ;; primary content
-    (s-base00  . "#657b83")
-    (s-base0   . "#839496")
-    ;; comments
-    (s-base1   . "#93a1a1")
-    ;; background highlight light
-    (s-base2   . "#eee8d5")
-    ;; background light
-    (s-base3   . "#fdf6e3")
+  '( ;; Solarized base colors
+    (base03  . "#002b36")
+    (base02  . "#073642")
+    (base01  . "#586e75")
+    (base00  . "#657b83")
+    (base0   . "#839496")
+    (base1   . "#93a1a1")
+    (base2   . "#eee8d5")
+    (base3   . "#fdf6e3")
 
     ;; Solarized accented colors
     (yellow    . "#b58900")
@@ -257,15 +253,24 @@ VARIANT is 'dark or 'light."
           (variant ,variant)
           ,@(mapcar (lambda (elm) `(,(car elm) ,(cdr elm))) color-palette)
 
+          (s-base03 base03)
+          (s-base02 base02)
+          (s-base01 base01)
+          (s-base00 base00)
+          (s-base3 base3)
+          (s-base2 base2)
+          (s-base1 base1)
+          (s-base0 base0)
+
           ;; Solarized palette names, use these instead of -fg -bg...
-          (base0 (if (eq variant 'light) s-base00 s-base0))
-          (base00 (if (eq variant 'light) s-base0 s-base00))
-          (base1 (if (eq variant 'light) s-base01 s-base1))
-          (base01 (if (eq variant 'light) s-base1 s-base01))
-          (base2 (if (eq variant 'light) s-base02 s-base2))
-          (base02 (if (eq variant 'light) s-base2 s-base02))
-          (base3 (if (eq variant 'light) s-base03 s-base3))
           (base03 (if (eq variant 'light) s-base3 s-base03))
+          (base02 (if (eq variant 'light) s-base2 s-base02))
+          (base01 (if (eq variant 'light) s-base1 s-base01))
+          (base00 (if (eq variant 'light) s-base0 s-base00))
+          (base0 (if (eq variant 'light) s-base00 s-base0))
+          (base1 (if (eq variant 'light) s-base01 s-base1))
+          (base2 (if (eq variant 'light) s-base02 s-base2))
+          (base3 (if (eq variant 'light) s-base03 s-base3))
 
           ;; Line drawing color
           ;;
@@ -2548,14 +2553,14 @@ customize the resulting theme."
   "The gruvbox color palette.")
 
 (defvar solarized-gruvbox-dark-color-palette-alist
-  '((s-base00 . (alist-get 'dark4 solarized-gruvbox-colors))
-    (s-base01 . (alist-get 'dark3 solarized-gruvbox-colors))
-    (s-base02 . (alist-get 'dark0_soft solarized-gruvbox-colors))
-    (s-base03 . (alist-get 'dark0 solarized-gruvbox-colors))
-    (s-base0  . (alist-get 'light4 solarized-gruvbox-colors))
-    (s-base1  . (alist-get 'light3 solarized-gruvbox-colors))
-    (s-base2  . (alist-get 'light4 solarized-gruvbox-colors))
-    (s-base3  . (alist-get 'light0 solarized-gruvbox-colors))
+  '((base00 . (alist-get 'dark4 solarized-gruvbox-colors))
+    (base01 . (alist-get 'dark3 solarized-gruvbox-colors))
+    (base02 . (alist-get 'dark0_soft solarized-gruvbox-colors))
+    (base03 . (alist-get 'dark0 solarized-gruvbox-colors))
+    (base0  . (alist-get 'light4 solarized-gruvbox-colors))
+    (base1  . (alist-get 'light3 solarized-gruvbox-colors))
+    (base2  . (alist-get 'light4 solarized-gruvbox-colors))
+    (base3  . (alist-get 'light0 solarized-gruvbox-colors))
 
     (yellow  . (alist-get 'yellow solarized-gruvbox-colors))
     (orange  . (alist-get 'orange solarized-gruvbox-colors))
@@ -2585,14 +2590,14 @@ customize the resulting theme."
   "The solarized gruvbox dark palette color alist.")
 
 (defvar solarized-gruvbox-light-color-palette-alist
-  '((s-base00 . (alist-get 'dark4 solarized-gruvbox-colors))
-    (s-base01 . (alist-get 'dark3 solarized-gruvbox-colors))
-    (s-base02 . (alist-get 'dark0_soft solarized-gruvbox-colors))
-    (s-base03 . (alist-get 'dark0 solarized-gruvbox-colors))
-    (s-base0  . (alist-get 'dark1 solarized-gruvbox-colors))
-    (s-base1  . (alist-get 'light4 solarized-gruvbox-colors))
-    (s-base2  . (alist-get 'light1 solarized-gruvbox-colors))
-    (s-base3  . (alist-get 'light0 solarized-gruvbox-colors))
+  '((base00 . (alist-get 'dark4 solarized-gruvbox-colors))
+    (base01 . (alist-get 'dark3 solarized-gruvbox-colors))
+    (base02 . (alist-get 'dark0_soft solarized-gruvbox-colors))
+    (base03 . (alist-get 'dark0 solarized-gruvbox-colors))
+    (base0  . (alist-get 'dark1 solarized-gruvbox-colors))
+    (base1  . (alist-get 'light4 solarized-gruvbox-colors))
+    (base2  . (alist-get 'light1 solarized-gruvbox-colors))
+    (base3  . (alist-get 'light0 solarized-gruvbox-colors))
 
     (yellow  . (alist-get 'dark_yellow solarized-gruvbox-colors))
     (orange  . (alist-get 'dark_orange solarized-gruvbox-colors))
