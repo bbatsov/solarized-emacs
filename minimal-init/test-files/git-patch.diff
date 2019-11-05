@@ -1,0 +1,90 @@
+e77ddc1 2 years, 2 months ago jorge.israel.p@gmail.com remove variant conditions
+diff --git a/solarized.el b/solarized.el
+index 9d41568..2fa0a26 100644
+--- a/solarized.el
++++ b/solarized.el
+@@ -364,9 +364,10 @@ customize the resulting theme."
+      `(dired-symlink ((,class (:foreground ,cyan :weight normal :slant italic))))
+      `(dired-warning ((,class (:foreground ,orange :underline t))))
+ ;;;;; dired-async
+-     `(dired-async-message ((,class (:background ,(if (eq variant 'light) yellow-l yellow) ))))
+-     `(dired-async-mode-message
+-       ((,class (:background ,(if (eq variant 'light) red-l red) ))))
++     `(dired-async-message ((,light-class (:background ,yellow-l ))
++                            (,dark-class (:background ,yellow ))))
++     `(dired-async-mode-message ((,light-class (:background ,red-l))
++                                 (,dark-class (:background red))))
+ ;;;;; dired-efap
+      `(dired-efap-face ((,class (:box nil
+                                       :background ,base02
+@@ -726,21 +727,29 @@ customize the resulting theme."
+      ;;                                          ))))
+ ;;;;; edts
+      `(edts-face-error-line
+-       ((,(append '((supports :underline (:style line))) class)
+-         (:underline (:style line :color ,(if (eq variant 'light) red-l red)) :inherit unspecified))
++       ((,(append '((supports :underline (:style line))) light-class)
++         (:underline (:style line :color ,red-l) :inherit unspecified))
++        (,(append '((supports :underline (:style line))) dark-class)
++         (:underline (:style line :color ,red) :inherit unspecified))
+         (,class (:foreground ,red-hc :background ,red-lc :weight bold :underline t))))
+      `(edts-face-warning-line
+-       ((,(append '((supports :underline (:style line))) class)
+-         (:underline (:style line :color ,(if (eq variant 'light) yellow-l yellow)) :inherit unspecified))
++       ((,(append '((supports :underline (:style line))) light-class)
++         (:underline (:style line :color ,yellow-l) :inherit unspecified))
++        (,(append '((supports :underline (:style line))) dark-class)
++         (:underline (:style line :color ,yellow) :inherit unspecified))
+         (,class (:foreground ,yellow-hc :background ,yellow-lc :weight bold :underline t))))
+      `(edts-face-error-fringe-bitmap
+-       ((,class (:foreground ,(if (eq variant 'light) red-l red) :background unspecified :weight bold))))
++       ((,light-class (:foreground ,red-l :background unspecified :weight bold))
++        (,dark-class (:foreground ,red :background unspecified :weight bold))))
+      `(edts-face-warning-fringe-bitmap
+-       ((,class (:foreground ,(if (eq variant 'light) yellow-l yellow) :background unspecified :weight bold))))
++       ((,light-class (:foreground ,yellow-l :background unspecified :weight bold))
++        (,dark-class (:foreground ,yellow :background unspecified :weight bold))))
+      `(edts-face-error-mode-line
+-       ((,class (:background ,(if (eq variant 'light) red-l red) :foreground unspecified))))
++       ((,light-class (:background ,red-l :foreground unspecified))
++        (,dark-class (:background ,red :foreground unspecified))))
+      `(edts-face-warning-mode-line
+-       ((,class (:background ,(if (eq variant 'light) yellow-l yellow) :foreground unspecified))))
++       ((,light-class (:background ,yellow-l :foreground unspecified))
++        (,dark-class (:background ,yellow :foreground unspecified))))
+ ;;;;; elfeed
+      `(elfeed-search-date-face ((,class (:foreground ,base01))))
+      `(elfeed-search-feed-face ((,class (:foreground ,base01))))
+@@ -798,7 +807,8 @@ customize the resulting theme."
+      `(eshell-ls-special ((,class (:foreground ,yellow :weight bold))))
+      `(eshell-ls-symlink ((,class (:foreground ,cyan :weight bold))))
+ ;;;;; evil-search-highlight-persist
+-     `(evil-search-highlight-persist-highlight-face ((,class (:background ,(if (eq variant 'light) green-lc violet-lc)))))
++     `(evil-search-highlight-persist-highlight-face ((,light-class (:background ,green-lc))
++                                                     (,dark-class (:background ,violet-lc))))
+ ;;;;; fic
+      `(fic-author-face ((,class (:background ,base03 :foreground ,orange
+                                              :underline t :slant italic))))
+@@ -1535,18 +1545,10 @@ customize the resulting theme."
+      `(nav-face-hfile ((,class (:foreground ,red))))
+ ;;;;; nav-flash
+      ;; `(nav-flash-face ((,class (:background ,base02))))
+-     `(nav-flash-face ((,class (:foreground
+-                                ,(apply 'solarized-color-blend
+-                                        (if
+-                                            (eq variant 'light)
+-                                            (list yellow base1 0.2)
+-                                          (list cyan base1 0.1)))
+-                                :background
+-                                ,(apply 'solarized-color-blend
+-                                        (if
+-                                            (eq variant 'light)
+-                                            (list yellow base03 0.2)
+-                                          (list cyan base03 0.3)))))))
++     `(nav-flash-face ((,light-class (:foreground ,(solarized-color-blend yellow base1 0.2)
++                                      :background ,(solarized-color-blend yellow base03 0.2)))
++                       (,dark-class (:foreground ,(solarized-color-blend cyan base1 0.1)
++                                     :background ,(solarized-color-blend cyan base03 0.3)))))
+ ;;;;; navi2ch
+      `(navi2ch-list-category-face ((,class (:foreground ,blue ))))
+      `(navi2ch-list-add-board-name-face ((,class (:foreground ,yellow))))
