@@ -25,7 +25,8 @@
 
 (deftheme solarized-dark "The dark variant of the Solarized colour theme")
 
-(solarized-create-theme 'dark 'solarized-dark)
+(solarized-definition 'dark 'solarized-dark
+                      solarized-dark-color-palette-alist)
 
 (provide-theme 'solarized-dark)
 

@@ -25,7 +25,8 @@
 
 (deftheme solarized-light "The light variant of the Solarized colour theme")
 
-(solarized-create-theme 'light 'solarized-light)
+(solarized-definition 'light 'solarized-light
+                      solarized-light-color-palette-alist)
 
 (provide-theme 'solarized-light)
 
