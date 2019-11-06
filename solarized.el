@@ -133,7 +133,7 @@ Related discussion: https://github.com/bbatsov/solarized-emacs/issues/158"
 ;;; Utilities
 
 ;;;###autoload
-(defun solarized-color-blend (color1 color2 alpha &optional digits-per-component)
+(defun solarized-color-blend-rgb (color1 color2 alpha &optional digits-per-component)
   "Blends COLOR1 onto COLOR2 with ALPHA.
 
 COLOR1 and COLOR2 should be color names (e.g. \"white\") or RGB
@@ -150,6 +150,37 @@ use the latter if you need a 24-bit specification of a color."
                         (color-name-to-rgb color2))
            ,digits-per-component)))
 
+(defun solarized-color-lightness (color)
+  "Returns the LAB lightness value of a color, the range is from 0-100."
+  (car (apply 'color-srgb-to-lab (color-name-to-rgb hexrgb))))
+
+(defun solarized-color-clamp-lab (lab)
+  "Restricts a LAB colorspace color if it is out of bounds."
+  (list (min (max (nth 0 lab) 0.0) 100.0)
+        (min (max (nth 1 lab) -128) 127)
+        (min (max (nth 2 lab) -128) 127)))
+
+(defun solarized-color-blend (color1 color2 alpha &optional digits-per-component)
+"Blends COLOR1 onto COLOR2 with ALPHA.
+
+COLOR1 and COLOR2 should be color names (e.g. \"white\") or RGB
+triplet strings (e.g. \"#ff12ec\").
+
+Alpha should be a float between 0 and 1.
+
+Optional argument DIGITS-PER-COMPONENT can be either 4 (the default) or 2;
+use the latter if you need a 24-bit specification of a color."
+  (apply 'color-rgb-to-hex
+         (nconc
+          (mapcar 'color-clamp
+                  (apply 'color-lab-to-srgb
+                         (solarized-color-clamp-lab
+                          (cl-mapcar
+                           '(lambda (v1 v2) (+ v1 (* alpha (- v2 v1))))
+                           (apply 'color-srgb-to-lab (color-name-to-rgb color2))
+                           (apply 'color-srgb-to-lab (color-name-to-rgb color1))))))
+          '(2))))
+
 ;;;###autoload
 (defun solarized-create-color-palette (core-palette)
   "Create color-palette from CORE-PALETTE.
@@ -165,6 +196,7 @@ The Returned color-palette has the same format as `solarized-color-palette'"
         (blue           (nth 7 core-palette))
         (cyan           (nth 8 core-palette))
         (green          (nth 9 core-palette)))
+
     `((base03  . ,(solarized-color-blend darkest-base brightest-base 1.00 2))
       (base02  . ,(solarized-color-blend darkest-base brightest-base 0.97 2))
       (base01  . ,(solarized-color-blend darkest-base brightest-base 0.65 2))
@@ -186,22 +218,60 @@ The Returned color-palette has the same format as `solarized-color-palette'"
 
       ;; Darker and lighter accented colors
       ;; Only use these in exceptional circumstances!
-      (yellow-d  . ,(solarized-color-blend yellow  darkest-base   0.80 2))
-      (yellow-l  . ,(solarized-color-blend yellow  brightest-base 0.80 2))
-      (orange-d  . ,(solarized-color-blend orange  darkest-base   0.80 2))
-      (orange-l  . ,(solarized-color-blend orange  brightest-base 0.80 2))
-      (red-d     . ,(solarized-color-blend red     darkest-base   0.80 2))
-      (red-l     . ,(solarized-color-blend red     brightest-base 0.80 2))
-      (magenta-d . ,(solarized-color-blend magenta darkest-base   0.80 2))
-      (magenta-l . ,(solarized-color-blend magenta brightest-base 0.80 2))
-      (violet-d  . ,(solarized-color-blend violet  darkest-base   0.80 2))
-      (violet-l  . ,(solarized-color-blend violet  brightest-base 0.80 2))
-      (blue-d    . ,(solarized-color-blend blue    darkest-base   0.80 2))
-      (blue-l    . ,(solarized-color-blend blue    brightest-base 0.80 2))
-      (cyan-d    . ,(solarized-color-blend cyan    darkest-base   0.80 2))
-      (cyan-l    . ,(solarized-color-blend cyan    brightest-base 0.80 2))
-      (green-d   . ,(solarized-color-blend green   darkest-base   0.80 2))
-      (green-l   . ,(solarized-color-blend green   brightest-base 0.80 2)))))
+      (yellow-d  . ,(solarized-color-blend darkest-base   yellow  0.80 2))
+      (yellow-l  . ,(solarized-color-blend brightest-base yellow  0.80 2))
+      (orange-d  . ,(solarized-color-blend darkest-base   orange  0.80 2))
+      (orange-l  . ,(solarized-color-blend brightest-base orange  0.80 2))
+      (red-d     . ,(solarized-color-blend darkest-base   red     0.80 2))
+      (red-l     . ,(solarized-color-blend brightest-base red     0.80 2))
+      (magenta-d . ,(solarized-color-blend darkest-base   magenta 0.80 2))
+      (magenta-l . ,(solarized-color-blend brightest-base magenta 0.80 2))
+      (violet-d  . ,(solarized-color-blend darkest-base   violet  0.80 2))
+      (violet-l  . ,(solarized-color-blend brightest-base violet  0.80 2))
+      (blue-d    . ,(solarized-color-blend darkest-base   blue    0.80 2))
+      (blue-l    . ,(solarized-color-blend brightest-base blue    0.80 2))
+      (cyan-d    . ,(solarized-color-blend darkest-base   cyan    0.80 2))
+      (cyan-l    . ,(solarized-color-blend brightest-base cyan    0.80 2))
+      (green-d   . ,(solarized-color-blend darkest-base   green   0.80 2))
+      (green-l   . ,(solarized-color-blend brightest-base green   0.80 2))
+
+      (yellow-1bg  . ,(solarized-color-blend darkest-base yellow  0.85 2))
+      (orange-1bg  . ,(solarized-color-blend darkest-base orange  0.85 2))
+      (red-1bg     . ,(solarized-color-blend darkest-base red     0.85 2))
+      (magenta-1bg . ,(solarized-color-blend darkest-base magenta 0.85 2))
+      (blue-1bg    . ,(solarized-color-blend darkest-base blue    0.85 2))
+      (cyan-1bg    . ,(solarized-color-blend darkest-base cyan    0.85 2))
+      (green-1bg   . ,(solarized-color-blend darkest-base green   0.85 2))
+      (violet-1bg  . ,(solarized-color-blend darkest-base violet  0.85 2))
+
+      (yellow-1fg  . ,(solarized-color-blend brightest-base yellow  0.30 2))
+      (orange-1fg  . ,(solarized-color-blend brightest-base orange  0.30 2))
+      (red-1fg     . ,(solarized-color-blend brightest-base red     0.30 2))
+      (magenta-1fg . ,(solarized-color-blend brightest-base magenta 0.30 2))
+      (violet-1fg  . ,(solarized-color-blend brightest-base violet  0.30 2))
+      (blue-1fg    . ,(solarized-color-blend brightest-base blue    0.30 2))
+      (cyan-1fg    . ,(solarized-color-blend brightest-base cyan    0.30 2))
+      (green-1fg   . ,(solarized-color-blend brightest-base green   0.30 2))
+
+      (yellow-2bg  . ,(solarized-color-blend darkest-base yellow  0.60 2))
+      (orange-2bg  . ,(solarized-color-blend darkest-base orange  0.60 2))
+      (red-2bg     . ,(solarized-color-blend darkest-base red     0.60 2))
+      (magenta-2bg . ,(solarized-color-blend darkest-base magenta 0.60 2))
+      (violet-2bg  . ,(solarized-color-blend darkest-base violet  0.60 2))
+      (blue-2bg    . ,(solarized-color-blend darkest-base blue    0.60 2))
+      (cyan-2bg    . ,(solarized-color-blend darkest-base cyan    0.60 2))
+      (green-2bg   . ,(solarized-color-blend darkest-base green   0.60 2))
+
+      (yellow-2fg  . ,(solarized-color-blend brightest-base yellow  0.45 2))
+      (orange-2fg  . ,(solarized-color-blend brightest-base orange  0.45 2))
+      (red-2fg     . ,(solarized-color-blend brightest-base red     0.45 2))
+      (magenta-2fg . ,(solarized-color-blend brightest-base magenta 0.45 2))
+      (violet-2fg  . ,(solarized-color-blend brightest-base violet  0.45 2))
+      (blue-2fg    . ,(solarized-color-blend brightest-base blue    0.45 2))
+      (cyan-2fg    . ,(solarized-color-blend brightest-base cyan    0.45 2))
+      (green-2fg   . ,(solarized-color-blend brightest-base green   0.45 2))
+
+      )))
 
 
 
@@ -296,33 +366,27 @@ VARIANT is 'dark or 'light."
                                        base02 base02))
 
           ;; diff colors
-          (s-diff-A-bg (if (eq variant 'light) "#ffdddd" "#553333"))
-          (s-diff-A-fg (if (eq variant 'light) "#aa2222" "#ffdddd"))
-          (s-diff-fine-A-bg (if (eq variant 'light)
-                                (solarized-color-blend "#ffdddd" red 0.7)
-                              (solarized-color-blend "#664444" red 0.7)))
-          (s-diff-fine-A-fg (if (eq variant 'light) "#aa2222" "#eecccc"))
+          (s-diff-A-bg red-1bg)
+          (s-diff-A-fg red-1fg)
+          (s-diff-fine-A-bg red-2bg)
+          (s-diff-fine-A-fg red-2fg)
 
-          (s-diff-B-bg (if (eq variant 'light) "#ddffdd" "#335533"))
-          (s-diff-B-fg (if (eq variant 'light) "#22aa22" "#ddffdd"))
-          (s-diff-fine-B-bg (if (eq variant 'light)
-                                (solarized-color-blend "#ddffdd" green 0.7)
-                              (solarized-color-blend "#446644" green 0.7)))
-          (s-diff-fine-B-fg (if (eq variant 'light) "#336633" "#cceecc"))
+          (s-diff-B-bg green-1bg)
+          (s-diff-B-fg green-1fg)
+          (s-diff-fine-B-bg green-2bg)
+          (s-diff-fine-B-fg green-2fg)
 
-          (s-diff-Ancestor-bg (if (eq variant 'light) "#ffffcc" "#555522"))
-          (s-diff-Ancestor-fg (if (eq variant 'light) "#aaaa11" "#ffffcc"))
-          (s-diff-fine-Ancestor-bg (if (eq variant 'light) "#eeeebb" "#666622"))
-          (s-diff-fine-Ancestor-fg (if (eq variant 'light) "#aaaa11" "#eeeebb"))
+          (s-diff-Ancestor-bg yellow-1bg)
+          (s-diff-Ancestor-fg yellow-1fg)
+          (s-diff-fine-Ancestor-bg yellow-2bg)
+          (s-diff-fine-Ancestor-fg yellow-2fg)
 
-          (s-diff-C-bg (if (eq variant 'light) "#d1e2f2" "#004d7b"))
-          (s-diff-C-fg (if (eq variant 'light) "#004d7b" "#d1e2f2"))
-          (s-diff-fine-C-bg (if (eq variant 'light)
-                                (solarized-color-blend "#d6e5e5" blue 0.7)
-                              (solarized-color-blend "#00547f" blue 0.7)))
-          (s-diff-fine-C-fg (if (eq variant 'light) "#00547f" "#d6e5e5"))
-          (s-diff-context-fg (if (eq variant 'light) base0 (solarized-color-blend base1 base2 0.6)))
-          (s-diff-heading-bg (if (eq variant 'light) (solarized-color-blend yellow base03 0.1) base02))
+          (s-diff-C-bg blue-1bg)
+          (s-diff-C-fg blue-1fg)
+          (s-diff-fine-C-bg blue-2bg)
+          (s-diff-fine-C-fg blue-2fg)
+          (s-diff-context-fg base0)
+          (s-diff-heading-bg base02)
 
           (s-diffstat-added-fg green)
           (s-diffstat-changed-fg blue)
@@ -363,7 +427,10 @@ If OVERWRITE is non-nil, overwrite theme file if exist."
 
 When optional argument CHILDTHEME function is supplied it's invoked to further
 customize the resulting theme."
-  (solarized-definition variant theme-name solarized-color-palette-alist childtheme))
+  (solarized-definition variant theme-name (if (eq variant 'light)
+                                               solarized-light-color-palette-alist
+                                             solarized-dark-color-palette-alist)
+                        childtheme))
 
 (defun solarized-create-theme-with-palette (variant theme-name core-palette &optional childtheme)
   "Create a VARIANT of the theme named THEME-NAME with CORE-PALETTE.
