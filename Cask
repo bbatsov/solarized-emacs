@@ -3,4 +3,4 @@
 (source gnu)
 (source melpa)
 
-(package-file "solarized.el")
+(package-file "solarized-theme.el")
