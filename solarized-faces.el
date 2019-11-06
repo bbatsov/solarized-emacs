@@ -394,7 +394,7 @@ customize the resulting theme."
        `(company-tooltip-annotation-selection ((,class (:foreground ,cyan))))
        `(company-tooltip-common ((,class (:foreground ,base0))))
        `(company-tooltip-common-selection ((,class (:weight bold))))
-       `(company-tooltip-mouse ((,class (:background ,cyan-hc :foreground ,cyan-lc))))
+       `(company-tooltip-mouse ((,class (:background ,cyan-2bg :foreground ,cyan-2fg))))
        `(company-tooltip-search ((,class (:foreground ,magenta))))
        `(company-tooltip-search-selection ((,class (:foreground ,magenta :weight bold))))
        `(company-tooltip-selection ((,class (:weight bold))))
@@ -1704,8 +1704,8 @@ customize the resulting theme."
        `(todotxt-priority-c-face ((,class (:foreground ,violet))))
 ;;;;; tooltip
        ;; NOTE: This setting has no effect on the os widgets for me
-       ;; zencoding uses this.
-       `(tooltip ((,class (:background ,yellow-lc :foreground ,yellow-hc
+       ;; zencoding uses this or setting x-gtk-use-system-tooltips nil
+       `(tooltip ((,class (:background ,yellow-1bg :foreground ,yellow-1fg
                                        :inherit ,s-variable-pitch))))
 ;;;;; transient
        `(transient-heading             ((t (:foreground ,yellow  :weight bold))))
