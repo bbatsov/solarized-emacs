@@ -49,11 +49,16 @@ var palettes = []Palette{
 		Solarized: gruvboxLight,
 		Inverse:   true,
 	},
+	{
+		Name:      "zenburn",
+		Solarized: zenburn,
+	},
 }
 
 func main() {
 
 	for _, pal := range palettes {
+		fmt.Println(pal.Name)
 		pal.Generate()
 	}
 	fmt.Println("\n-----\n")
@@ -290,6 +295,12 @@ func (h HexColor) Color() colorful.Color {
 		panic(err)
 	}
 	return col
+}
+
+func (h HexColor) Blend(hc HexColor, t float64) HexColor {
+	c1 := h.Color()
+	c2 := hc.Color()
+	return HexColor(c1.BlendLab(c2, t).Hex())
 }
 
 type Base struct {
@@ -724,6 +735,28 @@ var ( // The original solarized color palette
 			Yellow:  GruvboxDarkYellow,
 		},
 	}
+	zenburn = Solarized{
+		Base: Base{
+			Base03: ZenburnBg,
+			Base02: ZenburnBgP1,
+			Base01: ZenburnFgM1.Blend(ZenburnFg, 0.3),
+			Base00: ZenburnBgP3,
+			Base0:  ZenburnFg,
+			Base1:  ZenburnFgP1,
+			Base2:  ZenburnFgP1.Blend(ZenburnFgP2, 0.5),
+			Base3:  ZenburnFgP2,
+		},
+		Accents: Accents{
+			Blue:    ZenburnBlue,
+			Cyan:    ZenburnCyan,
+			Green:   ZenburnGreen,
+			Magenta: ZenburnMagenta,
+			Orange:  ZenburnOrange,
+			Red:     ZenburnRed,
+			Violet:  ZenburnBlue.Blend(ZenburnMagenta, 0.5),
+			Yellow:  ZenburnYellow,
+		},
+	}
 )
 
 const (
@@ -780,6 +813,55 @@ const (
 	GruvboxDarkPurple   = HexColor("#8f3f71")
 	GruvboxDarkAqua     = HexColor("#427b58")
 	GruvboxDarkOrange   = HexColor("#af3a03")
+
+	ZenburnFgM1     = HexColor("#656555")
+	ZenburnFgM05    = HexColor("#989890")
+	ZenburnFg       = HexColor("#DCDCCC")
+	ZenburnFgP1     = HexColor("#FFFFEF")
+	ZenburnFgP2     = HexColor("#FFFFFD")
+	ZenburnBgM2     = HexColor("#000000")
+	ZenburnBgM1     = HexColor("#2B2B2B")
+	ZenburnBgM08    = HexColor("#303030")
+	ZenburnBgM05    = HexColor("#383838")
+	ZenburnBg       = HexColor("#3F3F3F")
+	ZenburnBgP05    = HexColor("#494949")
+	ZenburnBgP1     = HexColor("#4F4F4F")
+	ZenburnBgP2     = HexColor("#5F5F5F")
+	ZenburnBgP3     = HexColor("#6F6F6F")
+	ZenburnRedM6    = HexColor("#6C3333")
+	ZenburnRedM5    = HexColor("#7C4343")
+	ZenburnRedM4    = HexColor("#8C5353")
+	ZenburnRedM3    = HexColor("#9C6363")
+	ZenburnRedM2    = HexColor("#AC7373")
+	ZenburnRedM1    = HexColor("#BC8383")
+	ZenburnRed      = HexColor("#CC9393")
+	ZenburnRedP1    = HexColor("#DCA3A3")
+	ZenburnRedP2    = HexColor("#ECB3B3")
+	ZenburnOrange   = HexColor("#DFAF8F")
+	ZenburnYellowM2 = HexColor("#D0BF8F")
+	ZenburnYellowM1 = HexColor("#E0CF9F")
+	ZenburnYellow   = HexColor("#F0DFAF")
+	ZenburnGreenM5  = HexColor("#2F4F2F")
+	ZenburnGreenM4  = HexColor("#3F5F3F")
+	ZenburnGreenM3  = HexColor("#4F6F4F")
+	ZenburnGreenM2  = HexColor("#5F7F5F")
+	ZenburnGreenM1  = HexColor("#6F8F6F")
+	ZenburnGreen    = HexColor("#7F9F7F")
+	ZenburnGreenP1  = HexColor("#8FB28F")
+	ZenburnGreenP2  = HexColor("#9FC59F")
+	ZenburnGreenP3  = HexColor("#AFD8AF")
+	ZenburnGreenP4  = HexColor("#BFEBBF")
+	ZenburnCyan     = HexColor("#93E0E3")
+	ZenburnBlueP3   = HexColor("#BDE0F3")
+	ZenburnBlueP2   = HexColor("#ACE0E3")
+	ZenburnBlueP1   = HexColor("#94BFF3")
+	ZenburnBlue     = HexColor("#8CD0D3")
+	ZenburnBlueM1   = HexColor("#7CB8BB")
+	ZenburnBlueM2   = HexColor("#6CA0A3")
+	ZenburnBlueM3   = HexColor("#5C888B")
+	ZenburnBlueM4   = HexColor("#4C7073")
+	ZenburnBlueM5   = HexColor("#366060")
+	ZenburnMagenta  = HexColor("#DC8CC3")
 )
 
 // Palette .
