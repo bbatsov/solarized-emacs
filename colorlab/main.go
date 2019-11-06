@@ -63,12 +63,19 @@ func main() {
 
 	for _, pal := range palettes {
 		fmt.Println(pal.Name)
-		pal.Generate()
+		nc := pal.Generate()
+
+		nc.PrintAlist(os.Stdout, 0)
+		// nc.FilterPrefix("base").PrintAlist(os.Stdout, 0)
+		// Merge(nc.FilterSuffix("-d"), oldDarkAccents.NamedColors().WithSuffix("-do")).PrintAlist(os.Stdout, 0)
+		// Merge(nc.FilterSuffix("-l"), oldLightAccents.NamedColors().WithSuffix("-lo")).PrintAlist(os.Stdout, 0)
+
+		rewriteTheme(nc, pal.Name)
 	}
 	fmt.Println("\n-----\n")
 }
 
-func (p Palette) Generate() {
+func (p Palette) Generate() NamedColors {
 
 	pal := p.Solarized
 
@@ -76,23 +83,36 @@ func (p Palette) Generate() {
 	if p.Inverse {
 		corrected = pal.Inverse()
 	}
+
 	bgs, fgs := createComplementaryColors(corrected, 0.85, 0.3, 0.01)
-	// hbgs, hfgs := createComplementaryColors(corrected, 0.7, 0.2, -0.05)
 	hbgs, hfgs := createComplementaryColors(corrected, 0.6, 0.45, 0.04)
 	cols := Merge(
 		pal.NamedColors(),
-		oldLightAccents.NamedColors().WithSuffix("-l"),
-		oldDarkAccents.NamedColors().WithSuffix("-d"),
 		fgs.NamedColors().WithSuffix("-1fg"),
 		bgs.NamedColors().WithSuffix("-1bg"),
 		hfgs.NamedColors().WithSuffix("-2fg"),
 		hbgs.NamedColors().WithSuffix("-2bg"),
+
+		pal.Accents.
+			ChangeSaturation(0.2).
+			Blend(pal.Base03, .2).
+			ChangeLightness(-.1).
+			NamedColors().
+			WithSuffix("-d"),
+
+		pal.Accents.
+			ChangeSaturation(0.2).
+			Blend(pal.Base2, .2).
+			ChangeLightness(.05).
+			NamedColors().
+			WithSuffix("-l"),
 	)
-	rewriteTheme(cols, p.Name)
+	return cols
 
 }
 
 func createComplementaryColors(sol Solarized, blendBg, blendFg, gamma float64) (accentBgs, accentFgs Accents) {
+	lightnessReport := false
 	sol = sol.Clone()
 	cs := sol.Accents.Colors()
 
@@ -102,7 +122,9 @@ func createComplementaryColors(sol Solarized, blendBg, blendFg, gamma float64) (
 	}
 	var bgs, fgs [8]colorful.Color
 	for idx, v := range cs {
-		fmt.Println(" ")
+		if lightnessReport {
+			fmt.Println(" ")
+		}
 
 		blendBgColor := sol.Base03.Color()
 		blendFgColor := sol.Base0.Color()
@@ -130,27 +152,32 @@ func createComplementaryColors(sol Solarized, blendBg, blendFg, gamma float64) (
 
 		bg := v.BlendLab(blendBgColor, blendBg)
 		fg := v.BlendLab(blendFgColor, blendFg)
-		{
-			l, _, _ := blendBgColor.Lab()
-			fmt.Printf(" | b1 %.2f %s", l, sol.Base03)
-		}
-		{
-			l, _, _ := blendFgColor.Lab()
-			fmt.Printf(" f1 %.2f %s", l, sol.Base0)
+		if lightnessReport {
+			{
+				l, _, _ := blendBgColor.Lab()
+				fmt.Printf(" | b1 %.2f %s", l, sol.Base03)
+			}
+			{
+				l, _, _ := blendFgColor.Lab()
+				fmt.Printf(" f1 %.2f %s", l, sol.Base0)
+			}
 		}
 
 		lFg := light(blendFgColor)
 		lBg := light(blendBgColor)
 
 		lc := lFg - lBg
-		fmt.Printf("  lc %.2f", lc)
+		if lightnessReport {
+			fmt.Printf("  lc %.2f", lc)
+		}
 		bl, ba, bb := bg.Lab()
 		fl, fa, fb := fg.Lab()
 
-		fmt.Printf(" | b2 %.2f %s", bl, bg.Clamped().Hex())
-		fmt.Printf(" f2 %.2f %s", fl, fg.Clamped().Hex())
-		fmt.Printf(" lc %.2f", fl-bl)
-
+		if lightnessReport {
+			fmt.Printf(" | b2 %.2f %s", bl, bg.Clamped().Hex())
+			fmt.Printf(" f2 %.2f %s", fl, fg.Clamped().Hex())
+			fmt.Printf(" lc %.2f", fl-bl)
+		}
 		// nlb := bl + (fl-bl)*0.5 + lc*0.5
 		// nlf := bl + (fl-bl)*0.5 - lc*0.5
 		// nlf := lFg
@@ -176,23 +203,29 @@ func createComplementaryColors(sol Solarized, blendBg, blendFg, gamma float64) (
 			}
 			nlf = nlf + nlf/1*diff*m
 			nlb = nlb - nlb/1*diff*m
-			fmt.Printf(" adj %.2f ", diff)
+			if lightnessReport {
+				fmt.Printf(" adj %.2f ", diff)
+			}
 		} else {
-			fmt.Printf("          ")
+			if lightnessReport {
+				fmt.Printf("          ")
+			}
 		}
 
 		fg = colorful.Lab(nlf, fa, fb)
 		bg = colorful.Lab(nlb, ba, bb)
-
-		fmt.Printf(" | b3 %.2f %s", nlb, bg.Clamped().Hex())
-		fmt.Printf(" f3 %.2f %s", nlf, fg.Clamped().Hex())
-		fmt.Printf(" lc %.2f", nlf-nlb)
-
+		if lightnessReport {
+			fmt.Printf(" | b3 %.2f %s", nlb, bg.Clamped().Hex())
+			fmt.Printf(" f3 %.2f %s", nlf, fg.Clamped().Hex())
+			fmt.Printf(" lc %.2f", nlf-nlb)
+		}
 		bgs[idx] = bg
 		fgs[idx] = fg
 
 	}
-	fmt.Println("\n\n")
+	if lightnessReport {
+		fmt.Println("\n\n")
+	}
 	return NewAccents(bgs), NewAccents(fgs)
 }
 
@@ -487,6 +520,39 @@ func (a Accents) ChangeLightness(amount float64) Accents {
 	cc[7] = lightness(cc[7], amount)
 	return NewAccents(cc)
 }
+func (a Accents) ChangeSaturation(amount float64) Accents {
+	cc := a.Colors()
+	saturation := func(c colorful.Color, v float64) colorful.Color {
+		h, s, l := c.Hsl()
+		// s = math.Min(math.Max(s+v, 0), 1)
+		s = s + v
+		return colorful.Hsl(h, s, l)
+	}
+	cc[0] = saturation(cc[0], amount)
+	cc[1] = saturation(cc[1], amount)
+	cc[2] = saturation(cc[2], amount)
+	cc[3] = saturation(cc[3], amount)
+	cc[4] = saturation(cc[4], amount)
+	cc[5] = saturation(cc[5], amount)
+	cc[6] = saturation(cc[6], amount)
+	cc[7] = saturation(cc[7], amount)
+	return NewAccents(cc)
+}
+
+func (a Accents) Blend(hc HexColor, amount float64) Accents {
+	c := hc.Color()
+	cc := a.Colors()
+	cc[0] = cc[0].BlendLab(c, amount)
+	cc[1] = cc[1].BlendLab(c, amount)
+	cc[2] = cc[2].BlendLab(c, amount)
+	cc[3] = cc[3].BlendLab(c, amount)
+	cc[4] = cc[4].BlendLab(c, amount)
+	cc[5] = cc[5].BlendLab(c, amount)
+	cc[6] = cc[6].BlendLab(c, amount)
+	cc[7] = cc[7].BlendLab(c, amount)
+	return NewAccents(cc)
+}
+
 func (ac Accents) NamedColors() NamedColors {
 	nc := make(NamedColors, 8)
 	arr := ac.colorArray()
@@ -536,6 +602,34 @@ func (n NamedColors) WithSuffix(suffix string) NamedColors {
 	nc := make(NamedColors, len(n))
 	for k, v := range n {
 		nc[fmt.Sprintf("%s%s", k, suffix)] = v
+	}
+	return nc
+}
+
+func (n NamedColors) FilterSuffix(suffix ...string) NamedColors {
+	nc := make(NamedColors, len(n))
+	for k, v := range n {
+	loop:
+		for _, s := range suffix {
+			if strings.HasSuffix(k, s) {
+				nc[k] = v
+				break loop
+			}
+		}
+	}
+	return nc
+}
+
+func (n NamedColors) FilterPrefix(prefix ...string) NamedColors {
+	nc := make(NamedColors, len(n))
+	for k, v := range n {
+	loop:
+		for _, p := range prefix {
+			if strings.HasPrefix(k, p) {
+				nc[k] = v
+				break loop
+			}
+		}
 	}
 	return nc
 }
