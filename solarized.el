@@ -160,6 +160,7 @@ use the latter if you need a 24-bit specification of a color."
         (min (max (nth 1 lab) -128) 127)
         (min (max (nth 2 lab) -128) 127)))
 
+;;;###autoload
 (defun solarized-color-blend (color1 color2 alpha &optional digits-per-component)
 "Blends COLOR1 onto COLOR2 with ALPHA.
 
