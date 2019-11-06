@@ -4,10 +4,6 @@
 
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; Author: Thomas Frössman <thomasf@jossystem.se>
-;; URL: http://github.com/bbatsov/solarized-emacs
-;; Version: 1.3.0
-;; Package-Requires: ((emacs "24.1") (dash "2.16"))
-;; Keywords: convenience, themes, solarized
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -23,22 +19,9 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;;
-;; A port of Solarized to Emacs.
-;;
-;;; Installation:
-;;
-;;   Drop the `solarized-theme.el` somewhere in your `load-path` and
-;; the two themes in a folder that is on `custom-theme-load-path'
-;; and enjoy!
-;;
-;; Don't forget that the theme requires Emacs 24.
-;;
-;;; Credits
-;;
-;; Ethan Schoonover created the original theme for vim on such this port
-;; is based.
-;;
+
+;; Main solarized file
+
 ;;; Code:
 
 (require 'dash)
