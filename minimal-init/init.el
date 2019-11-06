@@ -4,6 +4,11 @@
 (defun dev-set-solarized-settings ()
   (interactive)
   (setq-default
+   tooltip-delay 0.8
+   ;;tooltip-hide-delay 10
+   ;;tooltip-recent-seconds 1
+   x-gtk-use-system-tooltips nil
+
    solarized-distinct-fringe-background nil
    solarized-distinct-doc-face nil
    solarized-use-variable-pitch t
