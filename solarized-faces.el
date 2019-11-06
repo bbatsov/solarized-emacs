@@ -1188,7 +1188,7 @@ customize the resulting theme."
        `(magit-diff-added ((,class (:background ,green-1bg :foreground ,green-1fg))))
        `(magit-diff-added-highlight ((,class (:background ,green-2bg :foreground ,green-2fg))))
        `(magit-diff-base ((,class (:background ,yellow-1bg :foreground ,yellow-1fg))))
-       `(magit-diff-base-highlight ((,class (:background ,yellow-2bg  :foreground ,yellow-2bg))))
+       `(magit-diff-base-highlight ((,class (:background ,yellow-2bg  :foreground ,yellow-2fg))))
 
        `(magit-diff-conflict-heading ((,class (:inherit magit-diff-hunk-heading))))
        `(magit-diff-context ((,class (:foreground ,base0))))
