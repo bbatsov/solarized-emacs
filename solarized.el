@@ -143,12 +143,13 @@ Alpha should be a float between 0 and 1.
 
 Optional argument DIGITS-PER-COMPONENT can be either 4 (the default) or 2;
 use the latter if you need a 24-bit specification of a color."
-  (apply 'color-rgb-to-hex
-         `(,@(-zip-with '(lambda (it other)
-                           (+ (* alpha it) (* other (- 1 alpha))))
-                        (color-name-to-rgb color1)
-                        (color-name-to-rgb color2))
-           ,digits-per-component)))
+  (let ((args (-zip-with '(lambda (it other)
+                            (+ (* alpha it) (* other (- 1 alpha))))
+                         (color-name-to-rgb color1)
+                         (color-name-to-rgb color2))))
+    (if (version< emacs-version "26")
+        (apply 'color-rgb-to-hex `(,@args))
+      (apply 'color-rgb-to-hex `(,@args ,digits-per-component)))))
 
 (defun solarized-color-lightness (color)
   "Returns the LAB lightness value of a color, the range is from 0-100."
@@ -162,7 +163,7 @@ use the latter if you need a 24-bit specification of a color."
 
 ;;;###autoload
 (defun solarized-color-blend (color1 color2 alpha &optional digits-per-component)
-"Blends COLOR1 onto COLOR2 with ALPHA.
+  "Blends COLOR1 onto COLOR2 with ALPHA.
 
 COLOR1 and COLOR2 should be color names (e.g. \"white\") or RGB
 triplet strings (e.g. \"#ff12ec\").
@@ -171,16 +172,16 @@ Alpha should be a float between 0 and 1.
 
 Optional argument DIGITS-PER-COMPONENT can be either 4 (the default) or 2;
 use the latter if you need a 24-bit specification of a color."
-  (apply 'color-rgb-to-hex
-         (nconc
-          (mapcar 'color-clamp
-                  (apply 'color-lab-to-srgb
-                         (solarized-color-clamp-lab
-                          (cl-mapcar
-                           '(lambda (v1 v2) (+ v1 (* alpha (- v2 v1))))
-                           (apply 'color-srgb-to-lab (color-name-to-rgb color2))
-                           (apply 'color-srgb-to-lab (color-name-to-rgb color1))))))
-          '(2))))
+  (let ((args (mapcar 'color-clamp
+                      (apply 'color-lab-to-srgb
+                             (solarized-color-clamp-lab
+                              (cl-mapcar
+                               '(lambda (v1 v2) (+ v1 (* alpha (- v2 v1))))
+                               (apply 'color-srgb-to-lab (color-name-to-rgb color2))
+                               (apply 'color-srgb-to-lab (color-name-to-rgb color1))))))))
+    (if (version< emacs-version "26")
+        (apply 'color-rgb-to-hex `(,@args))
+      (apply 'color-rgb-to-hex `(,@args ,digits-per-component)))))
 
 ;;;###autoload
 (defun solarized-create-color-palette (core-palette)
