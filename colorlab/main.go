@@ -53,6 +53,10 @@ var palettes = []Palette{
 		Name:      "zenburn",
 		Solarized: zenburn,
 	},
+	{
+		Name:      "monokai",
+		Solarized: monokai,
+	},
 }
 
 func main() {
@@ -757,6 +761,29 @@ var ( // The original solarized color palette
 			Yellow:  ZenburnYellow,
 		},
 	}
+
+	monokai = Solarized{
+		Base: Base{
+			Base03: Monokai03,
+			Base02: Monokai02,
+			Base01: Monokai01,
+			Base00: Monokai00,
+			Base0:  Monokai0,
+			Base1:  Monokai0,
+			Base2:  Monokai0,
+			Base3:  Monokai0,
+		},
+		Accents: Accents{
+			Blue:    MonokaiBlue,
+			Cyan:    MonokaiCyan,
+			Green:   MonokaiGreen,
+			Magenta: MonokaiMagenta,
+			Orange:  MonokaiOrange,
+			Red:     MonokaiRed,
+			Violet:  MonokaiViolet,
+			Yellow:  MonokaiYellow,
+		},
+	}
 )
 
 const (
@@ -862,6 +889,21 @@ const (
 	ZenburnBlueM4   = HexColor("#4C7073")
 	ZenburnBlueM5   = HexColor("#366060")
 	ZenburnMagenta  = HexColor("#DC8CC3")
+
+	// ehm, monokaiXX are probably not "correct" in any way
+	Monokai03      = HexColor("#272822")
+	Monokai02      = HexColor("#3E3D31")
+	Monokai01      = HexColor("#75715E")
+	Monokai00      = HexColor("#49483E")
+	Monokai0       = HexColor("#F8F8F2")
+	MonokaiYellow  = HexColor("#E6DB74")
+	MonokaiOrange  = HexColor("#FD971F")
+	MonokaiRed     = HexColor("#F92672")
+	MonokaiMagenta = HexColor("#FD5FF0")
+	MonokaiBlue    = HexColor("#66D9EF")
+	MonokaiGreen   = HexColor("#A6E22E")
+	MonokaiCyan    = HexColor("#A1EFE4")
+	MonokaiViolet  = HexColor("#AE81FF")
 )
 
 // Palette .
