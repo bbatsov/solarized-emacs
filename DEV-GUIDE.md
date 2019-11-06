@@ -76,7 +76,7 @@ Some specific color information:
 
 ### Using colors that are not in the original solarized theme
 
-(TODO: document the lc/hc colors and possibly some of the blending thats used at places)
+(TODO: document the lc/hc colors and possibly some of the blending that's used at places)
 
 - If possible, just don't do it.
 - One common usage is when there is a need to add yet another overlay where
