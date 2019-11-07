@@ -18,12 +18,12 @@ customizations and `deftheme` and does not require the
 ## Installation
 
 Solarized for Emacs is available for installation via the
-[MELPA](http://melpa.org)  `package.el`
-repository. Assuming you've set it up you can install Solarized like this:
+[MELPA](http://melpa.org) using `package.el`.  Assuming you've set it
+up you can install Solarized like this:
 
 `M-x package-install solarized-theme`
 
-This package will install two variants of the theme - `solarized-light-theme`
+This package will install two variants of the theme; `solarized-light-theme`
 and `solarized-dark-theme`. You can load one of the theme variants with `M-x
 load-theme`.
 
@@ -97,6 +97,77 @@ manner as the vertical border.
 ```el
 (setq x-underline-at-descent-line t)
 ```
+
+## Create theme using color palette
+The Solarized Face settings consist of a palette of colors with eight
+accents in addition to the darkest and brightest colors. Recent
+changes allow you to freely create theme files using different
+palettes instead of the Solarized color palette.  It consists of two
+steps: **creating a theme file** and **loading a theme**.
+
+### Creating/Loading Theme Files
+Select the darkest and lightest colors and the eight accents to pass
+to the function. This creates a theme file in `.emacs.d/themes/`. If
+you need to make minor modifications, you can override Face
+individually by specifying a free Sexp as the fourth argument.
+
+Once you have a theme file, you can load it with load-theme, like
+solarized.
+
+```el
+;; inspired vim's jellybeans color-theme
+(solarized-create-theme-with-pallet 'light 'solarized-jellybeans-light
+  '("#202020" "#ffffff"
+    "#ffb964" "#8fbfdc" "#a04040" "#b05080" "#805090" "#fad08a" "#99ad6a" "#8fbfdc"))
+
+(load-theme 'solarized-jellybeans-light t)
+```
+
+```el
+;; inspired emacs's mesa color-theme
+(solarized-create-theme-with-pallet 'light 'solarized-mesa-light
+  '("#000000" "#faf5ee"
+    "#3388dd" "#ac3d1a" "#dd2222" "#8b008b" "#00b7f0" "#1388a2" "#104e8b" "#00688b"))
+
+(load-theme 'solarized-mesa-light t)
+```
+
+```el
+;; inspired emacs's solarized color-theme
+(solarized-create-theme-with-pallet 'light 'solarized-solarized-light
+  '("#002b36" "#fdf6e3"
+    "#b58900" "#cb4b16" "#dc322f" "#d33682" "#6c71c4" "#268bd2" "#2aa198" "#859900"))
+
+(load-theme 'solarized-solarized-light t)
+```
+
+```el
+;; wombat color-theme with misc face definition
+(solarized-create-theme-file 'dark 'solarized-wombat-dark
+  '("#2a2a29" "#f6f3e8"
+    "#e5c06d" "#ddaa6f" "#ffb4ac" "#e5786d" "#834c98" "#a4b5e6" "#7ec98f" "#8ac6f2")
+  '((custom-theme-set-faces
+     theme-name
+     `(default ((,class (:foreground ,(solarized-color-blend base03 base3 0.15 2) :background ,base03))))
+     `(highlight ((,class (:background ,violet))))
+     `(font-lock-builtin-face ((,class (:foreground ,magenta))))
+     `(font-lock-constant-face ((,class (:foreground ,blue))))
+     `(font-lock-comment-face ((,class (:foreground ,base00))))
+     `(mode-line
+       ((,class (:foreground ,base2 :background ,(solarized-color-blend base03 base3 0.85 2)))))
+     `(mode-line-inactive
+       ((,class (:foreground ,base00 :background ,(solarized-color-blend base03 "black" 0.85 2)))))
+     `(mode-line-buffer-id ((,class (:foreground ,base3 :weight bold))))
+     `(minibuffer-prompt ((,class (:foreground ,base1))))
+     `(vertical-border ((,class (:foreground ,base03)))))))
+
+(load-theme 'solarized-wombat-dark t)
+```
+
+### Caution
+If the theme file already exists, `solorized-create-theme-file` does not
+regenerate the file. If the file exists, it can be overwritten by
+setting the fifth argument to `t`.
 
 ## Bugs & Improvements
 
