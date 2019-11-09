@@ -224,10 +224,10 @@ The Returned color-palette has the same format as `solarized-color-palette'"
       (orange-1bg  . ,(solarized-color-blend darkest-base orange  0.85 2))
       (red-1bg     . ,(solarized-color-blend darkest-base red     0.85 2))
       (magenta-1bg . ,(solarized-color-blend darkest-base magenta 0.85 2))
+      (violet-1bg  . ,(solarized-color-blend darkest-base violet  0.85 2))
       (blue-1bg    . ,(solarized-color-blend darkest-base blue    0.85 2))
       (cyan-1bg    . ,(solarized-color-blend darkest-base cyan    0.85 2))
       (green-1bg   . ,(solarized-color-blend darkest-base green   0.85 2))
-      (violet-1bg  . ,(solarized-color-blend darkest-base violet  0.85 2))
 
       (yellow-1fg  . ,(solarized-color-blend brightest-base yellow  0.30 2))
       (orange-1fg  . ,(solarized-color-blend brightest-base orange  0.30 2))
