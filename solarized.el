@@ -1750,24 +1750,32 @@ customize the resulting theme."
      `(org-headline-done ((,class (:foreground ,green))))
      `(org-hide ((,class (:foreground ,base03))))
      `(org-level-1 ((,class (:inherit ,s-variable-pitch :foreground ,orange
+                                      ,@(and (>= emacs-major-version 27) '(:extend t))
                                       ,@(when solarized-scale-org-headlines
                                           (list :height solarized-height-plus-4))))))
      `(org-level-2 ((,class (:inherit ,s-variable-pitch :foreground ,green
+                                      ,@(and (>= emacs-major-version 27) '(:extend t))
                                       ,@(when solarized-scale-org-headlines
                                           (list :height solarized-height-plus-3))))))
      `(org-level-3 ((,class (:inherit ,s-variable-pitch :foreground ,blue
+                                      ,@(and (>= emacs-major-version 27) '(:extend t))
                                       ,@(when solarized-scale-org-headlines
                                           (list :height solarized-height-plus-2))))))
      `(org-level-4 ((,class (:inherit ,s-variable-pitch :foreground ,yellow
+                                      ,@(and (>= emacs-major-version 27) '(:extend t))
                                       ,@(when solarized-scale-org-headlines
                                           (list :height solarized-height-plus-1))))))
      `(org-level-5 ((,class (:inherit ,s-variable-pitch
+                                      ,@(and (>= emacs-major-version 27) '(:extend t))
                                       :foreground ,cyan))))
      `(org-level-6 ((,class (:inherit ,s-variable-pitch
+                                      ,@(and (>= emacs-major-version 27) '(:extend t))
                                       :foreground ,green))))
      `(org-level-7 ((,class (:inherit ,s-variable-pitch
+                                      ,@(and (>= emacs-major-version 27) '(:extend t))
                                       :foreground ,red))))
      `(org-level-8 ((,class (:inherit ,s-variable-pitch
+                                      ,@(and (>= emacs-major-version 27) '(:extend t))
                                       :foreground ,blue))))
      `(org-link ((,class (:foreground ,yellow :underline t))))
      `(org-meta-line ((,class (:foreground ,base01 :slant italic))))
