@@ -1817,21 +1817,29 @@ customize the resulting theme."
      `(org-mode-line-clock-overrun ((,class (:inherit mode-line :background ,red))))
 ;;;;; outline
      `(outline-1 ((,class (:inherit ,s-variable-pitch :foreground ,orange
+                                    ,@(and (>= emacs-major-version 27) '(:extend t))
                                     ,@(and solarized-scale-outline-headlines
                                            (list :height solarized-height-plus-4))))))
      `(outline-2 ((,class (:inherit ,s-variable-pitch :foreground ,green
+                                    ,@(and (>= emacs-major-version 27) '(:extend t))
                                     ,@(and solarized-scale-outline-headlines
                                            (list :height solarized-height-plus-3))))))
      `(outline-3 ((,class (:inherit ,s-variable-pitch :foreground ,blue
+                                    ,@(and (>= emacs-major-version 27) '(:extend t))
                                     ,@(and solarized-scale-outline-headlines
                                            (list :height solarized-height-plus-2))))))
      `(outline-4 ((,class (:inherit ,s-variable-pitch :foreground ,yellow
+                                    ,@(and (>= emacs-major-version 27) '(:extend t))
                                     ,@(when solarized-scale-outline-headlines
                                         (list :height solarized-height-plus-1))))))
-     `(outline-5 ((,class (:inherit ,s-variable-pitch :foreground ,cyan))))
-     `(outline-6 ((,class (:inherit ,s-variable-pitch :foreground ,green))))
-     `(outline-7 ((,class (:inherit ,s-variable-pitch :foreground ,red))))
-     `(outline-8 ((,class (:inherit ,s-variable-pitch :foreground ,blue))))
+     `(outline-5 ((,class (:inherit ,s-variable-pitch :foreground ,cyan
+                                    ,@(and (>= emacs-major-version 27) '(:extend t))))))
+     `(outline-6 ((,class (:inherit ,s-variable-pitch :foreground ,green
+                                    ,@(and (>= emacs-major-version 27) '(:extend t))))))
+     `(outline-7 ((,class (:inherit ,s-variable-pitch :foreground ,red
+                                    ,@(and (>= emacs-major-version 27) '(:extend t))))))
+     `(outline-8 ((,class (:inherit ,s-variable-pitch :foreground ,blue
+                                    ,@(and (>= emacs-major-version 27) '(:extend t))))))
 ;;;;; outline-minor-faces
      `(outline-minor-0 ((,class (:weight bold :background ,s-base2))))
      `(outline-minor-1
