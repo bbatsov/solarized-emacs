@@ -1411,26 +1411,49 @@ customize the resulting theme."
      `(macrostep-expansion-highlight-face ((,class (:background ,base02))))
 ;;;;; magit
 ;;;;;; headings and diffs
-     `(magit-section-highlight           ((t (:background ,base02))))
-     `(magit-section-heading             ((t (:foreground ,yellow :weight bold))))
-     `(magit-section-heading-selection   ((t (:foreground ,orange :weight bold))))
-     `(magit-diff-file-heading           ((t (:weight bold))))
-     `(magit-diff-file-heading-highlight ((t (:background ,base02))))
-     `(magit-diff-file-heading-selection ((t (:background ,base02
-                                                          :foreground ,orange))))
+     `(magit-section-highlight
+       ((t (,@(and (>= emacs-major-version 27) '(:extend t))
+            :background ,base02))))
+     `(magit-section-heading
+       ((t (;;,@(and (>= emacs-major-version 27) '(:extend t))
+            :foreground ,yellow
+            :weight bold))))
+     `(magit-section-heading-selection
+       ((t (;;,@(and (>= emacs-major-version 27) '(:extend t))
+            :foreground ,orange
+            :weight bold))))
+     `(magit-diff-file-heading
+       ((t (;;,@(and (>= emacs-major-version 27) '(:extend t))
+            :weight bold))))
+     `(magit-diff-file-heading-highlight
+       ((t (,@(and (>= emacs-major-version 27) '(:extend t))
+            :background ,base02))))
+     `(magit-diff-file-heading-selection
+       ((t (,@(and (>= emacs-major-version 27) '(:extend t))
+            :background ,base02
+            :foreground ,orange))))
      `(magit-diff-hunk-heading
-       ((t (:background ,(solarized-color-blend yellow base03 0.1)))))
+       ((t (,@(and (>= emacs-major-version 27) '(:extend t))
+            :background ,(solarized-color-blend yellow base03 0.1)))))
      `(magit-diff-hunk-heading-highlight
-       ((t (:background ,(solarized-color-blend yellow base02 0.1)))))
+       ((t (,@(and (>= emacs-major-version 27) '(:extend t))
+            :background ,(solarized-color-blend yellow base02 0.1)))))
      `(magit-diff-hunk-heading-selection
-       ((t (:background ,(solarized-color-blend yellow base02 0.1)
-                        :foreground ,orange
-                        :weight bold))))
-     `(magit-diff-lines-heading          ((t (:background ,orange
-                                                          :foreground ,base3))))
-     `(magit-diff-context-highlight      ((t (:background ,base02))))
-     `(magit-diffstat-added              ((t (:foreground ,green))))
-     `(magit-diffstat-removed            ((t (:foreground ,red))))
+       ((t (,@(and (>= emacs-major-version 27) '(:extend t))
+            :background ,(solarized-color-blend yellow base02 0.1)
+            :foreground ,orange
+            :weight bold))))
+     `(magit-diff-lines-heading
+       ((t (,@(and (>= emacs-major-version 27) '(:extend t))
+            :background ,orange
+            :foreground ,base3))))
+     `(magit-diff-context-highlight
+       ((t (,@(and (>= emacs-major-version 27) '(:extend t))
+            :background ,base02))))
+     `(magit-diffstat-added
+       ((t (:foreground ,green))))
+     `(magit-diffstat-removed
+       ((t (:foreground ,red))))
 ;;;;;; process
      `(magit-process-ok    ((t (:foreground ,green :weight bold))))
      `(magit-process-ng    ((t (:foreground ,red   :weight bold))))
@@ -1451,9 +1474,13 @@ customize the resulting theme."
      `(magit-bisect-skip ((t (:foreground ,yellow))))
      `(magit-bisect-bad  ((t (:foreground ,red))))
 ;;;;;; blame
-     `(magit-blame-highlight ((t (:background ,base02))))
-     `(magit-blame-heading   ((t (:inherit magit-blame-highlight
-                                           :box (:color ,base02 :line-width 2)))))
+     `(magit-blame-highlight
+       ((t (,@(and (>= emacs-major-version 27) '(:extend t))
+            :background ,base02))))
+     `(magit-blame-heading
+       ((t (,@(and (>= emacs-major-version 27) '(:extend t))
+            :background ,base02
+            :box (:color ,base02 :line-width 2)))))
      `(magit-blame-summary   ((t (:foreground ,base0))))
      `(magit-blame-hash      ((t (:foreground ,violet))))
      `(magit-blame-name      ((t (:foreground ,violet))))
