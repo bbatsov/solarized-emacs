@@ -1841,9 +1841,13 @@ customize the resulting theme."
      `(outline-8 ((,class (:inherit ,s-variable-pitch :foreground ,blue
                                     ,@(and (>= emacs-major-version 27) '(:extend t))))))
 ;;;;; outline-minor-faces
-     `(outline-minor-0 ((,class (:weight bold :background ,s-base2))))
+     `(outline-minor-0
+       ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
+                 :weight bold
+                 :background ,s-base2))))
      `(outline-minor-1
-       ((,class (:inherit (outline-minor-0 outline-1)
+       ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
+                 :inherit (outline-minor-0 outline-1)
                  :background ,(solarized-color-blend s-base3 yellow .9)))))
 ;;;;; paren-face
      `(paren-face  ((,class (:foreground ,base01))))
