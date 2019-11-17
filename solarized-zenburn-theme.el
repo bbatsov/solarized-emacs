@@ -34,4 +34,9 @@
 (provide-theme 'solarized-zenburn)
 
 (provide 'solarized-zenburn-theme)
+
+;; Local Variables:
+;; indent-tabs-mode: nil
+;; End:
+
 ;;; solarized-zenburn-theme.el ends here

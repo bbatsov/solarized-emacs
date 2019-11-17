@@ -34,4 +34,9 @@
 (provide-theme 'solarized-light-high-contrast)
 
 (provide 'solarized-light-high-contrast-theme)
+
+;; Local Variables:
+;; indent-tabs-mode: nil
+;; End:
+
 ;;; solarized-light-high-contrast-theme.el ends here

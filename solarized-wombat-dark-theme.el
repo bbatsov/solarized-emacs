@@ -51,4 +51,9 @@
 (provide-theme 'solarized-wombat-dark)
 
 (provide 'solarized-wombat-dark-theme)
+
+;; Local Variables:
+;; indent-tabs-mode: nil
+;; End:
+
 ;;; solarized-wombat-dark-theme.el ends here

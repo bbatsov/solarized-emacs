@@ -33,4 +33,9 @@
 (provide-theme 'solarized-light)
 
 (provide 'solarized-light-theme)
+
+;; Local Variables:
+;; indent-tabs-mode: nil
+;; End:
+
 ;;; solarized-light-theme.el ends here

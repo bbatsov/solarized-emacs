@@ -559,7 +559,11 @@
     ;; palette end
     )
   "The solarized color palette alist.")
+
 (provide 'solarized-palettes)
+
+;; Local Variables:
+;; indent-tabs-mode: nil
 ;; End:
 
 ;;; solarized-palettes.el ends here
