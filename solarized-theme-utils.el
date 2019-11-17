@@ -1,4 +1,4 @@
-;;; solarized-theme-utils.el --- Utilities for solarized theme development
+;;; solarized-theme-utils.el --- Utilities for solarized theme development  -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2012 Thomas Frössman
 

@@ -1,4 +1,4 @@
-;;; solarized-wombat-dark-theme.el --- Solarized dark theme with the wombat palette.
+;;; solarized-wombat-dark-theme.el --- Solarized dark theme with the wombat palette  -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2011-2019 Bozhidar Batsov
 
@@ -22,18 +22,19 @@
 ;;; Code:
 
 (require 'solarized)
+(eval-when-compile
+  (require 'solarized-palettes))
 
 (deftheme solarized-wombat-dark "The the dark solarized theme with the wombat palette")
 
-(solarized-create-theme-with-palette 'dark 'solarized-wombat-dark
+(solarized-with-color-variables-with-palette 'dark 'solarized-wombat-dark
   '("#2a2a29" "#f6f3e8"           ; base03 (02 01 00 0 1 2) base3
     "#e5c06d" "#ddaa6f"           ; yellow orange
     "#ffb4ac" "#e5786d"           ; red    magenta
     "#834c98" "#a4b5e6"           ; violet blue
     "#7ec98f" "#8ac6f2"           ; cyan   green
     )
-  (lambda ()
-    (custom-theme-set-faces
+  '((custom-theme-set-faces
      theme-name
      `(default ((,class (:foreground ,(solarized-color-blend base03 base3 0.15 2) :background ,base03))))
      `(highlight ((,class (:background ,violet))))

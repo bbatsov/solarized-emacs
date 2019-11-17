@@ -1,4 +1,4 @@
-;;; solarized.el --- Solarized theme
+;;; solarized.el --- Solarized theme  -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2011-2019 Bozhidar Batsov
 
@@ -26,7 +26,6 @@
 
 (require 'dash)
 (require 'color)
-(require 'solarized-palettes)
 (require 'solarized-faces)
 
 ;;; Options
@@ -135,7 +134,7 @@ use the latter if you need a 24-bit specification of a color."
       (apply 'color-rgb-to-hex `(,@args ,digits-per-component)))))
 
 (defun solarized-color-lightness (color)
-  "Returns the LAB lightness value of a color, the range is from 0-100."
+  "Return the LAB lightness value of a COLOR, the range is from 0-100."
   (car (apply 'color-srgb-to-lab (color-name-to-rgb hexrgb))))
 
 (defun solarized-color-clamp-lab (lab)
@@ -159,7 +158,7 @@ use the latter if you need a 24-bit specification of a color."
                       (apply 'color-lab-to-srgb
                              (solarized-color-clamp-lab
                               (cl-mapcar
-                               '(lambda (v1 v2) (+ v1 (* alpha (- v2 v1))))
+                               (lambda (v1 v2) (+ v1 (* alpha (- v2 v1))))
                                (apply 'color-srgb-to-lab (color-name-to-rgb color2))
                                (apply 'color-srgb-to-lab (color-name-to-rgb color1))))))))
     (if (version< emacs-version "26")
@@ -254,135 +253,150 @@ The Returned color-palette has the same format as `solarized-color-palette'"
       (violet-2fg  . ,(solarized-color-blend brightest-base violet  0.45 2))
       (blue-2fg    . ,(solarized-color-blend brightest-base blue    0.45 2))
       (cyan-2fg    . ,(solarized-color-blend brightest-base cyan    0.45 2))
-      (green-2fg   . ,(solarized-color-blend brightest-base green   0.45 2))
-
-      )))
-
-
+      (green-2fg   . ,(solarized-color-blend brightest-base green   0.45 2)))))
 
 ;;; Setup Start
-(defmacro solarized-with-color-variables (variant color-palette &rest body)
-  "Eval BODY in solarized COLOR-PALETTE.
-VARIANT is 'dark or 'light."
+(defmacro solarized-with-color-variables (variant theme-name color-palette &optional childtheme-sexp)
+  "Eval BODY in solarized COLOR-PALETTE for THEME-NAME.
+VARIANT is 'dark or 'light.
+When optional argument CHILDTHEME-SEXP sexp is supplied it's invoked to further
+customize the resulting theme."
   (declare (indent defun))
-  `(let* ((class '((class color) (min-colors 89)))
-          (light-class (append '((background light)) class))
-          (dark-class (append '((background dark)) class))
-          (variant ,variant)
-          ,@(mapcar (lambda (elm) `(,(car elm) ,(cdr elm))) color-palette)
+  (let ((color-palette* (eval color-palette)))
+    `(let* ((class '((class color) (min-colors 89)))
+            (light-class (append '((background light)) class))
+            (dark-class (append '((background dark)) class))
+            (theme-name ,theme-name)
+            (variant ,variant)
+            ,@(mapcar (lambda (elm) `(,(car elm) ,(cdr elm))) color-palette*)
 
-          (s-base03 base03)
-          (s-base02 base02)
-          (s-base01 base01)
-          (s-base00 base00)
-          (s-base3 base3)
-          (s-base2 base2)
-          (s-base1 base1)
-          (s-base0 base0)
+            (s-base03 base03)
+            (s-base02 base02)
+            (s-base01 base01)
+            (s-base00 base00)
+            (s-base3 base3)
+            (s-base2 base2)
+            (s-base1 base1)
+            (s-base0 base0)
 
-          ;; Solarized palette names, use these instead of -fg -bg...
-          (base03 (if (eq variant 'light) s-base3 s-base03))
-          (base02 (if (eq variant 'light) s-base2 s-base02))
-          (base01 (if (eq variant 'light) s-base1 s-base01))
-          (base00 (if (eq variant 'light) s-base0 s-base00))
-          (base0 (if (eq variant 'light) s-base00 s-base0))
-          (base1 (if (eq variant 'light) s-base01 s-base1))
-          (base2 (if (eq variant 'light) s-base02 s-base2))
-          (base3 (if (eq variant 'light) s-base03 s-base3))
+            ;; Solarized palette names, use these instead of -fg -bg...
+            (base03 (if (eq variant 'light) s-base3 s-base03))
+            (base02 (if (eq variant 'light) s-base2 s-base02))
+            (base01 (if (eq variant 'light) s-base1 s-base01))
+            (base00 (if (eq variant 'light) s-base0 s-base00))
+            (base0 (if (eq variant 'light) s-base00 s-base0))
+            (base1 (if (eq variant 'light) s-base01 s-base1))
+            (base2 (if (eq variant 'light) s-base02 s-base2))
+            (base3 (if (eq variant 'light) s-base03 s-base3))
 
-          ;; Line drawing color
-          ;;
-          ;; NOTE only use this for very thin lines that are hard to see using base02, in low
-          ;; color displayes base02 might be used instead
-          (s-line (if (eq variant 'light) "#cccec4" "#284b54"))
+            ;; Line drawing color
+            ;;
+            ;; NOTE only use this for very thin lines that are hard to see using base02, in low
+            ;; color displayes base02 might be used instead
+            (s-line (if (eq variant 'light) "#cccec4" "#284b54"))
 
-          ;; Light/Dark adaptive higher/lower contrast accented colors
-          ;;
-          ;; NOTE Only use these in exceptional cirmumstances!
-          (yellow-hc (if (eq variant 'light) yellow-d yellow-l))
-          (yellow-lc (if (eq variant 'light) yellow-l yellow-d))
-          (orange-hc (if (eq variant 'light) orange-d orange-l))
-          (orange-lc (if (eq variant 'light) orange-l orange-d))
-          (red-hc (if (eq variant 'light) red-d red-l))
-          (red-lc (if (eq variant 'light) red-l red-d))
-          (magenta-hc (if (eq variant 'light) magenta-d magenta-l))
-          (magenta-lc (if (eq variant 'light) magenta-l magenta-d))
-          (violet-hc (if (eq variant 'light) violet-d violet-l))
-          (violet-lc (if (eq variant 'light) violet-l violet-d))
-          (blue-hc (if (eq variant 'light) blue-d blue-l))
-          (blue-lc (if (eq variant 'light) blue-l blue-d))
-          (cyan-hc (if (eq variant 'light) cyan-d cyan-l))
-          (cyan-lc (if (eq variant 'light) cyan-l cyan-d))
-          (green-hc (if (eq variant 'light) green-d green-l))
-          (green-lc (if (eq variant 'light) green-l green-d))
+            ;; Light/Dark adaptive higher/lower contrast accented colors
+            ;;
+            ;; NOTE Only use these in exceptional cirmumstances!
+            (yellow-hc (if (eq variant 'light) yellow-d yellow-l))
+            (yellow-lc (if (eq variant 'light) yellow-l yellow-d))
+            (orange-hc (if (eq variant 'light) orange-d orange-l))
+            (orange-lc (if (eq variant 'light) orange-l orange-d))
+            (red-hc (if (eq variant 'light) red-d red-l))
+            (red-lc (if (eq variant 'light) red-l red-d))
+            (magenta-hc (if (eq variant 'light) magenta-d magenta-l))
+            (magenta-lc (if (eq variant 'light) magenta-l magenta-d))
+            (violet-hc (if (eq variant 'light) violet-d violet-l))
+            (violet-lc (if (eq variant 'light) violet-l violet-d))
+            (blue-hc (if (eq variant 'light) blue-d blue-l))
+            (blue-lc (if (eq variant 'light) blue-l blue-d))
+            (cyan-hc (if (eq variant 'light) cyan-d cyan-l))
+            (cyan-lc (if (eq variant 'light) cyan-l cyan-d))
+            (green-hc (if (eq variant 'light) green-d green-l))
+            (green-lc (if (eq variant 'light) green-l green-d))
 
-          ;; customize based face properties
-          (s-maybe-bold (if solarized-use-less-bold
-                            'unspecified 'bold))
-          (s-maybe-italic (if solarized-use-more-italic
-                              'italic 'normal))
-          (s-variable-pitch (if solarized-use-variable-pitch
-                                'variable-pitch 'default))
-          (s-fringe-bg (if solarized-distinct-fringe-background
-                           base02 base03))
-          (s-fringe-fg base01)
+            ;; customize based face properties
+            (s-maybe-bold (if solarized-use-less-bold
+                              'unspecified 'bold))
+            (s-maybe-italic (if solarized-use-more-italic
+                                'italic 'normal))
+            (s-variable-pitch (if solarized-use-variable-pitch
+                                  'variable-pitch 'default))
+            (s-fringe-bg (if solarized-distinct-fringe-background
+                             base02 base03))
+            (s-fringe-fg base01)
 
-          (s-header-line-fg (if solarized-high-contrast-mode-line
-                                base1 base0))
-          (s-header-line-bg (if solarized-high-contrast-mode-line
-                                base02 base03))
-          (s-header-line-underline (if solarized-high-contrast-mode-line
-                                       nil base02))
+            (s-header-line-fg (if solarized-high-contrast-mode-line
+                                  base1 base0))
+            (s-header-line-bg (if solarized-high-contrast-mode-line
+                                  base02 base03))
+            (s-header-line-underline (if solarized-high-contrast-mode-line
+                                         nil base02))
 
-          (s-mode-line-fg (if solarized-high-contrast-mode-line
-                              base03 base0))
-          (s-mode-line-bg (if solarized-high-contrast-mode-line
-                              base0 base02))
-          (s-mode-line-underline (if solarized-high-contrast-mode-line
-                                     nil s-line))
+            (s-mode-line-fg (if solarized-high-contrast-mode-line
+                                base03 base0))
+            (s-mode-line-bg (if solarized-high-contrast-mode-line
+                                base0 base02))
+            (s-mode-line-underline (if solarized-high-contrast-mode-line
+                                       nil s-line))
 
-          (s-mode-line-buffer-id-fg (if solarized-high-contrast-mode-line
-                                        'unspecified base1))
-          (s-mode-line-inactive-fg (if solarized-high-contrast-mode-line
-                                       base0 base01))
-          (s-mode-line-inactive-bg (if solarized-high-contrast-mode-line
-                                       base02 base03))
-          (s-mode-line-inactive-bc (if solarized-high-contrast-mode-line
-                                       base02 base02))
+            (s-mode-line-buffer-id-fg (if solarized-high-contrast-mode-line
+                                          'unspecified base1))
+            (s-mode-line-inactive-fg (if solarized-high-contrast-mode-line
+                                         base0 base01))
+            (s-mode-line-inactive-bg (if solarized-high-contrast-mode-line
+                                         base02 base03))
+            (s-mode-line-inactive-bc (if solarized-high-contrast-mode-line
+                                         base02 base02))
 
-          ;; diff colors
-          (s-diff-A-bg red-1bg)
-          (s-diff-A-fg red-1fg)
-          (s-diff-fine-A-bg red-2bg)
-          (s-diff-fine-A-fg red-2fg)
+            ;; diff colors
+            (s-diff-A-bg red-1bg)
+            (s-diff-A-fg red-1fg)
+            (s-diff-fine-A-bg red-2bg)
+            (s-diff-fine-A-fg red-2fg)
 
-          (s-diff-B-bg green-1bg)
-          (s-diff-B-fg green-1fg)
-          (s-diff-fine-B-bg green-2bg)
-          (s-diff-fine-B-fg green-2fg)
+            (s-diff-B-bg green-1bg)
+            (s-diff-B-fg green-1fg)
+            (s-diff-fine-B-bg green-2bg)
+            (s-diff-fine-B-fg green-2fg)
 
-          (s-diff-Ancestor-bg yellow-1bg)
-          (s-diff-Ancestor-fg yellow-1fg)
-          (s-diff-fine-Ancestor-bg yellow-2bg)
-          (s-diff-fine-Ancestor-fg yellow-2fg)
+            (s-diff-Ancestor-bg yellow-1bg)
+            (s-diff-Ancestor-fg yellow-1fg)
+            (s-diff-fine-Ancestor-bg yellow-2bg)
+            (s-diff-fine-Ancestor-fg yellow-2fg)
 
-          (s-diff-C-bg blue-1bg)
-          (s-diff-C-fg blue-1fg)
-          (s-diff-fine-C-bg blue-2bg)
-          (s-diff-fine-C-fg blue-2fg)
-          (s-diff-context-fg base0)
-          (s-diff-heading-bg base02)
+            (s-diff-C-bg blue-1bg)
+            (s-diff-C-fg blue-1fg)
+            (s-diff-fine-C-bg blue-2bg)
+            (s-diff-fine-C-fg blue-2fg)
+            (s-diff-context-fg base0)
+            (s-diff-heading-bg base02)
 
-          (s-diffstat-added-fg green)
-          (s-diffstat-changed-fg blue)
-          (s-diffstat-removed-fg red)
-          )
-     ,@body))
+            (s-diffstat-added-fg green)
+            (s-diffstat-changed-fg blue)
+            (s-diffstat-removed-fg red))
 
-(defun solarized-create-theme-file (variant theme-name core-palette &optional childtheme overwrite)
+       ;; NOTE: `custom--inhibit-theme-enable' turn-off needed
+       ;;       childtheme works well disscussed in #352
+       (let ((custom--inhibit-theme-enable nil))
+         ,@solarized-definition
+         ,@(eval childtheme-sexp)))))
+
+(defmacro solarized-with-color-variables-with-palette (variant theme-name core-palette &optional childtheme-sexp)
   "Create a VARIANT of the theme named THEME-NAME with CORE-PALETTE.
 
-When optional argument CHILDTHEME function is supplied it's invoked to further
+When optional argument CHILDTHEME-SEXP sexp is supplied it's invoked to further
+customize the resulting theme.
+
+CORE-PALETTE is core color-palette."
+  (declare (indent 2))
+  (let ((color-palette (solarized-create-color-palette (eval core-palette))))
+    `(solarized-with-color-variables ,variant ,theme-name ',color-palette ,childtheme-sexp)))
+
+(defun solarized-create-theme-file (variant theme-name color-palette &optional childtheme-sexp overwrite)
+  "Create a VARIANT of the theme named THEME-NAME with COLOR-PALETTE.
+
+When optional argument CHILDTHEME-SEXP sexp is supplied it's invoked to further
 customize the resulting theme.
 
 CORE-PALETTE is core color-palette.
@@ -401,36 +415,24 @@ If OVERWRITE is non-nil, overwrite theme file if exist."
               `((require 'solarized)
                 (deftheme ,theme-name
                   ,(format "The %s colour theme of Solarized colour theme flavor." theme-name))
-                (let ((custom--inhibit-theme-enable nil))
-                  (solarized-create-theme-with-palette ',variant ',theme-name ',core-palette ',childtheme))
+                (solarized-with-color-variables ',variant ',theme-name ',color-palette ',childtheme-sexp)
                 (provide-theme ',theme-name)
                 (provide ',(intern (format "%s-theme" theme-name)))))))
     path))
 
-(defun solarized-create-theme (variant theme-name &optional childtheme)
-  "Create a VARIANT of the theme named THEME-NAME.
-
-When optional argument CHILDTHEME function is supplied it's invoked to further
-customize the resulting theme."
-  (solarized-definition variant theme-name (if (eq variant 'light)
-                                               solarized-light-color-palette-alist
-                                             solarized-dark-color-palette-alist)
-                        childtheme))
-
-(defun solarized-create-theme-with-palette (variant theme-name core-palette &optional childtheme)
+(defun solarized-create-theme-file-with-palette (variant theme-name core-palette &optional childtheme-sexp overwrite)
   "Create a VARIANT of the theme named THEME-NAME with CORE-PALETTE.
 
-When optional argument CHILDTHEME function is supplied it's invoked to further
+When optional argument CHILDTHEME-SEXP sexp is supplied it's invoked to further
 customize the resulting theme.
 
-CORE-PALETTE is core color-palette."
+CORE-PALETTE is core color-palette.
+If OVERWRITE is non-nil, overwrite theme file if exist."
   (declare (indent 2))
   (let ((color-palette (solarized-create-color-palette core-palette)))
-    (solarized-definition variant theme-name color-palette childtheme)))
+    (apply #'solarized-create-theme-file (list variant theme-name color-palette childtheme-sexp overwrite))))
 
-(define-obsolete-function-alias 'create-solarized-theme-file         'solarized-create-theme-file)
-(define-obsolete-function-alias 'create-solarized-theme              'solarized-create-theme)
-(define-obsolete-function-alias 'create-solarized-theme-with-palette 'solarized-create-theme-with-palette)
+(define-obsolete-function-alias 'create-solarized-theme-file 'solarized-create-theme-file)
 
 ;;; Footer
 

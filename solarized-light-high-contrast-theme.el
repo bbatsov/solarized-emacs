@@ -1,4 +1,4 @@
-;;; solarized-light-high-contrast-theme.el --- Solarized Light Theme for Emacs.
+;;; solarized-light-high-contrast-theme.el --- Solarized Light Theme for Emacs  -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019 Thomas Frössman
 
@@ -22,12 +22,14 @@
 ;;; Code:
 
 (require 'solarized)
+(eval-when-compile
+  (require 'solarized-palettes))
 
 (deftheme solarized-light-high-contrast
   "The light variant of the Solarized colour theme with slightly higher text contrast")
 
-(solarized-definition 'light 'solarized-light-high-contrast
-                      solarized-light-high-contrast-palette-alist)
+(solarized-with-color-variables 'light 'solarized-light-high-contrast
+  solarized-light-high-contrast-palette-alist)
 
 (provide-theme 'solarized-light-high-contrast)
 
