@@ -1,7 +1,3 @@
-// this is just a WIP where color.el can be a bit cumbersome and it *might* not
-// have every color feature we need so at least initial experimentation is done
-// here. If the process can be automated or needs manual ajdustments or needs
-// porting of colorspace code to elisp we don't know.
 package main
 
 import (
