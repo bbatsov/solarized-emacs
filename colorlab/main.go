@@ -767,11 +767,11 @@ var ( // The original solarized color palette
 		Base: Base{
 			Base03: ZenburnBg,
 			Base02: ZenburnBgP1,
-			Base01: ZenburnFgM1.Blend(ZenburnFg, 0.3),
+			Base01: HexColor(ZenburnFgM1).Blend(ZenburnFg, 0.3),
 			Base00: ZenburnBgP3,
 			Base0:  ZenburnFg,
 			Base1:  ZenburnFgP1,
-			Base2:  ZenburnFgP1.Blend(ZenburnFgP2, 0.5),
+			Base2:  HexColor(ZenburnFgP1).Blend(ZenburnFgP2, 0.5),
 			Base3:  ZenburnFgP2,
 		},
 		Accents: Accents{
@@ -781,7 +781,7 @@ var ( // The original solarized color palette
 			Magenta: ZenburnMagenta,
 			Orange:  ZenburnOrange,
 			Red:     ZenburnRed,
-			Violet:  ZenburnBlue.Blend(ZenburnMagenta, 0.5),
+			Violet:  HexColor(ZenburnBlue).Blend(ZenburnMagenta, 0.5),
 			Yellow:  ZenburnYellow,
 		},
 	}
@@ -811,123 +811,123 @@ var ( // The original solarized color palette
 )
 
 const (
-	SolarizedBase03  = HexColor("#002b36")
-	SolarizedBase02  = HexColor("#073642")
-	SolarizedBase01  = HexColor("#586e75")
-	SolarizedBase00  = HexColor("#657b83")
-	SolarizedBase0   = HexColor("#839496")
-	SolarizedBase1   = HexColor("#93a1a1")
-	SolarizedBase2   = HexColor("#eee8d5")
-	SolarizedBase3   = HexColor("#fdf6e3")
-	SolarizedBlue    = HexColor("#268bd2")
-	SolarizedCyan    = HexColor("#2aa198")
-	SolarizedGreen   = HexColor("#859900")
-	SolarizedMagenta = HexColor("#d33682")
-	SolarizedOrange  = HexColor("#cb4b16")
-	SolarizedRed     = HexColor("#dc322f")
-	SolarizedViolet  = HexColor("#6c71c4")
-	SolarizedYellow  = HexColor("#b58900")
+	SolarizedBase03  = "#002b36"
+	SolarizedBase02  = "#073642"
+	SolarizedBase01  = "#586e75"
+	SolarizedBase00  = "#657b83"
+	SolarizedBase0   = "#839496"
+	SolarizedBase1   = "#93a1a1"
+	SolarizedBase2   = "#eee8d5"
+	SolarizedBase3   = "#fdf6e3"
+	SolarizedBlue    = "#268bd2"
+	SolarizedCyan    = "#2aa198"
+	SolarizedGreen   = "#859900"
+	SolarizedMagenta = "#d33682"
+	SolarizedOrange  = "#cb4b16"
+	SolarizedRed     = "#dc322f"
+	SolarizedViolet  = "#6c71c4"
+	SolarizedYellow  = "#b58900"
 
-	GruvboxDark0Hard    = HexColor("#1d2021")
-	GruvboxDark0        = HexColor("#282828")
-	GruvboxDark0Soft    = HexColor("#32302f")
-	GruvboxDark1        = HexColor("#3c3836")
-	GruvboxDark2        = HexColor("#504945")
-	GruvboxDark3        = HexColor("#665c54")
-	GruvboxDark4        = HexColor("#7c6f64")
-	GruvboxGray         = HexColor("#928374")
-	GruvboxLight0Hard   = HexColor("#f9f5d7")
-	GruvboxLight0       = HexColor("#fbf1c7")
-	GruvboxLight0Soft   = HexColor("#f2e5bc")
-	GruvboxLight1       = HexColor("#ebdbb2")
-	GruvboxLight2       = HexColor("#d5c4a1")
-	GruvboxLight3       = HexColor("#bdae93")
-	GruvboxLight4       = HexColor("#a89984")
-	GruvboxRed          = HexColor("#cc241d")
-	GruvboxGreen        = HexColor("#98971a")
-	GruvboxYellow       = HexColor("#d79921")
-	GruvboxBlue         = HexColor("#458588")
-	GruvboxPurple       = HexColor("#b16286")
-	GruvboxAqua         = HexColor("#689d6a")
-	GruvboxOrange       = HexColor("#d65d0e")
-	GruvboxBrightRed    = HexColor("#fb4933")
-	GruvboxBrightGreen  = HexColor("#b8bb26")
-	GruvboxBrightYellow = HexColor("#fabd2f")
-	GruvboxBrightBlue   = HexColor("#83a598")
-	GruvboxBrightPurple = HexColor("#d3869b")
-	GruvboxBrightAqua   = HexColor("#8ec07c")
-	GruvboxBrightOrange = HexColor("#fe8019")
-	GruvboxDarkRed      = HexColor("#9d0006")
-	GruvboxDarkGreen    = HexColor("#79740e")
-	GruvboxDarkYellow   = HexColor("#b57614")
-	GruvboxDarkBlue     = HexColor("#076678")
-	GruvboxDarkPurple   = HexColor("#8f3f71")
-	GruvboxDarkAqua     = HexColor("#427b58")
-	GruvboxDarkOrange   = HexColor("#af3a03")
+	GruvboxDark0Hard    = "#1d2021"
+	GruvboxDark0        = "#282828"
+	GruvboxDark0Soft    = "#32302f"
+	GruvboxDark1        = "#3c3836"
+	GruvboxDark2        = "#504945"
+	GruvboxDark3        = "#665c54"
+	GruvboxDark4        = "#7c6f64"
+	GruvboxGray         = "#928374"
+	GruvboxLight0Hard   = "#f9f5d7"
+	GruvboxLight0       = "#fbf1c7"
+	GruvboxLight0Soft   = "#f2e5bc"
+	GruvboxLight1       = "#ebdbb2"
+	GruvboxLight2       = "#d5c4a1"
+	GruvboxLight3       = "#bdae93"
+	GruvboxLight4       = "#a89984"
+	GruvboxRed          = "#cc241d"
+	GruvboxGreen        = "#98971a"
+	GruvboxYellow       = "#d79921"
+	GruvboxBlue         = "#458588"
+	GruvboxPurple       = "#b16286"
+	GruvboxAqua         = "#689d6a"
+	GruvboxOrange       = "#d65d0e"
+	GruvboxBrightRed    = "#fb4933"
+	GruvboxBrightGreen  = "#b8bb26"
+	GruvboxBrightYellow = "#fabd2f"
+	GruvboxBrightBlue   = "#83a598"
+	GruvboxBrightPurple = "#d3869b"
+	GruvboxBrightAqua   = "#8ec07c"
+	GruvboxBrightOrange = "#fe8019"
+	GruvboxDarkRed      = "#9d0006"
+	GruvboxDarkGreen    = "#79740e"
+	GruvboxDarkYellow   = "#b57614"
+	GruvboxDarkBlue     = "#076678"
+	GruvboxDarkPurple   = "#8f3f71"
+	GruvboxDarkAqua     = "#427b58"
+	GruvboxDarkOrange   = "#af3a03"
 
-	ZenburnFgM1     = HexColor("#656555")
-	ZenburnFgM05    = HexColor("#989890")
-	ZenburnFg       = HexColor("#DCDCCC")
-	ZenburnFgP1     = HexColor("#FFFFEF")
-	ZenburnFgP2     = HexColor("#FFFFFD")
-	ZenburnBgM2     = HexColor("#000000")
-	ZenburnBgM1     = HexColor("#2B2B2B")
-	ZenburnBgM08    = HexColor("#303030")
-	ZenburnBgM05    = HexColor("#383838")
-	ZenburnBg       = HexColor("#3F3F3F")
-	ZenburnBgP05    = HexColor("#494949")
-	ZenburnBgP1     = HexColor("#4F4F4F")
-	ZenburnBgP2     = HexColor("#5F5F5F")
-	ZenburnBgP3     = HexColor("#6F6F6F")
-	ZenburnRedM6    = HexColor("#6C3333")
-	ZenburnRedM5    = HexColor("#7C4343")
-	ZenburnRedM4    = HexColor("#8C5353")
-	ZenburnRedM3    = HexColor("#9C6363")
-	ZenburnRedM2    = HexColor("#AC7373")
-	ZenburnRedM1    = HexColor("#BC8383")
-	ZenburnRed      = HexColor("#CC9393")
-	ZenburnRedP1    = HexColor("#DCA3A3")
-	ZenburnRedP2    = HexColor("#ECB3B3")
-	ZenburnOrange   = HexColor("#DFAF8F")
-	ZenburnYellowM2 = HexColor("#D0BF8F")
-	ZenburnYellowM1 = HexColor("#E0CF9F")
-	ZenburnYellow   = HexColor("#F0DFAF")
-	ZenburnGreenM5  = HexColor("#2F4F2F")
-	ZenburnGreenM4  = HexColor("#3F5F3F")
-	ZenburnGreenM3  = HexColor("#4F6F4F")
-	ZenburnGreenM2  = HexColor("#5F7F5F")
-	ZenburnGreenM1  = HexColor("#6F8F6F")
-	ZenburnGreen    = HexColor("#7F9F7F")
-	ZenburnGreenP1  = HexColor("#8FB28F")
-	ZenburnGreenP2  = HexColor("#9FC59F")
-	ZenburnGreenP3  = HexColor("#AFD8AF")
-	ZenburnGreenP4  = HexColor("#BFEBBF")
-	ZenburnCyan     = HexColor("#93E0E3")
-	ZenburnBlueP3   = HexColor("#BDE0F3")
-	ZenburnBlueP2   = HexColor("#ACE0E3")
-	ZenburnBlueP1   = HexColor("#94BFF3")
-	ZenburnBlue     = HexColor("#8CD0D3")
-	ZenburnBlueM1   = HexColor("#7CB8BB")
-	ZenburnBlueM2   = HexColor("#6CA0A3")
-	ZenburnBlueM3   = HexColor("#5C888B")
-	ZenburnBlueM4   = HexColor("#4C7073")
-	ZenburnBlueM5   = HexColor("#366060")
-	ZenburnMagenta  = HexColor("#DC8CC3")
+	ZenburnFgM1     = "#656555"
+	ZenburnFgM05    = "#989890"
+	ZenburnFg       = "#DCDCCC"
+	ZenburnFgP1     = "#FFFFEF"
+	ZenburnFgP2     = "#FFFFFD"
+	ZenburnBgM2     = "#000000"
+	ZenburnBgM1     = "#2B2B2B"
+	ZenburnBgM08    = "#303030"
+	ZenburnBgM05    = "#383838"
+	ZenburnBg       = "#3F3F3F"
+	ZenburnBgP05    = "#494949"
+	ZenburnBgP1     = "#4F4F4F"
+	ZenburnBgP2     = "#5F5F5F"
+	ZenburnBgP3     = "#6F6F6F"
+	ZenburnRedM6    = "#6C3333"
+	ZenburnRedM5    = "#7C4343"
+	ZenburnRedM4    = "#8C5353"
+	ZenburnRedM3    = "#9C6363"
+	ZenburnRedM2    = "#AC7373"
+	ZenburnRedM1    = "#BC8383"
+	ZenburnRed      = "#CC9393"
+	ZenburnRedP1    = "#DCA3A3"
+	ZenburnRedP2    = "#ECB3B3"
+	ZenburnOrange   = "#DFAF8F"
+	ZenburnYellowM2 = "#D0BF8F"
+	ZenburnYellowM1 = "#E0CF9F"
+	ZenburnYellow   = "#F0DFAF"
+	ZenburnGreenM5  = "#2F4F2F"
+	ZenburnGreenM4  = "#3F5F3F"
+	ZenburnGreenM3  = "#4F6F4F"
+	ZenburnGreenM2  = "#5F7F5F"
+	ZenburnGreenM1  = "#6F8F6F"
+	ZenburnGreen    = "#7F9F7F"
+	ZenburnGreenP1  = "#8FB28F"
+	ZenburnGreenP2  = "#9FC59F"
+	ZenburnGreenP3  = "#AFD8AF"
+	ZenburnGreenP4  = "#BFEBBF"
+	ZenburnCyan     = "#93E0E3"
+	ZenburnBlueP3   = "#BDE0F3"
+	ZenburnBlueP2   = "#ACE0E3"
+	ZenburnBlueP1   = "#94BFF3"
+	ZenburnBlue     = "#8CD0D3"
+	ZenburnBlueM1   = "#7CB8BB"
+	ZenburnBlueM2   = "#6CA0A3"
+	ZenburnBlueM3   = "#5C888B"
+	ZenburnBlueM4   = "#4C7073"
+	ZenburnBlueM5   = "#366060"
+	ZenburnMagenta  = "#DC8CC3"
 
 	// ehm, monokaiXX are probably not "correct" in any way
-	Monokai03      = HexColor("#272822")
-	Monokai02      = HexColor("#3E3D31")
-	Monokai01      = HexColor("#75715E")
-	Monokai00      = HexColor("#49483E")
-	Monokai0       = HexColor("#F8F8F2")
-	MonokaiYellow  = HexColor("#E6DB74")
-	MonokaiOrange  = HexColor("#FD971F")
-	MonokaiRed     = HexColor("#F92672")
-	MonokaiMagenta = HexColor("#FD5FF0")
-	MonokaiBlue    = HexColor("#66D9EF")
-	MonokaiGreen   = HexColor("#A6E22E")
-	MonokaiCyan    = HexColor("#A1EFE4")
-	MonokaiViolet  = HexColor("#AE81FF")
+	Monokai03      = "#272822"
+	Monokai02      = "#3E3D31"
+	Monokai01      = "#75715E"
+	Monokai00      = "#49483E"
+	Monokai0       = "#F8F8F2"
+	MonokaiYellow  = "#E6DB74"
+	MonokaiOrange  = "#FD971F"
+	MonokaiRed     = "#F92672"
+	MonokaiMagenta = "#FD5FF0"
+	MonokaiBlue    = "#66D9EF"
+	MonokaiGreen   = "#A6E22E"
+	MonokaiCyan    = "#A1EFE4"
+	MonokaiViolet  = "#AE81FF"
 )
 
 // Palette .
