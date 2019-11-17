@@ -1020,17 +1020,24 @@
      `(magit-diff-file-heading-highlight ((t (:background ,base02))))
      `(magit-diff-file-heading-selection ((t (:background ,base02
                                                           :foreground ,orange))))
-     `(magit-diff-hunk-heading
-       ((t (:background ,(solarized-color-blend yellow base03 0.1)))))
-     `(magit-diff-hunk-heading-highlight
-       ((t (:background ,(solarized-color-blend yellow base02 0.1)))))
+     `(magit-diff-hunk-heading ((t (:background ,yellow-1bg :foreground ,yellow-1fg))))
+     `(magit-diff-hunk-heading-highlight ((t (:background ,yellow-2bg :foreground ,yellow-2fg))))
      `(magit-diff-hunk-heading-selection
        ((t (:background ,(solarized-color-blend yellow base02 0.1)
                         :foreground ,orange
                         :weight bold))))
      `(magit-diff-lines-heading          ((t (:background ,orange
                                                           :foreground ,base3))))
-     `(magit-diff-context-highlight      ((t (:background ,base02))))
+     `(magit-diff-context-highlight      ((t (:background ,cyan-1bg :foreground ,cyan-1fg))))
+     `(magit-diff-added ((,class (:background ,green-1bg :foreground ,green-1fg))))
+     `(magit-diff-added-highlight ((,class (:background ,green-1bg :foreground ,green-1fg))))
+     `(magit-diff-base ((,class (:background ,yellow-1bg :foreground ,yellow-1fg))))
+     `(magit-diff-base-highlight ((,class (:background ,yellow-1bg  :foreground ,yellow-1fg))))
+     `(magit-diff-conflict-heading ((,class (:inherit magit-diff-hunk-heading))))
+     `(magit-diff-context ((,class (:foreground ,base0))))
+     `(magit-diff-removed ((,class (:background ,red-1bg :foreground ,red-1fg))))
+     `(magit-diff-removed-highlight ((,class (:background ,red-1bg :foreground ,red-1fg))))
+
      `(magit-diffstat-added              ((t (:foreground ,s-diffstat-added-fg))))
      `(magit-diffstat-removed            ((t (:foreground ,s-diffstat-removed-fg))))
 ;;;;;; process
@@ -1096,18 +1103,6 @@
      `(markdown-bold-face ((,class (:inherit bold))))
      `(markdown-code-face ((,class (:inherit fixed-pitch :foreground ,base01
                                              :background unspecified))))
-
-     `(magit-diff-added ((,class (:background ,green-1bg :foreground ,green-1fg))))
-     `(magit-diff-added-highlight ((,class (:background ,green-2bg :foreground ,green-2fg))))
-     `(magit-diff-base ((,class (:background ,yellow-1bg :foreground ,yellow-1fg))))
-     `(magit-diff-base-highlight ((,class (:background ,yellow-2bg  :foreground ,yellow-2fg))))
-
-     `(magit-diff-conflict-heading ((,class (:inherit magit-diff-hunk-heading))))
-     `(magit-diff-context ((,class (:foreground ,base0))))
-     `(magit-diff-removed ((,class (:background ,red-1bg :foreground ,red-1fg))))
-     `(magit-diff-removed-highlight ((,class (:background ,red-2bg :foreground ,red-2fg))))
-
-
      `(markdown-comment-face ((,class (:foreground ,base01 :strike-through t))))
      `(markdown-footnote-face ((,class (:inherit default))))
      `(markdown-header-delimiter-face ((,class (:foreground ,base01))))
