@@ -143,7 +143,7 @@ solarized.
 
 ```el
 ;; wombat color-theme with misc face definition
-(solarized-create-theme-file 'dark 'solarized-wombat-dark
+(solarized-create-theme-file-with-palette 'dark 'solarized-wombat-dark
   '("#2a2a29" "#f6f3e8"
     "#e5c06d" "#ddaa6f" "#ffb4ac" "#e5786d" "#834c98" "#a4b5e6" "#7ec98f" "#8ac6f2")
   '((custom-theme-set-faces
