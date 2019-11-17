@@ -34,4 +34,9 @@
 (provide-theme 'solarized-gruvbox-light)
 
 (provide 'solarized-gruvbox-light-theme)
+
+;; Local Variables:
+;; indent-tabs-mode: nil
+;; End:
+
 ;;; solarized-gruvbox-light-theme.el ends here

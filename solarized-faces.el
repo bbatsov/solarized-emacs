@@ -1999,4 +1999,9 @@
                                          ,base0 ,violet ,base1 ,base3]))))
 
 (provide 'solarized-faces)
+
+;; Local Variables:
+;; indent-tabs-mode: nil
+;; End:
+
 ;;; solarized-faces.el ends here

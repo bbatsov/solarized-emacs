@@ -33,4 +33,9 @@
 (provide-theme 'solarized-dark)
 
 (provide 'solarized-dark-theme)
+
+;; Local Variables:
+;; indent-tabs-mode: nil
+;; End:
+
 ;;; solarized-dark-theme.el ends here

@@ -44,4 +44,9 @@
 (require 'solarized)
 
 (provide 'solarized-theme)
+
+;; Local Variables:
+;; indent-tabs-mode: nil
+;; End:
+
 ;;; solarized-theme.el ends here
