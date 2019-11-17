@@ -26,10 +26,11 @@ suitable versions of how to apply those palettes into an emacs theme. The
 important aspect is that the color usage should be about the same as they are
 with the default solarized palette.
 
-Colors stand out differently in different palettes so using blue to highlight
-different things might make sense in a theme specifically taileroed for
-zenburn. However, in solarized-zenburn it is more important that blue
-represents what blue represents in solarized-dark/light themes.
+Colors stand out with varying amounts depending on which palette is used. This
+theme aims for a very soft look, violet is one of the most pronounced accent
+colors in the solarized palette and that is one reason why it's rarley used by
+the theme. Violet in another palette might stand out less and therefore be used
+more often if the theme was specifically designed with that palette in mind.
 
 The original zenburn palette doesnt have an violet it is created by blending
 blue and magenta to get it to fit into the theme so it's tilted towards
