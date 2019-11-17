@@ -116,7 +116,7 @@ solarized.
 
 ```el
 ;; inspired vim's jellybeans color-theme
-(solarized-create-theme-with-pallet 'light 'solarized-jellybeans-light
+(solarized-create-theme-file-with-pallet 'light 'solarized-jellybeans-light
   '("#202020" "#ffffff"
     "#ffb964" "#8fbfdc" "#a04040" "#b05080" "#805090" "#fad08a" "#99ad6a" "#8fbfdc"))
 
@@ -125,7 +125,7 @@ solarized.
 
 ```el
 ;; inspired emacs's mesa color-theme
-(solarized-create-theme-with-pallet 'light 'solarized-mesa-light
+(solarized-create-theme-file-with-pallet 'light 'solarized-mesa-light
   '("#000000" "#faf5ee"
     "#3388dd" "#ac3d1a" "#dd2222" "#8b008b" "#00b7f0" "#1388a2" "#104e8b" "#00688b"))
 
@@ -134,7 +134,7 @@ solarized.
 
 ```el
 ;; inspired emacs's solarized color-theme
-(solarized-create-theme-with-pallet 'light 'solarized-solarized-light
+(solarized-create-theme-file-with-pallet 'light 'solarized-solarized-light
   '("#002b36" "#fdf6e3"
     "#b58900" "#cb4b16" "#dc322f" "#d33682" "#6c71c4" "#268bd2" "#2aa198" "#859900"))
 
