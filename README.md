@@ -15,6 +15,32 @@ working under Emacs 23 as well. The theme is implemented in terms of
 customizations and `deftheme` and does not require the
 `color-theme-package`.
 
+**about the alternative palette solarized- themes (-gruvbox variants, -zenburn, ...)**
+
+The intent of this theme will always be that Solarized-dark/light will give you
+the best possible experience. Palettes other than Solarized will never have
+influence over theming decisions, they are complementary.
+
+You should not expect the complementary themes to be fully accurate or the most
+suitable versions of how to apply those palettes into an emacs theme. The
+important aspect is that the color usage should be about the same as they are
+with the default solarized palette.
+
+Colors stand out differently in different palettes so using blue to highlight
+different things might make sense in a theme specifically taileroed for
+zenburn. However, in solarized-zenburn it is more important that blue
+represents what blue represents in solarized-dark/light themes.
+
+The original zenburn palette doesnt have an violet it is created by blending
+blue and magenta to get it to fit into the theme so it's tilted towards
+translating into what this theme has decided.
+
+*TLDR*; While `solarized-gruvbox-light` might be good complement for users of
+`solarized-light`, another theme not contained ion this package
+(`gruvbox-light` or whatever) might be more finley tuned in relation to the
+gruvbox palette.
+
+
 ## Installation
 
 Solarized for Emacs is available for installation via the
