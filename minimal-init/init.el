@@ -1,6 +1,11 @@
 ;; this init file is primarily focused around developing and
 ;; evaluating theming outside of ones own emacs.d.
 
+;; you can run like 'emacs -q -l {{pkg-dir}}/minimal-init/init.el'
+(when load-file-name
+  (setq user-emacs-directory
+        (expand-file-name (file-name-directory load-file-name))))
+
 (defun dev-set-solarized-settings ()
   (interactive)
   (setq-default
