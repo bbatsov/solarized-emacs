@@ -1,9 +1,5 @@
 # Information for contribution/development
 
-## Notes on how colors are used
-
-**This is a draft** which might not paint the whole picture right now. 
-
 ### Introduction
 
 The main intent of this section is to help contributors decide on how to use
@@ -74,16 +70,34 @@ Some specific color information:
 - **blue** / **green** / **red** can be used for diff like things indicating
   modified/added/removed
 
-### Using colors that are not in the original solarized theme
+### Block highlighting colors
 
-(TODO: document the lc/hc colors and possibly some of the blending that's used at places)
+**These colors can probably be avoided for more or less everything that isn't a
+diff.**
 
-- If possible, just don't do it.
-- One common usage is when there is a need to add yet another overlay where
-  most regular colors already are in use.
-- the lc/hc colors should usually be used together as fg/bg or bg/fg since
-  their contrast relationships works best like that.
+There are 4 additional variants for all accent colors that are meant to be used
+in pairs as two levels of soft and harder highlight.
 
+- **green-1bg** + **green-1fg** are used together to form a soft highlighed
+  section (useful for diffs)
+- **green-2bg** + **green-2fg** are used together to form a more pronounced
+  highlighed section (useful for diffs hunk highlight)
+
+Using **blue-1fg** on anything other than **blue-1bg** is currently considered
+an undefined result and might break visibility/contrast/lightness rules and
+might break even more with later tweaks to the color generation changes.
+
+
+### Additional accent color variants
+
+**Avoid using these at all, they might be even phased out completley**
+
+There are also variants of each color suffixed `-d` (dark), `-l` (light), `-lc`
+(low contrast), `-hc` (high contrast).
+
+These colors were designed with almost the same intent as the block highlight
+colors but they are considerably less solarized looking. Can probably be
+avoided alltogether.
 
 
 
