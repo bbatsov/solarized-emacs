@@ -1,4 +1,4 @@
-;;; solarized-zenburn-theme.el --- Solarized Theme
+;;; solarized-zenburn-theme.el --- Solarized Theme  -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019 Thomas Frössman
 
@@ -22,12 +22,14 @@
 ;;; Code:
 
 (require 'solarized)
+(eval-when-compile
+  (require 'solarized-palettes))
 
 (deftheme solarized-zenburn
   "The dark variant of the Solarized colour theme with gruvbox color palette")
 
-(solarized-definition 'dark 'solarized-zenburn
-                      solarized-zenburn-color-palette-alist)
+(solarized-with-color-variables 'dark 'solarized-zenburn
+  solarized-zenburn-color-palette-alist)
 
 (provide-theme 'solarized-zenburn)
 

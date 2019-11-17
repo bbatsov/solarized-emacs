@@ -1,4 +1,4 @@
-;;; solarized-gruvbox-dark-theme.el --- Solarized Theme
+;;; solarized-gruvbox-dark-theme.el --- Solarized Theme  -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019 Thomas Frössman
 
@@ -22,12 +22,14 @@
 ;;; Code:
 
 (require 'solarized)
+(eval-when-compile
+  (require 'solarized-palettes))
 
 (deftheme solarized-gruvbox-dark
   "The dark variant of the Solarized colour theme with gruvbox color palette")
 
-(solarized-definition 'dark 'solarized-gruvbox-dark
-                      solarized-gruvbox-dark-color-palette-alist)
+(solarized-with-color-variables 'dark 'solarized-gruvbox-dark
+  solarized-gruvbox-dark-color-palette-alist)
 
 (provide-theme 'solarized-gruvbox-dark)
 

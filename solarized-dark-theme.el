@@ -1,4 +1,4 @@
-;;; solarized-dark-theme.el --- Solarized Dark Theme for Emacs.
+;;; solarized-dark-theme.el --- Solarized Dark Theme for Emacs  -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2011-2019 Bozhidar Batsov
 
@@ -22,11 +22,13 @@
 ;;; Code:
 
 (require 'solarized)
+(eval-when-compile
+  (require 'solarized-palettes))
 
 (deftheme solarized-dark "The dark variant of the Solarized colour theme")
 
-(solarized-definition 'dark 'solarized-dark
-                      solarized-dark-color-palette-alist)
+(solarized-with-color-variables 'dark 'solarized-dark
+  solarized-dark-color-palette-alist)
 
 (provide-theme 'solarized-dark)
 

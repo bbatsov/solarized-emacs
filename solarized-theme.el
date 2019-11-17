@@ -1,4 +1,4 @@
-;;; solarized-theme.el --- The Solarized color theme
+;;; solarized-theme.el --- The Solarized color theme  -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2011-2019 Bozhidar Batsov
 

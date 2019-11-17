@@ -1,4 +1,4 @@
-;;; solarized-palettes.el
+;;; solarized-palettes.el --- solarized palettes   -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2011-2019 Bozhidar Batsov
 
@@ -20,9 +20,9 @@
 
 ;;; Commentary:
 
-;; This file only contains data which is lists of colors of some sort, there is
-;; also code that generates palettes in solarized.el. That code does not belong
-;; here.
+;; This file only contains data which is lists of colors of some sort,
+;; there is also code that generates palettes in solarized.el.  That
+;; code does not belong here.
 
 ;;; Code:
 
