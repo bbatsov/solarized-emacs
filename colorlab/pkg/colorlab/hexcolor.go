@@ -15,5 +15,5 @@ func (h HexColor) Color() colorful.Color {
 func (h HexColor) Blend(hc HexColor, t float64) HexColor {
 	c1 := h.Color()
 	c2 := hc.Color()
-	return HexColor(c1.BlendLab(c2, t).Hex())
+	return HexColor(c1.BlendLab(c2, t).Clamped().Hex())
 }
