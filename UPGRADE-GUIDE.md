@@ -15,7 +15,7 @@ This is an example of how to adapt derived child themes to the changes:
 (require 'solarized)
 
 (defun my-solarized-theme ()
-  "My solarized child theme."
+  "My personal solarized theme customization."
 
   (custom-theme-set-faces
    theme-name
@@ -59,7 +59,7 @@ This is an example of how to adapt derived child themes to the changes:
 (require 'solarized)
 
 (setq my-solarized-faces
-      '("Personal solarized theme customization"
+      '("My personal solarized theme customization."
         (custom-theme-set-faces
          theme-name
          `(rainbow-delimiters-depth-1-face ((,class (:foreground ,base02)))))
