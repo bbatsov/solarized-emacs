@@ -1028,7 +1028,7 @@
                         :weight bold))))
      `(magit-diff-lines-heading          ((t (:background ,orange
                                                           :foreground ,base3))))
-     `(magit-diff-context-highlight      ((t (:background ,cyan-1bg :foreground ,cyan-1fg))))
+     `(magit-diff-context-highlight      ((t (:background ,base02 :foreground ,base1))))
      `(magit-diff-added ((,class (:background ,green-1bg :foreground ,green-1fg))))
      `(magit-diff-added-highlight ((,class (:background ,green-1bg :foreground ,green-1fg))))
      `(magit-diff-base ((,class (:background ,yellow-1bg :foreground ,yellow-1fg))))
