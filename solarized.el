@@ -444,8 +444,7 @@ If OVERWRITE is non-nil, overwrite theme file if exist."
 (provide 'solarized)
 
 ;; Local Variables:
-;; no-byte-compile: t
 ;; indent-tabs-mode: nil
-;; fill-column: 95
 ;; End:
+
 ;;; solarized.el ends here
