@@ -257,7 +257,7 @@ The Returned color-palette has the same format as `solarized-color-palette'"
 
 ;;; Setup Start
 (defmacro solarized-with-color-variables (variant theme-name color-palette &optional childtheme-sexp)
-  "Eval BODY in solarized COLOR-PALETTE for THEME-NAME.
+  "Eval `solarized-definition' in solarized COLOR-PALETTE for THEME-NAME.
 VARIANT is 'dark or 'light.
 When optional argument CHILDTHEME-SEXP sexp is supplied it's invoked to further
 customize the resulting theme."
