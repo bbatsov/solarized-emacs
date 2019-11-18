@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"flag"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -16,7 +17,21 @@ import (
 	colorful "github.com/lucasb-eyer/go-colorful"
 )
 
+// Options are command line flags .
+type Options struct {
+	NoElispUpdate bool
+}
+
+func (o *Options) Register() {
+	flag.BoolVar(&o.NoElispUpdate, "no-update", false, "don't update ../solarized-palettes.el")
+
+}
+
 func main() {
+	var opts Options
+
+	opts.Register()
+	flag.Parse()
 
 	for _, pal := range palettes {
 		fmt.Println(pal.Name)
@@ -26,8 +41,9 @@ func main() {
 		// nc.FilterPrefix("base").PrintAlist(os.Stdout, 0)
 		// Merge(nc.FilterSuffix("-d"), oldDarkAccents.NamedColors().WithSuffix("-do")).PrintAlist(os.Stdout, 0)
 		// Merge(nc.FilterSuffix("-l"), oldLightAccents.NamedColors().WithSuffix("-lo")).PrintAlist(os.Stdout, 0)
-
-		rewriteTheme(nc, pal.Name)
+		if !opts.NoElispUpdate {
+			rewriteTheme(nc, pal.Name)
+		}
 	}
 	fmt.Println("\n-----\n")
 }
