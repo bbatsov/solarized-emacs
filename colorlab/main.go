@@ -86,6 +86,19 @@ var palettes = []Palette{
 	},
 }
 
+var (
+	default1BgFg = AccentPairGenerator{
+		BlendBackgroundAmout: 0.85,
+		BlendForegroundAmout: 0.3,
+		Gamma:                0.01,
+	}
+	default2BgFg = AccentPairGenerator{
+		BlendBackgroundAmout: 0.6,
+		BlendForegroundAmout: 0.45,
+		Gamma:                0.04,
+	}
+)
+
 func (p Palette) Generate() colorlab.NamedColors {
 
 	pal := p.Solarized
@@ -95,8 +108,8 @@ func (p Palette) Generate() colorlab.NamedColors {
 		corrected = pal.Inverse()
 	}
 
-	bgs, fgs := createComplementaryColors(corrected, 0.85, 0.3, 0.01)
-	hbgs, hfgs := createComplementaryColors(corrected, 0.6, 0.45, 0.04)
+	bgs, fgs := default1BgFg.Generate(corrected)
+	hbgs, hfgs := default2BgFg.Generate(corrected)
 	cols := colorlab.Merge(
 		pal.NamedColors(),
 		fgs.NamedColors().WithSuffix("-1fg"),
@@ -122,7 +135,14 @@ func (p Palette) Generate() colorlab.NamedColors {
 
 }
 
-func createComplementaryColors(sol colorlab.Solarized, blendBg, blendFg, gamma float64) (accentBgs, accentFgs colorlab.Accents) {
+// AccentPairGenerator generates paris of background and foreground colors that are meant to be used in pairs.
+type AccentPairGenerator struct {
+	BlendBackgroundAmout float64
+	BlendForegroundAmout float64
+	Gamma                float64
+}
+
+func (g *AccentPairGenerator) Generate(sol colorlab.Solarized) (backgrounds, foregrounds colorlab.Accents) {
 	lightnessReport := false
 	sol = sol.Clone()
 	cs := sol.Accents.Colors()
@@ -161,8 +181,8 @@ func createComplementaryColors(sol colorlab.Solarized, blendBg, blendFg, gamma f
 			}
 		}
 
-		bg := v.BlendLab(blendBgColor, blendBg)
-		fg := v.BlendLab(blendFgColor, blendFg)
+		bg := v.BlendLab(blendBgColor, g.BlendBackgroundAmout)
+		fg := v.BlendLab(blendFgColor, g.BlendForegroundAmout)
 		if lightnessReport {
 			{
 				l, _, _ := blendBgColor.Lab()
@@ -197,11 +217,11 @@ func createComplementaryColors(sol colorlab.Solarized, blendBg, blendFg, gamma f
 		nlb := bl
 		nlf := fl
 		if fl > bl {
-			nlb = nlb - gamma
-			nlf = nlf - gamma
+			nlb = nlb - g.Gamma
+			nlf = nlf - g.Gamma
 		} else {
-			nlb = nlb + gamma
-			nlf = nlf + gamma
+			nlb = nlb + g.Gamma
+			nlf = nlf + g.Gamma
 		}
 
 		const minimumLightnessDiff = 0.35
