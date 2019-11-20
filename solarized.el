@@ -675,9 +675,9 @@ customize the resulting theme."
      `(deadgrep-regexp-metachar-face ((,class (:inherit font-lock-constant-face))))
      `(deadgrep-search-term-face ((,class (:inherit font-lock-variable-name-face))))
 ;;;;; diff
-     `(diff-added   ((,class (:foreground ,green))))
-     `(diff-changed ((,class (:foreground ,blue))))
-     `(diff-removed ((,class (:foreground ,red))))
+     `(diff-added   ((,class (:foreground ,green :extend t))))
+     `(diff-changed ((,class (:foreground ,blue :extend t))))
+     `(diff-removed ((,class (:foreground ,red :extend t))))
      `(diff-refine-added
        ((,light-class
          (:background ,(solarized-color-blend "#ddffdd" green 0.7)))
@@ -693,33 +693,33 @@ customize the resulting theme."
          (:background ,(solarized-color-blend "#ffdddd" red 0.7)))
         (,dark-class
          (:background ,(solarized-color-blend "#664444" red 0.7)))))
-     `(diff-header  ((,class (:background ,base03))))
+     `(diff-header  ((,class (:background ,base03 :extend t))))
      `(diff-file-header
-       ((,class (:background ,base03 :foreground ,base0 :weight bold))))
+       ((,class (:background ,base03 :foreground ,base0 :weight bold :extend t))))
 ;;;;; diff-hl
      `(diff-hl-change ((,class (:background ,blue-lc  :foreground ,blue-hc))))
      `(diff-hl-delete ((,class (:background ,red-lc  :foreground ,red-hc))))
      `(diff-hl-insert ((,class (:background ,green-lc  :foreground ,green-hc))))
      `(diff-hl-unknown ((,class (:background ,cyan-lc   :foreground ,cyan-hc))))
 ;;;;; ediff
-     `(ediff-fine-diff-A ((,class (:background ,orange-lc))))
-     `(ediff-fine-diff-B ((,class (:background ,green-lc))))
-     `(ediff-fine-diff-C ((,class (:background ,yellow-lc))))
+     `(ediff-fine-diff-A ((,class (:background ,orange-lc :extend t))))
+     `(ediff-fine-diff-B ((,class (:background ,green-lc :extend t))))
+     `(ediff-fine-diff-C ((,class (:background ,yellow-lc :extend t))))
 
-     `(ediff-current-diff-C ((,class (:background ,blue-lc))))
+     `(ediff-current-diff-C ((,class (:background ,blue-lc :extend t))))
 
      `(ediff-even-diff-A ((,class (:background ,base01
-                                               :foreground ,base3 ))))
+                                               :foreground ,base3 :extend t))))
      `(ediff-odd-diff-A ((,class (:background ,base01
-                                              :foreground ,base03 ))))
+                                              :foreground ,base03 :extend t))))
      `(ediff-even-diff-B ((,class (:background ,base01
-                                               :foreground ,base03 ))))
+                                               :foreground ,base03 :extend t))))
      `(ediff-odd-diff-B ((,class (:background ,base01
-                                              :foreground ,base03 ))))
+                                              :foreground ,base03 :extend t))))
      `(ediff-even-diff-C ((,class (:background ,base01
-                                               :foreground ,base0 ))))
+                                               :foreground ,base0 :extend t))))
      `(ediff-odd-diff-C ((,class (:background ,base01
-                                              :foreground ,base03 ))))
+                                              :foreground ,base03 :extend t))))
 
 ;;;;;; alternative ediff (not finished)
      ;; `(ediff-fine-diff-A ((,class (
