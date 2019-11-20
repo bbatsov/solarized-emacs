@@ -6,7 +6,6 @@ import (
 
 	"github.com/bbatsov/solarized-emacs/colorlab/pkg/colorlab"
 	"github.com/bbatsov/solarized-emacs/colorlab/pkg/sol"
-
 	"github.com/lucasb-eyer/go-colorful"
 )
 

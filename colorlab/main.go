@@ -1,19 +1,13 @@
 package main
 
 import (
-	"bufio"
-	"bytes"
 	"flag"
 	"fmt"
-	"io"
-	"io/ioutil"
-	"log"
 	"os"
-	"strconv"
-	"strings"
 
 	"github.com/bbatsov/solarized-emacs/colorlab/pkg/colorlab"
 	"github.com/bbatsov/solarized-emacs/colorlab/pkg/colors"
+	"github.com/bbatsov/solarized-emacs/colorlab/pkg/emacs"
 	"github.com/bbatsov/solarized-emacs/colorlab/pkg/generator"
 	"github.com/bbatsov/solarized-emacs/colorlab/pkg/sol"
 )
@@ -37,12 +31,12 @@ func main() {
 	for _, pal := range palettes {
 		fmt.Println(pal.Name)
 		nc := pal.Generate()
-		PrintAlist(os.Stdout, nc, 0)
+		emacs.PrintAlist(os.Stdout, nc, 0)
 		// nc.FilterPrefix("base").PrintAlist(os.Stdout, 0)
 		// Merge(nc.FilterSuffix("-d"), oldDarkAccents.NamedColors().WithSuffix("-do")).PrintAlist(os.Stdout, 0)
 		// Merge(nc.FilterSuffix("-l"), oldLightAccents.NamedColors().WithSuffix("-lo")).PrintAlist(os.Stdout, 0)
 		if !opts.NoElispUpdate {
-			rewriteTheme(nc, pal.Name)
+			emacs.RewritePalette(nc, pal.Name)
 		}
 	}
 	fmt.Println("\n-----\n")
@@ -293,70 +287,3 @@ var (
 		},
 	}
 )
-
-func rewriteTheme(nc colorlab.NamedColors, paletteName string) {
-
-	var dst bytes.Buffer
-
-	file, err := os.Open("../solarized-palettes.el")
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer file.Close()
-
-	scanner := bufio.NewScanner(file)
-	var insideReplacement bool
-	for scanner.Scan() {
-		txt := scanner.Text()
-		if insideReplacement && strings.HasSuffix(txt, ";; palette end") {
-			insideReplacement = false
-		}
-		if !insideReplacement {
-			dst.WriteString(txt)
-			dst.WriteString("\n")
-
-		}
-		if strings.HasSuffix(txt, fmt.Sprintf(";; %s palette", paletteName)) {
-			insideReplacement = true
-			PrintAlist(&dst, nc, 4)
-		}
-	}
-
-	if err := scanner.Err(); err != nil {
-		log.Fatal(err)
-	}
-
-	file.Close()
-
-	ioutil.WriteFile("../solarized-palettes.el", dst.Bytes(), 0x776)
-
-}
-
-// PrintAlist prints the named colors list in a way that is compatible with solarized-palettes.el.
-func PrintAlist(w io.Writer, n colorlab.NamedColors, indent int) (int, error) {
-	keys := sol.OrderedKeys(n)
-	var longestKey int
-	for _, n := range keys {
-		l := len(n)
-		if l > longestKey {
-			longestKey = l
-		}
-	}
-	longestKey = longestKey
-	prefix := ""
-	for i := 0; i < indent; i++ {
-		prefix += " "
-
-	}
-	var nt int
-
-	for _, name := range keys {
-		n, err := fmt.Fprintf(w, "%s(%-"+strconv.Itoa(longestKey)+"s . \"%s\")\n", prefix, name, n[name])
-		n = n + nt
-		if err != nil {
-			return nt, err
-		}
-
-	}
-	return nt, nil
-}
