@@ -40,6 +40,16 @@ translating into what this theme has decided.
 `solarized-light`, another theme not contained in this package (`gruvbox-light`
 or whatever) might be more finely tuned in relation to the Gruvbox palette.
 
+**semantic versioning**
+
+- This package uses [semantic versioning](https://semver.org/)
+
+- Master branch is to be considered unstable (which isn't an excuse to
+  constantly break behaviour). Use Melpa stable if you want fewer breaking
+  changes.
+
+- Next stable version will be 2.0 because of API changes in the master branch.
+  Regular `load-theme` usage is unaffected by changes.
 
 ## Installation
 
