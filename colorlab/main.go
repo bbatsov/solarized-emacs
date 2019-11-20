@@ -2,19 +2,17 @@ package main
 
 import (
 	"bufio"
+	"bytes"
 	"flag"
 	"fmt"
 	"io/ioutil"
 	"log"
-	"math"
 	"os"
 	"strings"
 
-	"bytes"
-
 	"github.com/bbatsov/solarized-emacs/colorlab/pkg/colorlab"
 	"github.com/bbatsov/solarized-emacs/colorlab/pkg/colors"
-	colorful "github.com/lucasb-eyer/go-colorful"
+	"github.com/bbatsov/solarized-emacs/colorlab/pkg/generator"
 )
 
 // Options are command line flags .
@@ -47,90 +45,8 @@ func main() {
 	fmt.Println("\n-----\n")
 }
 
-var palettes = []Palette{
-	{
-		Name:      "solarized-dark",
-		Solarized: solarized,
-		Accent1Pair: AccentPairGenerator{
-			BlendBackgroundAmout:       default1BgFg.BlendBackgroundAmout,
-			BlendForegroundAmout:       default1BgFg.BlendForegroundAmout,
-			Gamma:                      default1BgFg.Gamma,
-			ForegroundBlendFinder:      colorlab.NamedColorFinder("base1"),
-			BackgroundBlendFinder:      default1BgFg.BackgroundBlendFinder,
-			MinimumLightnessDifference: 0.4,
-		},
-		Accent2Pair: AccentPairGenerator{
-			BlendBackgroundAmout:       default2BgFg.BlendBackgroundAmout,
-			BlendForegroundAmout:       default2BgFg.BlendForegroundAmout,
-			Gamma:                      default2BgFg.Gamma,
-			ForegroundBlendFinder:      colorlab.NamedColorFinder("base1"),
-			BackgroundBlendFinder:      default2BgFg.BackgroundBlendFinder,
-			MinimumLightnessDifference: 0.4,
-		},
-	},
-	{
-		Name:        "solarized-light",
-		Solarized:   solarized,
-		Inverse:     true,
-		Accent1Pair: default1BgFg,
-		Accent2Pair: default2BgFg,
-	},
-	{
-		Name:      "solarized-dark-high-contrast",
-		Solarized: solarizedDarkHighContrast,
-		Accent1Pair: AccentPairGenerator{
-			BlendBackgroundAmout:       default1BgFg.BlendBackgroundAmout,
-			BlendForegroundAmout:       default1BgFg.BlendForegroundAmout,
-			Gamma:                      default1BgFg.Gamma,
-			ForegroundBlendFinder:      colorlab.NamedColorFinder("base1"),
-			BackgroundBlendFinder:      default1BgFg.BackgroundBlendFinder,
-			MinimumLightnessDifference: 0.4,
-		},
-		Accent2Pair: AccentPairGenerator{
-			BlendBackgroundAmout:       default2BgFg.BlendBackgroundAmout,
-			BlendForegroundAmout:       default2BgFg.BlendForegroundAmout,
-			Gamma:                      default2BgFg.Gamma,
-			ForegroundBlendFinder:      colorlab.NamedColorFinder("base1"),
-			BackgroundBlendFinder:      default2BgFg.BackgroundBlendFinder,
-			MinimumLightnessDifference: 0.4,
-		},
-	},
-	{
-		Name:        "solarized-light-high-contrast",
-		Solarized:   solarizedLightHighContrast,
-		Inverse:     true,
-		Accent1Pair: default1BgFg,
-		Accent2Pair: default2BgFg,
-	},
-	{
-		Name:        "gruvbox-dark",
-		Solarized:   gruvboxDark,
-		Accent1Pair: default1BgFg,
-		Accent2Pair: default2BgFg,
-	},
-	{
-		Name:        "gruvbox-light",
-		Solarized:   gruvboxLight,
-		Inverse:     true,
-		Accent1Pair: default1BgFg,
-		Accent2Pair: default2BgFg,
-	},
-	{
-		Name:        "zenburn",
-		Solarized:   zenburn,
-		Accent1Pair: default1BgFg,
-		Accent2Pair: default2BgFg,
-	},
-	{
-		Name:        "monokai",
-		Solarized:   monokai,
-		Accent1Pair: default1BgFg,
-		Accent2Pair: default2BgFg,
-	},
-}
-
 var (
-	default1BgFg = AccentPairGenerator{
+	default1BgFg = generator.AccentPairGenerator{
 		BlendBackgroundAmout:       0.85,
 		BlendForegroundAmout:       0.3,
 		Gamma:                      0.01,
@@ -138,7 +54,7 @@ var (
 		ForegroundBlendFinder:      colorlab.ExtremeColorFgFinder,
 		BackgroundBlendFinder:      colorlab.ExtremeColorBgFinder,
 	}
-	default2BgFg = AccentPairGenerator{
+	default2BgFg = generator.AccentPairGenerator{
 		BlendBackgroundAmout:       0.6,
 		BlendForegroundAmout:       0.45,
 		Gamma:                      0.04,
@@ -146,151 +62,90 @@ var (
 		ForegroundBlendFinder:      colorlab.ExtremeColorFgFinder,
 		BackgroundBlendFinder:      colorlab.ExtremeColorBgFinder,
 	}
-)
 
-func (p Palette) Generate() colorlab.NamedColors {
-
-	pal := p.Solarized
-
-	corrected := pal
-	if p.Inverse {
-		corrected = pal.Inverse()
+	palettes = []generator.Palette{
+		{
+			Name:      "solarized-dark",
+			Solarized: solarized,
+			Accent1Pair: generator.AccentPairGenerator{
+				BlendBackgroundAmout:       default1BgFg.BlendBackgroundAmout,
+				BlendForegroundAmout:       default1BgFg.BlendForegroundAmout,
+				Gamma:                      default1BgFg.Gamma,
+				ForegroundBlendFinder:      colorlab.NamedColorFinder("base1"),
+				BackgroundBlendFinder:      default1BgFg.BackgroundBlendFinder,
+				MinimumLightnessDifference: 0.4,
+			},
+			Accent2Pair: generator.AccentPairGenerator{
+				BlendBackgroundAmout:       default2BgFg.BlendBackgroundAmout,
+				BlendForegroundAmout:       default2BgFg.BlendForegroundAmout,
+				Gamma:                      default2BgFg.Gamma,
+				ForegroundBlendFinder:      colorlab.NamedColorFinder("base1"),
+				BackgroundBlendFinder:      default2BgFg.BackgroundBlendFinder,
+				MinimumLightnessDifference: 0.4,
+			},
+		},
+		{
+			Name:        "solarized-light",
+			Solarized:   solarized,
+			Inverse:     true,
+			Accent1Pair: default1BgFg,
+			Accent2Pair: default2BgFg,
+		},
+		{
+			Name:      "solarized-dark-high-contrast",
+			Solarized: solarizedDarkHighContrast,
+			Accent1Pair: generator.AccentPairGenerator{
+				BlendBackgroundAmout:       default1BgFg.BlendBackgroundAmout,
+				BlendForegroundAmout:       default1BgFg.BlendForegroundAmout,
+				Gamma:                      default1BgFg.Gamma,
+				ForegroundBlendFinder:      colorlab.NamedColorFinder("base1"),
+				BackgroundBlendFinder:      default1BgFg.BackgroundBlendFinder,
+				MinimumLightnessDifference: 0.4,
+			},
+			Accent2Pair: generator.AccentPairGenerator{
+				BlendBackgroundAmout:       default2BgFg.BlendBackgroundAmout,
+				BlendForegroundAmout:       default2BgFg.BlendForegroundAmout,
+				Gamma:                      default2BgFg.Gamma,
+				ForegroundBlendFinder:      colorlab.NamedColorFinder("base1"),
+				BackgroundBlendFinder:      default2BgFg.BackgroundBlendFinder,
+				MinimumLightnessDifference: 0.4,
+			},
+		},
+		{
+			Name:        "solarized-light-high-contrast",
+			Solarized:   solarizedLightHighContrast,
+			Inverse:     true,
+			Accent1Pair: default1BgFg,
+			Accent2Pair: default2BgFg,
+		},
+		{
+			Name:        "gruvbox-dark",
+			Solarized:   gruvboxDark,
+			Accent1Pair: default1BgFg,
+			Accent2Pair: default2BgFg,
+		},
+		{
+			Name:        "gruvbox-light",
+			Solarized:   gruvboxLight,
+			Inverse:     true,
+			Accent1Pair: default1BgFg,
+			Accent2Pair: default2BgFg,
+		},
+		{
+			Name:        "zenburn",
+			Solarized:   zenburn,
+			Accent1Pair: default1BgFg,
+			Accent2Pair: default2BgFg,
+		},
+		{
+			Name:        "monokai",
+			Solarized:   monokai,
+			Accent1Pair: default1BgFg,
+			Accent2Pair: default2BgFg,
+		},
 	}
 
-	bgs, fgs := p.Accent1Pair.Generate(corrected)
-	hbgs, hfgs := p.Accent2Pair.Generate(corrected)
-	cols := colorlab.Merge(
-		pal.NamedColors(),
-		fgs.NamedColors().WithSuffix("-1fg"),
-		bgs.NamedColors().WithSuffix("-1bg"),
-		hfgs.NamedColors().WithSuffix("-2fg"),
-		hbgs.NamedColors().WithSuffix("-2bg"),
-
-		pal.Accents.
-			ChangeSaturation(0.2).
-			Blend(pal.Base03, .2).
-			ChangeLightness(-.1).
-			NamedColors().
-			WithSuffix("-d"),
-
-		pal.Accents.
-			ChangeSaturation(0.2).
-			Blend(pal.Base2, .2).
-			ChangeLightness(.05).
-			NamedColors().
-			WithSuffix("-l"),
-	)
-	return cols
-
-}
-
-// AccentPairGenerator generates paris of background and foreground colors that are meant to be used in pairs.
-type AccentPairGenerator struct {
-	BlendBackgroundAmout       float64
-	BlendForegroundAmout       float64
-	Gamma                      float64
-	MinimumLightnessDifference float64
-
-	BackgroundBlendFinder colorlab.ColorFinder
-	ForegroundBlendFinder colorlab.ColorFinder
-}
-
-func (g *AccentPairGenerator) Generate(sol colorlab.Solarized) (backgrounds, foregrounds colorlab.Accents) {
-	lightnessReport := false
-	sol = sol.Clone()
-	cs := sol.Accents.Colors()
-
-	light := func(c colorful.Color) float64 {
-		l, _, _ := c.Lab()
-		return l
-	}
-	var bgs, fgs [8]colorful.Color
-	for idx, v := range cs {
-		if lightnessReport {
-			fmt.Println(" ")
-		}
-
-		blendBgColor := g.BackgroundBlendFinder(sol)
-		blendFgColor := g.ForegroundBlendFinder(sol)
-
-		bg := v.BlendLab(blendBgColor, g.BlendBackgroundAmout)
-		fg := v.BlendLab(blendFgColor, g.BlendForegroundAmout)
-		if lightnessReport {
-			{
-				l, _, _ := blendBgColor.Lab()
-				fmt.Printf(" | b1 %.2f %s", l, sol.Base03)
-			}
-			{
-				l, _, _ := blendFgColor.Lab()
-				fmt.Printf(" f1 %.2f %s", l, sol.Base0)
-			}
-		}
-
-		lFg := light(blendFgColor)
-		lBg := light(blendBgColor)
-
-		lc := lFg - lBg
-		if lightnessReport {
-			fmt.Printf("  lc %.2f", lc)
-		}
-		bl, ba, bb := bg.Lab()
-		fl, fa, fb := fg.Lab()
-
-		if lightnessReport {
-			fmt.Printf(" | b2 %.2f %s", bl, bg.Clamped().Hex())
-			fmt.Printf(" f2 %.2f %s", fl, fg.Clamped().Hex())
-			fmt.Printf(" lc %.2f", fl-bl)
-		}
-		// nlb := bl + (fl-bl)*0.5 + lc*0.5
-		// nlf := bl + (fl-bl)*0.5 - lc*0.5
-		// nlf := lFg
-		// nlb := lBg
-
-		nlb := bl
-		nlf := fl
-		if fl > bl {
-			nlb = nlb - g.Gamma
-			nlf = nlf - g.Gamma
-		} else {
-			nlb = nlb + g.Gamma
-			nlf = nlf + g.Gamma
-		}
-
-		if (math.Max(nlf, nlb) - math.Min(nlf, nlb)) < g.MinimumLightnessDifference {
-			diff := (g.MinimumLightnessDifference - (math.Max(math.Abs(nlf), math.Abs(nlb)) - math.Min(math.Abs(nlf), math.Abs(nlb))))
-			m := 1.0
-			if bl > fl {
-				m = -1
-			}
-			nlf = nlf + nlf/1*diff*m
-			nlb = nlb - nlb/1*diff*m
-			if lightnessReport {
-				fmt.Printf(" adj %.2f ", diff)
-			}
-		} else {
-			if lightnessReport {
-				fmt.Printf("          ")
-			}
-		}
-
-		fg = colorful.Lab(nlf, fa, fb)
-		bg = colorful.Lab(nlb, ba, bb)
-		if lightnessReport {
-			fmt.Printf(" | b3 %.2f %s", nlb, bg.Clamped().Hex())
-			fmt.Printf(" f3 %.2f %s", nlf, fg.Clamped().Hex())
-			fmt.Printf(" lc %.2f", nlf-nlb)
-		}
-		bgs[idx] = bg
-		fgs[idx] = fg
-
-	}
-	if lightnessReport {
-		fmt.Println("\n\n")
-	}
-	return colorlab.NewAccents(bgs), colorlab.NewAccents(fgs)
-}
-
-var ( // The original solarized color palette
+	// The original solarized color palette
 	solarized = colorlab.Solarized{
 		Base: colorlab.Base{
 			Base03: colors.SolarizedBase03,
@@ -435,16 +290,6 @@ var ( // The original solarized color palette
 		},
 	}
 )
-
-// Palette .
-type Palette struct {
-	Name      string
-	Inverse   bool
-	Solarized colorlab.Solarized
-
-	Accent1Pair AccentPairGenerator
-	Accent2Pair AccentPairGenerator
-}
 
 func rewriteTheme(nc colorlab.NamedColors, paletteName string) {
 
