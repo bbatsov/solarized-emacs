@@ -2,6 +2,20 @@ package colorlab
 
 import "github.com/lucasb-eyer/go-colorful"
 
+// Accents .
+type Accents struct {
+	Yellow  HexColor
+	Orange  HexColor
+	Red     HexColor
+	Magenta HexColor
+	Violet  HexColor
+	Blue    HexColor
+	Cyan    HexColor
+	Green   HexColor
+}
+
+type AccentColors [8]colorful.Color
+
 func NewAccents(cc [8]colorful.Color) Accents {
 	return Accents{
 		Yellow:  HexColor(cc[0].Clamped().Hex()),

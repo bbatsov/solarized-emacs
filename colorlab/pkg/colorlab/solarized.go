@@ -1,27 +1,9 @@
 package colorlab
 
-import (
-	"github.com/lucasb-eyer/go-colorful"
-)
-
 type Solarized struct {
 	Base
 	Accents
 }
-
-// Accents .
-type Accents struct {
-	Yellow  HexColor
-	Orange  HexColor
-	Red     HexColor
-	Magenta HexColor
-	Violet  HexColor
-	Blue    HexColor
-	Cyan    HexColor
-	Green   HexColor
-}
-
-type AccentColors [8]colorful.Color
 
 func (s Solarized) Clone() Solarized {
 	return Solarized{
