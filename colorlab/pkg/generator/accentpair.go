@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math"
 
+	"github.com/bbatsov/solarized-emacs/colorlab/pkg/colorlab"
 	"github.com/bbatsov/solarized-emacs/colorlab/pkg/solarized"
 
 	"github.com/lucasb-eyer/go-colorful"
@@ -16,8 +17,8 @@ type AccentPairGenerator struct {
 	Gamma                      float64
 	MinimumLightnessDifference float64
 
-	BackgroundBlendFinder solarized.ColorFinder
-	ForegroundBlendFinder solarized.ColorFinder
+	BackgroundBlendFinder colorlab.ColorFinder
+	ForegroundBlendFinder colorlab.ColorFinder
 }
 
 func (g *AccentPairGenerator) Generate(sol solarized.Solarized) (backgrounds, foregrounds solarized.Accents) {
@@ -35,8 +36,8 @@ func (g *AccentPairGenerator) Generate(sol solarized.Solarized) (backgrounds, fo
 			fmt.Println(" ")
 		}
 
-		blendBgColor := g.BackgroundBlendFinder(sol)
-		blendFgColor := g.ForegroundBlendFinder(sol)
+		blendBgColor := g.BackgroundBlendFinder(sol.Base.NamedColors())
+		blendFgColor := g.ForegroundBlendFinder(sol.Base.NamedColors())
 
 		bg := v.BlendLab(blendBgColor, g.BlendBackgroundAmout)
 		fg := v.BlendLab(blendFgColor, g.BlendForegroundAmout)

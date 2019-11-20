@@ -1,8 +1,6 @@
 package solarized
 
 import (
-	"log"
-
 	"github.com/bbatsov/solarized-emacs/colorlab/pkg/colorlab"
 	"github.com/lucasb-eyer/go-colorful"
 )
@@ -82,18 +80,7 @@ func (s Base) colorArray() [8]colorlab.HexColor {
 
 // Returns true if the LAB lightness of base0 is larger than base03.
 func (b Base) IsDarkOnBright() bool {
-	lightness := func(c colorful.Color) float64 {
-		l, _, _ := c.Lab()
-		return l
-	}
-	bg := b.Base03
-	fg := b.Base0
-	bgl := lightness(bg.Color())
-	fgl := lightness(fg.Color())
-	if fgl == bgl {
-		log.Fatalf("bg (%v) and fg (%v) are not supposed to have equal lightness: %v %v", bg, fg, bgl, fgl)
-	}
-	return fgl > bgl
+	return b.NamedColors().IsDarkOnBright("base03", "base0")
 }
 
 var baseNames = [8]string{

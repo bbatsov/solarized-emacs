@@ -2,7 +2,10 @@ package colorlab
 
 import (
 	"fmt"
+	"log"
 	"strings"
+
+	"github.com/lucasb-eyer/go-colorful"
 )
 
 type NamedColors map[string]HexColor
@@ -60,6 +63,33 @@ func (n NamedColors) ColorList() ColorList {
 
 	}
 	return res
+}
+
+// Returns true if the LAB lightness of bgName is larger than fgName.
+func (nc NamedColors) IsDarkOnBright(bgName, fgName string) bool {
+	lightness := func(c colorful.Color) float64 {
+		l, _, _ := c.Lab()
+		return l
+	}
+
+	// bg, ok := nc["base03"]
+	bg, ok := nc[bgName]
+	if !ok {
+		log.Fatalf("base03 not found in: ", nc)
+	}
+
+	// fg := nc["base0"]
+	fg := nc[fgName]
+	if !ok {
+		log.Fatalf("base0 not found in: ", nc)
+	}
+
+	bgl := lightness(bg.Color())
+	fgl := lightness(fg.Color())
+	if fgl == bgl {
+		log.Fatalf("bg (%v) and fg (%v) are not supposed to have equal lightness: %v %v", bg, fg, bgl, fgl)
+	}
+	return fgl > bgl
 }
 
 // Merge merges multiple NamedColors
