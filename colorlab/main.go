@@ -48,29 +48,25 @@ func main() {
 }
 
 var palettes = []Palette{
-	// {
-	// 	Name:      "solarized-dark",
-	// 	Solarized: solarized,
-	// 	Accent1Pair: AccentPairGenerator{
-	// 		BlendBackgroundAmout:  default1BgFg.BlendBackgroundAmout,
-	// 		BlendForegroundAmout:  default1BgFg.BlendForegroundAmout,
-	// 		Gamma:                 default1BgFg.Gamma,
-	// 		ForegroundBlendFinder: colorlab.NamedColorFinder("base1"),
-	// 		BackgroundBlendFinder: default1BgFg.BackgroundBlendFinder,
-	// 	},
-	// 	Accent2Pair: AccentPairGenerator{
-	// 		BlendBackgroundAmout:  default2BgFg.BlendBackgroundAmout,
-	// 		BlendForegroundAmout:  default2BgFg.BlendForegroundAmout,
-	// 		Gamma:                 default2BgFg.Gamma,
-	// 		ForegroundBlendFinder: colorlab.NamedColorFinder("base1"),
-	// 		BackgroundBlendFinder: default2BgFg.BackgroundBlendFinder,
-	// 	},
-	// },
 	{
-		Name:        "solarized-dark",
-		Solarized:   solarized,
-		Accent1Pair: default1BgFg,
-		Accent2Pair: default2BgFg,
+		Name:      "solarized-dark",
+		Solarized: solarized,
+		Accent1Pair: AccentPairGenerator{
+			BlendBackgroundAmout:       default1BgFg.BlendBackgroundAmout,
+			BlendForegroundAmout:       default1BgFg.BlendForegroundAmout,
+			Gamma:                      default1BgFg.Gamma,
+			ForegroundBlendFinder:      colorlab.NamedColorFinder("base1"),
+			BackgroundBlendFinder:      default1BgFg.BackgroundBlendFinder,
+			MinimumLightnessDifference: 0.42,
+		},
+		Accent2Pair: AccentPairGenerator{
+			BlendBackgroundAmout:       default2BgFg.BlendBackgroundAmout,
+			BlendForegroundAmout:       default2BgFg.BlendForegroundAmout,
+			Gamma:                      default2BgFg.Gamma,
+			ForegroundBlendFinder:      colorlab.NamedColorFinder("base1"),
+			BackgroundBlendFinder:      default2BgFg.BackgroundBlendFinder,
+			MinimumLightnessDifference: 0.42,
+		},
 	},
 	{
 		Name:        "solarized-light",
@@ -80,10 +76,24 @@ var palettes = []Palette{
 		Accent2Pair: default2BgFg,
 	},
 	{
-		Name:        "solarized-dark-high-contrast",
-		Solarized:   solarizedDarkHighContrast,
-		Accent1Pair: default1BgFg,
-		Accent2Pair: default2BgFg,
+		Name:      "solarized-dark-high-contrast",
+		Solarized: solarizedDarkHighContrast,
+		Accent1Pair: AccentPairGenerator{
+			BlendBackgroundAmout:       default1BgFg.BlendBackgroundAmout,
+			BlendForegroundAmout:       default1BgFg.BlendForegroundAmout,
+			Gamma:                      default1BgFg.Gamma,
+			ForegroundBlendFinder:      colorlab.NamedColorFinder("base1"),
+			BackgroundBlendFinder:      default1BgFg.BackgroundBlendFinder,
+			MinimumLightnessDifference: 0.42,
+		},
+		Accent2Pair: AccentPairGenerator{
+			BlendBackgroundAmout:       default2BgFg.BlendBackgroundAmout,
+			BlendForegroundAmout:       default2BgFg.BlendForegroundAmout,
+			Gamma:                      default2BgFg.Gamma,
+			ForegroundBlendFinder:      colorlab.NamedColorFinder("base1"),
+			BackgroundBlendFinder:      default2BgFg.BackgroundBlendFinder,
+			MinimumLightnessDifference: 0.42,
+		},
 	},
 	{
 		Name:        "solarized-light-high-contrast",
@@ -121,18 +131,20 @@ var palettes = []Palette{
 
 var (
 	default1BgFg = AccentPairGenerator{
-		BlendBackgroundAmout:  0.85,
-		BlendForegroundAmout:  0.3,
-		Gamma:                 0.01,
-		ForegroundBlendFinder: colorlab.ExtremeColorFgFinder,
-		BackgroundBlendFinder: colorlab.ExtremeColorBgFinder,
+		BlendBackgroundAmout:       0.85,
+		BlendForegroundAmout:       0.3,
+		Gamma:                      0.01,
+		MinimumLightnessDifference: 0.35,
+		ForegroundBlendFinder:      colorlab.ExtremeColorFgFinder,
+		BackgroundBlendFinder:      colorlab.ExtremeColorBgFinder,
 	}
 	default2BgFg = AccentPairGenerator{
-		BlendBackgroundAmout:  0.6,
-		BlendForegroundAmout:  0.45,
-		Gamma:                 0.04,
-		ForegroundBlendFinder: colorlab.ExtremeColorFgFinder,
-		BackgroundBlendFinder: colorlab.ExtremeColorBgFinder,
+		BlendBackgroundAmout:       0.6,
+		BlendForegroundAmout:       0.45,
+		Gamma:                      0.04,
+		MinimumLightnessDifference: 0.35,
+		ForegroundBlendFinder:      colorlab.ExtremeColorFgFinder,
+		BackgroundBlendFinder:      colorlab.ExtremeColorBgFinder,
 	}
 )
 
@@ -174,9 +186,10 @@ func (p Palette) Generate() colorlab.NamedColors {
 
 // AccentPairGenerator generates paris of background and foreground colors that are meant to be used in pairs.
 type AccentPairGenerator struct {
-	BlendBackgroundAmout float64
-	BlendForegroundAmout float64
-	Gamma                float64
+	BlendBackgroundAmout       float64
+	BlendForegroundAmout       float64
+	Gamma                      float64
+	MinimumLightnessDifference float64
 
 	BackgroundBlendFinder colorlab.ColorFinder
 	ForegroundBlendFinder colorlab.ColorFinder
