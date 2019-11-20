@@ -72,8 +72,13 @@
                                 :background ,s-mode-line-inactive-bg
                                 :box (:line-width 1 :color ,s-mode-line-inactive-bg
                                                   :style unspecified)))))
-     `(region ((,class (:foreground ,base03 :background ,base1))))
-     `(secondary-selection ((,class (:background ,base02))))
+     `(region
+       ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
+                 :foreground ,base03
+                 :background ,base1))))
+     `(secondary-selection
+       ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
+                 :background ,base02))))
      `(shadow ((,class (:foreground ,base01))))
      `(success ((,class (:foreground ,green ))))
      `(trailing-whitespace ((,class (:background ,red))))
@@ -857,8 +862,12 @@
 ;;;;; highlight-symbol
      `(highlight-symbol-face ((,class (:foreground ,magenta))))
 ;;;;; hl-line-mode
-     `(hl-line ((,class (:background ,base02))))
-     `(hl-line-face ((,class (:background ,base02))))
+     `(hl-line
+       ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
+                 :background ,base02))))
+     `(hl-line-face
+       ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
+                 :background ,base02))))
 ;;;;; hydra
      `(hydra-face-red ((,class (:foreground ,red))))
      `(hydra-face-blue ((,class (:foreground ,blue))))
@@ -1251,8 +1260,10 @@
      `(mu4e-view-url-number-face ((,class (:foreground ,yellow :weight normal))))
      `(mu4e-warning-face ((,class (:foreground ,red :slant normal :weight bold))))
      `(mu4e-header-highlight-face
-       ((,class (:inherit unspecified :foreground unspecified :background ,base02
-                          :underline unspecified  :weight unspecified))))
+       ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
+                 :inherit unspecified
+                 :foreground unspecified :background ,base02
+                 :underline unspecified  :weight unspecified))))
      `(mu4e-view-contact-face ((,class (:foreground ,base0  :weight normal))))
      `(mu4e-view-header-key-face ((,class (:inherit message-header-name :weight normal))))
      `(mu4e-view-header-value-face ((,class (:foreground ,cyan :weight normal :slant normal))))
