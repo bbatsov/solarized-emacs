@@ -36,7 +36,6 @@ func main() {
 	for _, pal := range palettes {
 		fmt.Println(pal.Name)
 		nc := pal.Generate()
-
 		nc.PrintAlist(os.Stdout, 0)
 		// nc.FilterPrefix("base").PrintAlist(os.Stdout, 0)
 		// Merge(nc.FilterSuffix("-d"), oldDarkAccents.NamedColors().WithSuffix("-do")).PrintAlist(os.Stdout, 0)
@@ -140,6 +139,9 @@ type AccentPairGenerator struct {
 	BlendBackgroundAmout float64
 	BlendForegroundAmout float64
 	Gamma                float64
+
+	// BackgroundBlendColor ColorFinder
+	// ForegroundBlendColor ColorFinder
 }
 
 func (g *AccentPairGenerator) Generate(sol colorlab.Solarized) (backgrounds, foregrounds colorlab.Accents) {
@@ -157,29 +159,8 @@ func (g *AccentPairGenerator) Generate(sol colorlab.Solarized) (backgrounds, for
 			fmt.Println(" ")
 		}
 
-		blendBgColor := sol.Base03.Color()
-		blendFgColor := sol.Base0.Color()
-		brightOnDark := true
-		if light(blendFgColor) < light(blendBgColor) {
-			brightOnDark = false
-		}
-		for _, v := range sol.Base.Colors() {
-			if brightOnDark {
-				if light(v) > light(blendFgColor) {
-					blendFgColor = v
-				}
-				if light(v) < light(blendBgColor) {
-					blendBgColor = v
-				}
-			} else {
-				if light(v) < light(blendFgColor) {
-					blendFgColor = v
-				}
-				if light(v) > light(blendBgColor) {
-					blendBgColor = v
-				}
-			}
-		}
+		blendBgColor := colorlab.DefaultBlendColorBgFinder(sol)
+		blendFgColor := colorlab.DefaultBlendColorFgFinder(sol)
 
 		bg := v.BlendLab(blendBgColor, g.BlendBackgroundAmout)
 		fg := v.BlendLab(blendFgColor, g.BlendForegroundAmout)

@@ -85,6 +85,15 @@ func (n NamedColors) PrintAlist(w io.Writer, indent int) (int, error) {
 	return nt, nil
 }
 
+func (n NamedColors) ColorList() ColorList {
+	var res ColorList
+	for _, v := range n {
+		res = append(res, v.Color())
+
+	}
+	return res
+}
+
 // Orderedkeys returns the keys in a order that is like how solarized names should be ordered.
 //
 // primary orer is:
