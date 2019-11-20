@@ -10,7 +10,7 @@ import (
 
 type NamedColors map[string]HexColor
 
-// WithPrefix returns a copuy of named colors where all keys are prefixed.
+// WithPrefix returns a copy of named colors where all keys are prefixed.
 func (n NamedColors) WithPrefix(prefix string) NamedColors {
 	nc := make(NamedColors, len(n))
 	for k, v := range n {
@@ -19,7 +19,7 @@ func (n NamedColors) WithPrefix(prefix string) NamedColors {
 	return nc
 }
 
-// WithSuffix returns a copuy of named colors where all keys are suffixed.
+// WithSuffix returns a copy of named colors where all keys are suffixed.
 func (n NamedColors) WithSuffix(suffix string) NamedColors {
 	nc := make(NamedColors, len(n))
 	for k, v := range n {
