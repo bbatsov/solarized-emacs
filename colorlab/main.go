@@ -57,7 +57,7 @@ var palettes = []Palette{
 			Gamma:                      default1BgFg.Gamma,
 			ForegroundBlendFinder:      colorlab.NamedColorFinder("base1"),
 			BackgroundBlendFinder:      default1BgFg.BackgroundBlendFinder,
-			MinimumLightnessDifference: 0.42,
+			MinimumLightnessDifference: 0.4,
 		},
 		Accent2Pair: AccentPairGenerator{
 			BlendBackgroundAmout:       default2BgFg.BlendBackgroundAmout,
@@ -65,7 +65,7 @@ var palettes = []Palette{
 			Gamma:                      default2BgFg.Gamma,
 			ForegroundBlendFinder:      colorlab.NamedColorFinder("base1"),
 			BackgroundBlendFinder:      default2BgFg.BackgroundBlendFinder,
-			MinimumLightnessDifference: 0.42,
+			MinimumLightnessDifference: 0.4,
 		},
 	},
 	{
@@ -84,7 +84,7 @@ var palettes = []Palette{
 			Gamma:                      default1BgFg.Gamma,
 			ForegroundBlendFinder:      colorlab.NamedColorFinder("base1"),
 			BackgroundBlendFinder:      default1BgFg.BackgroundBlendFinder,
-			MinimumLightnessDifference: 0.42,
+			MinimumLightnessDifference: 0.4,
 		},
 		Accent2Pair: AccentPairGenerator{
 			BlendBackgroundAmout:       default2BgFg.BlendBackgroundAmout,
@@ -92,7 +92,7 @@ var palettes = []Palette{
 			Gamma:                      default2BgFg.Gamma,
 			ForegroundBlendFinder:      colorlab.NamedColorFinder("base1"),
 			BackgroundBlendFinder:      default2BgFg.BackgroundBlendFinder,
-			MinimumLightnessDifference: 0.42,
+			MinimumLightnessDifference: 0.4,
 		},
 	},
 	{
@@ -256,10 +256,8 @@ func (g *AccentPairGenerator) Generate(sol colorlab.Solarized) (backgrounds, for
 			nlf = nlf + g.Gamma
 		}
 
-		const minimumLightnessDiff = 0.35
-		// const minimumLightnessDiff = 0.45
-		if (math.Max(nlf, nlb) - math.Min(nlf, nlb)) < minimumLightnessDiff {
-			diff := (minimumLightnessDiff - (math.Max(math.Abs(nlf), math.Abs(nlb)) - math.Min(math.Abs(nlf), math.Abs(nlb))))
+		if (math.Max(nlf, nlb) - math.Min(nlf, nlb)) < g.MinimumLightnessDifference {
+			diff := (g.MinimumLightnessDifference - (math.Max(math.Abs(nlf), math.Abs(nlb)) - math.Min(math.Abs(nlf), math.Abs(nlb))))
 			m := 1.0
 			if bl > fl {
 				m = -1
