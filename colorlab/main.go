@@ -5,14 +5,17 @@ import (
 	"bytes"
 	"flag"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"log"
 	"os"
+	"strconv"
 	"strings"
 
 	"github.com/bbatsov/solarized-emacs/colorlab/pkg/colorlab"
 	"github.com/bbatsov/solarized-emacs/colorlab/pkg/colors"
 	"github.com/bbatsov/solarized-emacs/colorlab/pkg/generator"
+	sol "github.com/bbatsov/solarized-emacs/colorlab/pkg/solarized"
 )
 
 // Options are command line flags .
@@ -34,7 +37,7 @@ func main() {
 	for _, pal := range palettes {
 		fmt.Println(pal.Name)
 		nc := pal.Generate()
-		nc.PrintAlist(os.Stdout, 0)
+		PrintAlist(os.Stdout, nc, 0)
 		// nc.FilterPrefix("base").PrintAlist(os.Stdout, 0)
 		// Merge(nc.FilterSuffix("-d"), oldDarkAccents.NamedColors().WithSuffix("-do")).PrintAlist(os.Stdout, 0)
 		// Merge(nc.FilterSuffix("-l"), oldLightAccents.NamedColors().WithSuffix("-lo")).PrintAlist(os.Stdout, 0)
@@ -51,16 +54,16 @@ var (
 		BlendForegroundAmout:       0.3,
 		Gamma:                      0.01,
 		MinimumLightnessDifference: 0.35,
-		ForegroundBlendFinder:      colorlab.ExtremeColorFgFinder,
-		BackgroundBlendFinder:      colorlab.ExtremeColorBgFinder,
+		ForegroundBlendFinder:      sol.ExtremeColorFgFinder,
+		BackgroundBlendFinder:      sol.ExtremeColorBgFinder,
 	}
 	default2BgFg = generator.AccentPairGenerator{
 		BlendBackgroundAmout:       0.6,
 		BlendForegroundAmout:       0.45,
 		Gamma:                      0.04,
 		MinimumLightnessDifference: 0.35,
-		ForegroundBlendFinder:      colorlab.ExtremeColorFgFinder,
-		BackgroundBlendFinder:      colorlab.ExtremeColorBgFinder,
+		ForegroundBlendFinder:      sol.ExtremeColorFgFinder,
+		BackgroundBlendFinder:      sol.ExtremeColorBgFinder,
 	}
 
 	palettes = []generator.Palette{
@@ -71,7 +74,7 @@ var (
 				BlendBackgroundAmout:       default1BgFg.BlendBackgroundAmout,
 				BlendForegroundAmout:       default1BgFg.BlendForegroundAmout,
 				Gamma:                      default1BgFg.Gamma,
-				ForegroundBlendFinder:      colorlab.NamedColorFinder("base1"),
+				ForegroundBlendFinder:      sol.NamedColorFinder("base1"),
 				BackgroundBlendFinder:      default1BgFg.BackgroundBlendFinder,
 				MinimumLightnessDifference: 0.4,
 			},
@@ -79,7 +82,7 @@ var (
 				BlendBackgroundAmout:       default2BgFg.BlendBackgroundAmout,
 				BlendForegroundAmout:       default2BgFg.BlendForegroundAmout,
 				Gamma:                      default2BgFg.Gamma,
-				ForegroundBlendFinder:      colorlab.NamedColorFinder("base1"),
+				ForegroundBlendFinder:      sol.NamedColorFinder("base1"),
 				BackgroundBlendFinder:      default2BgFg.BackgroundBlendFinder,
 				MinimumLightnessDifference: 0.4,
 			},
@@ -98,7 +101,7 @@ var (
 				BlendBackgroundAmout:       default1BgFg.BlendBackgroundAmout,
 				BlendForegroundAmout:       default1BgFg.BlendForegroundAmout,
 				Gamma:                      default1BgFg.Gamma,
-				ForegroundBlendFinder:      colorlab.NamedColorFinder("base1"),
+				ForegroundBlendFinder:      sol.NamedColorFinder("base1"),
 				BackgroundBlendFinder:      default1BgFg.BackgroundBlendFinder,
 				MinimumLightnessDifference: 0.4,
 			},
@@ -106,7 +109,7 @@ var (
 				BlendBackgroundAmout:       default2BgFg.BlendBackgroundAmout,
 				BlendForegroundAmout:       default2BgFg.BlendForegroundAmout,
 				Gamma:                      default2BgFg.Gamma,
-				ForegroundBlendFinder:      colorlab.NamedColorFinder("base1"),
+				ForegroundBlendFinder:      sol.NamedColorFinder("base1"),
 				BackgroundBlendFinder:      default2BgFg.BackgroundBlendFinder,
 				MinimumLightnessDifference: 0.4,
 			},
@@ -146,8 +149,8 @@ var (
 	}
 
 	// The original solarized color palette
-	solarized = colorlab.Solarized{
-		Base: colorlab.Base{
+	solarized = sol.Solarized{
+		Base: sol.Base{
 			Base03: colors.SolarizedBase03,
 			Base02: colors.SolarizedBase02,
 			Base01: colors.SolarizedBase01,
@@ -157,7 +160,7 @@ var (
 			Base2:  colors.SolarizedBase2,
 			Base3:  colors.SolarizedBase3,
 		},
-		Accents: colorlab.Accents{
+		Accents: sol.Accents{
 			Blue:    colors.SolarizedBlue,
 			Cyan:    colors.SolarizedCyan,
 			Green:   colors.SolarizedGreen,
@@ -168,17 +171,17 @@ var (
 			Yellow:  colors.SolarizedYellow,
 		},
 	}
-	solarizedDarkHighContrast = colorlab.Solarized{
+	solarizedDarkHighContrast = sol.Solarized{
 		Base:    solarized.Base.Clone().ChangeLightness(0.04, -0.02),
 		Accents: solarized.Accents.Clone().ChangeLightness(0.05),
 	}
-	solarizedLightHighContrast = colorlab.Solarized{
+	solarizedLightHighContrast = sol.Solarized{
 		Base:    solarized.Base.Clone().ChangeLightness(0.02, -0.05),
 		Accents: solarized.Accents.Clone().ChangeLightness(-0.05),
 	}
 
 	// the current -d colors in the emacs theme
-	oldDarkAccents = colorlab.Accents{
+	oldDarkAccents = sol.Accents{
 		Blue:    "#00629D",
 		Cyan:    "#00736F",
 		Green:   "#546E00",
@@ -189,7 +192,7 @@ var (
 		Yellow:  "#7B6000",
 	}
 	// the current -l colors in the emacs theme
-	oldLightAccents = colorlab.Accents{
+	oldLightAccents = sol.Accents{
 		Blue:    "#69B7F0",
 		Cyan:    "#69CABF",
 		Green:   "#B4C342",
@@ -199,8 +202,8 @@ var (
 		Violet:  "#9EA0E5",
 		Yellow:  "#DEB542",
 	}
-	gruvboxDark = colorlab.Solarized{
-		Base: colorlab.Base{
+	gruvboxDark = sol.Solarized{
+		Base: sol.Base{
 			Base03: colors.GruvboxDark0,
 			Base02: colors.GruvboxDark0Soft,
 			Base01: colors.GruvboxDark4,
@@ -210,7 +213,7 @@ var (
 			Base2:  colors.GruvboxLight4,
 			Base3:  colors.GruvboxLight0,
 		},
-		Accents: colorlab.Accents{
+		Accents: sol.Accents{
 			Blue:    colors.GruvboxBlue,
 			Cyan:    colors.GruvboxAqua,
 			Green:   colors.GruvboxGreen,
@@ -222,8 +225,8 @@ var (
 		},
 	}
 	// note: not inversed here
-	gruvboxLight = colorlab.Solarized{
-		Base: colorlab.Base{
+	gruvboxLight = sol.Solarized{
+		Base: sol.Base{
 			Base03: colors.GruvboxDark0,
 			Base02: colors.GruvboxDark0Soft,
 			Base01: colors.GruvboxDark3,
@@ -233,7 +236,7 @@ var (
 			Base2:  colors.GruvboxLight1,
 			Base3:  colors.GruvboxLight0,
 		},
-		Accents: colorlab.Accents{
+		Accents: sol.Accents{
 			Blue:    colors.GruvboxDarkBlue,
 			Cyan:    colors.GruvboxAqua,
 			Green:   colors.GruvboxGreen,
@@ -244,8 +247,8 @@ var (
 			Yellow:  colors.GruvboxDarkYellow,
 		},
 	}
-	zenburn = colorlab.Solarized{
-		Base: colorlab.Base{
+	zenburn = sol.Solarized{
+		Base: sol.Base{
 			Base03: colors.ZenburnBg,
 			Base02: colors.ZenburnBgP1,
 			Base01: colorlab.HexColor(colors.ZenburnFgM1).Blend(colors.ZenburnFg, 0.3),
@@ -255,7 +258,7 @@ var (
 			Base2:  colorlab.HexColor(colors.ZenburnFgP1).Blend(colors.ZenburnFgP2, 0.5),
 			Base3:  colors.ZenburnFgP2,
 		},
-		Accents: colorlab.Accents{
+		Accents: sol.Accents{
 			Blue:    colors.ZenburnBlue,
 			Cyan:    colors.ZenburnCyan,
 			Green:   colors.ZenburnGreen,
@@ -267,8 +270,8 @@ var (
 		},
 	}
 
-	monokai = colorlab.Solarized{
-		Base: colorlab.Base{
+	monokai = sol.Solarized{
+		Base: sol.Base{
 			Base03: colors.Monokai03,
 			Base02: colors.Monokai02,
 			Base01: colors.Monokai01,
@@ -278,7 +281,7 @@ var (
 			Base2:  colors.Monokai0,
 			Base3:  colors.Monokai0,
 		},
-		Accents: colorlab.Accents{
+		Accents: sol.Accents{
 			Blue:    colors.MonokaiBlue,
 			Cyan:    colors.MonokaiCyan,
 			Green:   colors.MonokaiGreen,
@@ -315,7 +318,7 @@ func rewriteTheme(nc colorlab.NamedColors, paletteName string) {
 		}
 		if strings.HasSuffix(txt, fmt.Sprintf(";; %s palette", paletteName)) {
 			insideReplacement = true
-			nc.PrintAlist(&dst, 4)
+			PrintAlist(&dst, nc, 4)
 		}
 	}
 
@@ -327,4 +330,33 @@ func rewriteTheme(nc colorlab.NamedColors, paletteName string) {
 
 	ioutil.WriteFile("../solarized-palettes.el", dst.Bytes(), 0x776)
 
+}
+
+// PrintAlist prints the named colors list in a way that is compatible with solarized-palettes.el.
+func PrintAlist(w io.Writer, n colorlab.NamedColors, indent int) (int, error) {
+	keys := sol.OrderedKeys(n)
+	var longestKey int
+	for _, n := range keys {
+		l := len(n)
+		if l > longestKey {
+			longestKey = l
+		}
+	}
+	longestKey = longestKey
+	prefix := ""
+	for i := 0; i < indent; i++ {
+		prefix += " "
+
+	}
+	var nt int
+
+	for _, name := range keys {
+		n, err := fmt.Fprintf(w, "%s(%-"+strconv.Itoa(longestKey)+"s . \"%s\")\n", prefix, name, n[name])
+		n = n + nt
+		if err != nil {
+			return nt, err
+		}
+
+	}
+	return nt, nil
 }

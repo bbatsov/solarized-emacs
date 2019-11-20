@@ -1,4 +1,6 @@
-package colorlab
+package solarized
+
+import "github.com/bbatsov/solarized-emacs/colorlab/pkg/colorlab"
 
 type Solarized struct {
 	Base
@@ -19,6 +21,6 @@ func (s Solarized) Inverse() Solarized {
 	}
 }
 
-func (s Solarized) NamedColors() NamedColors {
-	return Merge(s.Base.NamedColors(), s.Accents.NamedColors())
+func (s Solarized) NamedColors() colorlab.NamedColors {
+	return colorlab.Merge(s.Base.NamedColors(), s.Accents.NamedColors())
 }

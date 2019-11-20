@@ -1,4 +1,4 @@
-package colorlab
+package solarized
 
 import (
 	"log"

@@ -1,34 +1,35 @@
-package colorlab
+package solarized
 
 import (
 	"log"
 
+	"github.com/bbatsov/solarized-emacs/colorlab/pkg/colorlab"
 	"github.com/lucasb-eyer/go-colorful"
 )
 
 type Base struct {
-	Base03 HexColor
-	Base02 HexColor
-	Base01 HexColor
-	Base00 HexColor
-	Base0  HexColor
-	Base1  HexColor
-	Base2  HexColor
-	Base3  HexColor
+	Base03 colorlab.HexColor
+	Base02 colorlab.HexColor
+	Base01 colorlab.HexColor
+	Base00 colorlab.HexColor
+	Base0  colorlab.HexColor
+	Base1  colorlab.HexColor
+	Base2  colorlab.HexColor
+	Base3  colorlab.HexColor
 }
 
 type BaseColors [8]colorful.Color
 
 func NewBase(bc [8]colorful.Color) Base {
 	return Base{
-		Base03: HexColor(bc[0].Clamped().Hex()),
-		Base02: HexColor(bc[1].Clamped().Hex()),
-		Base01: HexColor(bc[2].Clamped().Hex()),
-		Base00: HexColor(bc[3].Clamped().Hex()),
-		Base0:  HexColor(bc[4].Clamped().Hex()),
-		Base1:  HexColor(bc[5].Clamped().Hex()),
-		Base2:  HexColor(bc[6].Clamped().Hex()),
-		Base3:  HexColor(bc[7].Clamped().Hex()),
+		Base03: colorlab.HexColor(bc[0].Clamped().Hex()),
+		Base02: colorlab.HexColor(bc[1].Clamped().Hex()),
+		Base01: colorlab.HexColor(bc[2].Clamped().Hex()),
+		Base00: colorlab.HexColor(bc[3].Clamped().Hex()),
+		Base0:  colorlab.HexColor(bc[4].Clamped().Hex()),
+		Base1:  colorlab.HexColor(bc[5].Clamped().Hex()),
+		Base2:  colorlab.HexColor(bc[6].Clamped().Hex()),
+		Base3:  colorlab.HexColor(bc[7].Clamped().Hex()),
 	}
 }
 func (s Base) Clone() Base {
@@ -43,8 +44,8 @@ func (s Base) Clone() Base {
 		Base3:  s.Base3,
 	}
 }
-func (s Base) NamedColors() NamedColors {
-	nc := make(NamedColors, 8)
+func (s Base) NamedColors() colorlab.NamedColors {
+	nc := make(colorlab.NamedColors, 8)
 	arr := s.colorArray()
 	for idx, hex := range arr {
 		nc[baseNames[idx]] = hex
@@ -66,8 +67,8 @@ func (s Base) Colors() BaseColors {
 	}
 }
 
-func (s Base) colorArray() [8]HexColor {
-	return [8]HexColor{
+func (s Base) colorArray() [8]colorlab.HexColor {
+	return [8]colorlab.HexColor{
 		s.Base03,
 		s.Base02,
 		s.Base01,

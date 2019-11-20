@@ -4,7 +4,8 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/bbatsov/solarized-emacs/colorlab/pkg/colorlab"
+	"github.com/bbatsov/solarized-emacs/colorlab/pkg/solarized"
+
 	"github.com/lucasb-eyer/go-colorful"
 )
 
@@ -15,11 +16,11 @@ type AccentPairGenerator struct {
 	Gamma                      float64
 	MinimumLightnessDifference float64
 
-	BackgroundBlendFinder colorlab.ColorFinder
-	ForegroundBlendFinder colorlab.ColorFinder
+	BackgroundBlendFinder solarized.ColorFinder
+	ForegroundBlendFinder solarized.ColorFinder
 }
 
-func (g *AccentPairGenerator) Generate(sol colorlab.Solarized) (backgrounds, foregrounds colorlab.Accents) {
+func (g *AccentPairGenerator) Generate(sol solarized.Solarized) (backgrounds, foregrounds solarized.Accents) {
 	lightnessReport := false
 	sol = sol.Clone()
 	cs := sol.Accents.Colors()
@@ -111,5 +112,5 @@ func (g *AccentPairGenerator) Generate(sol colorlab.Solarized) (backgrounds, for
 	if lightnessReport {
 		fmt.Println("\n\n")
 	}
-	return colorlab.NewAccents(bgs), colorlab.NewAccents(fgs)
+	return solarized.NewAccents(bgs), solarized.NewAccents(fgs)
 }

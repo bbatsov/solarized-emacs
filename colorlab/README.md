@@ -15,3 +15,6 @@ internal tool under development.
 The utility requires at least go 1.13
 
 `go run main.go` will rewrite all palettes in `../solarized-palettes.el` when run.
+
+
+See https://godoc.org/github.com/bbatsov/solarized-emacs/colorlab
