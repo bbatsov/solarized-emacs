@@ -48,6 +48,24 @@ func main() {
 }
 
 var palettes = []Palette{
+	// {
+	// 	Name:      "solarized-dark",
+	// 	Solarized: solarized,
+	// 	Accent1Pair: AccentPairGenerator{
+	// 		BlendBackgroundAmout:  default1BgFg.BlendBackgroundAmout,
+	// 		BlendForegroundAmout:  default1BgFg.BlendForegroundAmout,
+	// 		Gamma:                 default1BgFg.Gamma,
+	// 		ForegroundBlendFinder: colorlab.NamedColorFinder("base1"),
+	// 		BackgroundBlendFinder: default1BgFg.BackgroundBlendFinder,
+	// 	},
+	// 	Accent2Pair: AccentPairGenerator{
+	// 		BlendBackgroundAmout:  default2BgFg.BlendBackgroundAmout,
+	// 		BlendForegroundAmout:  default2BgFg.BlendForegroundAmout,
+	// 		Gamma:                 default2BgFg.Gamma,
+	// 		ForegroundBlendFinder: colorlab.NamedColorFinder("base1"),
+	// 		BackgroundBlendFinder: default2BgFg.BackgroundBlendFinder,
+	// 	},
+	// },
 	{
 		Name:        "solarized-dark",
 		Solarized:   solarized,
