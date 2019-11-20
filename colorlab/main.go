@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/bbatsov/solarized-emacs/colorlab/pkg/colorlab"
+	"github.com/bbatsov/solarized-emacs/colorlab/pkg/clab"
 	"github.com/bbatsov/solarized-emacs/colorlab/pkg/colors"
 	"github.com/bbatsov/solarized-emacs/colorlab/pkg/emacs"
 	"github.com/bbatsov/solarized-emacs/colorlab/pkg/generator"
@@ -48,16 +48,16 @@ var (
 		BlendForegroundAmout:       0.3,
 		Gamma:                      0.01,
 		MinimumLightnessDifference: 0.35,
-		ForegroundBlendFinder:      colorlab.ExtremeColorFgFinder,
-		BackgroundBlendFinder:      colorlab.ExtremeColorBgFinder,
+		ForegroundBlendFinder:      clab.ExtremeColorFgFinder,
+		BackgroundBlendFinder:      clab.ExtremeColorBgFinder,
 	}
 	default2BgFg = generator.AccentPairGenerator{
 		BlendBackgroundAmout:       0.6,
 		BlendForegroundAmout:       0.45,
 		Gamma:                      0.04,
 		MinimumLightnessDifference: 0.35,
-		ForegroundBlendFinder:      colorlab.ExtremeColorFgFinder,
-		BackgroundBlendFinder:      colorlab.ExtremeColorBgFinder,
+		ForegroundBlendFinder:      clab.ExtremeColorFgFinder,
+		BackgroundBlendFinder:      clab.ExtremeColorBgFinder,
 	}
 
 	palettes = []generator.Palette{
@@ -68,7 +68,7 @@ var (
 				BlendBackgroundAmout:       default1BgFg.BlendBackgroundAmout,
 				BlendForegroundAmout:       default1BgFg.BlendForegroundAmout,
 				Gamma:                      default1BgFg.Gamma,
-				ForegroundBlendFinder:      colorlab.NamedColorFinder("base1"),
+				ForegroundBlendFinder:      clab.NamedColorFinder("base1"),
 				BackgroundBlendFinder:      default1BgFg.BackgroundBlendFinder,
 				MinimumLightnessDifference: 0.4,
 			},
@@ -76,7 +76,7 @@ var (
 				BlendBackgroundAmout:       default2BgFg.BlendBackgroundAmout,
 				BlendForegroundAmout:       default2BgFg.BlendForegroundAmout,
 				Gamma:                      default2BgFg.Gamma,
-				ForegroundBlendFinder:      colorlab.NamedColorFinder("base1"),
+				ForegroundBlendFinder:      clab.NamedColorFinder("base1"),
 				BackgroundBlendFinder:      default2BgFg.BackgroundBlendFinder,
 				MinimumLightnessDifference: 0.4,
 			},
@@ -95,7 +95,7 @@ var (
 				BlendBackgroundAmout:       default1BgFg.BlendBackgroundAmout,
 				BlendForegroundAmout:       default1BgFg.BlendForegroundAmout,
 				Gamma:                      default1BgFg.Gamma,
-				ForegroundBlendFinder:      colorlab.NamedColorFinder("base1"),
+				ForegroundBlendFinder:      clab.NamedColorFinder("base1"),
 				BackgroundBlendFinder:      default1BgFg.BackgroundBlendFinder,
 				MinimumLightnessDifference: 0.4,
 			},
@@ -103,7 +103,7 @@ var (
 				BlendBackgroundAmout:       default2BgFg.BlendBackgroundAmout,
 				BlendForegroundAmout:       default2BgFg.BlendForegroundAmout,
 				Gamma:                      default2BgFg.Gamma,
-				ForegroundBlendFinder:      colorlab.NamedColorFinder("base1"),
+				ForegroundBlendFinder:      clab.NamedColorFinder("base1"),
 				BackgroundBlendFinder:      default2BgFg.BackgroundBlendFinder,
 				MinimumLightnessDifference: 0.4,
 			},
@@ -245,11 +245,11 @@ var (
 		Base: sol.Base{
 			Base03: colors.ZenburnBg,
 			Base02: colors.ZenburnBgP1,
-			Base01: colorlab.HexColor(colors.ZenburnFgM1).Blend(colors.ZenburnFg, 0.3),
+			Base01: clab.HexColor(colors.ZenburnFgM1).Blend(colors.ZenburnFg, 0.3),
 			Base00: colors.ZenburnBgP3,
 			Base0:  colors.ZenburnFg,
 			Base1:  colors.ZenburnFgP1,
-			Base2:  colorlab.HexColor(colors.ZenburnFgP1).Blend(colors.ZenburnFgP2, 0.5),
+			Base2:  clab.HexColor(colors.ZenburnFgP1).Blend(colors.ZenburnFgP2, 0.5),
 			Base3:  colors.ZenburnFgP2,
 		},
 		Accents: sol.Accents{
@@ -259,7 +259,7 @@ var (
 			Magenta: colors.ZenburnMagenta,
 			Orange:  colors.ZenburnOrange,
 			Red:     colors.ZenburnRed,
-			Violet:  colorlab.HexColor(colors.ZenburnBlue).Blend(colors.ZenburnMagenta, 0.5),
+			Violet:  clab.HexColor(colors.ZenburnBlue).Blend(colors.ZenburnMagenta, 0.5),
 			Yellow:  colors.ZenburnYellow,
 		},
 	}

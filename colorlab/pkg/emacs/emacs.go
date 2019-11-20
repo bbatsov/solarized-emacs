@@ -12,12 +12,12 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/bbatsov/solarized-emacs/colorlab/pkg/colorlab"
+	"github.com/bbatsov/solarized-emacs/colorlab/pkg/clab"
 	"github.com/bbatsov/solarized-emacs/colorlab/pkg/sol"
 )
 
 // PrintAlist prints the named colors list in a way that is compatible with solarized-palettes.el.
-func PrintAlist(w io.Writer, n colorlab.NamedColors, indent int) (int, error) {
+func PrintAlist(w io.Writer, n clab.NamedColors, indent int) (int, error) {
 	keys := sol.OrderedKeys(n)
 	var longestKey int
 	for _, n := range keys {
@@ -45,7 +45,7 @@ func PrintAlist(w io.Writer, n colorlab.NamedColors, indent int) (int, error) {
 	return nt, nil
 }
 
-func RewritePalette(nc colorlab.NamedColors, paletteName string) {
+func RewritePalette(nc clab.NamedColors, paletteName string) {
 
 	var dst bytes.Buffer
 

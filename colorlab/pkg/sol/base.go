@@ -1,33 +1,33 @@
 package sol
 
 import (
-	"github.com/bbatsov/solarized-emacs/colorlab/pkg/colorlab"
+	"github.com/bbatsov/solarized-emacs/colorlab/pkg/clab"
 	"github.com/lucasb-eyer/go-colorful"
 )
 
 type Base struct {
-	Base03 colorlab.HexColor
-	Base02 colorlab.HexColor
-	Base01 colorlab.HexColor
-	Base00 colorlab.HexColor
-	Base0  colorlab.HexColor
-	Base1  colorlab.HexColor
-	Base2  colorlab.HexColor
-	Base3  colorlab.HexColor
+	Base03 clab.HexColor
+	Base02 clab.HexColor
+	Base01 clab.HexColor
+	Base00 clab.HexColor
+	Base0  clab.HexColor
+	Base1  clab.HexColor
+	Base2  clab.HexColor
+	Base3  clab.HexColor
 }
 
 type BaseColors [8]colorful.Color
 
 func NewBase(bc [8]colorful.Color) Base {
 	return Base{
-		Base03: colorlab.HexColor(bc[0].Clamped().Hex()),
-		Base02: colorlab.HexColor(bc[1].Clamped().Hex()),
-		Base01: colorlab.HexColor(bc[2].Clamped().Hex()),
-		Base00: colorlab.HexColor(bc[3].Clamped().Hex()),
-		Base0:  colorlab.HexColor(bc[4].Clamped().Hex()),
-		Base1:  colorlab.HexColor(bc[5].Clamped().Hex()),
-		Base2:  colorlab.HexColor(bc[6].Clamped().Hex()),
-		Base3:  colorlab.HexColor(bc[7].Clamped().Hex()),
+		Base03: clab.HexColor(bc[0].Clamped().Hex()),
+		Base02: clab.HexColor(bc[1].Clamped().Hex()),
+		Base01: clab.HexColor(bc[2].Clamped().Hex()),
+		Base00: clab.HexColor(bc[3].Clamped().Hex()),
+		Base0:  clab.HexColor(bc[4].Clamped().Hex()),
+		Base1:  clab.HexColor(bc[5].Clamped().Hex()),
+		Base2:  clab.HexColor(bc[6].Clamped().Hex()),
+		Base3:  clab.HexColor(bc[7].Clamped().Hex()),
 	}
 }
 func (s Base) Clone() Base {
@@ -42,8 +42,8 @@ func (s Base) Clone() Base {
 		Base3:  s.Base3,
 	}
 }
-func (s Base) NamedColors() colorlab.NamedColors {
-	nc := make(colorlab.NamedColors, 8)
+func (s Base) NamedColors() clab.NamedColors {
+	nc := make(clab.NamedColors, 8)
 	arr := s.colorArray()
 	for idx, hex := range arr {
 		nc[baseNames[idx]] = hex
@@ -65,8 +65,8 @@ func (s Base) Colors() BaseColors {
 	}
 }
 
-func (s Base) colorArray() [8]colorlab.HexColor {
-	return [8]colorlab.HexColor{
+func (s Base) colorArray() [8]clab.HexColor {
+	return [8]clab.HexColor{
 		s.Base03,
 		s.Base02,
 		s.Base01,

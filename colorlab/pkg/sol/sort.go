@@ -4,7 +4,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/bbatsov/solarized-emacs/colorlab/pkg/colorlab"
+	"github.com/bbatsov/solarized-emacs/colorlab/pkg/clab"
 )
 
 // Orderedkeys returns the keys in a order that is like how solarized names should be ordered.
@@ -19,7 +19,7 @@ import (
 //
 // secondary sort order is by string comparison.
 //
-func OrderedKeys(n colorlab.NamedColors) []string {
+func OrderedKeys(n clab.NamedColors) []string {
 	var names []string
 	for k, _ := range n {
 		names = append(names, k)

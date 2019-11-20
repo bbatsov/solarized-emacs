@@ -1,7 +1,7 @@
 package generator
 
 import (
-	"github.com/bbatsov/solarized-emacs/colorlab/pkg/colorlab"
+	"github.com/bbatsov/solarized-emacs/colorlab/pkg/clab"
 	"github.com/bbatsov/solarized-emacs/colorlab/pkg/sol"
 )
 
@@ -15,7 +15,7 @@ type Palette struct {
 	Accent2Pair AccentPairGenerator
 }
 
-func (p Palette) Generate() colorlab.NamedColors {
+func (p Palette) Generate() clab.NamedColors {
 
 	pal := p.Solarized
 
@@ -26,7 +26,7 @@ func (p Palette) Generate() colorlab.NamedColors {
 
 	bgs, fgs := p.Accent1Pair.Generate(corrected)
 	hbgs, hfgs := p.Accent2Pair.Generate(corrected)
-	cols := colorlab.Merge(
+	cols := clab.Merge(
 		pal.NamedColors(),
 		fgs.NamedColors().WithSuffix("-1fg"),
 		bgs.NamedColors().WithSuffix("-1bg"),

@@ -1,4 +1,4 @@
-package colorlab
+package clab
 
 import "github.com/lucasb-eyer/go-colorful"
 

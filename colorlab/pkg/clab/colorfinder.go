@@ -1,4 +1,4 @@
-package colorlab
+package clab
 
 import (
 	"log"

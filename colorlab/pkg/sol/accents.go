@@ -1,34 +1,34 @@
 package sol
 
 import (
-	"github.com/bbatsov/solarized-emacs/colorlab/pkg/colorlab"
+	"github.com/bbatsov/solarized-emacs/colorlab/pkg/clab"
 	"github.com/lucasb-eyer/go-colorful"
 )
 
 // Accents .
 type Accents struct {
-	Yellow  colorlab.HexColor
-	Orange  colorlab.HexColor
-	Red     colorlab.HexColor
-	Magenta colorlab.HexColor
-	Violet  colorlab.HexColor
-	Blue    colorlab.HexColor
-	Cyan    colorlab.HexColor
-	Green   colorlab.HexColor
+	Yellow  clab.HexColor
+	Orange  clab.HexColor
+	Red     clab.HexColor
+	Magenta clab.HexColor
+	Violet  clab.HexColor
+	Blue    clab.HexColor
+	Cyan    clab.HexColor
+	Green   clab.HexColor
 }
 
 type AccentColors [8]colorful.Color
 
 func NewAccents(cc [8]colorful.Color) Accents {
 	return Accents{
-		Yellow:  colorlab.HexColor(cc[0].Clamped().Hex()),
-		Orange:  colorlab.HexColor(cc[1].Clamped().Hex()),
-		Red:     colorlab.HexColor(cc[2].Clamped().Hex()),
-		Magenta: colorlab.HexColor(cc[3].Clamped().Hex()),
-		Violet:  colorlab.HexColor(cc[4].Clamped().Hex()),
-		Blue:    colorlab.HexColor(cc[5].Clamped().Hex()),
-		Cyan:    colorlab.HexColor(cc[6].Clamped().Hex()),
-		Green:   colorlab.HexColor(cc[7].Clamped().Hex()),
+		Yellow:  clab.HexColor(cc[0].Clamped().Hex()),
+		Orange:  clab.HexColor(cc[1].Clamped().Hex()),
+		Red:     clab.HexColor(cc[2].Clamped().Hex()),
+		Magenta: clab.HexColor(cc[3].Clamped().Hex()),
+		Violet:  clab.HexColor(cc[4].Clamped().Hex()),
+		Blue:    clab.HexColor(cc[5].Clamped().Hex()),
+		Cyan:    clab.HexColor(cc[6].Clamped().Hex()),
+		Green:   clab.HexColor(cc[7].Clamped().Hex()),
 	}
 }
 func (s Accents) Clone() Accents {
@@ -93,7 +93,7 @@ func (a Accents) ChangeSaturation(amount float64) Accents {
 	return NewAccents(cc)
 }
 
-func (a Accents) Blend(hc colorlab.HexColor, amount float64) Accents {
+func (a Accents) Blend(hc clab.HexColor, amount float64) Accents {
 	c := hc.Color()
 	cc := a.Colors()
 	cc[0] = cc[0].BlendLab(c, amount)
@@ -107,8 +107,8 @@ func (a Accents) Blend(hc colorlab.HexColor, amount float64) Accents {
 	return NewAccents(cc)
 }
 
-func (ac Accents) NamedColors() colorlab.NamedColors {
-	nc := make(colorlab.NamedColors, 8)
+func (ac Accents) NamedColors() clab.NamedColors {
+	nc := make(clab.NamedColors, 8)
 	arr := ac.colorArray()
 	for idx, hex := range arr {
 		nc[accentNames[idx]] = hex
@@ -116,8 +116,8 @@ func (ac Accents) NamedColors() colorlab.NamedColors {
 	return nc
 }
 
-func (s Accents) colorArray() [8]colorlab.HexColor {
-	return [8]colorlab.HexColor{
+func (s Accents) colorArray() [8]clab.HexColor {
+	return [8]clab.HexColor{
 		s.Yellow,
 		s.Orange,
 		s.Red,
