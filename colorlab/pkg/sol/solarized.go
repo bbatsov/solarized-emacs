@@ -1,4 +1,4 @@
-package solarized
+package sol
 
 import "github.com/bbatsov/solarized-emacs/colorlab/pkg/colorlab"
 

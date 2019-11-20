@@ -15,7 +15,7 @@ import (
 	"github.com/bbatsov/solarized-emacs/colorlab/pkg/colorlab"
 	"github.com/bbatsov/solarized-emacs/colorlab/pkg/colors"
 	"github.com/bbatsov/solarized-emacs/colorlab/pkg/generator"
-	sol "github.com/bbatsov/solarized-emacs/colorlab/pkg/solarized"
+	"github.com/bbatsov/solarized-emacs/colorlab/pkg/sol"
 )
 
 // Options are command line flags .

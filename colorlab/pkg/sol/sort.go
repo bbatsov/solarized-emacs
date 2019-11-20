@@ -1,4 +1,4 @@
-package solarized
+package sol
 
 import (
 	"sort"

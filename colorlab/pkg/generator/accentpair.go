@@ -5,7 +5,7 @@ import (
 	"math"
 
 	"github.com/bbatsov/solarized-emacs/colorlab/pkg/colorlab"
-	"github.com/bbatsov/solarized-emacs/colorlab/pkg/solarized"
+	"github.com/bbatsov/solarized-emacs/colorlab/pkg/sol"
 
 	"github.com/lucasb-eyer/go-colorful"
 )
@@ -21,10 +21,10 @@ type AccentPairGenerator struct {
 	ForegroundBlendFinder colorlab.ColorFinder
 }
 
-func (g *AccentPairGenerator) Generate(sol solarized.Solarized) (backgrounds, foregrounds solarized.Accents) {
+func (g *AccentPairGenerator) Generate(solarized sol.Solarized) (backgrounds, foregrounds sol.Accents) {
 	lightnessReport := false
-	sol = sol.Clone()
-	cs := sol.Accents.Colors()
+	solarized = solarized.Clone()
+	cs := solarized.Accents.Colors()
 
 	light := func(c colorful.Color) float64 {
 		l, _, _ := c.Lab()
@@ -36,19 +36,19 @@ func (g *AccentPairGenerator) Generate(sol solarized.Solarized) (backgrounds, fo
 			fmt.Println(" ")
 		}
 
-		blendBgColor := g.BackgroundBlendFinder(sol.Base.NamedColors())
-		blendFgColor := g.ForegroundBlendFinder(sol.Base.NamedColors())
+		blendBgColor := g.BackgroundBlendFinder(solarized.Base.NamedColors())
+		blendFgColor := g.ForegroundBlendFinder(solarized.Base.NamedColors())
 
 		bg := v.BlendLab(blendBgColor, g.BlendBackgroundAmout)
 		fg := v.BlendLab(blendFgColor, g.BlendForegroundAmout)
 		if lightnessReport {
 			{
 				l, _, _ := blendBgColor.Lab()
-				fmt.Printf(" | b1 %.2f %s", l, sol.Base03)
+				fmt.Printf(" | b1 %.2f %s", l, solarized.Base03)
 			}
 			{
 				l, _, _ := blendFgColor.Lab()
-				fmt.Printf(" f1 %.2f %s", l, sol.Base0)
+				fmt.Printf(" f1 %.2f %s", l, solarized.Base0)
 			}
 		}
 
@@ -113,5 +113,5 @@ func (g *AccentPairGenerator) Generate(sol solarized.Solarized) (backgrounds, fo
 	if lightnessReport {
 		fmt.Println("\n\n")
 	}
-	return solarized.NewAccents(bgs), solarized.NewAccents(fgs)
+	return sol.NewAccents(bgs), sol.NewAccents(fgs)
 }

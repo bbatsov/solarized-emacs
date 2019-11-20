@@ -2,14 +2,14 @@ package generator
 
 import (
 	"github.com/bbatsov/solarized-emacs/colorlab/pkg/colorlab"
-	"github.com/bbatsov/solarized-emacs/colorlab/pkg/solarized"
+	"github.com/bbatsov/solarized-emacs/colorlab/pkg/sol"
 )
 
 // Palette .
 type Palette struct {
 	Name      string
 	Inverse   bool
-	Solarized solarized.Solarized
+	Solarized sol.Solarized
 
 	Accent1Pair AccentPairGenerator
 	Accent2Pair AccentPairGenerator
