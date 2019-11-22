@@ -1,7 +1,7 @@
 ;; this init file is primarily focused around developing and
 ;; evaluating theming outside of ones own emacs.d.
 
-;; you can run like 'emacs -q -l {{pkg-dir}}/minimal-init/init.el'
+;; you can run like 'emacs -q -l {{pkg-dir}}/dev-emacs.d/init.el'
 (when load-file-name
   (setq user-emacs-directory
         (expand-file-name (file-name-directory load-file-name))))
@@ -78,7 +78,7 @@
                              ("melpa" . "https://melpa.org/packages/")))))
 (defun dev-open-merge()
   (interactive)
-  (find-file (expand-file-name "minimal-init/test-repo/" dev-project-root)))
+  (find-file (expand-file-name "dev-emacs.d/test-repo/" dev-project-root)))
 
 (defun dev-themes ()
   "get list of all themes"

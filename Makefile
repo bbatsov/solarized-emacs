@@ -31,17 +31,17 @@ clean:
 # 	$(CASK) exec buttercup -L .
 
 run:
-	$(CASK) exec emacs -q -l ./minimal-init/init.el ${ARGS}
+	$(CASK) exec emacs -q -l ./dev-emacs.d/init.el ${ARGS}
 
 test: elpa
 	$(MAKE) run
 
 dev: clean elpa
-	$(MAKE) ARGS="minimal-init/test-files/* minimal-init/init.el *-theme.el solarized.el" run
+	$(MAKE) ARGS="dev-emacs.d/test-files/* dev-emacs.d/init.el *-theme.el solarized.el" run
 
 dev-merge: clean elpa
-	rm -rf minimal-init/test-repo
-	git clone minimal-init/test.git minimal-init/test-repo
-	git -C minimal-init/test-repo checkout v2
-	git -C minimal-init/test-repo merge origin/v1 || exit 0
-	$(MAKE) ARGS="minimal-init/init.el *-theme.el solarized.el minimal-init/test-repo" run
+	rm -rf dev-emacs.d/test-repo
+	git clone dev-emacs.d/test.git dev-emacs.d/test-repo
+	git -C dev-emacs.d/test-repo checkout v2
+	git -C dev-emacs.d/test-repo merge origin/v1 || exit 0
+	$(MAKE) ARGS="dev-emacs.d/init.el *-theme.el solarized.el dev-emacs.d/test-repo" run

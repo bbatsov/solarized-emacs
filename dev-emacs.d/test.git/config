@@ -3,4 +3,4 @@
 	filemode = true
 	bare = true
 [remote "origin"]
-	url = /home/thomasf/src/github.com/bbatsov/solarized-emacs/minimal-init/test-repo
+	url = /home/thomasf/src/github.com/bbatsov/solarized-emacs/dev-emacs.d/test-repo
