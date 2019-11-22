@@ -224,7 +224,7 @@
         ;; utility/convinience
         flx-ido projectile
         ;; utility/convinience + face testing
-        magit smartparens
+        magit smartparens htmlize
         ;; editor major modes for face testing
         web-mode haskell-mode go-mode js2-mode markdown-mode rust-mode php-mode))
 
