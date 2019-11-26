@@ -38,7 +38,7 @@ footers, etc. used by the various exporters:
 
 ** Common export parameters
 
-Configue the =org-mode= tags for forcing inclusion of exclusion of
+Configure the =org-mode= tags for forcing inclusion of exclusion of
 sections in exported documents
 
 #+NAME: orgmode-header-exclude
@@ -504,7 +504,7 @@ taylor(sin(x),x,6)
 : 100 a + 2
 #+END_SRC
 
-You can accomplish roughtly the same thing like this:
+You can accomplish roughly the same thing like this:
 
 #+BEGIN_SRC org
 
@@ -658,7 +658,7 @@ renders as this:
 
 * Inline formula
 
-=org-mode= can have automatically calcualted inline formula. For
+=org-mode= can have automatically calculated inline formula. For
 example, this:
 
 #+BEGIN_SRC org
@@ -711,7 +711,7 @@ Captions and references can also be applied to tables.
 
 Images, plots, code listings, and tables often need to span multiple
 text columns to fit when exporting to multi-column latex styles. This
-can be done by preceeding the relevant block with
+can be done by preceding the relevant block with
 a =#+ATTR_LATEX: :float multicolumn= line, for example:
 
 #+BEGIN_SRC org
@@ -849,7 +849,7 @@ the output without the source.
 * Running code remotely
 
 Adding appropriate =:dir= parameters runs the code in other working
-direcories, or even on remote machines:
+directories, or even on remote machines:
 
 #+BEGIN_SRC org
 #+BEGIN_SRC sh :results output :exports both
@@ -1290,7 +1290,7 @@ When =M-x org-babel-tangle= is run within =emacs=, the
 
 The bracketed lines (=helloworld-classes=, for example) are code
 fragments that will be defined later. =org-mode= will automatically
-substitute these blocks when createing the =HelloWorld.py= file.
+substitute these blocks when creating the =HelloWorld.py= file.
 
 #+BEGIN_SRC python :noweb yes :tangle HelloWorld.py :exports none
 """This is a hello world example document"""
