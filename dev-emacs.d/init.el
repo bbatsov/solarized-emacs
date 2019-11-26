@@ -221,9 +221,9 @@
 (mapc 'require-package
       '(;; required by solarized
         dash
-        ;; utility/convinience
+        ;; utility/convenience
         flx-ido projectile
-        ;; utility/convinience + face testing
+        ;; utility/convenience + face testing
         magit smartparens htmlize
         ;; editor major modes for face testing
         web-mode haskell-mode go-mode js2-mode markdown-mode rust-mode php-mode))
