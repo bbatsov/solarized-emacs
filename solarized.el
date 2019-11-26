@@ -133,10 +133,6 @@ use the latter if you need a 24-bit specification of a color."
         (apply 'color-rgb-to-hex `(,@args))
       (apply 'color-rgb-to-hex `(,@args ,digits-per-component)))))
 
-(defun solarized-color-lightness (color)
-  "Return the LAB lightness value of a COLOR, the range is from 0-100."
-  (car (apply 'color-srgb-to-lab (color-name-to-rgb hexrgb))))
-
 (defun solarized-color-clamp-lab (lab)
   "Restricts a LAB colorspace color if it is out of bounds."
   (list (min (max (nth 0 lab) 0.0) 100.0)
