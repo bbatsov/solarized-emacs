@@ -114,25 +114,6 @@ Related discussion: https://github.com/bbatsov/solarized-emacs/issues/158"
 
 ;;; Utilities
 
-;;;###autoload
-(defun solarized-color-blend-rgb (color1 color2 alpha &optional digits-per-component)
-  "Blends COLOR1 onto COLOR2 with ALPHA.
-
-COLOR1 and COLOR2 should be color names (e.g. \"white\") or RGB
-triplet strings (e.g. \"#ff12ec\").
-
-Alpha should be a float between 0 and 1.
-
-Optional argument DIGITS-PER-COMPONENT can be either 4 (the default) or 2;
-use the latter if you need a 24-bit specification of a color."
-  (let ((args (-zip-with '(lambda (it other)
-                            (+ (* alpha it) (* other (- 1 alpha))))
-                         (color-name-to-rgb color1)
-                         (color-name-to-rgb color2))))
-    (if (version< emacs-version "26")
-        (apply 'color-rgb-to-hex `(,@args))
-      (apply 'color-rgb-to-hex `(,@args ,digits-per-component)))))
-
 (defun solarized-color-clamp-lab (lab)
   "Restricts a LAB colorspace color if it is out of bounds."
   (list (min (max (nth 0 lab) 0.0) 100.0)
