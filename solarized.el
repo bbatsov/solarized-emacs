@@ -233,6 +233,7 @@ The Returned color-palette has the same format as `solarized-color-palette'"
       (green-2fg   . ,(solarized-color-blend brightest-base green   0.45 2)))))
 
 ;;; Setup Start
+;;;###autoload
 (defmacro solarized-with-color-variables (variant theme-name color-palette &optional childtheme-sexp)
   "Eval `solarized-definition' in solarized COLOR-PALETTE for THEME-NAME.
 VARIANT is 'dark or 'light.
@@ -359,6 +360,7 @@ customize the resulting theme."
          ,@solarized-definition
          ,@(eval childtheme-sexp)))))
 
+;;;###autoload
 (defmacro solarized-with-color-variables-with-palette (variant theme-name core-palette &optional childtheme-sexp)
   "Create a VARIANT of the theme named THEME-NAME with CORE-PALETTE.
 
@@ -370,6 +372,7 @@ CORE-PALETTE is core color-palette."
   (let ((color-palette (solarized-create-color-palette (eval core-palette))))
     `(solarized-with-color-variables ,variant ,theme-name ',color-palette ,childtheme-sexp)))
 
+;;;###autoload
 (defun solarized-create-theme-file (variant theme-name color-palette &optional childtheme-sexp overwrite)
   "Create a VARIANT of the theme named THEME-NAME with COLOR-PALETTE.
 
@@ -397,6 +400,7 @@ If OVERWRITE is non-nil, overwrite theme file if exist."
                 (provide ',(intern (format "%s-theme" theme-name)))))))
     path))
 
+;;;###autoload
 (defun solarized-create-theme-file-with-palette (variant theme-name core-palette &optional childtheme-sexp overwrite)
   "Create a VARIANT of the theme named THEME-NAME with CORE-PALETTE.
 
