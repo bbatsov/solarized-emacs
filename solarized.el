@@ -24,7 +24,6 @@
 
 ;;; Code:
 
-(require 'dash)
 (require 'color)
 (require 'solarized-faces)
 
