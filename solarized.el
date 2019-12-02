@@ -131,16 +131,20 @@ Alpha should be a float between 0 and 1.
 
 Optional argument DIGITS-PER-COMPONENT can be either 4 (the default) or 2;
 use the latter if you need a 24-bit specification of a color."
-  (let ((args (mapcar 'color-clamp
-                      (apply 'color-lab-to-srgb
-                             (solarized-color-clamp-lab
-                              (cl-mapcar
-                               (lambda (v1 v2) (+ v1 (* alpha (- v2 v1))))
-                               (apply 'color-srgb-to-lab (color-name-to-rgb color2))
-                               (apply 'color-srgb-to-lab (color-name-to-rgb color1))))))))
-    (if (version< emacs-version "26")
-        (apply 'color-rgb-to-hex `(,@args))
-      (apply 'color-rgb-to-hex `(,@args ,digits-per-component)))))
+  (cond
+   ((= 1 alpha) color1)
+   ((= 0 alpha) color2)
+   (t
+    (let ((args (mapcar 'color-clamp
+                        (apply 'color-lab-to-srgb
+                               (solarized-color-clamp-lab
+                                (cl-mapcar
+                                 (lambda (v1 v2) (+ v1 (* alpha (- v2 v1))))
+                                 (apply 'color-srgb-to-lab (color-name-to-rgb color2))
+                                 (apply 'color-srgb-to-lab (color-name-to-rgb color1))))))))
+      (if (version< emacs-version "26")
+          (apply 'color-rgb-to-hex `(,@args))
+        (apply 'color-rgb-to-hex `(,@args ,digits-per-component)))))))
 
 ;;;###autoload
 (defun solarized-create-color-palette (core-palette)
