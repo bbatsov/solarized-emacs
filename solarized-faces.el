@@ -1990,7 +1990,7 @@
      `(highlight-symbol-foreground-color ,base1)
      `(highlight-symbol-colors
        ,(mapcar
-         (lambda (color) (solarized-color-blend color ,base03 0.25))
+         (lambda (color) (solarized-color-blend color base03 0.25))
          `(,yellow ,cyan ,red ,violet ,green ,orange ,blue)))
 ;;;;; highlight-tail
      `(highlight-tail-colors
