@@ -65,14 +65,15 @@
 (when load-file-name
   (let* ((init-dir (file-name-as-directory (file-name-directory load-file-name)))
          (elisp-dir (expand-file-name ".." init-dir))
-         (childtheme-dir (expand-file-name "../child-theme-example" init-dir))
-         (childtheme-themes-dir (expand-file-name "themes" childtheme-dir)))
+         (childtheme-dir (expand-file-name "../solarized-child-themes" init-dir))
+         (childtheme-sample-dir (expand-file-name "../child-theme-example" init-dir))
+         (childtheme-sample-themes-dir (expand-file-name "themes" childtheme-sample-dir)))
 
     (defvar dev-project-root elisp-dir)
 
     (add-to-list 'load-path elisp-dir)
-    (add-to-list 'load-path childtheme-dir)
-    (setq custom-theme-load-path (list elisp-dir childtheme-themes-dir)
+    (add-to-list 'load-path childtheme-sample-dir)
+    (setq custom-theme-load-path (list elisp-dir childtheme-dir childtheme-sample-themes-dir)
           package-user-dir (expand-file-name "elpa" init-dir)
           package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                              ("melpa" . "https://melpa.org/packages/")))))
