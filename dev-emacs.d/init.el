@@ -128,8 +128,6 @@
     (unload-feature 'solarized t))
   (ignore-errors
     (unload-feature 'solarized-faces t))
-  (ignore-errors
-    (unload-feature 'solarized-palettes t))
   (dev-set-solarized-settings)
   (load-library "solarized")
   (let ((themes (reverse (or dev-reload-theme-last-setting
