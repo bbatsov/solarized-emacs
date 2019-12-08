@@ -127,7 +127,7 @@
   (ignore-errors
     (unload-feature 'solarized t))
   (ignore-errors
-    (unload-feature 'solarized-faces t))
+    (unload-feature 'solarized-definitions t))
   (ignore-errors
     (unload-feature 'solarized-palettes t))
   (dev-set-solarized-settings)

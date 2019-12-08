@@ -25,7 +25,7 @@
 ;;; Code:
 
 (require 'color)
-(require 'solarized-faces)
+(require 'solarized-definitions)
 
 ;;; Options
 

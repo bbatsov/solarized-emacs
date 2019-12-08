@@ -1,4 +1,4 @@
-;;; solarized-faces.el --- the faces definitions for solarized theme  -*- lexical-binding: t -*-
+;;; solarized-definitions.el --- the faces definitions for solarized theme  -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2011-2019 Bozhidar Batsov
 
@@ -2048,10 +2048,10 @@
      `(xterm-color-names-bright [,base03 ,orange ,base01 ,base00
                                          ,base0 ,violet ,base1 ,base3]))))
 
-(provide 'solarized-faces)
+(provide 'solarized-definitions)
 
 ;; Local Variables:
 ;; indent-tabs-mode: nil
 ;; End:
 
-;;; solarized-faces.el ends here
+;;; solarized-definitions.el ends here
