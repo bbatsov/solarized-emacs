@@ -1012,8 +1012,11 @@
 ;;;;; display-line-number-mode
      `(line-number ((,class (:weight thin :underline nil :foreground ,s-fringe-fg :background ,s-fringe-bg))))
 ;;;;; lsp-ui
-     `(lsp-ui-sideline-code-action ((,class (:foreground ,yellow :weight normal))))
-;;;;; lusty-explorer
+     `(lsp-ui-sideline-code-action ((,class (:foreground ,yellow-1fg :background ,yellow-1bg :weight normal))))
+     `(lsp-ui-sideline-current-symbol ((,class (:foreground ,magenta :weight normal))))
+     `(lsp-ui-sideline-global ((,class (:underline ,s-line))))
+     `(lsp-ui-sideline-symbol ((,class (:foreground ,base1 :background ,base02))))
+;;;; lusty-explorer
      `(lusty-directory-face ((,class (:inherit dired-directory))))
      `(lusty-file-face ((,class nil)))
      `(lusty-match-face ((,class (:inherit ido-first-match))))
