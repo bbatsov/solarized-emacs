@@ -27,6 +27,20 @@
 
 (require 'subr-x)
 
+(when load-file-name
+  (add-to-list 'load-path
+               (expand-file-name
+                "lisp"
+                (file-name-as-directory
+                 (file-name-directory load-file-name)))))
+
+(require 'solarized-dev)
+(require 'solarized-dev-keys)
+
+(when load-file-name
+  (dev-setup-paths (file-name-as-directory
+                    (file-name-directory load-file-name))))
+
 (defun dev-debug-make-frame ()
   ;; debug-on-entry on make-frame does not work
   (define-advice make-frame (:around (fn &rest args) suppress)
@@ -38,22 +52,7 @@
 ;; (toggle-debug-on-error)
 
 
-(when load-file-name
-  (let* ((init-dir (file-name-as-directory (file-name-directory load-file-name)))
-         (elisp-dir (expand-file-name ".." init-dir))
-         (childtheme-dir (expand-file-name "../child-theme-example" init-dir))
-         (dev-lisp-dir (expand-file-name "lisp" init-dir))
-         (childtheme-themes-dir (expand-file-name "themes" childtheme-dir)))
 
-    (defvar dev-project-root elisp-dir)
-
-    (add-to-list 'load-path elisp-dir)
-    (add-to-list 'load-path childtheme-dir)
-    (add-to-list 'load-path dev-lisp-dir)
-    (setq custom-theme-load-path (list elisp-dir childtheme-themes-dir)
-          package-user-dir (expand-file-name "elpa" init-dir)
-          package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
-                             ("melpa" . "https://melpa.org/packages/")))))
 (defun dev-open-merge()
   (interactive)
   (find-file (expand-file-name "dev-emacs.d/test-repo/" dev-project-root)))
@@ -83,7 +82,7 @@
 
 (setq auto-mode-alist
       (append '(("\\.webmode\\'" . web-mode))
-       auto-mode-alist))
+              auto-mode-alist))
 
 (when load-file-name
   (smartparens-global-mode)
@@ -101,10 +100,6 @@
  projectile-completion-system 'ido
  projectile-switch-project-action 'projectile-dired
  projectile-verbose nil)
-
-
-(require 'solarized-dev)
-(require 'solarized-dev-keys)
 
 (dev-set-solarized-settings)
 

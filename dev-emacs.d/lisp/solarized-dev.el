@@ -23,7 +23,20 @@
    ;; end
    ))
 
-
+(defun dev-setup-paths (dev-init-dir)
+  (let* ((init-dir dev-init-dir)
+         (elisp-dir (expand-file-name ".." init-dir))
+         (childtheme-dir (expand-file-name "../child-theme-example" init-dir))
+         (dev-lisp-dir (expand-file-name "lisp" init-dir))
+         (childtheme-themes-dir (expand-file-name "themes" childtheme-dir)))
+    (defvar dev-project-root elisp-dir)
+    (add-to-list 'load-path elisp-dir)
+    (add-to-list 'load-path childtheme-dir)
+    (add-to-list 'load-path dev-lisp-dir)
+    (setq custom-theme-load-path (list elisp-dir childtheme-themes-dir)
+          package-user-dir (expand-file-name "elpa" init-dir)
+          package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+                             ("melpa" . "https://melpa.org/packages/")))))
 (defun dev-themes ()
   "get list of all themes"
   (let ((themes nil))
