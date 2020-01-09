@@ -37,7 +37,7 @@ test: elpa
 	$(MAKE) run
 
 dev: clean elpa
-	$(MAKE) ARGS="dev-emacs.d/test-files/* dev-emacs.d/init.el *-theme.el solarized.el" run
+	$(MAKE) ARGS="dev-emacs.d/test-files/* dev-emacs.d/init.el *-theme.el solarized*.el" run
 
 dev-merge: clean elpa
 	rm -rf dev-emacs.d/test-repo
