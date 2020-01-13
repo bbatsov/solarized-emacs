@@ -1466,11 +1466,11 @@
      `(outline-minor-0
        ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
                  :weight bold
-                 :background ,s-base2))))
+                 :background ,base02))))
      `(outline-minor-1
        ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
                  :inherit (outline-minor-0 outline-1)
-                 :background ,(solarized-color-blend s-base3 yellow .9)))))
+                 :background ,(solarized-color-blend base03 yellow .9)))))
 ;;;;; paren-face
      `(paren-face  ((,class (:foreground ,base01))))
 ;;;;; perspective
