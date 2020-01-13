@@ -1019,7 +1019,7 @@
      `(lsp-ui-sideline-current-symbol ((,class (:foreground ,magenta :weight normal))))
      `(lsp-ui-sideline-global ((,class (:underline ,s-line))))
      `(lsp-ui-sideline-symbol ((,class (:foreground ,base1 :background ,base02))))
-;;;; lusty-explorer
+;;;;; lusty-explorer
      `(lusty-directory-face ((,class (:inherit dired-directory))))
      `(lusty-file-face ((,class nil)))
      `(lusty-match-face ((,class (:inherit ido-first-match))))
