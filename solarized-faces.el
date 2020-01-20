@@ -1012,7 +1012,13 @@
 ;;;;; display-line-number-mode
      `(line-number ((,class (:weight thin :underline nil :foreground ,s-fringe-fg :background ,s-fringe-bg))))
 ;;;;; lsp-ui
-     `(lsp-ui-sideline-code-action ((,class (:foreground ,yellow :weight normal))))
+     `(lsp-ui-doc-background ((,class (:background ,base03))))
+     `(lsp-ui-doc-header ((,class (:background ,yellow-1bg :foreground ,yellow-1fg))))
+     `(lsp-ui-doc-url ((,class (:inherit link))))
+     `(lsp-ui-sideline-code-action ((,class (:foreground ,yellow-1fg :background ,yellow-1bg :weight normal))))
+     `(lsp-ui-sideline-current-symbol ((,class (:foreground ,magenta :weight normal))))
+     `(lsp-ui-sideline-global ((,class (:underline ,s-line))))
+     `(lsp-ui-sideline-symbol ((,class (:foreground ,base1 :background ,base02))))
 ;;;;; lusty-explorer
      `(lusty-directory-face ((,class (:inherit dired-directory))))
      `(lusty-file-face ((,class nil)))
@@ -1460,11 +1466,11 @@
      `(outline-minor-0
        ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
                  :weight bold
-                 :background ,s-base2))))
+                 :background ,base02))))
      `(outline-minor-1
        ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
                  :inherit (outline-minor-0 outline-1)
-                 :background ,(solarized-color-blend s-base3 yellow .9)))))
+                 :background ,(solarized-color-blend base03 yellow .9)))))
 ;;;;; paren-face
      `(paren-face  ((,class (:foreground ,base01))))
 ;;;;; perspective
@@ -2001,6 +2007,8 @@
                               ,base03 ,base03))
      `(hl-bg-colors '(,yellow-lc ,orange-lc ,red-lc ,magenta-lc
                                  ,violet-lc ,blue-lc ,cyan-lc ,green-lc))
+;;;;; lsp-mode
+     `(lsp-ui-doc-border ,base1)
 ;;;;; pos-tip
      `(pos-tip-foreground-color ,base1)
      `(pos-tip-background-color ,base02)
