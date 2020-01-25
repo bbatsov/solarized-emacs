@@ -39,9 +39,6 @@ or
 (load-theme 'solarized-dark t)
 ```
 
-(If you want to install manually that procedure is briefly documented in the
-FAQ at the end of this document.)
-
 ## Alternative Palettes
 
 The intent of this theme will always be that Solarized-dark/light will give you
@@ -212,28 +209,6 @@ Please, report any problems that you find on the projects integrated
 issue tracker. If you've added some improvements and you want them
 included upstream don't hesitate to send me a patch or even better - a
 GitHub pull request.
-
-## FAQ
-
-### Stand-alone manual installation
-
-Save the following files in a folder that's on your Emacs' `load-path`:
-
-* [dash.el](https://raw.githubusercontent.com/magnars/dash.el/master/dash.el) - [dash](https://github.com/magnars/dash.el), a modern list library for Emacs
-* [solarized.el](https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized.el) - the solarized theme
-
-Save the following files into `~/.emacs.d/themes`:
-
-* [solarized-light-theme.el](https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-light-theme.el)
-* [solarized-dark-theme.el](https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-dark-theme.el)
-
-Add this your `.emacs` init file:
-
-```el
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-```
-
-Now you can load the theme with the interactive function `load-theme`.
 
 ## Contributors
 
