@@ -5,7 +5,7 @@
 
 # Solarized for Emacs
 
-Solarized for Emacs is an Emacs port of the 
+Solarized for Emacs is an Emacs port of the
 [Solarized theme for vim](http://ethanschoonover.com/solarized), developed by Ethan Schoonover.
 
 You can find several screenshots of Solarized for Emacs
@@ -14,42 +14,6 @@ You can find several screenshots of Solarized for Emacs
 Solarized for Emacs is tested only under Emacs 24, but should be working under
 Emacs 23 as well. The theme is implemented in terms of customisations and
 `deftheme` and does not require the `color-theme-package`.
-
-**about the alternative palette solarized- themes (-gruvbox variants, -zenburn, ...)**
-
-The intent of this theme will always be that Solarized-dark/light will give you
-the best possible experience. Palettes other than Solarized will never have
-influence over theming decisions, they are complementary.
-
-You should not expect the complementary themes to be fully accurate or the most
-suitable versions of how to apply those palettes into an emacs theme. The
-important aspect is that the color usage should be about the same as they are
-with the default Solarized palette.
-
-Colors stand out with varying amounts depending on which palette is used. This
-theme aims for a very soft look, violet is one of the most pronounced accent
-colors in the Solarized palette and that is one reason why it's rarely used by
-the theme. Violet in another palette might stand out less and therefore be used
-more often if the theme was specifically designed with that palette in mind.
-
-The original Zenburn palette doesn't have an violet it is created by blending
-blue and magenta to get it to fit into the theme so it's tilted towards
-translating into what this theme has decided.
-
-*TLDR*; While `solarized-gruvbox-light` might be good complement for users of
-`solarized-light`, another theme not contained in this package (`gruvbox-light`
-or whatever) might be more finely tuned in relation to the Gruvbox palette.
-
-**semantic versioning**
-
-- This package uses [semantic versioning](https://semver.org/)
-
-- Master branch is to be considered unstable (which isn't an excuse to
-  constantly break behaviour). Use Melpa stable if you want fewer breaking
-  changes.
-
-- Next stable version will be 2.0 because of API changes in the master branch.
-  Regular `load-theme` usage is unaffected by changes.
 
 ## Installation
 
@@ -77,6 +41,31 @@ or
 
 (If you want to install manually that procedure is briefly documented in the
 FAQ at the end of this document.)
+
+## Alternative Palettes
+
+The intent of this theme will always be that Solarized-dark/light will give you
+the best possible experience. Palettes other than Solarized will never have
+influence over theming decisions, they are complementary.
+
+You should not expect the complementary themes to be fully accurate or the most
+suitable versions of how to apply those palettes into an emacs theme. The
+important aspect is that the color usage should be about the same as they are
+with the default Solarized palette.
+
+Colors stand out with varying amounts depending on which palette is used. This
+theme aims for a very soft look, violet is one of the most pronounced accent
+colors in the Solarized palette and that is one reason why it's rarely used by
+the theme. Violet in another palette might stand out less and therefore be used
+more often if the theme was specifically designed with that palette in mind.
+
+The original Zenburn palette doesn't have an violet it is created by blending
+blue and magenta to get it to fit into the theme so it's tilted towards
+translating into what this theme has decided.
+
+*TLDR*; While `solarized-gruvbox-light` might be good complement for users of
+`solarized-light`, another theme not contained in this package (`gruvbox-light`
+or whatever) might be more finely tuned in relation to the Gruvbox palette.
 
 ## Customisations
 
@@ -204,6 +193,17 @@ solarized.
 If the theme file already exists, `solorized-create-theme-file` does not
 regenerate the file. If the file exists, it can be overwritten by
 setting the fifth argument to `t`.
+
+## Versioning Policy
+
+- This package uses [semantic versioning](https://semver.org/)
+
+- Master branch is to be considered unstable (which isn't an excuse to
+  constantly break behaviour). Use Melpa stable if you want fewer breaking
+  changes.
+
+- Next stable version will be 2.0 because of API changes in the master branch.
+  Regular `load-theme` usage is unaffected by changes.
 
 ## Bugs & Improvements
 
