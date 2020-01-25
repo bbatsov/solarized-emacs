@@ -210,13 +210,11 @@ issue tracker. If you've added some improvements and you want them
 included upstream don't hesitate to send me a patch or even better - a
 GitHub pull request.
 
-## Contributors
+## License
 
-- [Thomas Frössman](http://t.jossystem.se)
+Copyright © 2011-2020 Bozhidar Batsov, [Thomas Frössman](http://t.jossystem.se), and
+[contributors](https://github.com/bbatsov/solarized-emacs/contributors).
 
-(Add yourself to the list)
-
-Cheers,
-[Bozhidar](http://twitter.com/bbatsov)
+Distributed under the GNU General Public License, version 3
 
 [badge-license]: https://img.shields.io/badge/license-GPL_3-green.svg
