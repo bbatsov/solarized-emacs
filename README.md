@@ -124,6 +124,7 @@ manner as the vertical border.
 ```
 
 ## Create theme using color palette
+
 The Solarized Face settings consist of a palette of colors with eight
 accents in addition to the darkest and brightest colors. Recent
 changes allow you to freely create theme files using different
@@ -131,6 +132,7 @@ palettes instead of the Solarized color palette.  It consists of two
 steps: **creating a theme file** and **loading a theme**.
 
 ### Creating/Loading Theme Files
+
 Select the darkest and lightest colors and the eight accents to pass
 to the function. This creates a theme file in `.emacs.d/themes/`. If
 you need to make minor modifications, you can override Face
@@ -189,8 +191,7 @@ solarized.
 (load-theme 'solarized-wombat-dark t)
 ```
 
-### Caution
-If the theme file already exists, `solorized-create-theme-file` does not
+**Note:** If the theme file already exists, `solorized-create-theme-file` does not
 regenerate the file. If the file exists, it can be overwritten by
 setting the fifth argument to `t`.
 
