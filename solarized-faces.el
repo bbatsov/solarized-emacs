@@ -633,6 +633,8 @@
        ((,(append '((supports :underline (:style wave))) class)
          (:underline (:style wave :color ,red) :inherit unspecified))
         (,class (:foreground ,red :weight bold :underline t))))
+;;;;; fold-this
+     `(fold-this-overlay ((,class (:inherit default :foreground ,violet))))
 ;;;;; form-feed
      `(form-feed-line
        ((,class (:strike-through ,s-line))))
