@@ -1022,6 +1022,9 @@
      `(linum-relative-current-face ((,class (:inherit linum))))
 ;;;;; display-line-number-mode
      `(line-number ((,class (:weight thin :underline nil :foreground ,s-fringe-fg :background ,s-fringe-bg))))
+     `(line-number-minor-tick ((,class (:inherit line-number :weight normal))))
+     `(line-number-major-tick ((,class (:inherit line-number-minor-tick :weight bold))))
+     `(line-number-current-line ((,class (:inherit line-number :background ,base03 :foreground ,base0))))
 ;;;;; lsp-ui
      `(lsp-ui-doc-background ((,class (:background ,base03))))
      `(lsp-ui-doc-header ((,class (:background ,yellow-1bg :foreground ,yellow-1fg))))
