@@ -1409,7 +1409,7 @@
                                       :foreground ,red))))
      `(org-level-8 ((,class (:inherit ,s-variable-pitch
                                       :foreground ,blue))))
-     `(org-link ((,class (:foreground ,yellow :underline t))))
+     `(org-link ((,class (:inherit link))))
      `(org-meta-line ((,class (:foreground ,base01 :slant italic))))
      `(org-macro ((,class (:foreground ,s-base1))))
      `(org-sexp-date ((,class (:foreground ,violet))))
