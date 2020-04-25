@@ -507,9 +507,9 @@
        ((,light-class (:background ,yellow-l :foreground unspecified))
         (,dark-class (:background ,yellow :foreground unspecified))))
 ;;;;; elfeed
-     `(elfeed-search-date-face ((,class (:foreground ,base01))))
-     `(elfeed-search-feed-face ((,class (:foreground ,base01))))
-     `(elfeed-search-tag-face ((,class (:foreground ,base0))))
+     `(elfeed-search-date-face ((,class (:foreground ,yellow))))
+     `(elfeed-search-feed-face ((,class (:foreground ,blue))))
+     `(elfeed-search-tag-face ((,class (:foreground ,cyan))))
      `(elfeed-search-title-face ((,class (:foreground ,base0))))
 
 ;;;;; elscreen
