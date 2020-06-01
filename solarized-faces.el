@@ -597,17 +597,17 @@
        ((,class (:foreground ,(if solarized-emphasize-indicators
                                   red-hc red)
                              :background ,(if solarized-emphasize-indicators
-                                              red-lc base03) :weight bold))))
+                                              red-lc s-fringe-bg) :weight bold))))
      `(flycheck-fringe-warning
        ((,class (:foreground ,(if solarized-emphasize-indicators
                                   yellow-hc yellow)
                              :background ,(if solarized-emphasize-indicators
-                                              yellow-lc base03) :weight bold))))
+                                              yellow-lc s-fringe-bg) :weight bold))))
      `(flycheck-fringe-info
        ((,class (:foreground ,(if solarized-emphasize-indicators
                                   blue-hc base01)
                              :background ,(if solarized-emphasize-indicators
-                                              blue-lc base03) :weight bold))))
+                                              blue-lc s-fringe-bg) :weight bold))))
 ;;;;; flymake
      `(flymake-errline
        ((,(append '((supports :underline (:style wave))) class)
