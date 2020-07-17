@@ -1553,6 +1553,10 @@
      `(rst-level-4 ((,class (:inherit org-level-4))))
      `(rst-level-5 ((,class (:inherit org-level-5))))
      `(rst-level-6 ((,class (:inherit org-level-6))))
+;;;;; selectrum-mode
+     `(selectrum-current-candidate ((,class (:weight bold :background ,base02 :underline t))))
+     `(selectrum-primary-highlight ((,class (:foreground ,base1))))
+     `(selectrum-secondary-highlight ((,class (:foreground ,yellow))))
 ;;;;; sh-mode
      `(sh-quoted-exec ((,class (:foreground ,violet :weight bold))))
      `(sh-escaped-newline ((,class (:foreground ,yellow :weight bold))))
