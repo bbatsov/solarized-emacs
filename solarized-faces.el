@@ -122,7 +122,12 @@
      `(debbugs-gnu-handled ((,class (:foreground ,green))))
      `(debbugs-gnu-new ((,class (:foreground ,blue))))
      `(debbugs-gnu-pending ((,class (:foreground ,cyan))))
-     `(debbugs-gnu-stale ((,class (:foreground ,yellow))))
+     `(debbugs-gnu-stale ((,class (:foreground ,yellow)))) ;@deprecated0.20
+     `(debbugs-gnu-stale-1 ((,class (:foreground ,yellow))))
+     `(debbugs-gnu-stale-2 ((,class (:foreground ,yellow-1fg))))
+     `(debbugs-gnu-stale-3 ((,class (:foreground ,yellow-2fg))))
+     `(debbugs-gnu-stale-4 ((,class (:foreground ,orange-1fg))))
+     `(debbugs-gnu-stale-5 ((,class (:foreground ,orange-2fg))))
      `(debbugs-gnu-tagged ((,class (:foreground ,base1 :weight bold))))
 
 ;;;;; diary
