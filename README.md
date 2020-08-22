@@ -11,7 +11,7 @@ Solarized for Emacs is an Emacs port of the
 You can find several screenshots of Solarized for Emacs
 [here](https://emacsthemes.com/themes/solarized-themes.html).
 
-Solarized for Emacs is tested only under Emacs 24, but should be working under
+Solarized for Emacs supports officially Emacs 24+, but should be working under
 Emacs 23 as well. The theme is implemented in terms of customisations and
 `deftheme` and does not require the `color-theme-package`.
 
