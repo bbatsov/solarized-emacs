@@ -1957,6 +1957,10 @@
                                               :inverse-video t))))
      `(whitespace-space-after-tab ((,class (:background unspecified :foreground ,orange
                                                         :inverse-video t :weight bold))))
+;;;;; window-divider-mode
+     `(window-divider ((,class (:foreground ,s-mode-line-bg))))
+     `(window-divider-first-pixel ((,class (:foreground ,s-mode-line-bg))))
+     `(window-divider-last-pixel ((,class (:foreground ,s-mode-line-bg))))
 ;;;;; window-number-mode
      `(window-number-face ((,class (:foreground ,green))))
 ;;;;; yascroll
