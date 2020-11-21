@@ -380,6 +380,8 @@
                                                  :inverse-video unspecified))))
 ;;;;; col-highlight
      `(col-highlight ((,class (:background ,base02))))
+;;;;; company-box
+     `(company-box-scrollbar ((,class (:background ,base01))))
 ;;;;; company-mode
      `(company-echo ((,class nil)))
      `(company-echo-common ((,class (:background ,red))))

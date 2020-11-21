@@ -5,6 +5,7 @@
 ### New features
 
 * window-divider-mode
+* company-box-mode
 
 ### Changes
 
