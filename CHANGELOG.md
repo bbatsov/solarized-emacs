@@ -4,6 +4,7 @@
 
 ### New features
 
+* terraform-mode
 * window-divider-mode
 * company-box-mode
 
