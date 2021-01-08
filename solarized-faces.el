@@ -1557,8 +1557,8 @@
      `(rst-level-6 ((,class (:inherit org-level-6))))
 ;;;;; selectrum-mode
      `(selectrum-current-candidate ((,class (:weight bold :background ,base02 :underline t))))
-     `(selectrum-primary-highlight ((,class (:foreground ,base1))))
-     `(selectrum-secondary-highlight ((,class (:foreground ,yellow))))
+     `(selectrum-primary-highlight ((,class (:foreground ,yellow))))
+     `(selectrum-secondary-highlight ((,class (:foreground ,blue))))
 ;;;;; sh-mode
      `(sh-quoted-exec ((,class (:foreground ,violet :weight bold))))
      `(sh-escaped-newline ((,class (:foreground ,yellow :weight bold))))
