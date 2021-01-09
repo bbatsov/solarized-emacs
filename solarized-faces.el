@@ -198,6 +198,11 @@
      `(Man-overstrike ((,class (:foreground ,blue :weight bold))))
      `(Man-reverse ((,class (:foreground ,orange))))
      `(Man-underline ((,class (:foreground ,green :underline t))))
+
+;;;;; pulse
+     `(pulse-highlight-start-face ((,light-class
+                                    (:background ,(solarized-color-blend yellow base03 0.4)))
+                                   (,dark-class (:background ,(solarized-color-blend cyan base03 0.4)))))
 ;;;;; wid-edit
      `(widget-field ((,class (:background ,base02))))
 ;;;;; font lock
