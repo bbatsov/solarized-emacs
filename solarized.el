@@ -409,7 +409,7 @@ If OVERWRITE is non-nil, overwrite theme file if exist."
   (let ((color-palette (solarized-create-color-palette core-palette)))
     (apply #'solarized-create-theme-file (list variant theme-name color-palette childtheme-sexp overwrite))))
 
-(define-obsolete-function-alias 'create-solarized-theme-file 'solarized-create-theme-file)
+(define-obsolete-function-alias 'create-solarized-theme-file 'solarized-create-theme-file "1.3.0")
 
 ;;; Footer
 
