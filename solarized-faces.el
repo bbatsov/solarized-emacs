@@ -880,7 +880,7 @@
        ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
                  :background ,base02))))
 ;;;;; hydra
-     `(hydra-face-red ((,class (:foreground ,red))))
+     `(hydra-face-red ((,class (:foreground ,base1 :weight bold))))
      `(hydra-face-blue ((,class (:foreground ,blue))))
      `(hydra-face-amaranth ((,class (:foreground ,orange))))
      `(hydra-face-pink ((,class (:foreground ,magenta))))
