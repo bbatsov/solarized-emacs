@@ -151,9 +151,7 @@ use the latter if you need a 24-bit specification of a color."
                                (lambda (v1 v2) (+ v1 (* alpha (- v2 v1))))
                                (apply 'color-srgb-to-lab (color-name-to-rgb color2))
                                (apply 'color-srgb-to-lab (color-name-to-rgb color1))))))))
-    (if (version< emacs-version "26")
-        (apply 'solarized-color-rgb-to-hex `(,@args t))
-      (apply 'solarized-color-rgb-to-hex `(,@args ,digits-per-component t)))))
+    (apply 'solarized-color-rgb-to-hex `(,@args ,digits-per-component t))))
 
 ;;;###autoload
 (defun solarized-create-color-palette (core-palette)
