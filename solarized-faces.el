@@ -1798,7 +1798,8 @@
        ((t (:underline nil :background ,(solarized-color-blend yellow-l s-base3 0.2)))))
      `(transient-mismatched-key
        ((t (:underline nil :background ,(solarized-color-blend red-l s-base3 0.2)))))
-     `(transient-separator           ((t (:background ,s-line))))
+     `(transient-separator           ((t (,@(and (>= emacs-major-version 27) '(:extend t))
+                                          :background ,s-line))))
 ;;;;; tuareg
      `(tuareg-font-lock-governing-face ((,class (:foreground ,magenta :weight bold))))
      `(tuareg-font-lock-multistage-face ((,class (:foreground ,blue :background ,base02
