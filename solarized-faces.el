@@ -1979,6 +1979,9 @@
      `(window-divider-last-pixel ((,class (:foreground ,s-mode-line-bg))))
 ;;;;; window-number-mode
      `(window-number-face ((,class (:foreground ,green))))
+;;;;; woman
+     `(woman-bold ((,class (:inherit Man-overstrike))))
+     `(woman-italic ((,class (:inherit Man-underline))))
 ;;;;; yascroll
      `(yascroll:thumb-text-area
        ((,class (:foreground ,base01 :background ,base01))))
