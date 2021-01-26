@@ -1367,10 +1367,10 @@
      `(notmuch-tree-match-tag-face ((,class (:foreground ,cyan))))
      `(notmuch-tree-no-match-face ((,class (:inherit font-lock-comment-face))))
 ;;;;; orderless
-     `(orderless-match-face-0 ((,class (:foreground ,yellow))))
-     `(orderless-match-face-1 ((,class (:foreground ,blue))))
-     `(orderless-match-face-2 ((,class (:foreground ,green))))
-     `(orderless-match-face-3 ((,class (:foreground ,magenta))))
+     `(orderless-match-face-0 ((,class (:foreground ,blue))))
+     `(orderless-match-face-1 ((,class (:foreground ,magenta))))
+     `(orderless-match-face-2 ((,class (:foreground ,yellow))))
+     `(orderless-match-face-3 ((,class (:foreground ,green))))
 ;;;;; org-mode
      `(org-agenda-structure
        ((,class (:foreground ,base1 :background ,base02
