@@ -325,10 +325,14 @@
 ;;;;; auto-highlight-symbol
      `(ahs-definition-face ((,class (:foreground ,magenta :background unspecified
                                                  :slant normal))))
+     `(ahs-definition-face-unfocused ((,class (:foreground ,magenta :background unspecified
+                                                           :slant normal))))
      `(ahs-edit-mode-face ((,class (:foreground ,base03 :background ,magenta))))
      `(ahs-face ((,class (:foreground ,magenta :background unspecified))))
+     `(ahs-face-unfocused ((,class (:foreground ,magenta :background unspecified))))
      `(ahs-plugin-bod-face ((,class (:foreground ,magenta :background unspecified ))))
-     `(ahs-plugin-defalt-face ((,class (:foreground ,magenta :background unspecified))))
+     `(ahs-plugin-default-face ((,class (:foreground ,magenta :background unspecified))))
+     `(ahs-plugin-default-face-unfocused ((,class (:foreground ,magenta :background unspecified))))
      `(ahs-plugin-whole-buffer-face ((,class (:foreground ,magenta  :background unspecified))))
      `(ahs-warning-face ((,class (:foreground ,red :weight bold))))
 ;;;;; avy-mode
