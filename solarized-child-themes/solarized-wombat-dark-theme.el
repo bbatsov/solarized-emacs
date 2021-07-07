@@ -22,8 +22,6 @@
 ;;; Code:
 
 (require 'solarized)
-(eval-when-compile
-  (require 'solarized-palettes))
 
 (deftheme solarized-wombat-dark "The the dark solarized theme with the wombat palette")
 

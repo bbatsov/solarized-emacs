@@ -1,7 +1,6 @@
 (require 'solarized)
+(require 'solarized-light-theme)
 (require 'my-solarized)
-(eval-when-compile
-  (require 'solarized-palettes))
 
 ;; This files needs to be places iside the custom-theme-load-path list
 
