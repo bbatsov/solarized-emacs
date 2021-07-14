@@ -107,6 +107,11 @@ Related discussion: https://github.com/bbatsov/solarized-emacs/issues/158"
   :type 'boolean
   :group 'solarized)
 
+(defcustom solarized-scale-markdown-headlines nil
+  "Whether `markdown-mode' headlines should be scaled."
+  :type 'boolean
+  :group 'solarized)
+
 (defcustom solarized-scale-outline-headlines t
   "Whether `outline-mode' headlines should be scaled."
   :type 'boolean

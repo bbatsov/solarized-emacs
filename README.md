@@ -94,6 +94,9 @@ elisp code:
 ;; Don't change size of org-mode headlines (but keep other size-changes)
 (setq solarized-scale-org-headlines nil)
 
+;; Change the size of markdown-mode headlines (off by default)
+(setq solarized-scale-markdown-headlines t)
+
 ;; Avoid all font-size changes
 (setq solarized-height-minus-1 1.0)
 (setq solarized-height-plus-1 1.0)
