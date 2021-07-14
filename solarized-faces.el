@@ -1180,10 +1180,18 @@
      `(markdown-footnote-face ((,class (:inherit default))))
      `(markdown-header-delimiter-face ((,class (:foreground ,base01))))
      `(markdown-header-face ((,class (:foreground ,blue))))
-     `(markdown-header-face-1 ((,class (:inherit markdown-header-face))))
-     `(markdown-header-face-2 ((,class (:inherit markdown-header-face))))
-     `(markdown-header-face-3 ((,class (:inherit markdown-header-face))))
-     `(markdown-header-face-4 ((,class (:inherit markdown-header-face))))
+     `(markdown-header-face-1 ((,class (:inherit markdown-header-face
+                                                 ,@(when solarized-scale-markdown-headlines
+                                                     (list :height solarized-height-plus-4))))))
+     `(markdown-header-face-2 ((,class (:inherit markdown-header-face
+                                                 ,@(when solarized-scale-markdown-headlines
+                                                     (list :height solarized-height-plus-3))))))
+     `(markdown-header-face-3 ((,class (:inherit markdown-header-face
+                                                 ,@(when solarized-scale-markdown-headlines
+                                                     (list :height solarized-height-plus-2))))))
+     `(markdown-header-face-4 ((,class (:inherit markdown-header-face
+                                                 ,@(when solarized-scale-markdown-headlines
+                                                     (list :height solarized-height-plus-1))))))
      `(markdown-header-face-5 ((,class (:inherit markdown-header-face))))
      `(markdown-header-face-6 ((,class (:inherit markdown-header-face))))
      `(markdown-header-rule-face ((,class (:foreground ,base01))))
