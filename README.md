@@ -5,8 +5,8 @@
 
 # Solarized for Emacs
 
-Solarized for Emacs is an Emacs port of the
-[Solarized theme for vim](http://ethanschoonover.com/solarized), developed by Ethan Schoonover.
+Solarized for Emacs is an Emacs 24bit theme making use of of the
+[Solarized palette](http://ethanschoonover.com/solarized), developed by Ethan Schoonover.
 
 You can find several screenshots of Solarized for Emacs
 [here](https://emacsthemes.com/themes/solarized-themes.html).
