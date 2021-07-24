@@ -1,6 +1,6 @@
 ;;; solarized-palettes.el --- solarized palettes   -*- lexical-binding: t -*-
 
-;; Copyright (C) 2011-2019 Bozhidar Batsov
+;; Copyright (C) 2011 Bozhidar Batsov
 
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; Author: Thomas Frössman <thomasf@jossystem.se>
