@@ -1775,7 +1775,15 @@
      `(tabbar-unselected-modified ((,class (:inherit tabbar-modified :background ,base02 :underline nil :box (:line-width 1 :color ,base03)))))
      `(tabbar-selected ((,class (:inherit tabbar-default :foreground ,base3 :background ,base03 :weight bold :underline nil :box (:line-width 1 :color ,base03)))))
      `(tabbar-selected-modified ((,class (:inherit tabbar-selected :foreground ,blue :underline nil :box (:line-width 1 :color ,base03)))))
-
+;;;;; centaur-tabs
+   `(centaur-tabs-default ((t (:background ,base03 :foreground ,base0 :box nil))))
+   `(centaur-tabs-selected ((t (:background ,base03 :foreground ,base1 :box nil))))
+   `(centaur-tabs-unselected ((t (:background ,base02 :foreground ,base01 :box nil))))
+   `(centaur-tabs-selected-modified ((t (:background ,base03 :foreground ,orange :box nil))))
+   `(centaur-tabs-unselected-modified ((t (:background ,base02 :foreground ,orange :box nil))))
+   `(centaur-tabs-active-bar-face ((t (:background ,yellow :box nil))))
+   `(centaur-tabs-modified-marker-selected ((t (:inherit 'centaur-tabs-selected-modified :foreground ,yellow :box nil))))
+   `(centaur-tabs-modified-marker-unselected ((t (:inherit 'centaur-tabs-unselected-modified :foreground ,yellow :box nil))))
 ;;;;; table
      `(table-cell ((,class (:foreground ,base0 :background ,base02))))
 ;;;;; term
