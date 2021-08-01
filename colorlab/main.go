@@ -136,6 +136,30 @@ var (
 			Accent1Pair: default1BgFg,
 			Accent2Pair: default2BgFg,
 		},
+		{
+			Name:        "selenized-dark",
+			Solarized:   selenizedDark,
+			Accent1Pair: default1BgFg,
+			Accent2Pair: default2BgFg,
+		},
+		{
+			Name:        "selenized-black",
+			Solarized:   selenizedBlack,
+			Accent1Pair: default1BgFg,
+			Accent2Pair: default2BgFg,
+		},
+		{
+			Name:        "selenized-light",
+			Solarized:   selenizedLight,
+			Accent1Pair: default1BgFg,
+			Accent2Pair: default2BgFg,
+		},
+		{
+			Name:        "selenized-white",
+			Solarized:   selenizedWhite,
+			Accent1Pair: default1BgFg,
+			Accent2Pair: default2BgFg,
+		},
 	}
 
 	// The original solarized color palette
@@ -280,6 +304,94 @@ var (
 			Red:     cl.MonokaiRed,
 			Violet:  cl.MonokaiViolet,
 			Yellow:  cl.MonokaiYellow,
+		},
+	}
+	selenizedDark = cl.Solarized{
+		Base: cl.Base{
+			Base03: "#103c48",
+			Base02: "#184956",
+			Base01: "#72898f",
+			Base00: "#103c48",
+			Base0:  "#adbcbc",
+			Base1:  "#cad8d9",
+			Base2:  "#ece3cc",
+			Base3:  "#fbf3db",
+		},
+		Accents: cl.Accents{
+			Blue:    "#4695f7",
+			Cyan:    "#41c7b9",
+			Green:   "#75b938",
+			Magenta: "#f275be",
+			Orange:  "#ed8649",
+			Red:     "#fa5750",
+			Violet:  "#af88eb",
+			Yellow:  "#dbb32d",
+		},
+	}
+	selenizedBlack = cl.Solarized{
+		Base: cl.Base{
+			Base03: "#181818",
+			Base02: "#252525",
+			Base01: "#777777",
+			Base00: "#181818",
+			Base0:  "#b9b9b9",
+			Base1:  "#dedede",
+			Base2:  "#53676d",
+			Base3:  "#3a4d53",
+		},
+		Accents: cl.Accents{
+			Blue:    "#368aeb",
+			Cyan:    "#3fc5b7",
+			Green:   "#70b433",
+			Magenta: "#eb6eb7",
+			Orange:  "#e67f43",
+			Red:     "#ed4a46",
+			Violet:  "#a580e2",
+			Yellow:  "#dbb32d",
+		},
+	}
+	selenizedLight = cl.Solarized{
+		Base: cl.Base{
+			Base03: "#fbf3db",
+			Base02: "#ece3cc",
+			Base01: "#909995",
+			Base00: "#fbf3db",
+			Base0:  "#53676d",
+			Base1:  "#3a4d53",
+			Base2:  "#adbcbc",
+			Base3:  "#cad8d9",
+		},
+		Accents: cl.Accents{
+			Blue:    "#0072d4",
+			Cyan:    "#009c8f",
+			Green:   "#489100",
+			Magenta: "#ca4898",
+			Orange:  "#c25d1e",
+			Red:     "#d2212d",
+			Violet:  "#8762c6",
+			Yellow:  "#ad8900",
+		},
+	}
+	selenizedWhite = cl.Solarized{
+		Base: cl.Base{
+			Base03: "#ffffff",
+			Base02: "#ebebeb",
+			Base01: "#878787",
+			Base00: "#ffffff",
+			Base0:  "#474747",
+			Base1:  "#282828",
+			Base2:  "#b9b9b9",
+			Base3:  "#dedede",
+		},
+		Accents: cl.Accents{
+			Blue:    "#0064e4",
+			Cyan:    "#00ad9c",
+			Green:   "#1d9700",
+			Magenta: "#dd0f9d",
+			Orange:  "#d04a00",
+			Red:     "#d6000c",
+			Violet:  "#7f51d6",
+			Yellow:  "#c49700",
 		},
 	}
 )
