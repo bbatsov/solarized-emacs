@@ -1151,7 +1151,6 @@
      `(magit-tag            ((t (:foreground ,cyan   :weight bold))))
      `(magit-branch-remote  ((t (:foreground ,green  :weight bold))))
      `(magit-branch-local   ((t (:foreground ,blue   :weight bold))))
-     `(magit-branch-current ((t (:foreground ,blue   :weight bold :box t))))
      `(magit-head           ((t (:foreground ,blue   :weight bold))))
      `(magit-refname        ((t (:background ,base02 :foreground ,base01 :weight bold))))
      `(magit-refname-stash  ((t (:background ,base02 :foreground ,base01 :weight bold))))
