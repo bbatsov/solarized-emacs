@@ -417,7 +417,9 @@
      `(company-tooltip-search ((,class (:foreground ,magenta))))
      `(company-tooltip-search-selection ((,class (:foreground ,magenta :weight bold))))
      `(company-tooltip-selection ((,class (:weight bold))))
-
+;;;;; consult
+     `(consult-preview-insertion ((,class (:background ,base02))))
+     `(consult-preview-line ((,class (:background ,base02))))
 ;;;;; cperl-mode
      `(cperl-array-face ((,class (:background unspecified :foreground ,blue))))
      `(cperl-hash-face ((,class (:background unspecified :foreground ,blue))))
