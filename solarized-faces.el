@@ -1,6 +1,6 @@
 ;;; solarized-faces.el --- the faces definitions for solarized theme  -*- lexical-binding: t -*-
 
-;; Copyright (C) 2011 Bozhidar Batsov
+;; Copyright (C) 2011-2021 Bozhidar Batsov
 
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; Author: Thomas Frössman <thomasf@jossystem.se>

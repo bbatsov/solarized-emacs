@@ -215,7 +215,7 @@ GitHub pull request.
 
 ## License
 
-Copyright © 2011 Bozhidar Batsov, [Thomas Frössman](http://t.jossystem.se), and
+Copyright © 2011-2021 Bozhidar Batsov, [Thomas Frössman](http://t.jossystem.se), and
 [contributors](https://github.com/bbatsov/solarized-emacs/contributors).
 
 Distributed under the GNU General Public License, version 3
