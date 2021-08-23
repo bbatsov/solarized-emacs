@@ -1,4 +1,5 @@
-github.com/go-pa/colorlab v0.0.0-20200109195310-116d31aa4563 h1:y+zDQdfglX5wDpHM0DPcQwPZ0s82Ie19LxAnfgqSa7I=
-github.com/go-pa/colorlab v0.0.0-20200109195310-116d31aa4563/go.mod h1:mpKpk8RRh1QW2dFo8KynJ55tVYa1KIXyW8DQhFbo+sk=
-github.com/lucasb-eyer/go-colorful v1.0.3 h1:QIbQXiugsb+q10B+MI+7DI1oQLdmnep86tWFlaaUAac=
+github.com/go-pa/colorlab v0.1.0 h1:vqBXv7tQFar/FI5EAno7RPKFZd9aUmgemL6QuWV/Bp4=
+github.com/go-pa/colorlab v0.1.0/go.mod h1:mpKpk8RRh1QW2dFo8KynJ55tVYa1KIXyW8DQhFbo+sk=
 github.com/lucasb-eyer/go-colorful v1.0.3/go.mod h1:R4dSotOR9KMtayYi1e77YzuveK+i7ruzyGqttikkLy0=
+github.com/lucasb-eyer/go-colorful v1.2.0 h1:1nnpGOrhyZZuNyfu1QjKiUICQ74+3FNCN69Aj6K7nkY=
+github.com/lucasb-eyer/go-colorful v1.2.0/go.mod h1:R4dSotOR9KMtayYi1e77YzuveK+i7ruzyGqttikkLy0=
