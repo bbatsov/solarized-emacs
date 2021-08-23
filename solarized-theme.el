@@ -6,7 +6,7 @@
 ;; Author: Thomas Frössman <thomasf@jossystem.se>
 ;; URL: http://github.com/bbatsov/solarized-emacs
 ;; Version: 1.3.0
-;; Package-Requires: ((emacs "24.1") (dash "2.16"))
+;; Package-Requires: ((emacs "24.1"))
 ;; Keywords: convenience, themes, solarized
 
 ;; This program is free software; you can redistribute it and/or modify

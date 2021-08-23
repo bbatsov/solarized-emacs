@@ -71,9 +71,7 @@
 
 
 (mapc 'require-package
-      '(;; required by solarized
-        dash
-        ;; utility/convenience
+      '(;; utility/convenience
         flx-ido projectile
         ;; utility/convenience + face testing
         magit smartparens htmlize
