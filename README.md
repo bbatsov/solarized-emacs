@@ -66,7 +66,7 @@ or whatever) might be more finely tuned in relation to the Gruvbox palette.
 
 ## Customisations
 
-### Theme specific settings
+### Theme-specific settings
 
 If you don't like low-contrast modeline or fringe, you can `customize` them
 either by doing `M-x customize-group solarized` or setting the values using
@@ -129,7 +129,10 @@ The Solarized Face settings consist of a palette of colors with eight
 accents in addition to the darkest and brightest colors. Recent
 changes allow you to freely create theme files using different
 palettes instead of the Solarized color palette.  It consists of two
-steps: **creating a theme file** and **loading a theme**.
+steps:
+
+* creating a theme file
+* loading a theme
 
 ### Creating/Loading Theme Files
 
@@ -138,7 +141,7 @@ to the function. This creates a theme file in `.emacs.d/themes/`. If
 you need to make minor modifications, you can override Face
 individually by specifying a free Sexp as the fourth argument.
 
-Once you have a theme file, you can load it with load-theme, like
+Once you have a theme file, you can load it with `load-theme`, like
 solarized.
 
 ```el
@@ -200,7 +203,7 @@ setting the fifth argument to `t`.
 - This package uses [semantic versioning](https://semver.org/)
 
 - Master branch is to be considered unstable (which isn't an excuse to
-  constantly break behaviour). Use Melpa stable if you want fewer breaking
+  constantly break behaviour). Use MELPA Stable if you want fewer breaking
   changes.
 
 - Next stable version will be 2.0 because of API changes in the master branch.
