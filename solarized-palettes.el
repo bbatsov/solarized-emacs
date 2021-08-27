@@ -561,7 +561,7 @@
   "The solarized color palette alist.")
 
 (defvar solarized-selenized-dark-color-palette-alist
-  '(;; Selenized dark pallet
+  '(;; selenized-dark palette
     (base03      . "#103c48")
     (base02      . "#184956")
     (base01      . "#72898f")
@@ -631,7 +631,7 @@
   "The solarized color palette alist")
 
 (defvar solarized-selenized-black-color-palette-alist
-  '(;; Selenized black color palette
+  '(;; selenized-black color palette
     (base03      . "#181818")
     (base02      . "#252525")
     (base01      . "#777777")
@@ -701,7 +701,7 @@
   "The solarized color palette alist")
 
 (defvar solarized-selenized-light-color-palette-alist
-  '( ;; Selenized light color palette
+  '( ;; selenized-light palette
     (base03      . "#fbf3db")
     (base02      . "#ece3cc")
     (base01      . "#909995")
@@ -766,12 +766,12 @@
     (green-2fg   . "#527c3f")
     (green-d     . "#569623")
     (green-l     . "#70b447")
-    ;; pallet end
+    ;; palette end
     )
   "The solarized color palette alist")
 
 (defvar solarized-selenized-white-color-palette-alist
-  '(;; Selenized white color pallet
+  '(;; selenized-white palette
     (base03      . "#ffffff")
     (base02      . "#ebebeb")
     (base01      . "#878787")
@@ -836,7 +836,7 @@
     (green-2fg   . "#3a6d2b")
     (green-d     . "#3e9e2d")
     (green-l     . "#5cb947")
-    ;; pallet end
+    ;; palette end
     )
   "The solarized color palette alist")
 
