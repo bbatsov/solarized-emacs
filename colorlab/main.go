@@ -34,7 +34,7 @@ func main() {
 	for _, pal := range palettes {
 		fmt.Println(pal.Name)
 		nc := pal.Generate()
-		cl.PrintAlist(os.Stdout, nc, 0)
+		PrintAlist(os.Stdout, nc, 0)
 		// nc.FilterPrefix("base").PrintAlist(os.Stdout, 0)
 		// Merge(nc.FilterSuffix("-d"), oldDarkAccents.NamedColors().WithSuffix("-do")).PrintAlist(os.Stdout, 0)
 		// Merge(nc.FilterSuffix("-l"), oldLightAccents.NamedColors().WithSuffix("-lo")).PrintAlist(os.Stdout, 0)
