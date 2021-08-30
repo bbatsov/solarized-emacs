@@ -1,9 +1,16 @@
 package main
 
 import (
+	"bufio"
+	"bytes"
 	"flag"
 	"fmt"
+	"io"
+	"io/ioutil"
+	"log"
 	"os"
+	"strconv"
+	"strings"
 
 	cl "github.com/go-pa/colorlab"
 )
@@ -32,7 +39,7 @@ func main() {
 		// Merge(nc.FilterSuffix("-d"), oldDarkAccents.NamedColors().WithSuffix("-do")).PrintAlist(os.Stdout, 0)
 		// Merge(nc.FilterSuffix("-l"), oldLightAccents.NamedColors().WithSuffix("-lo")).PrintAlist(os.Stdout, 0)
 		if !opts.NoElispUpdate {
-			cl.RewritePalette(nc, pal.Name)
+			RewritePalette(nc, pal.Name)
 		}
 	}
 	fmt.Println("\n-----\n")
@@ -395,3 +402,68 @@ var (
 		},
 	}
 )
+
+// PrintAlist prints the named colors list in a way that is compatible with solarized-palettes.el.
+func PrintAlist(w io.Writer, n cl.NamedColors, indent int) (int, error) {
+	keys := cl.OrderedKeys(n)
+	var longestKey int
+	for _, n := range keys {
+		l := len(n)
+		if l > longestKey {
+			longestKey = l
+		}
+	}
+	prefix := ""
+	for i := 0; i < indent; i++ {
+		prefix += " "
+
+	}
+	var nt int
+
+	for _, name := range keys {
+		n, err := fmt.Fprintf(w, "%s(%-"+strconv.Itoa(longestKey)+"s . \"%s\")\n", prefix, name, n[name])
+		n = n + nt
+		if err != nil {
+			return nt, err
+		}
+
+	}
+	return nt, nil
+}
+
+func RewritePalette(nc cl.NamedColors, paletteName string) {
+
+	var dst bytes.Buffer
+
+	file, err := os.Open("../solarized-palettes.el")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer file.Close()
+
+	scanner := bufio.NewScanner(file)
+	var insideReplacement bool
+	for scanner.Scan() {
+		txt := scanner.Text()
+		if insideReplacement && strings.HasSuffix(txt, ";; palette end") {
+			insideReplacement = false
+		}
+		if !insideReplacement {
+			dst.WriteString(txt)
+			dst.WriteString("\n")
+
+		}
+		if strings.HasSuffix(txt, fmt.Sprintf(";; %s palette", paletteName)) {
+			insideReplacement = true
+			PrintAlist(&dst, nc, 4)
+		}
+	}
+
+	if err := scanner.Err(); err != nil {
+		log.Fatal(err)
+	}
+
+	file.Close()
+	ioutil.WriteFile("../solarized-palettes.el", dst.Bytes(), 0x776)
+
+}
