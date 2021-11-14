@@ -110,6 +110,7 @@
      `(compilation-mode-line-run ((,class (:foreground ,orange :weight bold))))
 ;;;;; completions
      `(completions-annotations ((t (:foreground ,base01))))
+     `(completions-common-part ((t (:foreground ,blue))))
 ;;;;; cua
      `(cua-global-mark ((,class (:background ,yellow :foreground ,base03))))
      `(cua-rectangle ((,class (:inherit region
