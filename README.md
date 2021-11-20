@@ -123,6 +123,15 @@ manner as the vertical border.
 (setq x-underline-at-descent-line t)
 ```
 
+### Underline setting for doom-modeline-mode
+
+For users who want to fix the ugly doom-modeline-mode underline the setting
+`solarized-doom-mode-line-underline` which will remove the underline completely.
+
+```el
+(setq solarized-doom-mode-line-underline nil)
+```
+
 ## Create theme using color palette
 
 The Solarized Face settings consist of a palette of colors with eight
