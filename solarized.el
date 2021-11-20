@@ -292,6 +292,7 @@ customize the resulting theme."
             ;; NOTE only use this for very thin lines that are hard to see using base02, in low
             ;; color displayes base02 might be used instead
             (s-line (if (eq variant 'light) "#cccec4" "#284b54"))
+            (no-line (if (eq variant 'light) nil nil))
 
             ;; Light/Dark adaptive higher/lower contrast accented colors
             ;;
@@ -337,6 +338,8 @@ customize the resulting theme."
                                 base0 base02))
             (s-mode-line-underline (if solarized-high-contrast-mode-line
                                        nil s-line))
+            (s-mode-line-underline (if solarized-doom-mode-line-underline
+                                       nil no-line))
 
             (s-mode-line-buffer-id-fg (if solarized-high-contrast-mode-line
                                           'unspecified base1))
