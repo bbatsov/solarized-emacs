@@ -77,6 +77,11 @@ Related discussion: https://github.com/bbatsov/solarized-emacs/issues/158"
   :type 'boolean
   :group 'solarized)
 
+(defcustom solarized-doom-mode-line-underline nil
+  "Remove the underline in the doom modeline."
+  :type 'boolean
+  :group 'solarized)
+
 (defcustom solarized-height-minus-1 0.8
   "Font size -1."
   :type 'number
