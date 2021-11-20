@@ -20,6 +20,7 @@
    solarized-height-plus-4 1.3
    solarized-scale-org-headlines t
    solarized-scale-outline-headlines t
+   solarized-doom-mode-line-underline nil
    ;; end
    ))
 
