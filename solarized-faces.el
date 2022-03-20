@@ -1767,6 +1767,10 @@
 ;;;;;; misc
      `(sr-clex-hotchar-face ((,class (:background ,red  :foreground ,base03
                                                   :weight bold))))
+;;;;; tab-bar
+     `(tab-bar ((t (:background ,base03 :foreground ,base0))))
+     `(tab-bar-tab ((t (:background ,base03 :foreground ,base1))))
+     `(tab-bar-tab-inactive ((t (:background ,base02 :foreground ,base01))))
 ;;;;; tabbar
      `(tabbar-default ((,class (:foreground ,base03 :background ,base03))))
      `(tabbar-highlight ((,class (:underline t))))
