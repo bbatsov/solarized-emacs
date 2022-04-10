@@ -87,6 +87,21 @@
      `(warning ((,class (:foreground ,yellow ))))
      `(next-error ((,class (:foreground ,magenta-2fg :background ,magenta-2bg :weight normal))))
 
+;;;;; ansi-color
+     `(ansi-color-black ((,class (:foreground ,base1 :background ,base1))))
+     `(ansi-color-red ((,class (:foreground ,red :background ,red))))
+     `(ansi-color-green ((,class (:foreground ,green :background ,green))))
+     `(ansi-color-yellow ((,class (:foreground ,yellow :background ,yellow))))
+     `(ansi-color-blue ((,class (:foreground ,blue :background ,blue))))
+     `(ansi-color-magenta ((,class (:foreground ,magenta :background ,magenta))))
+     `(ansi-color-cyan ((,class (:foreground ,cyan :background ,cyan))))
+     `(ansi-color-bright-black ((,class (:foreground ,base0 :background ,base0))))
+     `(ansi-color-bright-red ((,class (:foreground ,red-l :background ,red-l))))
+     `(ansi-color-bright-green ((,class (:foreground ,green-l :background ,green-l))))
+     `(ansi-color-bright-yellow ((,class (:foreground ,yellow-l :background ,yellow-l))))
+     `(ansi-color-bright-blue ((,class (:foreground ,blue-l :background ,blue-l))))
+     `(ansi-color-bright-magenta ((,class (:foreground ,magenta-l :background ,magenta-l))))
+     `(ansi-color-bright-cyan ((,class (:foreground ,cyan-l :background ,cyan-l))))
 ;;;;; compilation
      `(compilation-column-face ((,class (:foreground ,cyan :underline nil))))
      `(compilation-column-number ((,class (:inherit font-lock-doc-face :foreground ,cyan
