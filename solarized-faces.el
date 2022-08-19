@@ -1051,10 +1051,10 @@
      `(ledger-font-reconciler-pending-face ((t (:foreground ,yellow :weight normal))))
      `(ledger-font-report-clickable-face ((t (:foreground ,yellow :weight normal))))
 ;;;;; linum-mode
-     `(linum ((,class (:weight thin :underline nil :foreground ,s-fringe-fg :background ,s-fringe-bg))))
+     `(linum ((,class (:weight extra-light :underline nil :foreground ,s-fringe-fg :background ,s-fringe-bg))))
      `(linum-relative-current-face ((,class (:inherit linum))))
 ;;;;; display-line-number-mode
-     `(line-number ((,class (:weight thin :underline nil :foreground ,s-fringe-fg :background ,s-fringe-bg))))
+     `(line-number ((,class (:weight extra-light :underline nil :foreground ,s-fringe-fg :background ,s-fringe-bg))))
      `(line-number-minor-tick ((,class (:inherit line-number :weight normal))))
      `(line-number-major-tick ((,class (:inherit line-number-minor-tick :weight bold))))
      `(line-number-current-line ((,class (:inherit line-number :background ,base03 :foreground ,base0))))
