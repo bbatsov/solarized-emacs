@@ -433,6 +433,11 @@
      `(company-tooltip-search ((,class (:foreground ,magenta))))
      `(company-tooltip-search-selection ((,class (:foreground ,magenta :weight bold))))
      `(company-tooltip-selection ((,class (:weight bold))))
+;;;;; corfu
+     `(corfu-default ((,class (:foreground ,base1 :background ,base02))))
+     `(corfu-current ((,class (:inherit corfu-default :weight bold :inverse-video t))))
+     `(corfu-bar ((,class (:background ,base0))))
+     `(corfu-border ((,class (:background ,base02))))
 ;;;;; consult
      `(consult-preview-insertion ((,class (:background ,base02))))
      `(consult-preview-line ((,class (:background ,base02))))
