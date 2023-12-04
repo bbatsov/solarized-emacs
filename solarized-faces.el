@@ -46,7 +46,7 @@
                                 :foreground ,s-header-line-fg
                                 :background ,s-header-line-bg
                                 :box (:line-width 2 :color ,s-header-line-bg
-                                                  :style unspecified)))))
+                                                  :style nil)))))
      `(highlight ((,class (:background ,base02))))
      `(lazy-highlight ((,class (:foreground ,base03 :background ,yellow
                                             :weight normal))))
@@ -63,7 +63,7 @@
                                 :foreground ,s-mode-line-fg
                                 :background ,s-mode-line-bg
                                 :box (:line-width 1 :color ,s-mode-line-bg
-                                                  :style unspecified)))))
+                                                  :style nil)))))
      `(mode-line-buffer-id ((,class (:foreground ,s-mode-line-buffer-id-fg :weight bold))))
      `(mode-line-inactive
        ((,class (:inverse-video unspecified
@@ -72,7 +72,7 @@
                                 :foreground ,s-mode-line-inactive-fg
                                 :background ,s-mode-line-inactive-bg
                                 :box (:line-width 1 :color ,s-mode-line-inactive-bg
-                                                  :style unspecified)))))
+                                                  :style nil)))))
      `(region
        ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
                  :foreground ,base03
