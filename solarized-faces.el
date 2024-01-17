@@ -236,6 +236,7 @@
        ((,class (:foreground ,base01 :slant ,s-maybe-italic))))
      `(font-lock-comment-face ((,class (:foreground ,base01))))
      `(font-lock-constant-face ((,class (:foreground ,blue :weight bold))))
+     `(font-lock-number-face ((,class (:foreground ,(if solarized-highlight-numbers violet 'unspecified)))))
      `(font-lock-doc-face ((,class (:foreground ,(if solarized-distinct-doc-face violet cyan)
                                                 :slant ,s-maybe-italic))))
      `(font-lock-function-name-face ((,class (:foreground ,blue))))
@@ -919,7 +920,7 @@
      `(highlight-indentation-face ((,class (:background ,base02))))
      `(highlight-indentation-current-column-face((,class (:background ,base02))))
 ;;;;; highlight-numbers
-     `(highlight-numbers-number ((,class (:foreground ,violet :bold nil))))
+     `(highlight-numbers-number ((,class (:inherit font-lock-number-face))))
 ;;;;; highlight-symbol
      `(highlight-symbol-face ((,class (:foreground ,magenta))))
 ;;;;; hl-line-mode
