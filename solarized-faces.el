@@ -2049,6 +2049,10 @@
      `(window-divider-last-pixel ((,class (:foreground ,s-mode-line-bg))))
 ;;;;; window-number-mode
      `(window-number-face ((,class (:foreground ,green))))
+;;;;; window-tool-bar-mode
+     `(window-tool-bar-button ((,class (:inherit tab-line))) )
+     `(window-tool-bar-button-hover ((,class (:background ,base02 :foreground ,base1))))
+     `(window-tool-bar-button-disabled ((,class (:background ,red-1bg :foreground ,base0))))
 ;;;;; woman
      `(woman-bold ((,class (:inherit Man-overstrike))))
      `(woman-italic ((,class (:inherit Man-underline))))
