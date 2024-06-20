@@ -1805,6 +1805,14 @@
      `(tabbar-unselected-modified ((,class (:inherit tabbar-modified :background ,base02 :underline nil :box (:line-width 1 :color ,base03)))))
      `(tabbar-selected ((,class (:inherit tabbar-default :foreground ,base3 :background ,base03 :weight bold :underline nil :box (:line-width 1 :color ,base03)))))
      `(tabbar-selected-modified ((,class (:inherit tabbar-selected :foreground ,blue :underline nil :box (:line-width 1 :color ,base03)))))
+;;;;; tab-line
+     `(tab-line ((t (:background ,base03 :foreground ,base0))))
+     `(tab-line-highlight ((,class (:underline t))))
+     `(tab-line-tab ((t (:background ,base03 :foreground ,base1))))
+     `(tab-line-tab-current ((,class (:inherit tab-line-tab :underline nil))))
+     `(tab-line-tab-inactive ((,class (:inherit tab-line-tab :background ,base02 :foreground ,base01))))
+     `(tab-line-tab-inactive-alternate ((,class (:inherit tab-line-tab-inactive))))
+     `(tab-line-tab-modified ((,class (:inherit tab-line-tab :foreground ,blue))))
 ;;;;; centaur-tabs
    `(centaur-tabs-default ((t (:background ,base03 :foreground ,base0 :box nil))))
    `(centaur-tabs-selected ((t (:background ,base03 :foreground ,base1 :box nil))))
