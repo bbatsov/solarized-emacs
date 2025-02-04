@@ -206,9 +206,6 @@ setting the fifth argument to `t`.
   constantly break behaviour). Use MELPA Stable if you want fewer breaking
   changes.
 
-- Next stable version will be 2.0 because of API changes in the master branch.
-  Regular `load-theme` usage is unaffected by changes.
-
 ## Bugs & Improvements
 
 Please, report any problems that you find on the projects integrated
