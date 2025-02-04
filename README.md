@@ -29,13 +29,13 @@ load-theme`.
 
 To load it automatically on Emacs startup add this to your init file:
 
-```el
+```emacs-lisp
 (load-theme 'solarized-light t)
 ```
 
 or
 
-```el
+```emacs-lisp
 (load-theme 'solarized-dark t)
 ```
 
@@ -72,7 +72,7 @@ If you don't like low-contrast modeline or fringe, you can `customize` them
 either by doing `M-x customize-group solarized` or setting the values using
 elisp code:
 
-```el
+```emacs-lisp
 ;; make the fringe stand out from the background
 (setq solarized-distinct-fringe-background t)
 
@@ -119,7 +119,7 @@ Imho it enhances the general readability and also it fits well with the default
 underline for the modeline to create one horizontal window border in the same
 manner as the vertical border.
 
-```el
+```emacs-lisp
 (setq x-underline-at-descent-line t)
 ```
 
@@ -144,7 +144,7 @@ individually by specifying a free Sexp as the fourth argument.
 Once you have a theme file, you can load it with `load-theme`, like
 solarized.
 
-```el
+```emacs-lisp
 ;; inspired vim's jellybeans color-theme
 (solarized-create-theme-file-with-palette 'light 'solarized-jellybeans-light
   '("#202020" "#ffffff"
@@ -153,7 +153,7 @@ solarized.
 (load-theme 'solarized-jellybeans-light t)
 ```
 
-```el
+```emacs-lisp
 ;; inspired emacs's mesa color-theme
 (solarized-create-theme-file-with-palette 'light 'solarized-mesa-light
   '("#000000" "#faf5ee"
@@ -162,7 +162,7 @@ solarized.
 (load-theme 'solarized-mesa-light t)
 ```
 
-```el
+```emacs-lisp
 ;; inspired emacs's solarized color-theme
 (solarized-create-theme-file-with-palette 'light 'solarized-solarized-light
   '("#002b36" "#fdf6e3"
@@ -171,7 +171,7 @@ solarized.
 (load-theme 'solarized-solarized-light t)
 ```
 
-```el
+```emacs-lisp
 ;; wombat color-theme with misc face definition
 (solarized-create-theme-file-with-palette 'dark 'solarized-wombat-dark
   '("#2a2a29" "#f6f3e8"
