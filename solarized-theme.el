@@ -5,7 +5,7 @@
 ;; Author: Bozhidar Batsov <bozhidar@batsov.dev>
 ;; Author: Thomas Frössman <thomasf@jossystem.se>
 ;; URL: http://github.com/bbatsov/solarized-emacs
-;; Version: 2.0.1
+;; Version: 2.0.4
 ;; Package-Requires: ((emacs "24.1"))
 ;; Keywords: convenience, themes, solarized
 
@@ -28,7 +28,7 @@
 ;;
 ;;; Installation:
 ;;
-;;   Drop the `solarized-theme.el` somewhere in your `load-path` and
+;;   Drop the solarized-theme.el somewhere in your `load-path' and
 ;; the two themes in a folder that is on `custom-theme-load-path'
 ;; and enjoy!
 ;;
