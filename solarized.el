@@ -1,6 +1,6 @@
 ;;; solarized.el --- Solarized theme  -*- lexical-binding: t -*-
 
-;; Copyright (C) 2011-2021 Bozhidar Batsov
+;; Copyright (C) 2011-2025 Bozhidar Batsov
 
 ;; Author: Bozhidar Batsov <bozhidar@batsov.dev>
 ;; Author: Thomas Frössman <thomasf@jossystem.se>
