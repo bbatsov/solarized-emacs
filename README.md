@@ -112,7 +112,7 @@ Note that these need to be set **before** `load-theme` is invoked for Solarized.
 
 If you are using Emacs under X you might like the following setting which puts
 the underline below the
-[font bottomline instead of the baseline](https://publib.boulder.ibm.com/infocenter/pseries/v5r3/topic/com.ibm.aix.graPHIGS/doc/phigstrf/figures/afma5rbd.jpg).
+[font bottomline instead of the baseline](https://stackoverflow.com/questions/27631736/meaning-of-top-ascent-baseline-descent-bottom-and-leading-in-androids-font).
 
 Imho it enhances the general readability and also it fits well with the default
 `solarized-high-contrast-mode-line` setting which uses an slightly emphazised
