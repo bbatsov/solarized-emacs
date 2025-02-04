@@ -38,6 +38,9 @@ or
 (load-theme 'solarized-dark t)
 ```
 
+You can toggle between the light and dark variant of the theme automatically with
+`M-x solarized-toggle-theme`.
+
 ## Alternative Palettes
 
 The intent of this theme will always be that Solarized-dark/light will give you
@@ -106,6 +109,7 @@ elisp code:
 ```
 
 Note that these need to be set **before** `load-theme` is invoked for Solarized.
+Alternatively you can invoke `M-x solarized-reload` after making configuration changes.
 
 ### Underline position setting for X
 
