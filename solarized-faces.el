@@ -650,6 +650,19 @@
                              :background ,(if solarized-emphasize-indicators
                                               blue-lc s-fringe-bg) :weight bold))))
 ;;;;; flymake
+     `(flymake-error
+       ((,(append '((supports :underline (:style wave))) class)
+         (:underline (:style wave :color ,red) :inherit unspecified))
+        (,class (:foreground ,red-hc :background ,red-lc :weight bold :underline t))))
+     `(flymake-warning
+       ((,(append '((supports :underline (:style wave))) class)
+         (:underline (:style wave :color ,yellow) :inherit unspecified))
+        (,class (:foreground ,yellow-hc :background ,yellow-lc :weight bold :underline t))))
+     `(flymake-note
+       ((,(append '((supports :underline (:style wave))) class)
+         (:underline (:style wave :color ,(if solarized-emphasize-indicators
+                                              blue base03)) :inherit unspecified))
+        (,class (:foreground ,blue-hc :background ,blue-lc :weight bold :underline t))))
      `(flymake-errline
        ((,(append '((supports :underline (:style wave))) class)
          (:underline (:style wave :color ,red) :inherit unspecified
