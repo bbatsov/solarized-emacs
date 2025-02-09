@@ -106,6 +106,9 @@ elisp code:
 (setq solarized-height-plus-3 1.0)
 (setq solarized-height-plus-4 1.0)
 
+;; Highlight all numbers
+(setq solarized-highlight-numbers t)
+
 ```
 
 Note that these need to be set **before** `load-theme` is invoked for Solarized.
