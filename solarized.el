@@ -52,6 +52,13 @@ Related discussion: https://github.com/bbatsov/solarized-emacs/issues/158"
   :type 'boolean
   :group 'solarized)
 
+(defcustom solarized-highlight-numbers nil
+  "Highlight all numbers.
+Applies color to `font-lock-number-face' and `highlight-numbers' mode.
+Many tree-sitter based modes use `font-lock-number-face'."
+  :type 'boolean
+  :group 'solarized)
+
 (defcustom solarized-use-variable-pitch t
   "Use variable pitch face for some headings and titles."
   :type 'boolean
