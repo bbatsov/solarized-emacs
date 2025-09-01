@@ -376,6 +376,27 @@ customize the resulting theme."
             (s-diffstat-changed-fg blue)
             (s-diffstat-removed-fg red))
 
+       ;; silence the byte compiler
+       (ignore class light-class dark-class theme-name variant
+               ,@(mapcar 'car color-palette*)
+               s-base03 s-base02 s-base01 s-base00 s-base3 s-base2
+               s-base1 s-base0 base03 base02 base01 base00 base0 base1
+               base2 base3 s-line yellow-hc yellow-lc orange-hc
+               orange-lc red-hc red-lc magenta-hc magenta-lc violet-hc
+               violet-lc blue-hc blue-lc cyan-hc cyan-lc green-hc
+               green-lc s-maybe-bold s-maybe-italic s-variable-pitch
+               s-fringe-bg s-fringe-fg s-header-line-fg s-header-line-bg
+               s-header-line-underline s-mode-line-fg s-mode-line-bg
+               s-mode-line-underline s-mode-line-buffer-id-fg
+               s-mode-line-inactive-fg s-mode-line-inactive-bg
+               s-mode-line-inactive-bc s-diff-A-bg s-diff-A-fg
+               s-diff-fine-A-bg s-diff-fine-A-fg s-diff-B-bg s-diff-B-fg
+               s-diff-fine-B-bg s-diff-fine-B-fg s-diff-Ancestor-bg
+               s-diff-Ancestor-fg s-diff-fine-Ancestor-bg
+               s-diff-fine-Ancestor-fg s-diff-C-bg s-diff-C-fg
+               s-diff-fine-C-bg s-diff-fine-C-fg s-diff-context-fg
+               s-diff-heading-bg s-diffstat-added-fg
+               s-diffstat-changed-fg s-diffstat-removed-fg)
        ;; NOTE: `custom--inhibit-theme-enable' turn-off needed
        ;;       childtheme works well disscussed in #352
        (let ((custom--inhibit-theme-enable nil))
