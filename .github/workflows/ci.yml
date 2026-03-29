@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  byte-compile:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        emacs-version: ['27.1', '28.2', '29.4', '30.1', 'snapshot']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: purcell/setup-emacs@master
+        with:
+          version: ${{ matrix.emacs-version }}
+      - name: Byte-compile
+        run: |
+          emacs --batch -L . \
+            --eval "(setq byte-compile-error-on-warn t)" \
+            -f batch-byte-compile \
+            solarized.el \
+            solarized-faces.el \
+            solarized-palettes.el \
+            solarized-theme-utils.el
+      - name: Load all themes
+        run: |
+          emacs --batch -L . \
+            -l solarized-dark-theme.el \
+            -l solarized-light-theme.el \
+            -l solarized-dark-high-contrast-theme.el \
+            -l solarized-light-high-contrast-theme.el \
+            -l solarized-gruvbox-dark-theme.el \
+            -l solarized-gruvbox-light-theme.el \
+            -l solarized-selenized-dark-theme.el \
+            -l solarized-selenized-light-theme.el \
+            -l solarized-selenized-black-theme.el \
+            -l solarized-selenized-white-theme.el \
+            -l solarized-zenburn-theme.el \
+            -l solarized-wombat-dark-theme.el
