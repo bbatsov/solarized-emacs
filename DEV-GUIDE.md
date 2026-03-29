@@ -1,11 +1,11 @@
 # Information for contribution/development
 
-### Introduction
+## Introduction
 
 The main intent of this section is to help contributors decide on how to use
-colors and looks when making contribution.
+colors and looks when contributing.
 
-In a simplified sense it's might be beneficial to imagine the light theme as
+In a simplified sense it might be beneficial to imagine the light theme as
 being as close as possible to writing written text on paper with a few tools
 like markers and coloured pencils at hand to highlight **exceptional
 circumstances**.
@@ -13,7 +13,7 @@ circumstances**.
 This is not meant to be a strict guide but it can probably be followed in most
 situations.
 
-### Upstream Solarized palette usage documentation
+## Upstream Solarized palette usage documentation
 
 The base Solarized colors have a canonical
 [usage documentation](http://ethanschoonover.com/solarized#usage-development)
@@ -31,7 +31,7 @@ Usage table for the automatic dark/light base colors:
 * `,base02` - background highlights
 * `,base03` - background
 
-### Basic strategy for selecting colors
+## Basic strategy for selecting colors
 
 The most important general rule is to **avoid color pasta**.
 
@@ -44,15 +44,15 @@ Examples:
 - It's sometimes even preferable to hide information by reusing colors rather
   than creating more visual noise. It's hard to decide (for other people) what
   to simplify/reduce away but it leads to a better reading experience.
-- For things small spaces like indicators, the baseXX are usually enough. The
+- For small spaces like indicators, the baseXX are usually enough. The
   indicator symbols themselves are probably good enough carriers of
   information.
 
-### Accent colors that are used in special ways
+## Accent colors that are used in special ways
 
 (Draft note: This is a simplified list written in haste, needs much more
 details. In worst case scenario it's even wrong, probably not though. Some of
-the bullet points lacks explanation right now)
+the bullet points lack explanation right now)
 
 Generally I try to only use the most basic colors which I guess is
 cyan/blue/green/yellow (again, if possible).
@@ -70,7 +70,7 @@ Some specific color information:
 - **blue** / **green** / **red** can be used for diff like things indicating
   modified/added/removed
 
-### Block highlighting colors
+## Block highlighting colors
 
 **These colors can probably be avoided for more or less everything that isn't a
 diff.**
@@ -88,7 +88,7 @@ an undefined result and might break visibility/contrast/lightness rules and
 might break even more with later tweaks to the color generation changes.
 
 
-### Additional accent color variants
+## Additional accent color variants
 
 **Avoid using these at all, they might even be phased out completely**
 
