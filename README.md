@@ -43,6 +43,15 @@ You can toggle between the light and dark variant of the theme automatically wit
 
 ## Alternative Palettes
 
+In addition to `solarized-dark` and `solarized-light`, the package ships the
+following theme variants:
+
+- `solarized-dark-high-contrast` / `solarized-light-high-contrast`
+- `solarized-gruvbox-dark` / `solarized-gruvbox-light`
+- `solarized-selenized-dark` / `solarized-selenized-light` / `solarized-selenized-black` / `solarized-selenized-white`
+- `solarized-zenburn`
+- `solarized-wombat-dark`
+
 The intent of this theme will always be that Solarized-dark/light will give you
 the best possible experience. Palettes other than Solarized will never have
 influence over theming decisions, they are complementary.
