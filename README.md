@@ -157,6 +157,32 @@ These overrides should be placed **after** `load-theme` in your init file.
 You can discover face names at point with `M-x describe-face` or see all
 active faces with `M-x list-faces-display`.
 
+### Buffer-local face overrides
+
+If you only want to tweak faces in certain major modes (without affecting the
+rest of Emacs), you can use `face-remap-add-relative` in a mode hook. It
+remaps a face only in the current buffer.
+
+```emacs-lisp
+;; Customize faces only in OCaml buffers
+(defun my-ocaml-faces ()
+  (face-remap-add-relative 'font-lock-type-face :foreground "DarkGreen")
+  (face-remap-add-relative 'font-lock-function-name-face :weight 'bold))
+
+(add-hook 'tuareg-mode-hook #'my-ocaml-faces)
+```
+
+```emacs-lisp
+;; Use a larger default font in org-mode
+(defun my-org-faces ()
+  (face-remap-add-relative 'default :height 1.2))
+
+(add-hook 'org-mode-hook #'my-org-faces)
+```
+
+See [Buffer-Local Face Remapping with face-remap-add-relative](https://emacsredux.com/blog/2026/03/16/buffer-local-face-remapping-with-face-remap-add-relative/)
+for more details and advanced usage (toggling remappings, wrapping them in minor modes, etc.).
+
 ### Underline position setting for X
 
 If you are using Emacs under X you might like the following setting which puts
