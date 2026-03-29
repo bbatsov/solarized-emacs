@@ -438,9 +438,22 @@
      `(corfu-current ((,class (:inherit corfu-default :weight bold :inverse-video t))))
      `(corfu-bar ((,class (:background ,base0))))
      `(corfu-border ((,class (:background ,base02))))
+     `(corfu-annotations ((,class (:foreground ,base01))))
+     `(corfu-deprecated ((,class (:foreground ,base01 :strike-through t))))
 ;;;;; consult
      `(consult-preview-insertion ((,class (:background ,base02))))
      `(consult-preview-line ((,class (:background ,base02))))
+     `(consult-file ((,class (:foreground ,blue))))
+     `(consult-bookmark ((,class (:foreground ,cyan))))
+     `(consult-buffer ((,class (:foreground ,base0))))
+     `(consult-line-number ((,class (:foreground ,base01))))
+     `(consult-grep-context ((,class (:foreground ,base01))))
+     `(consult-highlight-match ((,class (:foreground ,magenta :weight bold))))
+     `(consult-async-running ((,class (:foreground ,yellow))))
+     `(consult-async-finished ((,class (:foreground ,green))))
+     `(consult-async-failed ((,class (:foreground ,red))))
+     `(consult-key ((,class (:foreground ,green))))
+     `(consult-narrow-indicator ((,class (:foreground ,cyan))))
 ;;;;; cperl-mode
      `(cperl-array-face ((,class (:background unspecified :foreground ,blue))))
      `(cperl-hash-face ((,class (:background unspecified :foreground ,blue))))
@@ -548,6 +561,10 @@
      `(edts-face-warning-mode-line
        ((,light-class (:background ,yellow-l :foreground unspecified))
         (,dark-class (:background ,yellow :foreground unspecified))))
+;;;;; eglot
+     `(eglot-highlight-symbol-face ((,class (:inherit bold :background ,base02))))
+     `(eglot-diagnostic-tag-unnecessary-face ((,class (:foreground ,base01 :underline (:style wave :color ,yellow)))))
+     `(eglot-diagnostic-tag-deprecated-face ((,class (:foreground ,base01 :strike-through ,base01))))
 ;;;;; elfeed
      `(elfeed-search-date-face ((,class (:foreground ,base01))))
      `(elfeed-search-feed-face ((,class (:foreground ,base01))))
@@ -559,6 +576,12 @@
      `(elscreen-tab-current-screen-face ((,class (:background ,base1 :foreground ,base03)) (t (:underline t))))
      `(elscreen-tab-other-screen-face ((,class (:background ,base02 :foreground ,base01))))
      `(elscreen-tab-control-face ((,class (:background ,base03 :foreground ,base0))))
+;;;;; embark
+     `(embark-keybinding ((,class (:foreground ,green :weight bold))))
+     `(embark-target ((,class (:foreground ,magenta :weight bold))))
+     `(embark-collect-candidate ((,class (:foreground ,base0))))
+     `(embark-collect-group-title ((,class (:foreground ,blue :weight bold))))
+     `(embark-collect-group-separator ((,class (:foreground ,base01))))
 ;;;;; epa
      `(epa-mark ((,class (:foreground ,magenta :weight bold))))
      `(epa-string ((,class (:foreground ,violet))))
@@ -1216,6 +1239,33 @@
      `(magit-popup-argument            ((t (:foreground ,cyan    :weight bold))))
      `(magit-popup-disabled-argument   ((t (:foreground ,base01  :weight normal))))
      `(magit-popup-option-value        ((t (:foreground ,cyan    :weight bold))))
+;;;;; marginalia
+     `(marginalia-key ((,class (:foreground ,green))))
+     `(marginalia-type ((,class (:foreground ,cyan))))
+     `(marginalia-char ((,class (:foreground ,yellow))))
+     `(marginalia-lighter ((,class (:foreground ,base01))))
+     `(marginalia-on ((,class (:foreground ,green :weight bold))))
+     `(marginalia-off ((,class (:foreground ,base01))))
+     `(marginalia-documentation ((,class (:foreground ,base01 :slant italic))))
+     `(marginalia-value ((,class (:foreground ,base0))))
+     `(marginalia-null ((,class (:foreground ,base01))))
+     `(marginalia-true ((,class (:foreground ,green))))
+     `(marginalia-false ((,class (:foreground ,base01))))
+     `(marginalia-date ((,class (:foreground ,blue))))
+     `(marginalia-file-name ((,class (:foreground ,base0))))
+     `(marginalia-file-priv-dir ((,class (:foreground ,blue :weight bold))))
+     `(marginalia-file-priv-exec ((,class (:foreground ,green))))
+     `(marginalia-file-priv-link ((,class (:foreground ,cyan))))
+     `(marginalia-file-priv-read ((,class (:foreground ,yellow))))
+     `(marginalia-file-priv-write ((,class (:foreground ,red))))
+     `(marginalia-file-priv-other ((,class (:foreground ,magenta))))
+     `(marginalia-file-priv-rare ((,class (:foreground ,orange))))
+     `(marginalia-file-priv-no ((,class (:foreground ,base01))))
+     `(marginalia-size ((,class (:foreground ,base01))))
+     `(marginalia-number ((,class (:foreground ,base0))))
+     `(marginalia-file-owner ((,class (:foreground ,base01))))
+     `(marginalia-modified ((,class (:foreground ,yellow))))
+     `(marginalia-file-modes ((,class (:foreground ,base01))))
 ;;;;; markdown-mode
      `(markdown-blockquote-face ((,class (:inherit font-lock-doc-face))))
      `(markdown-bold-face ((,class (:inherit bold))))
@@ -1899,6 +1949,11 @@
      `(undo-tree-visualizer-active-branch-face
        ((,class (:foreground ,base1 :background ,base03 :weight bold))))
      `(undo-tree-visualizer-register-face ((,class (:foreground ,yellow))))
+;;;;; vertico
+     `(vertico-current ((,class (:weight bold :background ,base02 :underline t))))
+     `(vertico-group-title ((,class (:foreground ,base01 :weight bold))))
+     `(vertico-group-separator ((,class (:foreground ,base01 :strike-through t))))
+     `(vertico-multiline ((,class (:foreground ,base01))))
 ;;;;; volatile highlights
      `(vhl/default-face ((,class (:background ,green-lc :foreground ,green-hc))))
 ;;;;; w3m
@@ -2036,6 +2091,12 @@
      `(which-key-command-description-face ((,class (:foreground ,base0))))
      `(which-key-group-description-face ((,class (:foreground ,cyan))))
      `(which-key-key-face ((,class (:bold t))))
+     `(which-key-separator-face ((,class (:foreground ,base01))))
+     `(which-key-note-face ((,class (:foreground ,base01))))
+     `(which-key-special-key-face ((,class (:foreground ,yellow :weight bold))))
+     `(which-key-highlighted-command-face ((,class (:foreground ,blue :weight bold))))
+     `(which-key-docstring-face ((,class (:foreground ,base01 :slant italic))))
+     `(which-key-local-map-description-face ((,class (:foreground ,cyan))))
 ;;;;; whitespace-mode
      `(whitespace-space ((,class (:background unspecified :foreground ,base01
                                               :inverse-video unspecified :slant italic))))
