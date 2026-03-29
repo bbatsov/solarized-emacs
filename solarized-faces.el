@@ -592,10 +592,17 @@
      `(elscreen-tab-control-face ((,class (:background ,base03 :foreground ,base0))))
 ;;;;; embark
      `(embark-keybinding ((,class (:foreground ,green :weight bold))))
+     `(embark-keybinding-repeat ((,class (:foreground ,orange :weight bold))))
      `(embark-target ((,class (:foreground ,magenta :weight bold))))
+     `(embark-selected ((,class (:inherit match))))
+     `(embark-keymap ((,class (:foreground ,base01 :slant italic))))
      `(embark-collect-candidate ((,class (:foreground ,base0))))
+     `(embark-collect-annotation ((,class (:foreground ,base01))))
      `(embark-collect-group-title ((,class (:foreground ,blue :weight bold))))
      `(embark-collect-group-separator ((,class (:foreground ,base01))))
+     `(embark-verbose-indicator-title ((,class (:foreground ,blue :weight bold))))
+     `(embark-verbose-indicator-documentation ((,class (:foreground ,base01 :slant italic))))
+     `(embark-verbose-indicator-shadowed ((,class (:foreground ,base01))))
 ;;;;; epa
      `(epa-mark ((,class (:foreground ,magenta :weight bold))))
      `(epa-string ((,class (:foreground ,violet))))
