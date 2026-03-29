@@ -1,4 +1,4 @@
-;;; solarized-dark-high-contrast-theme.el --- Solarized Light Theme for Emacs  -*- lexical-binding: t -*-
+;;; solarized-dark-high-contrast-theme.el --- Solarized Dark High Contrast Theme  -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019 Thomas Frössman
 
@@ -32,7 +32,6 @@
   solarized-dark-high-contrast-palette-alist)
 
 (provide-theme 'solarized-dark-high-contrast)
-
 
 (provide 'solarized-dark-high-contrast-theme)
 

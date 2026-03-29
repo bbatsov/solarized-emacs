@@ -17,7 +17,7 @@
 
 ;;; Commentary:
 ;;
-;; The dark variant of the solarized theme with gruvbox color palette
+;; The light variant of the solarized theme with gruvbox color palette
 ;;
 ;;; Code:
 

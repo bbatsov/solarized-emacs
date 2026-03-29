@@ -26,7 +26,7 @@
   (require 'solarized-palettes))
 
 (deftheme solarized-zenburn
-  "The dark variant of the Solarized colour theme with gruvbox color palette")
+  "The dark variant of the Solarized colour theme with zenburn color palette")
 
 (solarized-with-color-variables 'dark 'solarized-zenburn
   solarized-zenburn-color-palette-alist)

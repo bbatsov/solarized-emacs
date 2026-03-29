@@ -17,7 +17,7 @@
 
 ;;; Commentary:
 ;;
-;; The the dark solarized theme with the wombat palette
+;; The dark solarized theme with the wombat palette
 ;;
 ;;; Code:
 
@@ -25,7 +25,7 @@
 (eval-when-compile
   (require 'solarized-palettes))
 
-(deftheme solarized-wombat-dark "The the dark solarized theme with the wombat palette")
+(deftheme solarized-wombat-dark "The dark solarized theme with the wombat palette")
 
 (solarized-with-color-variables-with-palette 'dark 'solarized-wombat-dark
   '("#2a2a29" "#f6f3e8"           ; base03 (02 01 00 0 1 2) base3
