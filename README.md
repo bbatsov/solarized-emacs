@@ -10,9 +10,9 @@ Solarized for Emacs is an Emacs 24bit theme making use of the
 You can find several screenshots of Solarized for Emacs
 [here](https://emacsthemes.com/themes/solarized-themes.html).
 
-Solarized for Emacs supports officially Emacs 24+, but should be working under
-Emacs 23 as well. The theme is implemented in terms of customisations and
-`deftheme` and does not require the `color-theme-package`.
+Solarized for Emacs supports officially Emacs 24+. The theme is implemented
+in terms of customisations and `deftheme` and does not require the
+`color-theme-package`.
 
 ## Installation
 
@@ -62,7 +62,7 @@ The original Zenburn palette doesn't have a violet it is created by blending
 blue and magenta to get it to fit into the theme so it's tilted towards
 translating into what this theme has decided.
 
-*TLDR*; While `solarized-gruvbox-light` might be good complement for users of
+*TLDR*; While `solarized-gruvbox-light` might be a good complement for users of
 `solarized-light`, another theme not contained in this package (`gruvbox-light`
 or whatever) might be more finely tuned in relation to the Gruvbox palette.
 
@@ -221,7 +221,7 @@ GitHub pull request.
 
 ## License
 
-Copyright © 2011-2025 Bozhidar Batsov, [Thomas Frössman](http://t.jossystem.se), and
+Copyright © 2011-2026 Bozhidar Batsov, [Thomas Frössman](http://t.jossystem.se), and
 [contributors](https://github.com/bbatsov/solarized-emacs/contributors).
 
 Distributed under the GNU General Public License, version 3
