@@ -575,6 +575,10 @@
      `(eglot-highlight-symbol-face ((,class (:inherit bold :background ,base02))))
      `(eglot-diagnostic-tag-unnecessary-face ((,class (:foreground ,base01 :underline (:style wave :color ,yellow)))))
      `(eglot-diagnostic-tag-deprecated-face ((,class (:foreground ,base01 :strike-through ,base01))))
+     `(eglot-mode-line ((,class (:foreground ,base0 :weight bold))))
+     `(eglot-inlay-hint-face ((,class (:foreground ,base01 :height 0.9))))
+     `(eglot-type-hint-face ((,class (:inherit eglot-inlay-hint-face :foreground ,cyan))))
+     `(eglot-parameter-hint-face ((,class (:inherit eglot-inlay-hint-face :foreground ,yellow))))
 ;;;;; elfeed
      `(elfeed-search-date-face ((,class (:foreground ,base01))))
      `(elfeed-search-feed-face ((,class (:foreground ,base01))))
