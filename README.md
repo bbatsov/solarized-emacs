@@ -123,6 +123,40 @@ elisp code:
 Note that these need to be set **before** `load-theme` is invoked for Solarized.
 Alternatively you can invoke `M-x solarized-reload` after making configuration changes.
 
+### Overriding specific faces
+
+If you're unhappy with how a particular mode looks you can override individual
+faces after loading the theme. Use `custom-theme-set-faces` to keep your
+overrides tied to the theme, or `custom-set-faces` for global overrides.
+
+```emacs-lisp
+;; Override org-mode heading colors
+(custom-theme-set-faces
+ 'solarized-dark
+ '(org-level-1 ((t (:foreground "#268bd2" :weight bold :height 1.3))))
+ '(org-level-2 ((t (:foreground "#2aa198" :weight bold :height 1.2)))))
+```
+
+```emacs-lisp
+;; Make markdown code blocks stand out more
+(custom-theme-set-faces
+ 'solarized-light
+ '(markdown-code-face ((t (:background "#eee8d5" :foreground "#657b83"))))
+ '(markdown-inline-code-face ((t (:background "#eee8d5" :foreground "#657b83")))))
+```
+
+```emacs-lisp
+;; Tone down font-lock colors across all modes
+(custom-theme-set-faces
+ 'solarized-dark
+ '(font-lock-keyword-face ((t (:foreground "#859900" :weight normal))))
+ '(font-lock-function-name-face ((t (:foreground "#268bd2" :weight bold)))))
+```
+
+These overrides should be placed **after** `load-theme` in your init file.
+You can discover face names at point with `M-x describe-face` or see all
+active faces with `M-x list-faces-display`.
+
 ### Underline position setting for X
 
 If you are using Emacs under X you might like the following setting which puts
