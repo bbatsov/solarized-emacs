@@ -198,29 +198,21 @@ manner as the vertical border.
 (setq x-underline-at-descent-line t)
 ```
 
-## Create theme using color palette
+## Custom Themes
 
-The Solarized Face settings consist of a palette of colors with eight
-accents in addition to the darkest and brightest colors. Recent
-changes allow you to freely create theme files using different
-palettes instead of the Solarized color palette.  It consists of two
-steps:
+You can create your own theme that reuses all of Solarized's face definitions
+but with a different color palette. You provide 10 colors -- a darkest base, a
+brightest base, and 8 accents (yellow, orange, red, magenta, violet, blue, cyan,
+green) -- and the theme framework derives all the intermediate shades and
+highlight variants automatically.
 
-* creating a theme file
-* loading a theme
+### Creating a theme from a custom palette
 
-### Creating/Loading Theme Files
-
-Select the darkest and lightest colors and the eight accents to pass
-to the function. This creates a theme file in `.emacs.d/themes/`. If
-you need to make minor modifications, you can override Face
-individually by specifying a free Sexp as the fourth argument.
-
-Once you have a theme file, you can load it with `load-theme`, like
-solarized.
+Call `solarized-create-theme-file-with-palette` in your init file. It generates
+a theme file in `~/.emacs.d/themes/` that you can then load normally.
 
 ```emacs-lisp
-;; inspired vim's jellybeans color-theme
+;; inspired by vim's jellybeans color-theme
 (solarized-create-theme-file-with-palette 'light 'solarized-jellybeans-light
   '("#202020" "#ffffff"
     "#ffb964" "#8fbfdc" "#a04040" "#b05080" "#805090" "#fad08a" "#99ad6a" "#8fbfdc"))
@@ -229,7 +221,7 @@ solarized.
 ```
 
 ```emacs-lisp
-;; inspired emacs's mesa color-theme
+;; inspired by emacs's mesa color-theme
 (solarized-create-theme-file-with-palette 'light 'solarized-mesa-light
   '("#000000" "#faf5ee"
     "#3388dd" "#ac3d1a" "#dd2222" "#8b008b" "#00b7f0" "#1388a2" "#104e8b" "#00688b"))
@@ -237,17 +229,12 @@ solarized.
 (load-theme 'solarized-mesa-light t)
 ```
 
-```emacs-lisp
-;; inspired emacs's solarized color-theme
-(solarized-create-theme-file-with-palette 'light 'solarized-solarized-light
-  '("#002b36" "#fdf6e3"
-    "#b58900" "#cb4b16" "#dc322f" "#d33682" "#6c71c4" "#268bd2" "#2aa198" "#859900"))
-
-(load-theme 'solarized-solarized-light t)
-```
+You can also override individual faces by passing a sexp as the fourth argument.
+This lets you tweak specific faces while still inheriting everything else from
+the palette:
 
 ```emacs-lisp
-;; wombat color-theme with misc face definition
+;; wombat palette with custom face overrides
 (solarized-create-theme-file-with-palette 'dark 'solarized-wombat-dark
   '("#2a2a29" "#f6f3e8"
     "#e5c06d" "#ddaa6f" "#ffb4ac" "#e5786d" "#834c98" "#a4b5e6" "#7ec98f" "#8ac6f2")
@@ -270,8 +257,64 @@ solarized.
 ```
 
 **Note:** If the theme file already exists, `solarized-create-theme-file` does not
-regenerate the file. If the file exists, it can be overwritten by
-setting the fifth argument to `t`.
+regenerate it. Pass `t` as the fifth argument to overwrite.
+
+### Child themes
+
+If you want to keep the Solarized palette but override specific faces
+consistently across dark and light variants, you can create a child theme. This
+is useful when you like Solarized's colors but want to adjust how certain
+modes look.
+
+Define your face overrides in a shared file:
+
+```emacs-lisp
+;; my-solarized.el
+(defvar my-solarized-faces
+  '("My personal solarized customizations."
+    (custom-theme-set-faces
+     theme-name
+     `(rainbow-delimiters-depth-1-face ((,class (:foreground ,base02))))
+     `(org-level-1 ((,class (:foreground ,blue :weight bold)))))))
+
+(provide 'my-solarized)
+```
+
+Then create thin wrapper files for each variant (place these on your
+`custom-theme-load-path`):
+
+```emacs-lisp
+;; themes/my-solarized-dark-theme.el
+(require 'solarized)
+(require 'my-solarized)
+(eval-when-compile
+  (require 'solarized-palettes))
+
+(deftheme my-solarized-dark "My dark Solarized child theme")
+(solarized-with-color-variables
+  'dark 'my-solarized-dark solarized-dark-color-palette-alist my-solarized-faces)
+
+(provide-theme 'my-solarized-dark)
+```
+
+```emacs-lisp
+;; themes/my-solarized-light-theme.el
+(require 'solarized)
+(require 'my-solarized)
+(eval-when-compile
+  (require 'solarized-palettes))
+
+(deftheme my-solarized-light "My light Solarized child theme")
+(solarized-with-color-variables
+  'light 'my-solarized-light solarized-light-color-palette-alist my-solarized-faces)
+
+(provide-theme 'my-solarized-light)
+```
+
+Your face overrides have access to all palette variables (`base03`, `base0`,
+`yellow`, `blue`, etc.) and all derived variables (`s-fringe-bg`,
+`s-mode-line-fg`, etc.). See the
+[child-theme-example](child-theme-example/) directory for a working example.
 
 ## Versioning Policy
 
