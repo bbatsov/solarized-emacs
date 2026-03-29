@@ -1250,7 +1250,6 @@
      `(marginalia-value ((,class (:foreground ,base0))))
      `(marginalia-null ((,class (:foreground ,base01))))
      `(marginalia-true ((,class (:foreground ,green))))
-     `(marginalia-false ((,class (:foreground ,base01))))
      `(marginalia-date ((,class (:foreground ,blue))))
      `(marginalia-file-name ((,class (:foreground ,base0))))
      `(marginalia-file-priv-dir ((,class (:foreground ,blue :weight bold))))
@@ -1265,7 +1264,6 @@
      `(marginalia-number ((,class (:foreground ,base0))))
      `(marginalia-file-owner ((,class (:foreground ,base01))))
      `(marginalia-modified ((,class (:foreground ,yellow))))
-     `(marginalia-file-modes ((,class (:foreground ,base01))))
 ;;;;; markdown-mode
      `(markdown-blockquote-face ((,class (:inherit font-lock-doc-face))))
      `(markdown-bold-face ((,class (:inherit bold))))
