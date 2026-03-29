@@ -142,7 +142,7 @@ Optional argument ROUND rounds values which probably is what you usually want."
   (let* ((maxval (if (= digits-per-component 2) 255 65535))
          (fmt (if (= digits-per-component 2) "#%02x%02x%02x" "#%04x%04x%04x")))
     (if round
-        (format fmt (+ 0.5 (* red maxval)) (+ 0.5 (* green maxval)) (+ 0.5(* blue maxval)))
+        (format fmt (+ 0.5 (* red maxval)) (+ 0.5 (* green maxval)) (+ 0.5 (* blue maxval)))
         (format fmt (* red maxval) (* green maxval) (* blue maxval)))))
 
 ;;;###autoload
