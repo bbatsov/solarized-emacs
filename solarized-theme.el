@@ -36,7 +36,7 @@
 ;;
 ;;; Credits
 ;;
-;; Ethan Schoonover created the original theme for vim on such this port
+;; Ethan Schoonover created the original theme for vim on which this port
 ;; is based.
 ;;
 ;;; Code:

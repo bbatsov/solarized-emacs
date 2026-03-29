@@ -169,7 +169,7 @@ use the latter if you need a 24-bit specification of a color."
 (defun solarized-create-color-palette (core-palette)
   "Create color-palette from CORE-PALETTE.
 
-The Returned color-palette has the same format as `solarized-color-palette'"
+The returned color-palette has the same format as `solarized-color-palette'."
   (let ((darkest-base   (nth 0 core-palette))
         (brightest-base (nth 1 core-palette))
         (yellow         (nth 2 core-palette))
@@ -292,12 +292,12 @@ customize the resulting theme."
             ;; Line drawing color
             ;;
             ;; NOTE only use this for very thin lines that are hard to see using base02, in low
-            ;; color displayes base02 might be used instead
+            ;; color displays base02 might be used instead
             (s-line (if (eq variant 'light) "#cccec4" "#284b54"))
 
             ;; Light/Dark adaptive higher/lower contrast accented colors
             ;;
-            ;; NOTE Only use these in exceptional cirmumstances!
+            ;; NOTE Only use these in exceptional circumstances!
             (yellow-hc (if (eq variant 'light) yellow-d yellow-l))
             (yellow-lc (if (eq variant 'light) yellow-l yellow-d))
             (orange-hc (if (eq variant 'light) orange-d orange-l))
@@ -398,7 +398,7 @@ customize the resulting theme."
                s-diff-heading-bg s-diffstat-added-fg
                s-diffstat-changed-fg s-diffstat-removed-fg)
        ;; NOTE: `custom--inhibit-theme-enable' turn-off needed
-       ;;       childtheme works well disscussed in #352
+       ;;       childtheme works well discussed in #352
        (let ((custom--inhibit-theme-enable nil))
          ,@solarized-definition
          ,@(eval childtheme-sexp)))))

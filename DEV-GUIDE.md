@@ -10,7 +10,7 @@ being as close as possible to writing written text on paper with a few tools
 like markers and coloured pencils at hand to highlight **exceptional
 circumstances**.
 
-This is not meant to be a strict guide but it can probably be follwed in most
+This is not meant to be a strict guide but it can probably be followed in most
 situations.
 
 ### Upstream Solarized palette usage documentation
@@ -50,7 +50,7 @@ Examples:
 
 ### Accent colors that are used in special ways
 
-(Draft note: This is a simplified list written i haste, needs much more
+(Draft note: This is a simplified list written in haste, needs much more
 details. In worst case scenario it's even wrong, probably not though. Some of
 the bullet points lacks explanation right now)
 
@@ -78,10 +78,10 @@ diff.**
 There are 4 additional variants for all accent colors that are meant to be used
 in pairs as two levels of soft and harder highlight.
 
-- **green-1bg** + **green-1fg** are used together to form a soft highlighed
+- **green-1bg** + **green-1fg** are used together to form a soft highlighted
   section (useful for diffs)
 - **green-2bg** + **green-2fg** are used together to form a more pronounced
-  highlighed section (useful for diffs hunk highlight)
+  highlighted section (useful for diffs hunk highlight)
 
 Using **blue-1fg** on anything other than **blue-1bg** is currently considered
 an undefined result and might break visibility/contrast/lightness rules and
@@ -90,14 +90,14 @@ might break even more with later tweaks to the color generation changes.
 
 ### Additional accent color variants
 
-**Avoid using these at all, they might be even phased out completley**
+**Avoid using these at all, they might even be phased out completely**
 
 There are also variants of each color suffixed `-d` (dark), `-l` (light), `-lc`
 (low contrast), `-hc` (high contrast).
 
 These colors were designed with almost the same intent as the block highlight
 colors but they are considerably less solarized looking. Can probably be
-avoided alltogether.
+avoided altogether.
 
 
 

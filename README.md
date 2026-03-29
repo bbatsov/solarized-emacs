@@ -4,7 +4,7 @@
 
 # Solarized for Emacs
 
-Solarized for Emacs is an Emacs 24bit theme making use of of the
+Solarized for Emacs is an Emacs 24bit theme making use of the
 [Solarized palette](http://ethanschoonover.com/solarized), developed by Ethan Schoonover.
 
 You can find several screenshots of Solarized for Emacs
@@ -58,7 +58,7 @@ colors in the Solarized palette and that is one reason why it's rarely used by
 the theme. Violet in another palette might stand out less and therefore be used
 more often if the theme was specifically designed with that palette in mind.
 
-The original Zenburn palette doesn't have an violet it is created by blending
+The original Zenburn palette doesn't have a violet it is created by blending
 blue and magenta to get it to fit into the theme so it's tilted towards
 translating into what this theme has decided.
 
@@ -121,7 +121,7 @@ the underline below the
 [font bottomline instead of the baseline](https://stackoverflow.com/questions/27631736/meaning-of-top-ascent-baseline-descent-bottom-and-leading-in-androids-font).
 
 Imho it enhances the general readability and also it fits well with the default
-`solarized-high-contrast-mode-line` setting which uses an slightly emphazised
+`solarized-high-contrast-mode-line` setting which uses a slightly emphasized
 underline for the modeline to create one horizontal window border in the same
 manner as the vertical border.
 
@@ -200,7 +200,7 @@ solarized.
 (load-theme 'solarized-wombat-dark t)
 ```
 
-**Note:** If the theme file already exists, `solorized-create-theme-file` does not
+**Note:** If the theme file already exists, `solarized-create-theme-file` does not
 regenerate the file. If the file exists, it can be overwritten by
 setting the fifth argument to `t`.
 

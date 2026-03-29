@@ -28,8 +28,8 @@
 (require 'solarized)
 
 (defun solarized-import-faces (&optional regexp already-defined)
-  "Imports current effective face definitions by regular expression
-in the format of solarized-theme.el."
+  "Import current effective face definitions by regular expression.
+The output is in the format of solarized-theme.el."
   (interactive (list (read-regexp "List faces matching regexp")))
   (let*
       ((all-faces (zerop (length regexp)))

@@ -81,7 +81,7 @@ This is an example of how to adapt derived child themes to the changes:
 (eval-when-compile
   (require 'solarized-palettes))
 
-;; This files needs to be places iside the custom-theme-load-path list
+;; This file needs to be placed inside the custom-theme-load-path list
 
 (deftheme my-solarized-light "The light variant of the Solarized colour theme")
 (solarized-with-color-variables
@@ -99,7 +99,7 @@ This is an example of how to adapt derived child themes to the changes:
 (eval-when-compile
   (require 'solarized-palettes))
 
-;; This files needs to be places iside the custom-theme-load-path list
+;; This file needs to be placed inside the custom-theme-load-path list
 
 (deftheme my-solarized-dark "The dark variant of the Solarized colour theme")
 (solarized-with-color-variables
