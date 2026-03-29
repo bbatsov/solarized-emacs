@@ -455,24 +455,68 @@ If OVERWRITE is non-nil, overwrite theme file if exist."
 
 (define-obsolete-function-alias 'create-solarized-theme-file 'solarized-create-theme-file "1.3.0")
 
+(defconst solarized--themes
+  '(solarized-dark
+    solarized-light
+    solarized-dark-high-contrast
+    solarized-light-high-contrast
+    solarized-gruvbox-dark
+    solarized-gruvbox-light
+    solarized-selenized-dark
+    solarized-selenized-light
+    solarized-selenized-black
+    solarized-selenized-white
+    solarized-zenburn
+    solarized-wombat-dark)
+  "List of all bundled Solarized theme variants.")
+
+(defvar solarized--current nil
+  "The currently active Solarized theme, or nil.")
+
+(defun solarized--set-current (theme)
+  "Record THEME as the active Solarized theme.
+Called from `enable-theme-functions'."
+  (when (memq theme solarized--themes)
+    (setq solarized--current theme)))
+
+(defun solarized--clear-current (theme)
+  "Clear the active Solarized theme if THEME is being disabled.
+Called from `disable-theme-functions'."
+  (when (eq theme solarized--current)
+    (setq solarized--current nil)))
+
+(when (boundp 'enable-theme-functions)
+  (add-hook 'enable-theme-functions #'solarized--set-current)
+  (add-hook 'disable-theme-functions #'solarized--clear-current))
+
 (defun solarized-reload (&optional theme)
   "Reload the Solarized theme.
 You can specify the variant to reload manually with THEME.
 
 Useful after changing some configuration options or tweaking some colors."
   (interactive)
-  (let ((theme (or theme (car custom-enabled-themes))))
+  (let ((theme (or theme solarized--current (car custom-enabled-themes))))
     (disable-theme theme)
     (load-theme theme t)))
 
+;;;###autoload
 (defun solarized-toggle-theme ()
   "Toggle between the light and dark variants of Solarized."
   (interactive)
-  (let ((current-theme (car custom-enabled-themes)))
+  (let ((current-theme (or solarized--current (car custom-enabled-themes))))
     (cond
      ((eq current-theme 'solarized-dark) (solarized-reload 'solarized-light))
      ((eq current-theme 'solarized-light) (solarized-reload 'solarized-dark))
      (t (message "You're not currently running a Solarized theme")))))
+
+;;;###autoload
+(defun solarized-select-theme ()
+  "Select and load a Solarized theme variant interactively."
+  (interactive)
+  (let* ((names (mapcar #'symbol-name solarized--themes))
+         (choice (intern (completing-read "Solarized theme: " names nil t))))
+    (mapc #'disable-theme solarized--themes)
+    (load-theme choice t)))
 
 ;;; Footer
 
