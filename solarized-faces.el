@@ -1567,7 +1567,7 @@
      `(org-agenda-date-weekend
        ((,class (:inherit org-agenda-date :inverse-video nil :background unspecified
                           :foreground ,base01 :weight unspecified
-                          :underline t :overline nil :box unspecified))))
+                          :underline nil :overline nil :box unspecified))))
      `(org-agenda-date-today
        ((,class (:inherit org-agenda-date :inverse-video t :weight bold
                           :underline unspecified :overline nil :box unspecified
