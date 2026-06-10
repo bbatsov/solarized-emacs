@@ -1017,6 +1017,9 @@
      `(hl-line-face
        ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
                  :background ,base02))))
+;;;;; hl-todo
+     `(hl-todo ((,class (:foreground ,orange :weight bold))))
+     `(hl-todo-flymake-type ((,class (:foreground ,orange :weight bold))))
 ;;;;; hydra
      `(hydra-face-red ((,class (:foreground ,base1 :weight bold))))
      `(hydra-face-blue ((,class (:foreground ,blue))))
