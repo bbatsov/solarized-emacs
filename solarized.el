@@ -397,11 +397,15 @@ customize the resulting theme."
                s-diff-fine-C-bg s-diff-fine-C-fg s-diff-context-fg
                s-diff-heading-bg s-diffstat-added-fg
                s-diffstat-changed-fg s-diffstat-removed-fg)
-       ;; NOTE: `custom--inhibit-theme-enable' turn-off needed
-       ;;       childtheme works well discussed in #352
-       (let ((custom--inhibit-theme-enable nil))
-         ,@solarized-definition
-         ,@(eval childtheme-sexp)))))
+       ;; Emit the child theme's faces *before* the base definition.
+       ;; `custom-theme-set-faces' keeps the first spec it sees for a
+       ;; given face, so this is what lets a child theme override the
+       ;; base faces (#352).  Doing it through ordering, rather than by
+       ;; binding `custom--inhibit-theme-enable' to nil, means we no
+       ;; longer force the faces to apply during loading and thus honor
+       ;; `load-theme's NO-ENABLE argument (#420, #325).
+       ,@(eval childtheme-sexp)
+       ,@solarized-definition)))
 
 (defmacro solarized-with-color-variables-with-palette (variant theme-name core-palette &optional childtheme-sexp)
   "Create a VARIANT of the theme named THEME-NAME with CORE-PALETTE.
