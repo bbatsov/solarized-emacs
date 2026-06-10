@@ -1750,6 +1750,17 @@
      `(rst-level-4 ((,class (:inherit org-level-4))))
      `(rst-level-5 ((,class (:inherit org-level-5))))
      `(rst-level-6 ((,class (:inherit org-level-6))))
+;;;;; ruler-mode
+     `(ruler-mode-default ((,class (:inherit default :foreground ,base01 :background ,base02))))
+     `(ruler-mode-pad ((,class (:inherit ruler-mode-default :background ,base03))))
+     `(ruler-mode-margins ((,class (:inherit ruler-mode-default :foreground ,base1))))
+     `(ruler-mode-fringes ((,class (:inherit ruler-mode-default :foreground ,green))))
+     `(ruler-mode-column-number ((,class (:inherit ruler-mode-default :foreground ,base0))))
+     `(ruler-mode-fill-column ((,class (:inherit ruler-mode-default :foreground ,red))))
+     `(ruler-mode-comment-column ((,class (:inherit ruler-mode-default :foreground ,green))))
+     `(ruler-mode-goal-column ((,class (:inherit ruler-mode-default :foreground ,cyan))))
+     `(ruler-mode-tab-stop ((,class (:inherit ruler-mode-default :foreground ,violet))))
+     `(ruler-mode-current-column ((,class (:inherit ruler-mode-default :foreground ,yellow :weight bold))))
 ;;;;; selectrum-mode
      `(selectrum-current-candidate ((,class (:weight bold :background ,base02 :underline t))))
      `(selectrum-primary-highlight ((,class (:foreground ,yellow))))
