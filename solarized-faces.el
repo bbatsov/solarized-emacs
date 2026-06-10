@@ -169,6 +169,32 @@
                                       :foreground ,base1
                                       :underline ,s-line
                                       :weight bold))))
+;;;;; diredfl
+     `(diredfl-autofile-name ((,class (:background ,base02))))
+     `(diredfl-compressed-file-name ((,class (:foreground ,violet))))
+     `(diredfl-compressed-file-suffix ((,class (:foreground ,violet))))
+     `(diredfl-date-time ((,class (:foreground ,base01))))
+     `(diredfl-deletion ((,class (:foreground ,red :weight bold))))
+     `(diredfl-deletion-file-name ((,class (:foreground ,red))))
+     `(diredfl-dir-heading ((,class (:foreground ,base03 :background ,blue :weight bold))))
+     `(diredfl-dir-name ((,class (:foreground ,blue))))
+     `(diredfl-dir-priv ((,class (:foreground ,blue))))
+     `(diredfl-exec-priv ((,class (:foreground ,green))))
+     `(diredfl-executable-tag ((,class (:foreground ,green))))
+     `(diredfl-file-name ((,class (:foreground ,base0))))
+     `(diredfl-file-suffix ((,class (:foreground ,base01))))
+     `(diredfl-flag-mark ((,class (:foreground ,yellow :weight bold))))
+     `(diredfl-flag-mark-line ((,class (:background ,base02))))
+     `(diredfl-ignored-file-name ((,class (:foreground ,base01))))
+     `(diredfl-link-priv ((,class (:foreground ,cyan))))
+     `(diredfl-no-priv ((,class (:foreground ,base01))))
+     `(diredfl-number ((,class (:foreground ,cyan))))
+     `(diredfl-other-priv ((,class (:foreground ,violet))))
+     `(diredfl-rare-priv ((,class (:foreground ,orange))))
+     `(diredfl-read-priv ((,class (:foreground ,green))))
+     `(diredfl-symlink ((,class (:foreground ,cyan :slant italic))))
+     `(diredfl-tagged-autofile-name ((,class (:background ,base02))))
+     `(diredfl-write-priv ((,class (:foreground ,yellow))))
 ;;;;; display-fill-column-indicator
      `(fill-column-indicator ((,class :foreground ,base02 :weight semilight)))
 ;;;;; dropdown
