@@ -34,7 +34,8 @@
 ;;;;; basic faces
      '(button ((t (:underline t))))
      `(cursor ((,class (:foreground ,base03 :background ,base0
-                                    :inverse-video t))))
+                                    :inverse-video t
+                                    :distant-foreground ,base03))))
      `(default ((,class (:foreground ,base0 :background ,base03))))
      `(error ((,class (:foreground ,orange))))
      `(escape-glyph ((,class (:foreground ,violet))))
