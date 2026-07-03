@@ -7,7 +7,16 @@
 Solarized for Emacs is an Emacs 24bit theme making use of the
 [Solarized palette](http://ethanschoonover.com/solarized), developed by Ethan Schoonover.
 
-You can find several screenshots of Solarized for Emacs
+Here are the two canonical variants:
+
+<table>
+  <tr>
+    <td align="center"><code>solarized-dark</code><br><img src="screenshots/solarized-dark.png" alt="solarized-dark" width="440"></td>
+    <td align="center"><code>solarized-light</code><br><img src="screenshots/solarized-light.png" alt="solarized-light" width="440"></td>
+  </tr>
+</table>
+
+You can find some more screenshots of Solarized for Emacs
 [here](https://emacsthemes.com/themes/solarized-themes.html).
 
 Solarized for Emacs supports officially Emacs 24+. The theme is implemented
@@ -51,6 +60,29 @@ following theme variants:
 - `solarized-selenized-dark` / `solarized-selenized-light` / `solarized-selenized-black` / `solarized-selenized-white`
 - `solarized-zenburn`
 - `solarized-wombat-dark`
+
+<table>
+  <tr>
+    <td align="center"><code>solarized-dark-high-contrast</code><br><img src="screenshots/solarized-dark-high-contrast.png" alt="solarized-dark-high-contrast" width="380"></td>
+    <td align="center"><code>solarized-light-high-contrast</code><br><img src="screenshots/solarized-light-high-contrast.png" alt="solarized-light-high-contrast" width="380"></td>
+  </tr>
+  <tr>
+    <td align="center"><code>solarized-gruvbox-dark</code><br><img src="screenshots/solarized-gruvbox-dark.png" alt="solarized-gruvbox-dark" width="380"></td>
+    <td align="center"><code>solarized-gruvbox-light</code><br><img src="screenshots/solarized-gruvbox-light.png" alt="solarized-gruvbox-light" width="380"></td>
+  </tr>
+  <tr>
+    <td align="center"><code>solarized-selenized-dark</code><br><img src="screenshots/solarized-selenized-dark.png" alt="solarized-selenized-dark" width="380"></td>
+    <td align="center"><code>solarized-selenized-light</code><br><img src="screenshots/solarized-selenized-light.png" alt="solarized-selenized-light" width="380"></td>
+  </tr>
+  <tr>
+    <td align="center"><code>solarized-selenized-black</code><br><img src="screenshots/solarized-selenized-black.png" alt="solarized-selenized-black" width="380"></td>
+    <td align="center"><code>solarized-selenized-white</code><br><img src="screenshots/solarized-selenized-white.png" alt="solarized-selenized-white" width="380"></td>
+  </tr>
+  <tr>
+    <td align="center"><code>solarized-zenburn</code><br><img src="screenshots/solarized-zenburn.png" alt="solarized-zenburn" width="380"></td>
+    <td align="center"><code>solarized-wombat-dark</code><br><img src="screenshots/solarized-wombat-dark.png" alt="solarized-wombat-dark" width="380"></td>
+  </tr>
+</table>
 
 The intent of this theme will always be that Solarized-dark/light will give you
 the best possible experience. Palettes other than Solarized will never have
