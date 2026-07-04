@@ -95,7 +95,7 @@
      `(ansi-color-blue ((,class (:foreground ,blue :background ,blue))))
      `(ansi-color-magenta ((,class (:foreground ,magenta :background ,magenta))))
      `(ansi-color-cyan ((,class (:foreground ,cyan :background ,cyan))))
-     `(ansi-color-bright-black ((,class (:foreground ,base0 :background ,base0))))
+     `(ansi-color-bright-black ((,class (:foreground ,base01 :background ,base01))))
      `(ansi-color-bright-red ((,class (:foreground ,red-l :background ,red-l))))
      `(ansi-color-bright-green ((,class (:foreground ,green-l :background ,green-l))))
      `(ansi-color-bright-yellow ((,class (:foreground ,yellow-l :background ,yellow-l))))
@@ -1975,6 +1975,7 @@
 ;;;;; term
      `(term ((t ( :background ,base03 :foreground ,base0))))
      `(term-color-black ((t (:foreground ,base02 :background ,base02))))
+     `(term-color-bright-black ((t (:foreground ,base01 :background ,base01))))
      `(term-color-red ((t (:foreground ,red :background ,red))))
      `(term-color-green ((t (:foreground ,green :background ,green))))
      `(term-color-yellow ((t (:foreground ,yellow :background ,yellow))))
