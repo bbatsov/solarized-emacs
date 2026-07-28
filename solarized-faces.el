@@ -459,6 +459,12 @@
      `(company-tooltip-search ((,class (:foreground ,magenta))))
      `(company-tooltip-search-selection ((,class (:foreground ,magenta :weight bold))))
      `(company-tooltip-selection ((,class (:weight bold))))
+;;;;; completion-preview
+     `(completion-preview ((,class (:foreground ,base01))))
+     `(completion-preview-common ((,class (:foreground ,base00))))
+     `(completion-preview-exact ((,class (:foreground ,base00 :underline t))))
+;;;;; copilot
+     `(copilot-overlay-face ((,class (:foreground ,base01 :slant italic))))
 ;;;;; corfu
      `(corfu-default ((,class (:foreground ,base1 :background ,base02))))
      `(corfu-current ((,class (:inherit corfu-default :weight bold :inverse-video t))))
@@ -529,6 +535,11 @@
      `(deadgrep-meta-face ((,class (:inherit font-lock-comment-face))))
      `(deadgrep-regexp-metachar-face ((,class (:inherit font-lock-constant-face))))
      `(deadgrep-search-term-face ((,class (:inherit font-lock-variable-name-face))))
+;;;;; dictionary
+     `(dictionary-word-entry-face ((,class (:foreground ,blue :weight bold))))
+     `(dictionary-word-definition-face ((,class (:inherit default))))
+     `(dictionary-reference-face ((,class (:inherit link))))
+     `(dictionary-button-face ((,class (:inherit link))))
 ;;;;; diff
      `(diff-added ((,class (:background ,s-diff-B-bg :foreground ,s-diff-B-fg))))
      `(diff-changed ((t nil)))
@@ -605,6 +616,9 @@
      `(eglot-inlay-hint-face ((,class (:foreground ,base01 :height 0.9))))
      `(eglot-type-hint-face ((,class (:inherit eglot-inlay-hint-face :foreground ,cyan))))
      `(eglot-parameter-hint-face ((,class (:inherit eglot-inlay-hint-face :foreground ,yellow))))
+;;;;; easy-kill
+     `(easy-kill-selection ((,class (:background ,base02 :extend t))))
+     `(easy-kill-origin ((,class (:foreground ,base03 :background ,red))))
 ;;;;; elfeed
      `(elfeed-search-date-face ((,class (:foreground ,base01))))
      `(elfeed-search-feed-face ((,class (:foreground ,base01))))
@@ -1108,6 +1122,12 @@
      `(jabber-roster-user-xa ((,class (:slant italic :foreground ,magenta))))
 ;;;;; jedi
      `(jedi:highlight-function-argument ((,class (:inherit bold))))
+;;;;; jinx
+     `(jinx-misspelled ((,class (:underline (:style wave :color ,red)))))
+     `(jinx-highlight ((,class (:inherit isearch))))
+     `(jinx-save ((,class (:foreground ,orange :weight bold))))
+     `(jinx-key ((,class (:foreground ,blue :weight bold))))
+     `(jinx-annotation ((,class (:foreground ,base01))))
 ;;;;; js2-mode
      `(js2-error ((,class (:foreground ,red))))
      `(js2-external-variable ((,class (:foreground ,orange))))
@@ -1136,6 +1156,9 @@
      `(js3-private-function-call ((,class (:foreground ,yellow))))
      `(js3-private-member ((,class (:foreground ,blue))))
      `(js3-warning ((,class (:underline ,orange))))
+;;;;; keycast
+     `(keycast-key ((,class (:foreground ,base03 :background ,blue :weight bold))))
+     `(keycast-command ((,class (:weight bold))))
 ;;;;; langtool
      `(langtool-errline ((,(append '((supports :underline (:style wave))) class)
                           (:underline (:style wave :color ,green) :inherit unspecified))
@@ -1432,6 +1455,8 @@
      `(mingus-playlist-face ((,class (:foreground ,cyan ))))
      `(mingus-song-file-face ((,class (:foreground ,yellow))))
      `(mingus-stopped-face ((,class (:foreground ,red))))
+;;;;; mistty
+     `(mistty-fringe-face ((,class (:foreground ,base01))))
 ;;;;; moccur
      `(moccur-current-line-face ((,class (:underline t))))
      `(moccur-edit-done-face ((,class
@@ -2040,6 +2065,14 @@
      `(vertico-multiline ((,class (:foreground ,base01))))
 ;;;;; volatile highlights
      `(vhl/default-face ((,class (:background ,green-lc :foreground ,green-hc))))
+;;;;; vundo
+     `(vundo-node ((,class (:foreground ,base01))))
+     `(vundo-stem ((,class (:foreground ,base01))))
+     `(vundo-branch-stem ((,class (:foreground ,base00))))
+     `(vundo-highlight ((,class (:foreground ,blue :weight bold))))
+     `(vundo-saved ((,class (:foreground ,green))))
+     `(vundo-last-saved ((,class (:foreground ,green :weight bold))))
+     `(vundo-diff-highlight ((,class (:foreground ,orange :weight bold))))
 ;;;;; w3m
      `(w3m-anchor ((,class (:inherit link))))
      `(w3m-arrived-anchor ((,class (:inherit link-visited))))
