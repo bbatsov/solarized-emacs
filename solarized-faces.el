@@ -435,6 +435,14 @@
      `(bm-fringe-face ((,class (:overline ,base0))))
      `(bm-fringe-persistent-face ((,class (:overline ,base0))))
      `(bm-persistent-face ((,class (:overline ,base0))))
+;;;;; breadcrumb
+     `(breadcrumb-face ((,class (:foreground ,base01))))
+     `(breadcrumb-imenu-leaf-face ((,class (:foreground ,blue :weight bold))))
+     `(breadcrumb-imenu-crumbs-face ((,class (:foreground ,base01))))
+     `(breadcrumb-imenu-base-face ((,class (:foreground ,base01 :weight bold))))
+     `(breadcrumb-project-leaf-face ((,class (:foreground ,base1 :weight bold))))
+     `(breadcrumb-project-crumbs-face ((,class (:foreground ,base01))))
+     `(breadcrumb-project-base-face ((,class (:foreground ,base01 :weight bold))))
 ;;;;; calfw
      `(cfw:face-day-title ((,class (:background ,base02))))
      `(cfw:face-annotation ((,class (:inherit cfw:face-day-title :foreground ,yellow))))
@@ -974,6 +982,12 @@
      `(go-coverage-10 ((,class (:foreground ,cyan))))
      `(go-coverage-covered ((,class (:foreground ,green))))
      `(go-coverage-untracked ((,class (:foreground ,base01))))
+;;;;; gptel
+     `(gptel-context-highlight-face ((,class (:background ,base02 :extend t))))
+     `(gptel-context-deletion-face ((,class (:background ,s-diff-A-bg :extend t))))
+     `(gptel-rewrite-highlight-face ((,class (:background ,s-diff-C-bg :extend t))))
+     `(gptel-response-highlight ((,class (:background ,s-diff-heading-bg :extend t))))
+     `(gptel-response-fringe-highlight ((,class (:foreground ,orange))))
 ;;;;; guide-key
      `(guide-key/highlight-command-face ((,class (:foreground ,blue))))
      `(guide-key/key-face ((,class (:foreground ,base01))))
