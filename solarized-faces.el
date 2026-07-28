@@ -328,6 +328,48 @@
      `(android-mode-warning-face ((,class (:foreground ,yellow))))
 ;;;;; anzu-mode
      `(anzu-mode-line ((,class (:foreground ,yellow :weight bold))))
+;;;;; asciidoc-mode
+     `(asciidoc-document-title-face ((,class (:foreground ,blue :weight bold
+                                                     ,@(when solarized-scale-markdown-headlines
+                                                         (list :height solarized-height-plus-4))))))
+     `(asciidoc-title-1-face ((,class (:foreground ,blue :weight bold
+                                               ,@(when solarized-scale-markdown-headlines
+                                                   (list :height solarized-height-plus-3))))))
+     `(asciidoc-title-2-face ((,class (:foreground ,blue :weight bold
+                                               ,@(when solarized-scale-markdown-headlines
+                                                   (list :height solarized-height-plus-2))))))
+     `(asciidoc-title-3-face ((,class (:foreground ,blue :weight bold
+                                               ,@(when solarized-scale-markdown-headlines
+                                                   (list :height solarized-height-plus-1))))))
+     `(asciidoc-title-4-face ((,class (:foreground ,blue :weight bold))))
+     `(asciidoc-title-5-face ((,class (:foreground ,blue :weight bold))))
+     `(asciidoc-markup-face ((,class (:foreground ,base01))))
+     `(asciidoc-code-face ((,class (:inherit fixed-pitch :foreground ,base01))))
+     `(asciidoc-link-face ((,class (:foreground ,yellow))))
+     `(asciidoc-link-mouse-face ((,class (:background ,base02))))
+     `(asciidoc-url-face ((,class (:foreground ,base01))))
+     `(asciidoc-cross-reference-face ((,class (:foreground ,yellow :underline t))))
+     `(asciidoc-anchor-face ((,class (:foreground ,cyan))))
+     `(asciidoc-superscript-face ((,class (:height 0.8))))
+     `(asciidoc-subscript-face ((,class (:height 0.8))))
+     `(asciidoc-metadata-key-face ((,class (:inherit font-lock-comment-face))))
+     `(asciidoc-metadata-value-face ((,class (:inherit default))))
+     `(asciidoc-footnote-marker-face ((,class (:foreground ,base01))))
+     `(asciidoc-footnote-text-face ((,class (:inherit default))))
+     `(asciidoc-highlight-face ((,class (:foreground ,base03 :background ,yellow))))
+     `(asciidoc-strike-through-face ((,class (:strike-through t))))
+     `(asciidoc-underline-face ((,class (:underline t))))
+     `(asciidoc-overline-face ((,class (:overline t))))
+     `(asciidoc-admonition-note-label-face ((,class (:foreground ,blue :weight bold))))
+     `(asciidoc-admonition-note-face ((,class (:background ,s-diff-C-bg :extend t))))
+     `(asciidoc-admonition-tip-label-face ((,class (:foreground ,green :weight bold))))
+     `(asciidoc-admonition-tip-face ((,class (:background ,s-diff-B-bg :extend t))))
+     `(asciidoc-admonition-important-label-face ((,class (:foreground ,violet :weight bold))))
+     `(asciidoc-admonition-important-face ((,class (:background ,base02 :extend t))))
+     `(asciidoc-admonition-caution-label-face ((,class (:foreground ,yellow :weight bold))))
+     `(asciidoc-admonition-caution-face ((,class (:background ,base02 :extend t))))
+     `(asciidoc-admonition-warning-label-face ((,class (:foreground ,red :weight bold))))
+     `(asciidoc-admonition-warning-face ((,class (:background ,s-diff-A-bg :extend t))))
 ;;;;; auctex
      `(font-latex-bold-face ((,class (:inherit bold :foreground ,base1))))
      `(font-latex-doctex-documentation-face ((,class (:background unspecified))))
