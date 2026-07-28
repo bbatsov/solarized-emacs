@@ -473,6 +473,10 @@
      `(cider-test-failure-face ((t (:foreground ,orange :weight bold :underline t))))
      `(cider-test-error-face ((t (:foreground ,red :weight bold :underline t))))
      `(cider-test-success-face ((t (:foreground ,green :weight bold :underline t))))
+;;;;; clojure-mode
+     `(clojure-keyword-face ((,class (:foreground ,cyan))))
+     `(clojure-character-face ((,class (:inherit font-lock-string-face))))
+     `(clojure-discard-face ((,class (:inherit font-lock-comment-face))))
 ;;;;; coffee
      `(coffee-mode-class-name ((,class (:foreground ,yellow :weight bold))))
      `(coffee-mode-function-param ((,class (:foreground ,violet :slant italic))))
@@ -836,6 +840,13 @@
 ;;;;; form-feed
      `(form-feed-line
        ((,class (:strike-through ,s-line))))
+;;;;; erlang
+     `(erlang-font-lock-exported-function-name-face ((,class (:inherit font-lock-function-name-face :weight bold))))
+     `(erlang-edoc-heading ((,class (:foreground ,orange :weight bold))))
+     `(erlang-edoc-tag ((,class (:foreground ,base01))))
+     `(erlang-edoc-macro ((,class (:inherit font-lock-preprocessor-face))))
+     `(erlang-edoc-verbatim ((,class (:foreground ,green))))
+     `(erlang-edoc-todo ((,class (:inherit hl-todo))))
 ;;;;; git-commit
      `(git-commit-comment-action  ((,class (:foreground ,base0  :weight bold))))
      `(git-commit-comment-branch ; obsolete
@@ -967,6 +978,24 @@
      `(guide-key/highlight-command-face ((,class (:foreground ,blue))))
      `(guide-key/key-face ((,class (:foreground ,base01))))
      `(guide-key/prefix-command-face ((,class (:foreground ,green))))
+;;;;; haskell-mode
+     `(haskell-keyword-face ((,class (:inherit font-lock-keyword-face))))
+     `(haskell-type-face ((,class (:inherit font-lock-type-face))))
+     `(haskell-constructor-face ((,class (:inherit font-lock-type-face))))
+     `(haskell-definition-face ((,class (:inherit font-lock-function-name-face))))
+     `(haskell-operator-face ((,class (:inherit font-lock-variable-name-face))))
+     `(haskell-pragma-face ((,class (:inherit font-lock-preprocessor-face))))
+     `(haskell-quasi-quote-face ((,class (:inherit font-lock-string-face))))
+     `(haskell-literate-comment-face ((,class (:inherit font-lock-comment-face))))
+     `(haskell-hole-face ((,class (:foreground ,yellow :weight bold))))
+     `(haskell-error-face ((,class (:underline (:style wave :color ,red)))))
+     `(haskell-warning-face ((,class (:underline (:style wave :color ,yellow)))))
+     `(haskell-interactive-face-prompt ((,class (:foreground ,blue :weight bold))))
+     `(haskell-interactive-face-prompt-cont ((,class (:foreground ,cyan))))
+     `(haskell-interactive-face-compile-error ((,class (:foreground ,red :weight bold))))
+     `(haskell-interactive-face-compile-warning ((,class (:foreground ,yellow :weight bold))))
+     `(haskell-interactive-face-result ((,class (:foreground ,green))))
+     `(haskell-interactive-face-garbage ((,class (:foreground ,base01))))
 ;;;;; helm
      ;; These probably needs tweaking.
      `(helm-apt-deinstalled ((,class (:foreground ,base01))))
@@ -1096,6 +1125,8 @@
      `(imenu-list-entry-face-1 ((,class (:inherit font-lock-function-name-face))))
      `(imenu-list-entry-face-2 ((,class (:inherit font-lock-variable-name-face))))
      `(imenu-list-entry-face-3 ((,class (:inherit font-lock-string-face))))
+;;;;; inf-ruby
+     `(inf-ruby-result-overlay-face ((t (:background unspecified))))
 ;;;;; info
      `(info-title-1 ((,class (:foreground ,base1 :weight bold))))
      `(info-title-2 ((,class (:foreground ,base1 :weight bold))))
