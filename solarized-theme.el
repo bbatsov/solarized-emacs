@@ -5,7 +5,7 @@
 ;; Author: Bozhidar Batsov <bozhidar@batsov.dev>
 ;; Author: Thomas Frössman <thomasf@jossystem.se>
 ;; URL: http://github.com/bbatsov/solarized-emacs
-;; Version: 2.1.0
+;; Version: 2.2.0
 ;; Package-Requires: ((emacs "24.1"))
 ;; Keywords: convenience, themes, solarized
 

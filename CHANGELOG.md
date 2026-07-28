@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 2.2.0 (2026-07-28)
 
 - [#462](https://github.com/bbatsov/solarized-emacs/pull/462): Expand face coverage to jinx, completion-preview, copilot, keycast, dictionary, mistty, easy-kill, vundo, asciidoc-mode, clojure-mode, haskell-mode, erlang, inf-ruby, gptel and breadcrumb, complete the anzu and git-timemachine faces, and deepen the cider coverage (REPL, stacktrace and nREPL log).
 
