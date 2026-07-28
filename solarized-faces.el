@@ -328,6 +328,12 @@
      `(android-mode-warning-face ((,class (:foreground ,yellow))))
 ;;;;; anzu-mode
      `(anzu-mode-line ((,class (:foreground ,yellow :weight bold))))
+     `(anzu-mode-line-no-match ((,class (:foreground ,red :weight bold))))
+     `(anzu-match-1 ((,class (:foreground ,base03 :background ,green))))
+     `(anzu-match-2 ((,class (:foreground ,base03 :background ,orange))))
+     `(anzu-match-3 ((,class (:foreground ,base03 :background ,blue))))
+     `(anzu-replace-highlight ((,class (:foreground ,base03 :background ,red))))
+     `(anzu-replace-to ((,class (:foreground ,base03 :background ,green :weight bold))))
 ;;;;; asciidoc-mode
      `(asciidoc-document-title-face ((,class (:foreground ,blue :weight bold
                                                      ,@(when solarized-scale-markdown-headlines
@@ -907,6 +913,7 @@
 ;;;;; git-timemachine
      `(git-timemachine-minibuffer-author-face ((,class (:foreground ,orange))))
      `(git-timemachine-minibuffer-detail-face ((,class (:foreground ,yellow))))
+     `(git-timemachine-commit ((,class (:foreground ,orange :weight bold))))
 ;;;;; gnus
      `(gnus-group-mail-1 ((,class (:weight bold :inherit gnus-group-mail-1-empty))))
      `(gnus-group-mail-1-empty ((,class (:inherit gnus-group-news-1-empty))))
