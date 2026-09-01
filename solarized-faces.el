@@ -286,7 +286,7 @@
 ;;;;; all-the-icons, all-the-icons-dired, spaceline-all-the-icons
      `(spaceline-all-the-icons-info-face ((,class (:foreground ,blue))))
      `(spaceline-all-the-icons-sunrise-face ((,class (:foreground ,yellow))))
-     `(spaceline-all-the-icons-sunrise-face ((,class (:foreground ,orange))))
+     `(spaceline-all-the-icons-sunset-face ((,class (:foreground ,orange))))
      `(all-the-icons-red ((,class (:foreground ,red))))
      `(all-the-icons-lred ((,class (:foreground ,red-lc))))
      `(all-the-icons-dred ((,class (:foreground ,red-hc))))
