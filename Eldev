@@ -1,0 +1,16 @@
+; -*- mode: emacs-lisp; lexical-binding: t; no-byte-compile: t -*-
+
+(eldev-use-package-archive 'gnu)
+(eldev-use-package-archive 'melpa)
+
+(eldev-add-extra-dependencies 'test 'buttercup)
+
+;; The theme files are loaded by `load-theme', not required, so Eldev should
+;; not try to treat each one as a library of the package.
+(setf eldev-standard-excludes
+      `(:or ,eldev-standard-excludes "./dev-emacs.d" "./colorlab" "./child-theme-example"))
+
+;; package-lint is not run here: the palettes deliberately define hundreds of
+;; short color names, and the theme files are `deftheme' units rather than
+;; libraries, both of which it reports at length without anything actionable.
+(setf eldev-lint-default '(doc re))

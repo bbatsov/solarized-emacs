@@ -27,13 +27,18 @@ compile: elpa
 clean:
 	rm -f $(OBJS)
 
-# test: elpa
-# 	$(CASK) exec buttercup -L .
-
 run:
 	$(CASK) exec emacs -q -l ./dev-emacs.d/init.el ${ARGS}
 
-test: elpa
+# The suite runs under Eldev; the targets below still use Cask to launch a
+# development Emacs, which is a different job.
+test:
+	eldev -p test
+
+lint:
+	eldev lint
+
+dev-run: elpa
 	$(MAKE) run
 
 dev: clean elpa
