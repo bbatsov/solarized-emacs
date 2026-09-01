@@ -1944,7 +1944,7 @@
      `(tab-bar-tab ((t (:background ,base03 :foreground ,base1))))
      `(tab-bar-tab-inactive ((t (:background ,base02 :foreground ,base01))))
 ;;;;; tabbar
-     `(tabbar-default ((,class (:foreground ,base03 :background ,base03))))
+     `(tabbar-default ((,class (:foreground ,base0 :background ,base03))))
      `(tabbar-highlight ((,class (:underline t))))
      `(tabbar-button ((,class (:foreground ,base3 :background ,base03))))
      `(tabbar-button-highlight ((,class (:inherit 'tabbar-button :inverse-video t))))
