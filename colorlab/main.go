@@ -444,7 +444,9 @@ var (
 		},
 	}
 	// Everforest dark, medium contrast (sainnhe/everforest). Base00, which some faces use as
-	// text, is the comment color rather than the background.
+	// text, is the comment color rather than the background. Everforest has one
+	// purple, Magenta; Violet is that purple turned toward blue (OKLCH hue 300, same
+	// lightness and chroma).
 	everforestDark = cl.Solarized{
 		Base: cl.Base{
 			Base03: "#2d353b",
@@ -463,13 +465,14 @@ var (
 			Magenta: "#d699b6",
 			Orange:  "#e69875",
 			Red:     "#e67e80",
-			Violet:  "#d699b6",
+			Violet:  "#b6a3db",
 			Yellow:  "#dbbc7f",
 		},
 	}
 
 	// Everforest light, medium contrast (sainnhe/everforest). Base00, which some faces use as
-	// text, is the comment color rather than the background.
+	// text, is the comment color rather than the background. Everforest has one
+	// purple, Magenta; Violet is that purple turned toward blue (OKLCH hue 300).
 	everforestLight = cl.Solarized{
 		Base: cl.Base{
 			Base03: "#fdf6e3",
@@ -488,7 +491,7 @@ var (
 			Magenta: "#df69ba",
 			Orange:  "#f57d26",
 			Red:     "#f85552",
-			Violet:  "#df69ba",
+			Violet:  "#9d79d7",
 			Yellow:  "#dfa000",
 		},
 	}
@@ -569,7 +572,9 @@ var (
 	}
 
 	// Kanagawa dragon (rebelot/kanagawa.nvim). Base00, which some faces use as
-	// text, is the comment color rather than the background.
+	// text, is the comment color rather than the background. Its terminal blue and
+	// cyan (dragonBlue2, dragonAqua) are nearly the same color, so Blue is
+	// dragonBlue and Cyan is waveAqua2.
 	kanagawaDragon = cl.Solarized{
 		Base: cl.Base{
 			Base03: "#181616",
@@ -582,8 +587,8 @@ var (
 			Base3:  "#f2ecbc",
 		},
 		Accents: cl.Accents{
-			Blue:    "#8ba4b0",
-			Cyan:    "#8ea4a2",
+			Blue:    "#658594",
+			Cyan:    "#7aa89f",
 			Green:   "#8a9a7b",
 			Magenta: "#a292a3",
 			Orange:  "#b6927b",
@@ -594,7 +599,8 @@ var (
 	}
 
 	// Kanagawa lotus (rebelot/kanagawa.nvim). Base00, which some faces use as
-	// text, is the comment color rather than the background.
+	// text, is the comment color rather than the background. Violet is lotusBlue5,
+	// as lotusViolet4 is the terminal's bright magenta.
 	kanagawaLotus = cl.Solarized{
 		Base: cl.Base{
 			Base03: "#f2ecbc",
@@ -613,7 +619,7 @@ var (
 			Magenta: "#b35b79",
 			Orange:  "#cc6d00",
 			Red:     "#c84053",
-			Violet:  "#624c83",
+			Violet:  "#5d57a3",
 			Yellow:  "#77713f",
 		},
 	}
