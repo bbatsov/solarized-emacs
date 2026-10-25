@@ -471,7 +471,14 @@ If OVERWRITE is non-nil, overwrite theme file if exist."
     solarized-selenized-black
     solarized-selenized-white
     solarized-zenburn
-    solarized-wombat-dark)
+    solarized-wombat-dark
+    solarized-everforest-dark
+    solarized-everforest-light
+    solarized-flexoki-dark
+    solarized-flexoki-light
+    solarized-kanagawa-wave
+    solarized-kanagawa-dragon
+    solarized-kanagawa-lotus)
   "List of all bundled Solarized theme variants.")
 
 (defvar solarized--current nil

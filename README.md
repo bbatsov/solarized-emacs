@@ -60,6 +60,9 @@ following theme variants:
 - `solarized-selenized-dark` / `solarized-selenized-light` / `solarized-selenized-black` / `solarized-selenized-white`
 - `solarized-zenburn`
 - `solarized-wombat-dark`
+- `solarized-everforest-dark` / `solarized-everforest-light`
+- `solarized-flexoki-dark` / `solarized-flexoki-light`
+- `solarized-kanagawa-wave` / `solarized-kanagawa-dragon` / `solarized-kanagawa-lotus`
 
 <table>
   <tr>
