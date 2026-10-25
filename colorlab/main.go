@@ -167,6 +167,48 @@ var (
 			Accent1Pair: default1BgFg,
 			Accent2Pair: default2BgFg,
 		},
+		{
+			Name:        "everforest-dark",
+			Solarized:   everforestDark,
+			Accent1Pair: default1BgFg,
+			Accent2Pair: default2BgFg,
+		},
+		{
+			Name:        "everforest-light",
+			Solarized:   everforestLight,
+			Accent1Pair: default1BgFg,
+			Accent2Pair: default2BgFg,
+		},
+		{
+			Name:        "flexoki-dark",
+			Solarized:   flexokiDark,
+			Accent1Pair: default1BgFg,
+			Accent2Pair: default2BgFg,
+		},
+		{
+			Name:        "flexoki-light",
+			Solarized:   flexokiLight,
+			Accent1Pair: default1BgFg,
+			Accent2Pair: default2BgFg,
+		},
+		{
+			Name:        "kanagawa-wave",
+			Solarized:   kanagawaWave,
+			Accent1Pair: default1BgFg,
+			Accent2Pair: default2BgFg,
+		},
+		{
+			Name:        "kanagawa-dragon",
+			Solarized:   kanagawaDragon,
+			Accent1Pair: default1BgFg,
+			Accent2Pair: default2BgFg,
+		},
+		{
+			Name:        "kanagawa-lotus",
+			Solarized:   kanagawaLotus,
+			Accent1Pair: default1BgFg,
+			Accent2Pair: default2BgFg,
+		},
 	}
 
 	// The original solarized color palette
@@ -401,6 +443,180 @@ var (
 			Yellow:  "#c49700",
 		},
 	}
+	// Everforest dark, medium contrast (sainnhe/everforest). Base00, which some faces use as
+	// text, is the comment color rather than the background.
+	everforestDark = cl.Solarized{
+		Base: cl.Base{
+			Base03: "#2d353b",
+			Base02: "#343f44",
+			Base01: "#859289",
+			Base00: "#859289",
+			Base0:  "#d3c6aa",
+			Base1:  "#d3c6aa",
+			Base2:  "#f4f0d9",
+			Base3:  "#fdf6e3",
+		},
+		Accents: cl.Accents{
+			Blue:    "#7fbbb3",
+			Cyan:    "#83c092",
+			Green:   "#a7c080",
+			Magenta: "#d699b6",
+			Orange:  "#e69875",
+			Red:     "#e67e80",
+			Violet:  "#d699b6",
+			Yellow:  "#dbbc7f",
+		},
+	}
+
+	// Everforest light, medium contrast (sainnhe/everforest). Base00, which some faces use as
+	// text, is the comment color rather than the background.
+	everforestLight = cl.Solarized{
+		Base: cl.Base{
+			Base03: "#fdf6e3",
+			Base02: "#f4f0d9",
+			Base01: "#939f91",
+			Base00: "#939f91",
+			Base0:  "#5c6a72",
+			Base1:  "#5c6a72",
+			Base2:  "#d3c6aa",
+			Base3:  "#d3c6aa",
+		},
+		Accents: cl.Accents{
+			Blue:    "#3a94c5",
+			Cyan:    "#35a77c",
+			Green:   "#8da101",
+			Magenta: "#df69ba",
+			Orange:  "#f57d26",
+			Red:     "#f85552",
+			Violet:  "#df69ba",
+			Yellow:  "#dfa000",
+		},
+	}
+
+	// Flexoki dark (stephango.com/flexoki): bg, bg-2, tx-3, tx and the 400 accents. Base00, which some faces use as
+	// text, is the comment color rather than the background.
+	flexokiDark = cl.Solarized{
+		Base: cl.Base{
+			Base03: "#100f0f",
+			Base02: "#1c1b1a",
+			Base01: "#575653",
+			Base00: "#575653",
+			Base0:  "#cecdc3",
+			Base1:  "#cecdc3",
+			Base2:  "#f2f0e5",
+			Base3:  "#fffcf0",
+		},
+		Accents: cl.Accents{
+			Blue:    "#4385be",
+			Cyan:    "#3aa99f",
+			Green:   "#879a39",
+			Magenta: "#ce5d97",
+			Orange:  "#da702c",
+			Red:     "#d14d41",
+			Violet:  "#8b7ec8",
+			Yellow:  "#d0a215",
+		},
+	}
+
+	// Flexoki light (stephango.com/flexoki): paper, bg-2, tx-3, tx and the 600 accents. Base00, which some faces use as
+	// text, is the comment color rather than the background.
+	flexokiLight = cl.Solarized{
+		Base: cl.Base{
+			Base03: "#fffcf0",
+			Base02: "#f2f0e5",
+			Base01: "#b7b5ac",
+			Base00: "#b7b5ac",
+			Base0:  "#100f0f",
+			Base1:  "#100f0f",
+			Base2:  "#cecdc3",
+			Base3:  "#cecdc3",
+		},
+		Accents: cl.Accents{
+			Blue:    "#205ea6",
+			Cyan:    "#24837b",
+			Green:   "#66800b",
+			Magenta: "#a02f6f",
+			Orange:  "#bc5215",
+			Red:     "#af3029",
+			Violet:  "#5e409d",
+			Yellow:  "#ad8301",
+		},
+	}
+
+	// Kanagawa wave (rebelot/kanagawa.nvim). Base00, which some faces use as
+	// text, is the comment color rather than the background.
+	kanagawaWave = cl.Solarized{
+		Base: cl.Base{
+			Base03: "#1f1f28",
+			Base02: "#2a2a37",
+			Base01: "#727169",
+			Base00: "#727169",
+			Base0:  "#dcd7ba",
+			Base1:  "#dcd7ba",
+			Base2:  "#e7dba0",
+			Base3:  "#f2ecbc",
+		},
+		Accents: cl.Accents{
+			Blue:    "#7e9cd8",
+			Cyan:    "#6a9589",
+			Green:   "#76946a",
+			Magenta: "#d27e99",
+			Orange:  "#ffa066",
+			Red:     "#c34043",
+			Violet:  "#957fb8",
+			Yellow:  "#c0a36e",
+		},
+	}
+
+	// Kanagawa dragon (rebelot/kanagawa.nvim). Base00, which some faces use as
+	// text, is the comment color rather than the background.
+	kanagawaDragon = cl.Solarized{
+		Base: cl.Base{
+			Base03: "#181616",
+			Base02: "#282727",
+			Base01: "#737c73",
+			Base00: "#737c73",
+			Base0:  "#c5c9c5",
+			Base1:  "#c5c9c5",
+			Base2:  "#e7dba0",
+			Base3:  "#f2ecbc",
+		},
+		Accents: cl.Accents{
+			Blue:    "#8ba4b0",
+			Cyan:    "#8ea4a2",
+			Green:   "#8a9a7b",
+			Magenta: "#a292a3",
+			Orange:  "#b6927b",
+			Red:     "#c4746e",
+			Violet:  "#8992a7",
+			Yellow:  "#c4b28a",
+		},
+	}
+
+	// Kanagawa lotus (rebelot/kanagawa.nvim). Base00, which some faces use as
+	// text, is the comment color rather than the background.
+	kanagawaLotus = cl.Solarized{
+		Base: cl.Base{
+			Base03: "#f2ecbc",
+			Base02: "#e7dba0",
+			Base01: "#8a8980",
+			Base00: "#8a8980",
+			Base0:  "#545464",
+			Base1:  "#43436c",
+			Base2:  "#dcd7ba",
+			Base3:  "#dcd7ba",
+		},
+		Accents: cl.Accents{
+			Blue:    "#4d699b",
+			Cyan:    "#597b75",
+			Green:   "#6f894e",
+			Magenta: "#b35b79",
+			Orange:  "#cc6d00",
+			Red:     "#c84053",
+			Violet:  "#624c83",
+			Yellow:  "#77713f",
+		},
+	}
 )
 
 // PrintAlist prints the named colors list in a way that is compatible with solarized-palettes.el.
@@ -413,15 +629,15 @@ func PrintAlist(w io.Writer, n cl.NamedColors, indent int) (int, error) {
 			longestKey = l
 		}
 	}
-	prefix := ""
+	var prefix strings.Builder
 	for i := 0; i < indent; i++ {
-		prefix += " "
+		prefix.WriteString(" ")
 
 	}
 	var nt int
 
 	for _, name := range keys {
-		n, err := fmt.Fprintf(w, "%s(%-"+strconv.Itoa(longestKey)+"s . \"%s\")\n", prefix, name, n[name])
+		n, err := fmt.Fprintf(w, "%s(%-"+strconv.Itoa(longestKey)+"s . \"%s\")\n", prefix.String(), name, n[name])
 		n = n + nt
 		if err != nil {
 			return nt, err

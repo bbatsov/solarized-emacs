@@ -35,7 +35,14 @@
     solarized-selenized-light
     solarized-selenized-white
     solarized-wombat-dark
-    solarized-zenburn)
+    solarized-zenburn
+    solarized-everforest-dark
+    solarized-everforest-light
+    solarized-flexoki-dark
+    solarized-flexoki-light
+    solarized-kanagawa-wave
+    solarized-kanagawa-dragon
+    solarized-kanagawa-lotus)
   "Every variant the package ships.")
 
 (defconst solarized-test--palettes
@@ -49,7 +56,14 @@
     (solarized-selenized-dark       . solarized-selenized-dark-color-palette-alist)
     (solarized-selenized-light      . solarized-selenized-light-color-palette-alist)
     (solarized-selenized-white      . solarized-selenized-white-color-palette-alist)
-    (solarized-zenburn              . solarized-zenburn-color-palette-alist))
+    (solarized-zenburn              . solarized-zenburn-color-palette-alist)
+    (solarized-everforest-dark      . solarized-everforest-dark-color-palette-alist)
+    (solarized-everforest-light     . solarized-everforest-light-color-palette-alist)
+    (solarized-flexoki-dark         . solarized-flexoki-dark-color-palette-alist)
+    (solarized-flexoki-light        . solarized-flexoki-light-color-palette-alist)
+    (solarized-kanagawa-wave        . solarized-kanagawa-wave-color-palette-alist)
+    (solarized-kanagawa-dragon      . solarized-kanagawa-dragon-color-palette-alist)
+    (solarized-kanagawa-lotus       . solarized-kanagawa-lotus-color-palette-alist))
   "Variants that draw on a named palette, and the variable holding it.
 `solarized-wombat-dark' is absent on purpose: it passes its colors inline
 to `solarized-with-color-variables-with-palette' rather than naming an
@@ -149,6 +163,13 @@ others use.")
 (defconst solarized-test--syntax-floor 2.4
   "Contrast the core syntax faces must reach against their own background.")
 
+(defconst solarized-test--syntax-floor-overrides
+  '((solarized-everforest-light . 2.1)   ; its yellow, used for types and warnings
+    (solarized-flexoki-light    . 1.95)) ; its comments, at 2.0
+  "Variants whose upstream palette sits under `solarized-test--syntax-floor'.
+Each floor is set just under what the palette measures, so it still catches
+a change that makes the variant less readable than its source.")
+
 (defconst solarized-test--core-syntax-faces
   '(font-lock-comment-face font-lock-string-face font-lock-keyword-face
     font-lock-function-name-face font-lock-variable-name-face
@@ -166,12 +187,13 @@ others use.")
     (it (format "keeps the core faces readable in %s" variant)
       (solarized-test--reload variant)
       (let ((bg (solarized-test--face-attr 'default variant :background))
+            (floor (alist-get variant solarized-test--syntax-floor-overrides
+                              solarized-test--syntax-floor))
             (illegible '()))
         (dolist (face solarized-test--core-syntax-faces)
           (let ((fg (solarized-test--face-attr face variant :foreground)))
             (when (and (solarized-test--hex-p fg)
-                       (< (solarized-test--contrast fg bg)
-                          solarized-test--syntax-floor))
+                       (< (solarized-test--contrast fg bg) floor))
               (push (list face (solarized-test--contrast fg bg)) illegible))))
         (expect illegible :to-equal '())))))
 

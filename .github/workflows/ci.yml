@@ -40,7 +40,14 @@ jobs:
             -l solarized-selenized-black-theme.el \
             -l solarized-selenized-white-theme.el \
             -l solarized-zenburn-theme.el \
-            -l solarized-wombat-dark-theme.el
+            -l solarized-wombat-dark-theme.el \
+            -l solarized-everforest-dark-theme.el \
+            -l solarized-everforest-light-theme.el \
+            -l solarized-flexoki-dark-theme.el \
+            -l solarized-flexoki-light-theme.el \
+            -l solarized-kanagawa-wave-theme.el \
+            -l solarized-kanagawa-dragon-theme.el \
+            -l solarized-kanagawa-lotus-theme.el
 
   test:
     runs-on: ubuntu-latest
