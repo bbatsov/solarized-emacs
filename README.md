@@ -63,6 +63,9 @@ following theme variants:
 - `solarized-everforest-dark` / `solarized-everforest-light`
 - `solarized-flexoki-dark` / `solarized-flexoki-light`
 - `solarized-kanagawa-wave` / `solarized-kanagawa-dragon` / `solarized-kanagawa-lotus`
+- `solarized-nightfox` / `solarized-dayfox` / `solarized-dawnfox` / `solarized-duskfox` / `solarized-nordfox` / `solarized-terafox` / `solarized-carbonfox`
+- `solarized-carbon-dark` / `solarized-carbon-light`
+- `solarized-apple-dark` / `solarized-apple-light`
 
 <table>
   <tr>

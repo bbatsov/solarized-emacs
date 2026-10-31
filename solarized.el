@@ -478,7 +478,18 @@ If OVERWRITE is non-nil, overwrite theme file if exist."
     solarized-flexoki-light
     solarized-kanagawa-wave
     solarized-kanagawa-dragon
-    solarized-kanagawa-lotus)
+    solarized-kanagawa-lotus
+    solarized-nightfox
+    solarized-dayfox
+    solarized-dawnfox
+    solarized-duskfox
+    solarized-nordfox
+    solarized-terafox
+    solarized-carbonfox
+    solarized-carbon-dark
+    solarized-carbon-light
+    solarized-apple-dark
+    solarized-apple-light)
   "List of all bundled Solarized theme variants.")
 
 (defvar solarized--current nil
