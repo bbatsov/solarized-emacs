@@ -42,7 +42,18 @@
     solarized-flexoki-light
     solarized-kanagawa-wave
     solarized-kanagawa-dragon
-    solarized-kanagawa-lotus)
+    solarized-kanagawa-lotus
+    solarized-nightfox
+    solarized-dayfox
+    solarized-dawnfox
+    solarized-duskfox
+    solarized-nordfox
+    solarized-terafox
+    solarized-carbonfox
+    solarized-carbon-dark
+    solarized-carbon-light
+    solarized-apple-dark
+    solarized-apple-light)
   "Every variant the package ships.")
 
 (defconst solarized-test--palettes
@@ -63,7 +74,18 @@
     (solarized-flexoki-light        . solarized-flexoki-light-color-palette-alist)
     (solarized-kanagawa-wave        . solarized-kanagawa-wave-color-palette-alist)
     (solarized-kanagawa-dragon      . solarized-kanagawa-dragon-color-palette-alist)
-    (solarized-kanagawa-lotus       . solarized-kanagawa-lotus-color-palette-alist))
+    (solarized-kanagawa-lotus       . solarized-kanagawa-lotus-color-palette-alist)
+    (solarized-nightfox             . solarized-nightfox-color-palette-alist)
+    (solarized-dayfox               . solarized-dayfox-color-palette-alist)
+    (solarized-dawnfox              . solarized-dawnfox-color-palette-alist)
+    (solarized-duskfox              . solarized-duskfox-color-palette-alist)
+    (solarized-nordfox              . solarized-nordfox-color-palette-alist)
+    (solarized-terafox              . solarized-terafox-color-palette-alist)
+    (solarized-carbonfox            . solarized-carbonfox-color-palette-alist)
+    (solarized-carbon-dark          . solarized-carbon-dark-color-palette-alist)
+    (solarized-carbon-light         . solarized-carbon-light-color-palette-alist)
+    (solarized-apple-dark           . solarized-apple-dark-color-palette-alist)
+    (solarized-apple-light          . solarized-apple-light-color-palette-alist))
   "Variants that draw on a named palette, and the variable holding it.
 `solarized-wombat-dark' is absent on purpose: it passes its colors inline
 to `solarized-with-color-variables-with-palette' rather than naming an

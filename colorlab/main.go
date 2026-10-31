@@ -209,6 +209,72 @@ var (
 			Accent1Pair: default1BgFg,
 			Accent2Pair: default2BgFg,
 		},
+		{
+			Name:        "nightfox",
+			Solarized:   nightfox,
+			Accent1Pair: default1BgFg,
+			Accent2Pair: default2BgFg,
+		},
+		{
+			Name:        "dayfox",
+			Solarized:   dayfox,
+			Accent1Pair: default1BgFg,
+			Accent2Pair: default2BgFg,
+		},
+		{
+			Name:        "dawnfox",
+			Solarized:   dawnfox,
+			Accent1Pair: default1BgFg,
+			Accent2Pair: default2BgFg,
+		},
+		{
+			Name:        "duskfox",
+			Solarized:   duskfox,
+			Accent1Pair: default1BgFg,
+			Accent2Pair: default2BgFg,
+		},
+		{
+			Name:        "nordfox",
+			Solarized:   nordfox,
+			Accent1Pair: default1BgFg,
+			Accent2Pair: default2BgFg,
+		},
+		{
+			Name:        "terafox",
+			Solarized:   terafox,
+			Accent1Pair: default1BgFg,
+			Accent2Pair: default2BgFg,
+		},
+		{
+			Name:        "carbonfox",
+			Solarized:   carbonfox,
+			Accent1Pair: default1BgFg,
+			Accent2Pair: default2BgFg,
+		},
+		{
+			Name:        "carbon-dark",
+			Solarized:   carbonDark,
+			Accent1Pair: default1BgFg,
+			Accent2Pair: default2BgFg,
+		},
+		{
+			Name:        "carbon-light",
+			Solarized:   carbonLight,
+			Accent1Pair: default1BgFg,
+			Accent2Pair: default2BgFg,
+		},
+		{
+			Name:        "apple-dark",
+			Solarized:   appleDark,
+			Accent1Pair: default1BgFg,
+			Accent2Pair: default2BgFg,
+		},
+		{
+			Name:        "apple-light",
+			Solarized:   appleLight,
+			Accent1Pair: default1BgFg,
+			Accent2Pair: default2BgFg,
+		},
 	}
 
 	// The original solarized color palette
@@ -574,7 +640,9 @@ var (
 	// Kanagawa dragon (rebelot/kanagawa.nvim). Base00, which some faces use as
 	// text, is the comment color rather than the background. Its terminal blue and
 	// cyan (dragonBlue2, dragonAqua) are nearly the same color, so Blue is
-	// dragonBlue and Cyan is waveAqua2.
+	// dragonBlue and Cyan is waveAqua2. Changes:
+	//   - Orange: dragonOrange (#b6927b) with OKLCH chroma raised from 0.054 to
+	//     0.09, same hue and lightness, as it read as a tan between red and yellow.
 	kanagawaDragon = cl.Solarized{
 		Base: cl.Base{
 			Base03: "#181616",
@@ -591,7 +659,7 @@ var (
 			Cyan:    "#7aa89f",
 			Green:   "#8a9a7b",
 			Magenta: "#a292a3",
-			Orange:  "#b6927b",
+			Orange:  "#c68b64",
 			Red:     "#c4746e",
 			Violet:  "#8992a7",
 			Yellow:  "#c4b28a",
@@ -621,6 +689,299 @@ var (
 			Red:     "#c84053",
 			Violet:  "#5d57a3",
 			Yellow:  "#77713f",
+		},
+	}
+
+	// Nightfox palettes (EdenEast/nightfox.nvim): Base03 is bg1, Base02 bg2 (bg0
+	// in the light variants), Base01 and Base00 the comment color, Base0 fg1 and
+	// Base1 fg0. Its purple ("magenta") is Violet and its pink Magenta.
+
+	// Nightfox. Base2 and Base3 are dayfox's backgrounds.
+	nightfox = cl.Solarized{
+		Base: cl.Base{
+			Base03: "#192330",
+			Base02: "#212e3f",
+			Base01: "#738091",
+			Base00: "#738091",
+			Base0:  "#cdcecf",
+			Base1:  "#d6d6d7",
+			Base2:  "#e4dcd4",
+			Base3:  "#f6f2ee",
+		},
+		Accents: cl.Accents{
+			Blue:    "#719cd6",
+			Cyan:    "#63cdcf",
+			Green:   "#81b29a",
+			Magenta: "#d67ad2",
+			Orange:  "#f4a261",
+			Red:     "#c94f6d",
+			Violet:  "#9d79d6",
+			Yellow:  "#dbc074",
+		},
+	}
+
+	// Dayfox.
+	dayfox = cl.Solarized{
+		Base: cl.Base{
+			Base03: "#f6f2ee",
+			Base02: "#e4dcd4",
+			Base01: "#837a72",
+			Base00: "#837a72",
+			Base0:  "#3d2b5a",
+			Base1:  "#302b5d",
+			Base2:  "#cdcecf",
+			Base3:  "#cdcecf",
+		},
+		Accents: cl.Accents{
+			Blue:    "#2848a9",
+			Cyan:    "#287980",
+			Green:   "#396847",
+			Magenta: "#a440b5",
+			Orange:  "#955f61",
+			Red:     "#a5222f",
+			Violet:  "#6e33ce",
+			Yellow:  "#ac5402",
+		},
+	}
+
+	// Dawnfox. Changes:
+	//   - Yellow: #ea9d34 toned down to OKLCH lightness 0.64, chroma 0.11 (same
+	//     hue), in line with the other accents.
+	dawnfox = cl.Solarized{
+		Base: cl.Base{
+			Base03: "#faf4ed",
+			Base02: "#ebe5df",
+			Base01: "#9893a5",
+			Base00: "#9893a5",
+			Base0:  "#575279",
+			Base1:  "#4c4769",
+			Base2:  "#e0def4",
+			Base3:  "#e0def4",
+		},
+		Accents: cl.Accents{
+			Blue:    "#286983",
+			Cyan:    "#56949f",
+			Green:   "#618774",
+			Magenta: "#d685af",
+			Orange:  "#d7827e",
+			Red:     "#b4637a",
+			Violet:  "#907aa9",
+			Yellow:  "#b77f39",
+		},
+	}
+
+	// Duskfox. Base2 and Base3 are dawnfox's backgrounds.
+	duskfox = cl.Solarized{
+		Base: cl.Base{
+			Base03: "#232136",
+			Base02: "#2d2a45",
+			Base01: "#817c9c",
+			Base00: "#817c9c",
+			Base0:  "#e0def4",
+			Base1:  "#eae8ff",
+			Base2:  "#ebe5df",
+			Base3:  "#faf4ed",
+		},
+		Accents: cl.Accents{
+			Blue:    "#569fba",
+			Cyan:    "#9ccfd8",
+			Green:   "#a3be8c",
+			Magenta: "#eb98c3",
+			Orange:  "#ea9a97",
+			Red:     "#eb6f92",
+			Violet:  "#c4a7e7",
+			Yellow:  "#f6c177",
+		},
+	}
+
+	// Nordfox. Base2 and Base3 are its white and bright white. Changes:
+	//   - Base1: its white, as fg0 has less contrast than fg1.
+	//   - Violet: its purple turned to OKLCH hue 300, as Magenta (its pink) has
+	//     nearly the same hue.
+	nordfox = cl.Solarized{
+		Base: cl.Base{
+			Base03: "#2e3440",
+			Base02: "#39404f",
+			Base01: "#60728a",
+			Base00: "#60728a",
+			Base0:  "#cdcecf",
+			Base1:  "#e5e9f0",
+			Base2:  "#e5e9f0",
+			Base3:  "#e7ecf4",
+		},
+		Accents: cl.Accents{
+			Blue:    "#81a1c1",
+			Cyan:    "#88c0d0",
+			Green:   "#a3be8c",
+			Magenta: "#bf88bc",
+			Orange:  "#c9826b",
+			Red:     "#bf616a",
+			Violet:  "#a294bd",
+			Yellow:  "#ebcb8b",
+		},
+	}
+
+	// Terafox. Base2 and Base3 are its white and bright white. Changes:
+	//   - Violet: its magenta turned to OKLCH hue 300; it has no purple.
+	terafox = cl.Solarized{
+		Base: cl.Base{
+			Base03: "#152528",
+			Base02: "#1d3337",
+			Base01: "#6d7f8b",
+			Base00: "#6d7f8b",
+			Base0:  "#e6eaea",
+			Base1:  "#eaeeee",
+			Base2:  "#ebebeb",
+			Base3:  "#eeeeee",
+		},
+		Accents: cl.Accents{
+			Blue:    "#5a93aa",
+			Cyan:    "#a1cdd8",
+			Green:   "#7aa4a1",
+			Magenta: "#ad5c7c",
+			Orange:  "#ff8349",
+			Red:     "#e85c51",
+			Violet:  "#846ab2",
+			Yellow:  "#fda47f",
+		},
+	}
+
+	// Carbonfox. Base2 and Base3 are its white and bright white; bg and fg are
+	// the values upstream computes. Changes:
+	//   - Yellow, Orange, Red: IBM Carbon's yellow 30, orange 40 and red 50;
+	//     upstream's are two teals and a magenta.
+	//   - Cyan: its teal (upstream's yellow), as its cyan is close to its blue.
+	carbonfox = cl.Solarized{
+		Base: cl.Base{
+			Base03: "#161616",
+			Base02: "#252525",
+			Base01: "#6e6f70",
+			Base00: "#6e6f70",
+			Base0:  "#f2f4f8",
+			Base1:  "#f9fbff",
+			Base2:  "#dfdfe0",
+			Base3:  "#e4e4e5",
+		},
+		Accents: cl.Accents{
+			Blue:    "#78a9ff",
+			Cyan:    "#08bdba",
+			Green:   "#25be6a",
+			Magenta: "#ff7eb6",
+			Orange:  "#ff832b",
+			Red:     "#fa4d56",
+			Violet:  "#be95ff",
+			Yellow:  "#f1c21b",
+		},
+	}
+
+	// IBM Carbon (carbon-design-system/carbon), from its g100 and white themes:
+	// Base03 is background, Base02 layer-01, Base0 text-secondary and Base1
+	// text-primary. Each accent family is taken at one grade, which Carbon
+	// keeps at equal contrast across families; Cyan is teal, as Carbon's cyan
+	// is close to its blue, and Violet is purple.
+
+	// Carbon dark (g100): grade 40 accents, gray 60 comments. Base2 and Base3
+	// are the white theme's backgrounds.
+	carbonDark = cl.Solarized{
+		Base: cl.Base{
+			Base03: "#161616",
+			Base02: "#262626",
+			Base01: "#6f6f6f",
+			Base00: "#6f6f6f",
+			Base0:  "#c6c6c6",
+			Base1:  "#f4f4f4",
+			Base2:  "#f4f4f4",
+			Base3:  "#ffffff",
+		},
+		Accents: cl.Accents{
+			Blue:    "#78a9ff",
+			Cyan:    "#08bdba",
+			Green:   "#42be65",
+			Magenta: "#ff7eb6",
+			Orange:  "#ff832b",
+			Red:     "#ff8389",
+			Violet:  "#be95ff",
+			Yellow:  "#d2a106",
+		},
+	}
+
+	// Carbon light (white): grade 60 accents, gray 50 comments. Changes:
+	//   - Blue: cyan 60, as blue 60 is far more saturated than the others.
+	carbonLight = cl.Solarized{
+		Base: cl.Base{
+			Base03: "#ffffff",
+			Base02: "#f4f4f4",
+			Base01: "#8d8d8d",
+			Base00: "#8d8d8d",
+			Base0:  "#525252",
+			Base1:  "#161616",
+			Base2:  "#c6c6c6",
+			Base3:  "#c6c6c6",
+		},
+		Accents: cl.Accents{
+			Blue:    "#0072c3",
+			Cyan:    "#007d79",
+			Green:   "#198038",
+			Magenta: "#d02670",
+			Orange:  "#ba4e00",
+			Red:     "#da1e28",
+			Violet:  "#8a3ffc",
+			Yellow:  "#8e6a00",
+		},
+	}
+
+	// Apple Human Interface Guidelines colors (June 2025 values): Base03 is
+	// gray 6 (white in light), Base02 gray 5 (gray 6), Base01 and Base00 system
+	// gray, Base0 the secondary label color (without its opacity) and Base1 the
+	// primary label. Magenta is purple, Violet indigo and Cyan mint, as pink is
+	// close to red and teal and cyan to blue.
+
+	// Apple dark: system colors. Base2 and Base3 are the light backgrounds.
+	appleDark = cl.Solarized{
+		Base: cl.Base{
+			Base03: "#1c1c1e",
+			Base02: "#2c2c2e",
+			Base01: "#8e8e93",
+			Base00: "#8e8e93",
+			Base0:  "#ebebf5",
+			Base1:  "#ffffff",
+			Base2:  "#f2f2f7",
+			Base3:  "#ffffff",
+		},
+		Accents: cl.Accents{
+			Blue:    "#0091ff",
+			Cyan:    "#00dac3",
+			Green:   "#30d158",
+			Magenta: "#db34f2",
+			Orange:  "#ff9230",
+			Red:     "#ff4245",
+			Violet:  "#6d7cff",
+			Yellow:  "#ffd600",
+		},
+	}
+
+	// Apple light: the increased contrast colors, as the system yellow, orange,
+	// green and mint are under 2.4:1 on white.
+	appleLight = cl.Solarized{
+		Base: cl.Base{
+			Base03: "#ffffff",
+			Base02: "#f2f2f7",
+			Base01: "#8e8e93",
+			Base00: "#8e8e93",
+			Base0:  "#3c3c43",
+			Base1:  "#000000",
+			Base2:  "#ebebf5",
+			Base3:  "#ebebf5",
+		},
+		Accents: cl.Accents{
+			Blue:    "#1e6ef4",
+			Cyan:    "#008575",
+			Green:   "#008932",
+			Magenta: "#b02fc2",
+			Orange:  "#c55300",
+			Red:     "#e9152d",
+			Violet:  "#564ade",
+			Yellow:  "#a16a00",
 		},
 	}
 )

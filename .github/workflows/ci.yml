@@ -47,7 +47,18 @@ jobs:
             -l solarized-flexoki-light-theme.el \
             -l solarized-kanagawa-wave-theme.el \
             -l solarized-kanagawa-dragon-theme.el \
-            -l solarized-kanagawa-lotus-theme.el
+            -l solarized-kanagawa-lotus-theme.el \
+            -l solarized-nightfox-theme.el \
+            -l solarized-dayfox-theme.el \
+            -l solarized-dawnfox-theme.el \
+            -l solarized-duskfox-theme.el \
+            -l solarized-nordfox-theme.el \
+            -l solarized-terafox-theme.el \
+            -l solarized-carbonfox-theme.el \
+            -l solarized-carbon-dark-theme.el \
+            -l solarized-carbon-light-theme.el \
+            -l solarized-apple-dark-theme.el \
+            -l solarized-apple-light-theme.el
 
   test:
     runs-on: ubuntu-latest

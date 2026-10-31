@@ -22,9 +22,6 @@
 ;; The palette is Everforest by sainnhe (MIT License),
 ;; https://github.com/sainnhe/everforest.
 ;;
-;; The palette is stored as the theme draws it, background first, so
-;; the theme is created as a dark variant, as solarized-selenized-light is.
-;;
 ;;; Code:
 
 (require 'solarized)
