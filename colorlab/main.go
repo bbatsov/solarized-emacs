@@ -881,7 +881,9 @@ var (
 	// is close to its blue, and Violet is purple.
 
 	// Carbon dark (g100): grade 40 accents, gray 60 comments. Base2 and Base3
-	// are the white theme's backgrounds.
+	// are the white theme's backgrounds. Changes:
+	//   - Red: red 50 (Carbon's support-error) instead of red 40, to distinguish
+	//     it from magenta.
 	carbonDark = cl.Solarized{
 		Base: cl.Base{
 			Base03: "#161616",
@@ -899,7 +901,7 @@ var (
 			Green:   "#42be65",
 			Magenta: "#ff7eb6",
 			Orange:  "#ff832b",
-			Red:     "#ff8389",
+			Red:     "#fa4d56",
 			Violet:  "#be95ff",
 			Yellow:  "#d2a106",
 		},
