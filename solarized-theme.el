@@ -6,7 +6,7 @@
 ;; Author: Thomas Frössman <thomasf@jossystem.se>
 ;; URL: http://github.com/bbatsov/solarized-emacs
 ;; Version: 2.2.0
-;; Package-Requires: ((emacs "24.1"))
+;; Package-Requires: ((emacs "28.1"))
 ;; Keywords: convenience, themes, solarized
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -32,7 +32,7 @@
 ;; the two themes in a folder that is on `custom-theme-load-path'
 ;; and enjoy!
 ;;
-;; Don't forget that the theme requires Emacs 24.
+;; Don't forget that the theme requires Emacs 28.1.
 ;;
 ;;; Credits
 ;;
