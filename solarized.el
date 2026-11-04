@@ -145,6 +145,18 @@ Optional argument ROUND rounds values which probably is what you usually want."
         (format fmt (+ 0.5 (* red maxval)) (+ 0.5 (* green maxval)) (+ 0.5 (* blue maxval)))
         (format fmt (* red maxval) (* green maxval) (* blue maxval)))))
 
+(defun solarized-color-name-to-rgb (color)
+  "Return the RGB components of COLOR as numbers between 0.0 and 1.0.
+COLOR is a hex spec or a color name.  Signal an error if it is neither."
+  (let ((values (and (stringp color)
+                     (or (color-values-from-color-spec color)
+                         (tty-color-standard-values
+                          (downcase (string-replace " " "" color)))))))
+    (cond
+     (values (mapcar (lambda (v) (/ v 65535.0)) values))
+     ((and (stringp color) (color-name-to-rgb color)))
+     (t (error "Solarized: %S is not a color" color)))))
+
 ;;;###autoload
 (defun solarized-color-blend (color1 color2 alpha &optional digits-per-component)
   "Blends COLOR1 onto COLOR2 with ALPHA.
@@ -161,8 +173,8 @@ use the latter if you need a 24-bit specification of a color."
                              (solarized-color-clamp-lab
                               (cl-mapcar
                                (lambda (v1 v2) (+ v1 (* alpha (- v2 v1))))
-                               (apply 'color-srgb-to-lab (color-name-to-rgb color2))
-                               (apply 'color-srgb-to-lab (color-name-to-rgb color1))))))))
+                               (apply 'color-srgb-to-lab (solarized-color-name-to-rgb color2))
+                               (apply 'color-srgb-to-lab (solarized-color-name-to-rgb color1))))))))
     (apply 'solarized-color-rgb-to-hex `(,@args ,digits-per-component t))))
 
 ;;;###autoload
@@ -292,8 +304,10 @@ customize the resulting theme."
             ;; Line drawing color
             ;;
             ;; NOTE only use this for very thin lines that are hard to see using base02, in low
-            ;; color displays base02 might be used instead
-            (s-line (if (eq variant 'light) "#cccec4" "#284b54"))
+            ;; color displays base02 might be used instead.  A palette can set it
+            ;; with an `s-line' entry; otherwise it is blended from base01 and base02.
+            (s-line (or ,(alist-get 's-line color-palette*)
+                        (solarized-color-blend base01 base02 0.35 2)))
 
             ;; Light/Dark adaptive higher/lower contrast accented colors
             ;;
