@@ -31,7 +31,7 @@
 (deftheme solarized-kanagawa-lotus
   "The Solarized theme with the Kanagawa lotus palette.")
 
-(solarized-with-color-variables 'dark 'solarized-kanagawa-lotus
+(solarized-with-color-variables 'light 'solarized-kanagawa-lotus
   solarized-kanagawa-lotus-color-palette-alist)
 
 (provide-theme 'solarized-kanagawa-lotus)

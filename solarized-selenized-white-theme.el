@@ -28,7 +28,7 @@
 (deftheme solarized-selenized-white
   "The white variant of the Solarized colour theme with selenized color palette")
 
-(solarized-with-color-variables 'dark 'solarized-selenized-white
+(solarized-with-color-variables 'light 'solarized-selenized-white
   solarized-selenized-white-color-palette-alist)
 
 (provide-theme 'solarized-selenized-white)

@@ -6,6 +6,7 @@
 
 - Dynamically calculate line drawing color (`s-line`) from palette base tones instead of hardcoded hex values.
 - Bump minimum required Emacs version to 28.1 (for `color-values-from-color-spec`).
+- Declare `solarized-selenized-light`, `solarized-selenized-white` and the new light variants as `'light` instead of `'dark`.
 
 ### New features
 

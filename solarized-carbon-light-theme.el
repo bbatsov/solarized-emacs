@@ -31,7 +31,7 @@
 (deftheme solarized-carbon-light
   "The Solarized theme with the IBM Carbon light palette.")
 
-(solarized-with-color-variables 'dark 'solarized-carbon-light
+(solarized-with-color-variables 'light 'solarized-carbon-light
   solarized-carbon-light-color-palette-alist)
 
 (provide-theme 'solarized-carbon-light)

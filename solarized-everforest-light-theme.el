@@ -31,7 +31,7 @@
 (deftheme solarized-everforest-light
   "The Solarized theme with the Everforest light palette (medium contrast).")
 
-(solarized-with-color-variables 'dark 'solarized-everforest-light
+(solarized-with-color-variables 'light 'solarized-everforest-light
   solarized-everforest-light-color-palette-alist)
 
 (provide-theme 'solarized-everforest-light)

@@ -31,7 +31,7 @@
 (deftheme solarized-apple-light
   "The Solarized theme with the Apple light palette.")
 
-(solarized-with-color-variables 'dark 'solarized-apple-light
+(solarized-with-color-variables 'light 'solarized-apple-light
   solarized-apple-light-color-palette-alist)
 
 (provide-theme 'solarized-apple-light)
