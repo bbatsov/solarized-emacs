@@ -33,6 +33,7 @@
 ;;;; Built-in
 ;;;;; basic faces
      '(button ((t (:underline t))))
+     `(child-frame-border ((,class (:background ,s-line))))
      `(cursor ((,class (:foreground ,base03 :background ,base0
                                     :inverse-video t))))
      `(default ((,class (:foreground ,base0 :background ,base03))))
@@ -56,6 +57,7 @@
      `(menu ((,class (:foreground ,base0 :background ,base03))))
      `(help-key-binding ((,class (:box (:line-width (1 . -1) :color ,s-line :style nil) :background ,base02))))
      `(minibuffer-prompt ((,class (:foreground ,base0))))
+     `(minibuffer-nonselected ((,class (:background ,yellow-2bg :foreground ,yellow-2fg :weight bold))))
      `(mode-line
        ((,class (:inverse-video unspecified
                                 :overline ,s-mode-line-bg
@@ -65,6 +67,7 @@
                                 :box (:line-width 1 :color ,s-mode-line-bg
                                                   :style nil)))))
      `(mode-line-buffer-id ((,class (:foreground ,s-mode-line-buffer-id-fg :weight bold))))
+     `(mode-line-highlight ((,class (:box (:line-width (-1 . -1) :color ,base01)))))
      `(mode-line-inactive
        ((,class (:inverse-video unspecified
                                 :overline ,s-mode-line-inactive-bc
@@ -79,13 +82,24 @@
                  :background ,base1))))
      `(secondary-selection
        ((,class (:extend t
-                 :background ,base02))))
+                         :background ,base02))))
+     `(separator-line ((,class (:background ,s-line :height 0.1))))
      `(shadow ((,class (:foreground ,base01))))
      `(success ((,class (:foreground ,green ))))
      `(trailing-whitespace ((,class (:background ,red))))
      `(vertical-border ((,class (:foreground ,s-line))))
      `(warning ((,class (:foreground ,yellow ))))
      `(next-error ((,class (:foreground ,magenta-2fg :background ,magenta-2bg :weight normal))))
+     `(confusingly-reordered ((,class (:underline (:style wave :color ,red)))))
+     `(homoglyph ((,class (:foreground ,cyan))))
+     `(icon-button ((,class (:inherit icon :background ,base02 :foreground ,base1 :box (:line-width (3 . -1) :color ,s-line :style flat-button)))))
+     `(nobreak-hyphen ((,class (:foreground ,cyan))))
+     `(tool-bar ((,class (:background ,base02 :foreground ,base0))))
+     `(tty-menu-disabled-face ((,class (:background ,base02 :foreground ,base01))))
+     `(tty-menu-enabled-face ((,class (:background ,base02 :foreground ,base1 :weight bold))))
+     `(tty-menu-selected-face ((,class (:background ,base1 :foreground ,base03 :weight bold))))
+
+
 
 ;;;;; ansi-color
      `(ansi-color-black ((,class (:foreground ,base1 :background ,base1))))
@@ -102,6 +116,12 @@
      `(ansi-color-bright-blue ((,class (:foreground ,blue-l :background ,blue-l))))
      `(ansi-color-bright-magenta ((,class (:foreground ,magenta-l :background ,magenta-l))))
      `(ansi-color-bright-cyan ((,class (:foreground ,cyan-l :background ,cyan-l))))
+     `(ansi-color-white ((,class (:background ,base2 :foreground ,base2))))
+     `(ansi-color-bright-white ((,class (:background ,base3 :foreground ,base3))))
+;;;;; bookmark
+     `(bookmark-face ((,class (:foreground ,yellow :weight bold))))
+;;;;; calendar
+     `(holiday ((,class (:background ,base02 :foreground ,yellow))))
 ;;;;; compilation
      `(compilation-column-face ((,class (:foreground ,cyan :underline nil))))
      `(compilation-column-number ((,class (:inherit font-lock-doc-face :foreground ,cyan
@@ -158,6 +178,7 @@
      `(dired-perm-write ((,class (:foreground ,base0 :underline t))))
      `(dired-symlink ((,class (:foreground ,cyan :weight normal :slant italic))))
      `(dired-warning ((,class (:foreground ,orange :underline t))))
+     `(dired-broken-symlink ((,class (:foreground ,red :weight bold :underline t))))
 ;;;;; dired-async
      `(dired-async-message ((,light-class (:background ,yellow-l ))
                             (,dark-class (:background ,yellow ))))
@@ -221,6 +242,8 @@
      `(ecb-mode-line-prefix-face ((,class (:foreground ,green))))
      `(ecb-tree-guide-line-face ((,class (:inherit ecb-default-general-face
                                                    :foreground ,base02 :height 1.0))))
+;;;;; edmacro
+     `(edmacro-label ((,class (:inherit bold :foreground ,blue))))
 ;;;;; ee
      `(ee-bookmarked ((,class (:foreground ,base1))))
      `(ee-category ((,class (:foreground ,blue))))
@@ -229,6 +252,15 @@
      `(ee-marked ((,class (:foreground ,magenta :weight bold))))
      `(ee-omitted ((,class (:foreground ,base01))))
      `(ee-shadow ((,class (:inherit shadow))))
+;;;;; elisp-mode
+     `(elisp-condition ((,class (:foreground ,red))))
+     `(elisp-major-mode-name ((,class (:foreground ,green))))
+     `(elisp-rx ((,class (:foreground ,blue))))
+     `(elisp-shorthand-font-lock-face ((,class (:inherit font-lock-keyword-face :foreground ,cyan))))
+     `(elisp-symbol-at-mouse ((,class (:background ,base02))))
+     `(elisp-symbol-role ((,class (:inherit font-lock-function-call-face :foreground ,blue))))
+     `(elisp-symbol-role-definition ((,class (:inherit font-lock-function-name-face :foreground ,blue))))
+     `(elisp-unknown-call ((,class (:inherit font-lock-function-call-face :foreground ,cyan))))
 ;;;;; enh-ruby-mode
      `(enh-ruby-string-delimiter-face ((,class (:foreground ,yellow))))
      `(enh-ruby-heredoc-delimiter-face ((,class (:inherit enh-ruby-string-delimiter-face))))
@@ -241,9 +273,13 @@
      `(grep-error-face ((,class (:foreground ,red :weight bold :underline t))))
      `(grep-hit-face ((,class (:foreground ,blue))))
      `(grep-match-face ((,class (:foreground ,orange :weight bold))))
+;;;;; ibuffer
+     `(ibuffer-locked-buffer ((,class (:foreground ,base01))))
 ;;;;; isearch
      `(isearch ((,class (:foreground ,base03 :background ,magenta :weight normal))))
      `(isearch-fail ((,class (:foreground ,red :background ,base03 :bold t))))
+     `(isearch-group-1 ((,class (:background ,cyan-1bg :foreground ,cyan-1fg))))
+     `(isearch-group-2 ((,class (:background ,blue-1bg :foreground ,blue-1fg))))
 ;;;;; man
      `(Man-overstrike ((,class (:foreground ,blue :weight bold))))
      `(Man-reverse ((,class (:foreground ,orange))))
@@ -253,8 +289,12 @@
      `(pulse-highlight-start-face ((,light-class
                                     (:background ,(solarized-color-blend yellow base03 0.4)))
                                    (,dark-class (:background ,(solarized-color-blend cyan base03 0.4)))))
+     `(pulse-highlight-face ((,class (:background ,base02 :extend t))))
 ;;;;; wid-edit
      `(widget-field ((,class (:background ,base02))))
+     `(widget-button-pressed ((,class (:foreground ,red))))
+     `(widget-documentation ((,class (:foreground ,base01 :slant italic))))
+     `(widget-single-line-field ((,class (:background ,base02))))
 ;;;;; font lock
      `(font-lock-builtin-face ((,class (:foreground ,base0 :weight ,s-maybe-bold
                                                     :slant ,s-maybe-italic))))
@@ -435,7 +475,8 @@
      `(avy-lead-face-0 ((,class (:inherit isearch :background ,violet))))
      `(avy-lead-face-1 ((,class (:inherit isearch :background ,orange))))
      `(avy-lead-face-2 ((,class (:inherit isearch :background ,cyan))))
-     `(avy-background-face ((,class (:inherit font-lock-comment-face))))
+     `(avy-background-face ((,class (:background ,base02 :foreground ,base0 :extend t))))
+     `(avy-goto-char-timer-face ((,class (:inherit isearch))))
 ;;;;; bm
      `(bm-face ((,class (:overline ,base0))))
      `(bm-fringe-face ((,class (:overline ,base0))))
@@ -615,6 +656,14 @@
                                                    :box (:line-width 2 :style pressed-button)))))
      `(custom-button-unraised ((,class (:inherit underline))))
      `(custom-button-pressed-unraised ((,class (:inherit custom-button-unraised :foreground ,magenta))))
+     `(custom-changed ((,class (:background ,blue-1bg :foreground ,blue-1fg))))
+     `(custom-comment ((,class (:background ,base02 :foreground ,base01))))
+     `(custom-invalid ((,class (:background ,red-1bg :foreground ,red-1fg :weight bold))))
+     `(custom-modified ((,class (:background ,blue-1bg :foreground ,blue-1fg))))
+     `(custom-rogue ((,class (:background ,magenta-1bg :foreground ,magenta-1fg))))
+     `(custom-set ((,class (:background ,base02 :foreground ,blue))))
+     `(custom-themed ((,class (:background ,blue-1bg :foreground ,blue-1fg))))
+     `(custom-variable-obsolete ((,class (:foreground ,base01 :strike-through t))))
 ;;;;; deadgrep
      `(deadgrep-filename-face ((,class (:foreground ,base01 :underline t))))
      `(deadgrep-match-face ((,class (:background ,base02 :foreground ,base1))))
@@ -629,6 +678,8 @@
 ;;;;; diff
      `(diff-added ((,class (:background ,s-diff-B-bg :foreground ,s-diff-B-fg))))
      `(diff-changed ((t nil)))
+     `(diff-changed-unspecified ((,class (:background ,s-diff-C-bg :foreground ,s-diff-C-fg :extend t))))
+     `(diff-error ((,class (:background ,red-2bg :foreground ,red-2fg :weight bold))))
      `(diff-removed ((,class (:background ,s-diff-A-bg :foreground ,s-diff-A-fg))))
      `(diff-refine-added ((,class (:background ,s-diff-fine-B-bg :foreground ,s-diff-fine-B-fg))))
      `(diff-refine-changed ((,class (:background ,s-diff-fine-C-bg :foreground ,s-diff-fine-C-fg))))
@@ -667,6 +718,7 @@
      `(smerge-lower ((,class (:background ,s-diff-B-bg :foreground ,s-diff-B-fg))))
      `(smerge-markers ((t (:background ,s-diff-heading-bg))))
      `(smerge-refined-added ((,class (:background ,s-diff-fine-B-bg :foreground ,s-diff-fine-B-fg))))
+     `(smerge-refined-changed ((,class (:background ,s-diff-fine-C-bg :foreground ,s-diff-fine-C-fg))))
      `(smerge-refined-removed ((,class (:background ,s-diff-fine-A-bg :foreground ,s-diff-fine-A-fg))))
      `(smerge-upper ((,class (:background ,s-diff-A-bg :foreground ,s-diff-A-fg))))
 ;;;;; edts
@@ -753,6 +805,8 @@
      `(epa-validity-high ((,class (:weight bold))))
      `(epa-validity-low ((,class (:slant italic))))
      `(epa-validity-medium ((,class (:slant italic))))
+     `(epa-field-body ((,class (:foreground ,cyan :slant italic))))
+     `(epa-field-name ((,class (:foreground ,blue :weight bold))))
 ;;;;; epc
      `(epc:face-title ((,class (:foreground ,blue :background ,base03
                                             :weight normal :underline nil))))
@@ -837,6 +891,9 @@
                                   blue-hc base01)
                              :background ,(if solarized-emphasize-indicators
                                               blue-lc s-fringe-bg) :weight bold))))
+     `(flycheck-annotate-error-background ((,class (:background ,s-diff-A-bg :extend t))))
+     `(flycheck-annotate-warning-background ((,class (:background ,yellow-1bg :extend t))))
+     `(flycheck-annotate-info-background ((,class (:background ,blue-1bg :extend t))))
 ;;;;; flymake
      `(flymake-error
        ((,(append '((supports :underline (:style wave))) class)
@@ -917,6 +974,7 @@
                          :foreground ,(if solarized-emphasize-indicators
                                           base01 s-fringe-fg)
                          :background ,s-fringe-bg))))
+     `(git-gutter:separator ((,class (:foreground ,s-line :weight bold))))
 ;;;;; git-gutter-fr
      `(git-gutter-fr:added ((,class (:foreground ,green  :weight bold))))
      `(git-gutter-fr:deleted ((,class (:foreground ,red :weight bold))))
@@ -1223,6 +1281,7 @@
      `(ivy-minibuffer-match-face-3 ((,class (:foreground ,yellow))))
      `(ivy-minibuffer-match-face-4 ((,class (:foreground ,yellow))))
      `(ivy-remote ((,class (:foreground ,blue))))
+     `(ivy-cursor ((,class (:background ,base0 :foreground ,base03))))
 ;;;;; jabber
      `(jabber-activity-face ((,class (:weight bold :foreground ,red))))
      `(jabber-activity-personal-face ((,class (:weight bold :foreground ,blue))))
@@ -1309,6 +1368,20 @@
      `(line-number-minor-tick ((,class (:inherit line-number :weight normal))))
      `(line-number-major-tick ((,class (:inherit line-number-minor-tick :weight bold))))
      `(line-number-current-line ((,class (:inherit line-number :background ,base03 :foreground ,base0))))
+;;;;; llama
+     `(llama-deleted-argument ((,class (:box (:line-width (-1 . -1) :color ,red :style nil)))))
+;;;;; lsp-mode
+     `(lsp-headerline-breadcrumb-path-error-face ((,class (:inherit lsp-headerline-breadcrumb-path-face :underline (:style wave :color ,red)))))
+     `(lsp-headerline-breadcrumb-path-warning-face ((,class (:inherit lsp-headerline-breadcrumb-path-face :underline (:style wave :color ,yellow)))))
+     `(lsp-headerline-breadcrumb-path-info-face ((,class (:inherit lsp-headerline-breadcrumb-path-face :underline (:style wave :color ,blue)))))
+     `(lsp-headerline-breadcrumb-path-hint-face ((,class (:inherit lsp-headerline-breadcrumb-path-face :underline (:style wave :color ,cyan)))))
+     `(lsp-headerline-breadcrumb-symbols-error-face ((,class (:inherit lsp-headerline-breadcrumb-symbols-face :underline (:style wave :color ,red)))))
+     `(lsp-headerline-breadcrumb-symbols-warning-face ((,class (:inherit lsp-headerline-breadcrumb-symbols-face :underline (:style wave :color ,yellow)))))
+     `(lsp-headerline-breadcrumb-symbols-info-face ((,class (:inherit lsp-headerline-breadcrumb-symbols-face :underline (:style wave :color ,blue)))))
+     `(lsp-headerline-breadcrumb-symbols-hint-face ((,class (:inherit lsp-headerline-breadcrumb-symbols-face :underline (:style wave :color ,cyan)))))
+     `(lsp-installation-buffer-face ((,class (:foreground ,blue))))
+     `(lsp-installation-finished-buffer-face ((,class (:foreground ,green))))
+     `(lsp-modeline-code-actions-preferred-face ((,class (:foreground ,yellow :weight bold))))
 ;;;;; lsp-ui
      `(lsp-ui-doc-background ((,class (:background ,base03))))
      `(lsp-ui-doc-header ((,class (:background ,yellow-1bg :foreground ,yellow-1fg))))
@@ -1317,11 +1390,21 @@
      `(lsp-ui-sideline-current-symbol ((,class (:foreground ,magenta :weight normal))))
      `(lsp-ui-sideline-global ((,class (:underline ,s-line))))
      `(lsp-ui-sideline-symbol ((,class (:foreground ,base1 :background ,base02))))
+     `(lsp-ui-peek-filename ((,class (:foreground ,blue))))
+     `(lsp-ui-peek-footer ((,class (:inherit lsp-ui-peek-header))))
+     `(lsp-ui-peek-header ((,class (:background ,base02 :foreground ,base1 :weight bold))))
+     `(lsp-ui-peek-highlight ((,class (:background ,base02 :box (:line-width -1 :color ,magenta)))))
+     `(lsp-ui-peek-line-number ((,class (:foreground ,base01))))
+     `(lsp-ui-peek-list ((,class (:background ,base02))))
+     `(lsp-ui-peek-peek ((,class (:background ,base03))))
+     `(lsp-ui-peek-selection ((,class (:background ,base1 :foreground ,base03 :weight bold))))
 ;;;;; lusty-explorer
      `(lusty-directory-face ((,class (:inherit dired-directory))))
      `(lusty-file-face ((,class nil)))
      `(lusty-match-face ((,class (:inherit ido-first-match))))
      `(lusty-slash-face ((,class (:foreground ,cyan :weight bold))))
+;;;;; lv
+     `(lv-separator ((,class (:background ,s-line))))
 ;;;;; macrostep
      `(macrostep-expansion-highlight-face ((,class (:background ,base02))))
 ;;;;; magit
@@ -1388,6 +1471,12 @@
                  :foreground ,red-1fg))))
      `(magit-diffstat-added   ((t (:foreground ,s-diffstat-added-fg))))
      `(magit-diffstat-removed ((t (:foreground ,s-diffstat-removed-fg))))
+     `(magit-diff-added-indicator ((,class (:foreground ,green))))
+     `(magit-diff-removed-indicator ((,class (:foreground ,red))))
+     `(magit-diff-our-heading ((,class (:background ,s-diff-A-bg :foreground ,s-diff-A-fg :extend t))))
+     `(magit-diff-their-heading ((,class (:background ,s-diff-B-bg :foreground ,s-diff-B-fg :extend t))))
+     `(magit-diff-base-heading ((,class (:background ,s-diff-Ancestor-bg :foreground ,s-diff-Ancestor-fg :extend t))))
+     `(magit-diff-base-indicator ((,class (:foreground ,yellow))))
 ;;;;;; process
      `(magit-process-ok    ((t (:foreground ,green :weight bold))))
      `(magit-process-ng    ((t (:foreground ,red   :weight bold))))
@@ -1443,6 +1532,9 @@
      `(magit-reflog-cherry-pick  ((t (:foreground ,green))))
      `(magit-reflog-remote       ((t (:foreground ,cyan))))
      `(magit-reflog-other        ((t (:foreground ,cyan))))
+     `(magit-signature-error     ((t (:foreground ,red :weight bold))))
+     `(magit-signature-expired   ((t (:foreground ,yellow))))
+     `(magit-signature-revoked   ((t (:foreground ,red))))
 ;;;;; magit-popup
      `(magit-popup-heading             ((t (:foreground ,yellow  :weight bold))))
      `(magit-popup-key                 ((t (:foreground ,base1   :weight bold))))
@@ -1520,6 +1612,7 @@
      `(markdown-pre-face ((,class (:foreground ,base01))))
      `(markdown-reference-face ((,class (:inherit default :foreground ,base01))))
      `(markdown-url-face ((,class (:foreground ,base01))))
+     `(markdown-highlighting-face ((,class (:background ,base02 :foreground ,yellow))))
 ;;;;; message-mode
      `(message-cited-text ((,class (:foreground ,base01))))
      `(message-header-name ((,class (:foreground ,base01))))
@@ -1789,6 +1882,10 @@
      `(org-footnote ((,class (:foreground ,magenta :underline t))))
      `(org-latex-and-export-specials ((,class (:foreground ,orange))))
      `(org-mode-line-clock-overrun ((,class (:inherit mode-line :background ,red))))
+     `(org-dispatcher-highlight ((,class (:background ,base02 :foreground ,yellow :weight bold))))
+     `(org-headline-todo ((,class (:foreground ,cyan :weight bold))))
+     `(org-latex-and-related ((,class (:foreground ,yellow-hc))))
+     `(org-table-header ((,class (:inherit org-table :background ,base02 :foreground ,base1 :weight bold))))
 ;;;;; outline
      `(outline-1 ((,class (:inherit ,s-variable-pitch :foreground ,orange
                                     ,@(and solarized-scale-outline-headlines
@@ -1958,6 +2055,8 @@
      `(sp-show-pair-mismatch-face
        ((,class (:foreground ,base02 :background ,red
                              :weight ,s-maybe-bold))))
+     `(sp-wrap-overlay-closing-pair ((,class (:foreground ,red :weight bold))))
+     `(sp-wrap-overlay-opening-pair ((,class (:foreground ,green :weight bold))))
 ;;;;; spaceline
      `(spaceline-highlight-face ((,class (:foreground ,base1 :background ,yellow-lc))))
      `(spaceline-flycheck-error ((,class (:foreground ,red))))
@@ -2087,6 +2186,7 @@
 ;;;;; tab-bar
      `(tab-bar ((t (:background ,base03 :foreground ,base0))))
      `(tab-bar-tab ((t (:background ,base03 :foreground ,base1))))
+     `(tab-bar-tab-highlight ((,class (:background ,base02 :foreground ,base1 :underline t))))
      `(tab-bar-tab-inactive ((t (:background ,base02 :foreground ,base01))))
 ;;;;; tabbar
      `(tabbar-default ((,class (:foreground ,base0 :background ,base03))))
@@ -2144,6 +2244,13 @@
 ;;;;; transient
      `(transient-heading             ((t (:foreground ,yellow  :weight bold))))
      `(transient-key                 ((t (:foreground ,base1   :weight bold))))
+     `(transient-key-stay            ((t (:inherit transient-key :foreground ,green))))
+     `(transient-key-return          ((t (:inherit transient-key :foreground ,cyan))))
+     `(transient-key-exit            ((t (:inherit transient-key :foreground ,yellow))))
+     `(transient-key-recurse         ((t (:inherit transient-key :foreground ,blue))))
+     `(transient-key-stack           ((t (:inherit transient-key :foreground ,blue))))
+     `(transient-key-noop            ((t (:inherit transient-key :foreground ,base01 :weight normal))))
+     `(transient-higher-level        ((t (:box (:line-width (-1 . -1) :color ,s-line)))))
      `(transient-argument            ((t (:foreground ,cyan    :weight bold))))
      `(transient-value               ((t (:foreground ,cyan    :weight bold))))
      `(transient-inactive-argument   ((t (:foreground ,base01  :weight normal))))
@@ -2161,7 +2268,15 @@
      `(transient-mismatched-key
        ((t (:underline nil :background ,(solarized-color-blend red-l s-base3 0.2)))))
      `(transient-separator           ((t (:extend t
-                                          :background ,s-line))))
+                                                  :background ,s-line))))
+;;;;; treemacs
+     `(treemacs-fringe-indicator-face ((,class (:foreground ,base01))))
+     `(treemacs-marked-file-face ((,class (:background ,base02 :foreground ,yellow :weight bold))))
+     `(treemacs-on-success-pulse-face ((,class (:background ,green-1bg :extend t))))
+     `(treemacs-on-failure-pulse-face ((,class (:background ,red-1bg :extend t))))
+     `(treemacs-peek-mode-indicator-face ((,class (:background ,green))))
+
+
 ;;;;; tuareg
      `(tuareg-font-lock-governing-face ((,class (:foreground ,magenta :weight bold))))
      `(tuareg-font-lock-multistage-face ((,class (:foreground ,blue :background ,base02
@@ -2428,7 +2543,12 @@
      `(hl-bg-colors '(,yellow-lc ,orange-lc ,red-lc ,magenta-lc
                                  ,violet-lc ,blue-lc ,cyan-lc ,green-lc))
 ;;;;; lsp-mode
+     `(lsp-diagnostics-attributes
+       '((unnecessary :foreground ,base01)
+         (deprecated :strike-through t)))
+;;;;; lsp-ui
      `(lsp-ui-doc-border ,base1)
+     `(lsp-ui-imenu-colors '(,cyan ,blue ,green))
 ;;;;; pos-tip
      `(pos-tip-foreground-color ,base1)
      `(pos-tip-background-color ,base02)
