@@ -175,6 +175,59 @@ others use.")
       (dolist (pair (symbol-value (cdr entry)))
         (expect (solarized-test--hex-p (cdr pair)) :to-be-truthy)))))
 
+;;; Color conversion
+;;
+;; The suite runs in batch, where `color-name-to-rgb' rounds to the few
+;; colors a terminal frame has (#284b54 comes back as pure blue).
+
+(describe "color conversion"
+  (it "reads hex colors and color names whatever the frame"
+    (expect (solarized-color-name-to-rgb "#284b54")
+            :to-equal (list (/ #x2828 65535.0) (/ #x4b4b 65535.0) (/ #x5454 65535.0)))
+    (expect (solarized-color-name-to-rgb "gray20") :to-equal '(0.2 0.2 0.2))
+    (expect (solarized-color-name-to-rgb "Light Slate Gray")
+            :to-equal (solarized-color-name-to-rgb "lightslategray")))
+
+  (it "signals an error for something that is not a color"
+    (expect (solarized-color-name-to-rgb "#28b54") :to-throw 'error)))
+
+;;; Line color
+
+(defun solarized-test--forget-theme (theme)
+  "Remove every trace of THEME, a theme the test defined itself."
+  (when (custom-theme-enabled-p theme)
+    (disable-theme theme))
+  (mapatoms (lambda (sym)
+              (when (get sym 'theme-face)
+                (put sym 'theme-face (assq-delete-all theme (get sym 'theme-face))))))
+  (put theme 'theme-settings nil)
+  (setq custom-known-themes (delq theme custom-known-themes)))
+
+(describe "line color (s-line)"
+  (after-each
+    (dolist (v solarized-test--variants)
+      (when (custom-theme-enabled-p v)
+        (disable-theme v))))
+
+  (it "follows the palette rather than staying Solarized cyan"
+    (let-alist solarized-gruvbox-dark-color-palette-alist
+      (solarized-test--reload 'solarized-gruvbox-dark)
+      (expect (solarized-test--face-attr 'vertical-border 'solarized-gruvbox-dark :foreground)
+              :to-equal (solarized-color-blend .base01 .base02 0.35 2))))
+
+  (it "uses the palette's own s-line entry when it has one"
+    (unwind-protect
+        (progn
+          (eval `(progn
+                   (deftheme solarized-test-s-line)
+                   (solarized-with-color-variables 'dark 'solarized-test-s-line
+                     ',(cons '(s-line . "#123456") solarized-dark-color-palette-alist)))
+                t)
+          (enable-theme 'solarized-test-s-line)
+          (expect (solarized-test--face-attr 'vertical-border 'solarized-test-s-line :foreground)
+                  :to-equal "#123456"))
+      (solarized-test--forget-theme 'solarized-test-s-line))))
+
 ;;; Syntax highlighting has to be readable on the background
 ;;
 ;; This is the contrast that matters most and is measured least: whether the

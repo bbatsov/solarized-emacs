@@ -4,6 +4,7 @@
 
 ### Changes
 
+- Dynamically calculate line drawing color (`s-line`) from palette base tones instead of hardcoded hex values.
 - Bump minimum required Emacs version to 28.1 (for `color-values-from-color-spec`).
 
 ### New features
