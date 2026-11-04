@@ -31,7 +31,7 @@
 (deftheme solarized-flexoki-light
   "The Solarized theme with the Flexoki light palette.")
 
-(solarized-with-color-variables 'dark 'solarized-flexoki-light
+(solarized-with-color-variables 'light 'solarized-flexoki-light
   solarized-flexoki-light-color-palette-alist)
 
 (provide-theme 'solarized-flexoki-light)

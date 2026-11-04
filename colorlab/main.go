@@ -63,6 +63,10 @@ var (
 		BackgroundBlendFinder:      cl.ExtremeColorBgFinder,
 	}
 
+	// Light palettes keep the solarized slot order: the dark colors go in
+	// Base03..Base00 and the light background and text in Base3..Base0, set
+	// Inverse so the accent pairs are generated against the light background,
+	// and their theme files pass 'light so the bases are swapped at load time.
 	palettes = []cl.Palette{
 		{
 			Name:      "solarized-dark",
@@ -158,12 +162,14 @@ var (
 		{
 			Name:        "selenized-light",
 			Solarized:   selenizedLight,
+			Inverse:     true,
 			Accent1Pair: default1BgFg,
 			Accent2Pair: default2BgFg,
 		},
 		{
 			Name:        "selenized-white",
 			Solarized:   selenizedWhite,
+			Inverse:     true,
 			Accent1Pair: default1BgFg,
 			Accent2Pair: default2BgFg,
 		},
@@ -176,6 +182,7 @@ var (
 		{
 			Name:        "everforest-light",
 			Solarized:   everforestLight,
+			Inverse:     true,
 			Accent1Pair: default1BgFg,
 			Accent2Pair: default2BgFg,
 		},
@@ -188,6 +195,7 @@ var (
 		{
 			Name:        "flexoki-light",
 			Solarized:   flexokiLight,
+			Inverse:     true,
 			Accent1Pair: default1BgFg,
 			Accent2Pair: default2BgFg,
 		},
@@ -206,6 +214,7 @@ var (
 		{
 			Name:        "kanagawa-lotus",
 			Solarized:   kanagawaLotus,
+			Inverse:     true,
 			Accent1Pair: default1BgFg,
 			Accent2Pair: default2BgFg,
 		},
@@ -218,12 +227,14 @@ var (
 		{
 			Name:        "dayfox",
 			Solarized:   dayfox,
+			Inverse:     true,
 			Accent1Pair: default1BgFg,
 			Accent2Pair: default2BgFg,
 		},
 		{
 			Name:        "dawnfox",
 			Solarized:   dawnfox,
+			Inverse:     true,
 			Accent1Pair: default1BgFg,
 			Accent2Pair: default2BgFg,
 		},
@@ -260,6 +271,7 @@ var (
 		{
 			Name:        "carbon-light",
 			Solarized:   carbonLight,
+			Inverse:     true,
 			Accent1Pair: default1BgFg,
 			Accent2Pair: default2BgFg,
 		},
@@ -272,6 +284,7 @@ var (
 		{
 			Name:        "apple-light",
 			Solarized:   appleLight,
+			Inverse:     true,
 			Accent1Pair: default1BgFg,
 			Accent2Pair: default2BgFg,
 		},
@@ -467,14 +480,14 @@ var (
 	}
 	selenizedLight = cl.Solarized{
 		Base: cl.Base{
-			Base03: "#fbf3db",
-			Base02: "#ece3cc",
-			Base01: "#909995",
-			Base00: "#fbf3db",
-			Base0:  "#53676d",
-			Base1:  "#3a4d53",
-			Base2:  "#adbcbc",
-			Base3:  "#cad8d9",
+			Base03: "#cad8d9",
+			Base02: "#adbcbc",
+			Base01: "#3a4d53",
+			Base00: "#53676d",
+			Base0:  "#fbf3db",
+			Base1:  "#909995",
+			Base2:  "#ece3cc",
+			Base3:  "#fbf3db",
 		},
 		Accents: cl.Accents{
 			Blue:    "#0072d4",
@@ -489,14 +502,14 @@ var (
 	}
 	selenizedWhite = cl.Solarized{
 		Base: cl.Base{
-			Base03: "#ffffff",
-			Base02: "#ebebeb",
-			Base01: "#878787",
-			Base00: "#ffffff",
-			Base0:  "#474747",
-			Base1:  "#282828",
-			Base2:  "#b9b9b9",
-			Base3:  "#dedede",
+			Base03: "#dedede",
+			Base02: "#b9b9b9",
+			Base01: "#282828",
+			Base00: "#474747",
+			Base0:  "#ffffff",
+			Base1:  "#878787",
+			Base2:  "#ebebeb",
+			Base3:  "#ffffff",
 		},
 		Accents: cl.Accents{
 			Blue:    "#0064e4",
@@ -536,19 +549,19 @@ var (
 		},
 	}
 
-	// Everforest light, medium contrast (sainnhe/everforest). Base00, which some faces use as
+	// Everforest light, medium contrast (sainnhe/everforest). Base0, which some faces use as
 	// text, is the comment color rather than the background. Everforest has one
 	// purple, Magenta; Violet is that purple turned toward blue (OKLCH hue 300).
 	everforestLight = cl.Solarized{
 		Base: cl.Base{
-			Base03: "#fdf6e3",
-			Base02: "#f4f0d9",
-			Base01: "#939f91",
-			Base00: "#939f91",
-			Base0:  "#5c6a72",
-			Base1:  "#5c6a72",
-			Base2:  "#d3c6aa",
-			Base3:  "#d3c6aa",
+			Base03: "#d3c6aa",
+			Base02: "#d3c6aa",
+			Base01: "#5c6a72",
+			Base00: "#5c6a72",
+			Base0:  "#939f91",
+			Base1:  "#939f91",
+			Base2:  "#f4f0d9",
+			Base3:  "#fdf6e3",
 		},
 		Accents: cl.Accents{
 			Blue:    "#3a94c5",
@@ -587,18 +600,18 @@ var (
 		},
 	}
 
-	// Flexoki light (stephango.com/flexoki): paper, bg-2, tx-3, tx and the 600 accents. Base00, which some faces use as
+	// Flexoki light (stephango.com/flexoki): paper, bg-2, tx-3, tx and the 600 accents. Base0, which some faces use as
 	// text, is the comment color rather than the background.
 	flexokiLight = cl.Solarized{
 		Base: cl.Base{
-			Base03: "#fffcf0",
-			Base02: "#f2f0e5",
-			Base01: "#b7b5ac",
-			Base00: "#b7b5ac",
-			Base0:  "#100f0f",
-			Base1:  "#100f0f",
-			Base2:  "#cecdc3",
-			Base3:  "#cecdc3",
+			Base03: "#cecdc3",
+			Base02: "#cecdc3",
+			Base01: "#100f0f",
+			Base00: "#100f0f",
+			Base0:  "#b7b5ac",
+			Base1:  "#b7b5ac",
+			Base2:  "#f2f0e5",
+			Base3:  "#fffcf0",
 		},
 		Accents: cl.Accents{
 			Blue:    "#205ea6",
@@ -666,19 +679,19 @@ var (
 		},
 	}
 
-	// Kanagawa lotus (rebelot/kanagawa.nvim). Base00, which some faces use as
+	// Kanagawa lotus (rebelot/kanagawa.nvim). Base0, which some faces use as
 	// text, is the comment color rather than the background. Violet is lotusBlue5,
 	// as lotusViolet4 is the terminal's bright magenta.
 	kanagawaLotus = cl.Solarized{
 		Base: cl.Base{
-			Base03: "#f2ecbc",
-			Base02: "#e7dba0",
-			Base01: "#8a8980",
-			Base00: "#8a8980",
-			Base0:  "#545464",
-			Base1:  "#43436c",
-			Base2:  "#dcd7ba",
-			Base3:  "#dcd7ba",
+			Base03: "#dcd7ba",
+			Base02: "#dcd7ba",
+			Base01: "#43436c",
+			Base00: "#545464",
+			Base0:  "#8a8980",
+			Base1:  "#8a8980",
+			Base2:  "#e7dba0",
+			Base3:  "#f2ecbc",
 		},
 		Accents: cl.Accents{
 			Blue:    "#4d699b",
@@ -692,9 +705,11 @@ var (
 		},
 	}
 
-	// Nightfox palettes (EdenEast/nightfox.nvim): Base03 is bg1, Base02 bg2 (bg0
-	// in the light variants), Base01 and Base00 the comment color, Base0 fg1 and
-	// Base1 fg0. Its purple ("magenta") is Violet and its pink Magenta.
+	// Nightfox palettes (EdenEast/nightfox.nvim): Base03 is bg1, Base02 bg2,
+	// Base01 and Base00 the comment color, Base0 fg1 and Base1 fg0. The light
+	// variants mirror this: Base3 is bg1, Base2 bg0, Base1 and Base0 the comment
+	// color, Base00 fg1 and Base01 fg0. Its purple ("magenta") is Violet and its
+	// pink Magenta.
 
 	// Nightfox. Base2 and Base3 are dayfox's backgrounds.
 	nightfox = cl.Solarized{
@@ -723,14 +738,14 @@ var (
 	// Dayfox.
 	dayfox = cl.Solarized{
 		Base: cl.Base{
-			Base03: "#f6f2ee",
-			Base02: "#e4dcd4",
-			Base01: "#837a72",
-			Base00: "#837a72",
-			Base0:  "#3d2b5a",
-			Base1:  "#302b5d",
-			Base2:  "#cdcecf",
-			Base3:  "#cdcecf",
+			Base03: "#cdcecf",
+			Base02: "#cdcecf",
+			Base01: "#302b5d",
+			Base00: "#3d2b5a",
+			Base0:  "#837a72",
+			Base1:  "#837a72",
+			Base2:  "#e4dcd4",
+			Base3:  "#f6f2ee",
 		},
 		Accents: cl.Accents{
 			Blue:    "#2848a9",
@@ -749,14 +764,14 @@ var (
 	//     hue), in line with the other accents.
 	dawnfox = cl.Solarized{
 		Base: cl.Base{
-			Base03: "#faf4ed",
-			Base02: "#ebe5df",
-			Base01: "#9893a5",
-			Base00: "#9893a5",
-			Base0:  "#575279",
-			Base1:  "#4c4769",
-			Base2:  "#e0def4",
-			Base3:  "#e0def4",
+			Base03: "#e0def4",
+			Base02: "#e0def4",
+			Base01: "#4c4769",
+			Base00: "#575279",
+			Base0:  "#9893a5",
+			Base1:  "#9893a5",
+			Base2:  "#ebe5df",
+			Base3:  "#faf4ed",
 		},
 		Accents: cl.Accents{
 			Blue:    "#286983",
@@ -876,7 +891,7 @@ var (
 
 	// IBM Carbon (carbon-design-system/carbon), from its g100 and white themes:
 	// Base03 is background, Base02 layer-01, Base0 text-secondary and Base1
-	// text-primary. Each accent family is taken at one grade, which Carbon
+	// text-primary (Base3, Base2, Base00 and Base01 in the light theme). Each accent family is taken at one grade, which Carbon
 	// keeps at equal contrast across families; Cyan is teal, as Carbon's cyan
 	// is close to its blue, and Violet is purple.
 
@@ -911,14 +926,14 @@ var (
 	//   - Blue: cyan 60, as blue 60 is far more saturated than the others.
 	carbonLight = cl.Solarized{
 		Base: cl.Base{
-			Base03: "#ffffff",
-			Base02: "#f4f4f4",
-			Base01: "#8d8d8d",
-			Base00: "#8d8d8d",
-			Base0:  "#525252",
-			Base1:  "#161616",
-			Base2:  "#c6c6c6",
-			Base3:  "#c6c6c6",
+			Base03: "#c6c6c6",
+			Base02: "#c6c6c6",
+			Base01: "#161616",
+			Base00: "#525252",
+			Base0:  "#8d8d8d",
+			Base1:  "#8d8d8d",
+			Base2:  "#f4f4f4",
+			Base3:  "#ffffff",
 		},
 		Accents: cl.Accents{
 			Blue:    "#0072c3",
@@ -933,9 +948,10 @@ var (
 	}
 
 	// Apple Human Interface Guidelines colors (June 2025 values): Base03 is
-	// gray 6 (white in light), Base02 gray 5 (gray 6), Base01 and Base00 system
-	// gray, Base0 the secondary label color (without its opacity) and Base1 the
-	// primary label. Magenta is purple, Violet indigo and Cyan mint, as pink is
+	// gray 6, Base02 gray 5, Base01 and Base00 system gray, Base0 the secondary
+	// label color (without its opacity) and Base1 the primary label. The light
+	// palette mirrors this: Base3 is white, Base2 gray 6, Base1 and Base0 system
+	// gray, Base00 the secondary label and Base01 the primary label. Magenta is purple, Violet indigo and Cyan mint, as pink is
 	// close to red and teal and cyan to blue.
 
 	// Apple dark: system colors. Base2 and Base3 are the light backgrounds.
@@ -966,14 +982,14 @@ var (
 	// green and mint are under 2.4:1 on white.
 	appleLight = cl.Solarized{
 		Base: cl.Base{
-			Base03: "#ffffff",
-			Base02: "#f2f2f7",
-			Base01: "#8e8e93",
-			Base00: "#8e8e93",
-			Base0:  "#3c3c43",
-			Base1:  "#000000",
-			Base2:  "#ebebf5",
-			Base3:  "#ebebf5",
+			Base03: "#ebebf5",
+			Base02: "#ebebf5",
+			Base01: "#000000",
+			Base00: "#3c3c43",
+			Base0:  "#8e8e93",
+			Base1:  "#8e8e93",
+			Base2:  "#f2f2f7",
+			Base3:  "#ffffff",
 		},
 		Accents: cl.Accents{
 			Blue:    "#1e6ef4",

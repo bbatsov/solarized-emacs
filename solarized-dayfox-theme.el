@@ -31,7 +31,7 @@
 (deftheme solarized-dayfox
   "The Solarized theme with the Dayfox palette.")
 
-(solarized-with-color-variables 'dark 'solarized-dayfox
+(solarized-with-color-variables 'light 'solarized-dayfox
   solarized-dayfox-color-palette-alist)
 
 (provide-theme 'solarized-dayfox)

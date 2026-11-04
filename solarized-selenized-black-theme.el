@@ -28,7 +28,7 @@
 (deftheme solarized-selenized-black
   "The black variant of the Solarized colour theme with selenized color palette")
 
-(solarized-with-color-variables 'black 'solarized-selenized-black
+(solarized-with-color-variables 'dark 'solarized-selenized-black
   solarized-selenized-black-color-palette-alist)
 
 (provide-theme 'solarized-selenized-black)
