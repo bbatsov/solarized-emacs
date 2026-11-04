@@ -19,7 +19,7 @@ Here are the two canonical variants:
 You can find some more screenshots of Solarized for Emacs
 [here](https://emacsthemes.com/themes/solarized-themes.html).
 
-Solarized for Emacs supports officially Emacs 24+. The theme is implemented
+Solarized for Emacs officially requires Emacs 28.1+. The theme is implemented
 in terms of customisations and `deftheme` and does not require the
 `color-theme-package`.
 

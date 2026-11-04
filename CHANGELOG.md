@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Changes
+
+- Bump minimum required Emacs version to 28.1 (for `color-values-from-color-spec`).
+
 ### New features
 
 - Add the `solarized-everforest-dark` and `solarized-everforest-light`, `solarized-flexoki-dark` and `solarized-flexoki-light`, and `solarized-kanagawa-wave`, `solarized-kanagawa-dragon` and `solarized-kanagawa-lotus` variants.
