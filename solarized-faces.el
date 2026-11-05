@@ -33,6 +33,7 @@
 ;;;; Built-in
 ;;;;; basic faces
      '(button ((t (:underline t))))
+     `(child-frame-border ((,class (:background ,s-line))))
      `(cursor ((,class (:foreground ,base03 :background ,base0
                                     :inverse-video t))))
      `(default ((,class (:foreground ,base0 :background ,base03))))
@@ -56,6 +57,7 @@
      `(menu ((,class (:foreground ,base0 :background ,base03))))
      `(help-key-binding ((,class (:box (:line-width (1 . -1) :color ,s-line :style nil) :background ,base02))))
      `(minibuffer-prompt ((,class (:foreground ,base0))))
+     `(minibuffer-nonselected ((,class (:background ,yellow-2bg :foreground ,yellow-2fg :weight bold))))
      `(mode-line
        ((,class (:inverse-video unspecified
                                 :overline ,s-mode-line-bg
@@ -65,6 +67,7 @@
                                 :box (:line-width 1 :color ,s-mode-line-bg
                                                   :style nil)))))
      `(mode-line-buffer-id ((,class (:foreground ,s-mode-line-buffer-id-fg :weight bold))))
+     `(mode-line-highlight ((,class (:box (:line-width (-1 . -1) :color ,base01)))))
      `(mode-line-inactive
        ((,class (:inverse-video unspecified
                                 :overline ,s-mode-line-inactive-bc
@@ -79,13 +82,16 @@
                  :background ,base1))))
      `(secondary-selection
        ((,class (:extend t
-                 :background ,base02))))
+                         :background ,base02))))
+     `(separator-line ((,class (:background ,s-line :height 0.1))))
      `(shadow ((,class (:foreground ,base01))))
      `(success ((,class (:foreground ,green ))))
      `(trailing-whitespace ((,class (:background ,red))))
      `(vertical-border ((,class (:foreground ,s-line))))
      `(warning ((,class (:foreground ,yellow ))))
      `(next-error ((,class (:foreground ,magenta-2fg :background ,magenta-2bg :weight normal))))
+
+
 
 ;;;;; ansi-color
      `(ansi-color-black ((,class (:foreground ,base1 :background ,base1))))
@@ -629,6 +635,8 @@
 ;;;;; diff
      `(diff-added ((,class (:background ,s-diff-B-bg :foreground ,s-diff-B-fg))))
      `(diff-changed ((t nil)))
+     `(diff-changed-unspecified ((,class (:background ,s-diff-C-bg :foreground ,s-diff-C-fg :extend t))))
+     `(diff-error ((,class (:background ,red-2bg :foreground ,red-2fg :weight bold))))
      `(diff-removed ((,class (:background ,s-diff-A-bg :foreground ,s-diff-A-fg))))
      `(diff-refine-added ((,class (:background ,s-diff-fine-B-bg :foreground ,s-diff-fine-B-fg))))
      `(diff-refine-changed ((,class (:background ,s-diff-fine-C-bg :foreground ,s-diff-fine-C-fg))))
@@ -667,6 +675,7 @@
      `(smerge-lower ((,class (:background ,s-diff-B-bg :foreground ,s-diff-B-fg))))
      `(smerge-markers ((t (:background ,s-diff-heading-bg))))
      `(smerge-refined-added ((,class (:background ,s-diff-fine-B-bg :foreground ,s-diff-fine-B-fg))))
+     `(smerge-refined-changed ((,class (:background ,s-diff-fine-C-bg :foreground ,s-diff-fine-C-fg))))
      `(smerge-refined-removed ((,class (:background ,s-diff-fine-A-bg :foreground ,s-diff-fine-A-fg))))
      `(smerge-upper ((,class (:background ,s-diff-A-bg :foreground ,s-diff-A-fg))))
 ;;;;; edts
@@ -2087,6 +2096,7 @@
 ;;;;; tab-bar
      `(tab-bar ((t (:background ,base03 :foreground ,base0))))
      `(tab-bar-tab ((t (:background ,base03 :foreground ,base1))))
+     `(tab-bar-tab-highlight ((,class (:background ,base02 :foreground ,base1))))
      `(tab-bar-tab-inactive ((t (:background ,base02 :foreground ,base01))))
 ;;;;; tabbar
      `(tabbar-default ((,class (:foreground ,base0 :background ,base03))))
@@ -2144,6 +2154,13 @@
 ;;;;; transient
      `(transient-heading             ((t (:foreground ,yellow  :weight bold))))
      `(transient-key                 ((t (:foreground ,base1   :weight bold))))
+     `(transient-key-stay            ((t (:inherit transient-key :foreground ,green))))
+     `(transient-key-return          ((t (:inherit transient-key :foreground ,yellow))))
+     `(transient-key-exit            ((t (:inherit transient-key :foreground ,red))))
+     `(transient-key-recurse         ((t (:inherit transient-key :foreground ,blue))))
+     `(transient-key-stack           ((t (:inherit transient-key :foreground ,magenta))))
+     `(transient-key-noop            ((t (:inherit transient-key :foreground ,base01))))
+     `(transient-higher-level        ((t (:box (:line-width (-1 . -1) :color ,s-line)))))
      `(transient-argument            ((t (:foreground ,cyan    :weight bold))))
      `(transient-value               ((t (:foreground ,cyan    :weight bold))))
      `(transient-inactive-argument   ((t (:foreground ,base01  :weight normal))))
@@ -2161,7 +2178,9 @@
      `(transient-mismatched-key
        ((t (:underline nil :background ,(solarized-color-blend red-l s-base3 0.2)))))
      `(transient-separator           ((t (:extend t
-                                          :background ,s-line))))
+                                                  :background ,s-line))))
+
+
 ;;;;; tuareg
      `(tuareg-font-lock-governing-face ((,class (:foreground ,magenta :weight bold))))
      `(tuareg-font-lock-multistage-face ((,class (:foreground ,blue :background ,base02
