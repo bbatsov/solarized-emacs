@@ -22,7 +22,7 @@
 ;; This utility generates color palette lists for use in themes and updates
 ;; solarized-palettes.el.
 ;;
-;; It translates color palette generation into Elisp, using CIE L*a*b* color
+;; It translates color palette generation into Elisp, using Oklab color
 ;; space blending and lightness adjustments to compute the accent pairs and
 ;; light/dark variants.
 ;;
@@ -253,12 +253,12 @@ L is in [0.0..1.0], C >= 0.0, and h is hue angle in [0.0..360.0)."
     (colorlab-rgb-to-hex (colorlab-hsl-to-rgb (list h s l)))))
 
 (defun colorlab-change-lightness (hex amount)
-  "Adjust lightness of HEX color by AMOUNT in L*a*b* space."
-  (let* ((lab (colorlab-hex-to-lab hex))
-         (l (+ (nth 0 lab) amount))
-         (a (nth 1 lab))
-         (b (nth 2 lab)))
-    (colorlab-lab-to-hex (list l a b))))
+  "Adjust lightness of HEX color by AMOUNT in Oklab space."
+  (let* ((oklab (colorlab-hex-to-oklab hex))
+         (l (min 1.0 (max 0.0 (+ (nth 0 oklab) amount))))
+         (a (nth 1 oklab))
+         (b (nth 2 oklab)))
+    (colorlab-oklab-to-hex (list l a b))))
 
 ;;; Oklab & Oklch color spaces (Björn Ottosson)
 
@@ -404,7 +404,7 @@ Lightness and hue are preserved."
       ("base3"  . ,b3))))
 
 (defun colorlab-change-accents-lightness (accents amount)
-  "Adjust lightness of all ACCENTS by AMOUNT in L*a*b* space."
+  "Adjust lightness of all ACCENTS by AMOUNT in Oklab space."
   (mapcar (lambda (pair)
             (cons (car pair)
                   (colorlab-change-lightness (cdr pair) amount)))
@@ -457,14 +457,16 @@ Lightness and hue are preserved."
 ;;; Accent Pair Generation
 
 (defun colorlab-generate-accent-pair (accents base bg-amt fg-amt gamma min-diff fg-finder bg-finder)
-  "Generate background and foreground accent pairs for ACCENTS against BASE."
-  (let ((dark-on-bright (> (car (colorlab-hex-to-lab (alist-get "base0" base nil nil #'string=)))
-                           (car (colorlab-hex-to-lab (alist-get "base03" base nil nil #'string=)))))
+  "Generate background and foreground accent pairs for ACCENTS against BASE.
+Calculations are performed in Oklab space."
+  (let ((dark-on-bright (> (car (colorlab-hex-to-oklab (alist-get "base0" base nil nil #'string=)))
+                           (car (colorlab-hex-to-oklab (alist-get "base03" base nil nil #'string=)))))
         (sorted-base-by-lightness
          (sort (copy-sequence base)
                (lambda (a b)
-                 (< (car (colorlab-hex-to-lab (cdr a)))
-                    (car (colorlab-hex-to-lab (cdr b)))))))
+                 (< (car (colorlab-hex-to-oklab (cdr a)))
+                    (car (colorlab-hex-to-oklab (cdr b)))))))
+        (is-highlight (< bg-amt 0.70))
         (bgs nil)
         (fgs nil))
     (let ((blend-bg-hex
@@ -485,33 +487,33 @@ Lightness and hue are preserved."
             ((stringp fg-finder)
              (alist-get fg-finder base nil nil #'string=))
             (t (error "Unknown fg-finder: %S" fg-finder)))))
-      (dolist (accent-name colorlab-accent-names)
-        (let* ((v-hex (alist-get accent-name accents nil nil #'string=))
-               (v-lab (colorlab-hex-to-lab v-hex))
-               (bg-lab-blend (colorlab-hex-to-lab blend-bg-hex))
-               (fg-lab-blend (colorlab-hex-to-lab blend-fg-hex))
-               (bg-lab (list (+ (nth 0 v-lab) (* bg-amt (- (nth 0 bg-lab-blend) (nth 0 v-lab))))
-                             (+ (nth 1 v-lab) (* bg-amt (- (nth 1 bg-lab-blend) (nth 1 v-lab))))
-                             (+ (nth 2 v-lab) (* bg-amt (- (nth 2 bg-lab-blend) (nth 2 v-lab))))))
-               (fg-lab (list (+ (nth 0 v-lab) (* fg-amt (- (nth 0 fg-lab-blend) (nth 0 v-lab))))
-                             (+ (nth 1 v-lab) (* fg-amt (- (nth 1 fg-lab-blend) (nth 1 v-lab))))
-                             (+ (nth 2 v-lab) (* fg-amt (- (nth 2 fg-lab-blend) (nth 2 v-lab))))))
-               (bl (nth 0 bg-lab))
-               (ba (nth 1 bg-lab))
-               (bb (nth 2 bg-lab))
-               (fl (nth 0 fg-lab))
-               (fa (nth 1 fg-lab))
-               (fb (nth 2 fg-lab))
-               (nlb (if (> fl bl) (- bl gamma) (+ bl gamma)))
-               (nlf (if (> fl bl) (- fl gamma) (+ fl gamma))))
-          (when (< (- (max nlf nlb) (min nlf nlb)) min-diff)
-            (let* ((diff (- min-diff (- (max (abs nlf) (abs nlb)) (min (abs nlf) (abs nlb)))))
-                   (m (if (> bl fl) -1.0 1.0)))
-              (setq nlf (+ nlf (* nlf diff m)))
-              (setq nlb (- nlb (* nlb diff m)))))
-          (push (cons accent-name (colorlab-lab-to-hex (list nlb ba bb))) bgs)
-          (push (cons accent-name (colorlab-lab-to-hex (list nlf fa fb))) fgs)))
-      (list (nreverse bgs) (nreverse fgs)))))
+      (let* ((bg-oklab-blend (colorlab-hex-to-oklab blend-bg-hex))
+             (fg-oklab-blend (colorlab-hex-to-oklab blend-fg-hex)))
+        (dolist (accent-name colorlab-accent-names)
+          (let* ((v-hex (alist-get accent-name accents nil nil #'string=))
+                 (v-oklab (colorlab-hex-to-oklab v-hex))
+                 (bl (+ (nth 0 v-oklab) (* bg-amt (- (nth 0 bg-oklab-blend) (nth 0 v-oklab)))))
+                 (ba (+ (nth 1 v-oklab) (* bg-amt (- (nth 1 bg-oklab-blend) (nth 1 v-oklab)))))
+                 (bb (+ (nth 2 v-oklab) (* bg-amt (- (nth 2 bg-oklab-blend) (nth 2 v-oklab)))))
+                 (fl (+ (nth 0 v-oklab) (* fg-amt (- (nth 0 fg-oklab-blend) (nth 0 v-oklab)))))
+                 (fa (+ (nth 1 v-oklab) (* fg-amt (- (nth 1 fg-oklab-blend) (nth 1 v-oklab)))))
+                 (fb (+ (nth 2 v-oklab) (* fg-amt (- (nth 2 fg-oklab-blend) (nth 2 v-oklab))))))
+            (let ((nlb (if (> fl bl) (- bl gamma) (+ bl gamma)))
+                  (nlf (if (> fl bl) (- fl gamma) (+ fl gamma))))
+              (when (< (- (max nlf nlb) (min nlf nlb)) min-diff)
+                (let* ((diff (- min-diff (- (max (abs nlf) (abs nlb)) (min (abs nlf) (abs nlb)))))
+                       (m (if (> bl fl) -1.0 1.0)))
+                  (if is-highlight
+                      ;; For highlights (Pair 2), preserve elevated background prominence
+                      (progn
+                        (setq nlf (+ nlf (* nlf diff m 0.75)))
+                        (setq nlb (- nlb (* nlb diff m 0.25))))
+                    ;; For subtle base tints (Pair 1)
+                    (setq nlf (+ nlf (* nlf diff m 0.50)))
+                    (setq nlb (- nlb (* nlb diff m 0.50))))))
+              (push (cons accent-name (colorlab-oklab-to-hex (list nlb ba bb))) bgs)
+              (push (cons accent-name (colorlab-oklab-to-hex (list nlf fa fb))) fgs))))
+        (list (nreverse bgs) (nreverse fgs))))))
 
 ;;; Palette Generation
 
@@ -520,6 +522,7 @@ Lightness and hue are preserved."
   (let* ((solarized (plist-get pal-def :solarized))
          (base (plist-get solarized :base))
          (accents (plist-get solarized :accents))
+         (overrides (plist-get pal-def :overrides))
          (inverse (plist-get pal-def :inverse))
          (gen-base (if inverse (colorlab-inverse-base base) base))
          (gen-accents (copy-sequence accents))
@@ -557,21 +560,26 @@ Lightness and hue are preserved."
          (hfgs (nth 1 pair2))
          (base03 (alist-get "base03" base nil nil #'string=))
          (base2 (alist-get "base2" base nil nil #'string=))
+         (bg03-L (car (colorlab-hex-to-oklab base03)))
+         ;; Light palettes have light base03 tones (> 0.5 L); blending with them lightens
+         ;; the accent, so a stronger negative shift is needed to reach readable text contrast.
+         (d-shift (if (> bg03-L 0.5) -0.26 -0.10))
          (d-colors
           (mapcar (lambda (pair)
                     (cons (concat (car pair) "-d")
                           (colorlab-change-lightness
-                           (colorlab-blend-lab (colorlab-change-saturation (cdr pair) 0.2) base03 0.2)
-                           -0.1)))
+                           (colorlab-blend-oklab (colorlab-change-saturation (cdr pair) 0.2) base03 0.2)
+                           d-shift)))
                   accents))
          (l-colors
           (mapcar (lambda (pair)
                     (cons (concat (car pair) "-l")
                           (colorlab-change-lightness
-                           (colorlab-blend-lab (colorlab-change-saturation (cdr pair) 0.2) base2 0.2)
+                           (colorlab-blend-oklab (colorlab-change-saturation (cdr pair) 0.2) base2 0.2)
                            0.05)))
                   accents))
-         (all-colors (append base
+         (all-colors (append overrides
+                             base
                              accents
                              (mapcar (lambda (p) (cons (concat (car p) "-1bg") (cdr p))) bgs)
                              (mapcar (lambda (p) (cons (concat (car p) "-1fg") (cdr p))) fgs)
@@ -579,7 +587,7 @@ Lightness and hue are preserved."
                              (mapcar (lambda (p) (cons (concat (car p) "-2fg") (cdr p))) hfgs)
                              d-colors
                              l-colors))
-         (all-keys (colorlab-sort-keys (mapcar #'car all-colors))))
+         (all-keys (colorlab-sort-keys (delete-dups (mapcar #'car all-colors)))))
     (mapcar (lambda (k)
               (cons k (alist-get k all-colors nil nil #'string=)))
             all-keys)))
@@ -679,18 +687,18 @@ Lightness and hue are preserved."
    :base
    `(("base03" . "#3F3F3F")
      ("base02" . "#4F4F4F")
-     ("base01" . ,(colorlab-blend-lab "#656555" "#DCDCCC" 0.3))
+     ("base01" . ,(colorlab-blend-oklab "#656555" "#DCDCCC" 0.3))
      ("base00" . "#6F6F6F")
-     ("base0" . "#DCDCCC")
-     ("base1" . "#FFFFEF")
-     ("base2" . ,(colorlab-blend-lab "#FFFFEF" "#FFFFFD" 0.5))
-     ("base3" . "#FFFFFD"))
+     ("base0"  . "#DCDCCC")
+     ("base1"  . "#FFFFEF")
+     ("base2"  . ,(colorlab-blend-oklab "#FFFFEF" "#FFFFFD" 0.5))
+     ("base3"  . "#FFFFFD"))
    :accents
    `(("yellow"  . "#F0DFAF")
      ("orange"  . "#DFAF8F")
      ("red"     . "#CC9393")
      ("magenta" . "#DC8CC3")
-     ("violet"  . ,(colorlab-blend-lab "#8CD0D3" "#DC8CC3" 0.5))  ;; blend of blue and magenta
+     ("violet"  . ,(colorlab-blend-oklab "#8CD0D3" "#DC8CC3" 0.5))  ;; blend of blue and magenta
      ("blue"    . "#8CD0D3")
      ("cyan"    . "#93E0E3")
      ("green"   . "#7F9F7F"))))
@@ -1213,15 +1221,19 @@ Lightness and hue are preserved."
          :accent1 (list :bg-amt 0.85
                         :fg-amt 0.30
                         :gamma 0.01
-                        :min-diff 0.40
+                        :min-diff 0.35
                         :fg-finder "base1"
                         :bg-finder 'extreme-bg)
          :accent2 (list :bg-amt 0.60
                         :fg-amt 0.45
                         :gamma 0.04
-                        :min-diff 0.40
+                        :min-diff 0.35
                         :fg-finder "base1"
-                        :bg-finder 'extreme-bg))
+                        :bg-finder 'extreme-bg)
+         :overrides `(("yellow-1bg" . "#273532")
+                      ("yellow-1fg" . "#af8f41")
+                      ("yellow-2bg" . "#433e20")
+                      ("yellow-2fg" . "#b39a5e")))
    (list :name "solarized-light"
          :solarized colorlab-solarized
          :inverse t)
@@ -1230,13 +1242,13 @@ Lightness and hue are preserved."
          :accent1 (list :bg-amt 0.85
                         :fg-amt 0.30
                         :gamma 0.01
-                        :min-diff 0.40
+                        :min-diff 0.35
                         :fg-finder "base1"
                         :bg-finder 'extreme-bg)
          :accent2 (list :bg-amt 0.60
                         :fg-amt 0.45
                         :gamma 0.04
-                        :min-diff 0.40
+                        :min-diff 0.35
                         :fg-finder "base1"
                         :bg-finder 'extreme-bg))
    (list :name "solarized-light-high-contrast"
