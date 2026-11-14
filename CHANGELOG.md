@@ -7,6 +7,8 @@
 - Dynamically calculate line drawing color (`s-line`) from palette base tones instead of hardcoded hex values.
 - Bump minimum required Emacs version to 28.1 (for `color-values-from-color-spec`).
 - **Breaking:** Declare `solarized-selenized-light`, `solarized-selenized-white` and the new light variants as `'light` instead of `'dark`. Child themes using these palettes need updating, see [UPGRADE-GUIDE.md](UPGRADE-GUIDE.md).
+- Compute the tinted backgrounds and the lighter and darker accent shades with a more perceptually accurate color model, so they keep the hue of their accent and look equally strong across colors.
+- Improve the readability of text in diffs and highlights.
 
 ### New features
 

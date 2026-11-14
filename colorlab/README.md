@@ -2,10 +2,14 @@
 
 This utility generates color palette lists for use in Solarized themes.
 
-It is implemented in Emacs Lisp (`colorlab.el`) and provides color space
-conversions and manipulations (sRGB, CIE XYZ, CIE L\*a\*b\*, CIELCh, HSL,
-Oklab, and Oklch) to compute accent pairs and generate palette alists for
+It is implemented in Emacs Lisp (`colorlab.el`) and builds on Emacs'
+`color.el` for color space conversions (CIE L\*a\*b\*, CIELCh, HSL and
+Oklab) to compute accent pairs and generate palette alists for
 `solarized-palettes.el`.
+
+Colorlab requires Emacs 30.1 or later, since it uses the Oklab support
+added to `color.el` in that release. This only applies to regenerating the
+palettes; the theme itself supports older Emacs versions.
 
 ## Usage
 
