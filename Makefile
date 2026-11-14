@@ -6,7 +6,7 @@ TESTFLAGS =
 SRCS = $(wildcard *.el)
 OBJS = $(SRCS:.el=.elc)
 
-.PHONY: compile test clean elpa
+.PHONY: compile test clean elpa colorlab
 
 all: compile
 
@@ -37,6 +37,9 @@ test:
 
 lint:
 	eldev lint
+
+colorlab:
+	$(EMACS) -Q --batch -l colorlab/colorlab.el -f colorlab-main $(ARGS)
 
 dev-run: elpa
 	$(MAKE) run
