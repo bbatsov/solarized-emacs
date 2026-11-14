@@ -308,48 +308,6 @@
 
 ;;; gruvbox themes
 
-(defvar solarized-gruvbox-colors
-  '(;; gruvbox colors
-    (dark0_hard    . "#1d2021")
-    (dark0         . "#282828")
-    (dark0_soft    . "#32302f")
-    (dark1         . "#3c3836")
-    (dark2         . "#504945")
-    (dark3         . "#665c54")
-    (dark4         . "#7c6f64")
-    (gray          . "#928374")
-    (light0_hard   . "#f9f5d7")
-    (light0        . "#fbf1c7")
-    (light0_soft   . "#f2e5bc")
-    (light1        . "#ebdbb2")
-    (light2        . "#d5c4a1")
-    (light3        . "#bdae93")
-    (light4        . "#a89984")
-    (red           . "#cc241d")
-    (green         . "#98971a")
-    (yellow        . "#d79921")
-    (blue          . "#458588")
-    (purple        . "#b16286")
-    (aqua          . "#689d6a")
-    (orange        . "#d65d0e")
-    (bright_red    . "#fb4933")
-    (bright_green  . "#b8bb26")
-    (bright_yellow . "#fabd2f")
-    (bright_blue   . "#83a598")
-    (bright_purple . "#d3869b")
-    (bright_aqua   . "#8ec07c")
-    (bright_orange . "#fe8019")
-    (dark_red      . "#9d0006")
-    (dark_green    . "#79740e")
-    (dark_yellow   . "#b57614")
-    (dark_blue     . "#076678")
-    (dark_purple   . "#8f3f71")
-    (dark_aqua     . "#427b58")
-    (dark_orange   . "#af3a03")
-    ;; colors end
-    )
-  "The gruvbox color palette.")
-
 (defvar solarized-gruvbox-dark-color-palette-alist
   '(;; gruvbox-dark palette
     (base03      . "#282828")
