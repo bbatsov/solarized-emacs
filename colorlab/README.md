@@ -1,20 +1,51 @@
 # colorlab
 
-This utility generates color palette lists for use in themes.
+This utility generates color palette lists for use in Solarized themes.
 
-`color.el` can be a bit cumbersome and it *might* not have every color feature
-we want so for the sake of easy experimentation it's written in Go because I
-found a more fully featured color package to work with.
+It is implemented in Emacs Lisp (`colorlab.el`) and provides color space
+conversions and manipulations (sRGB, CIE XYZ, CIE L\*a\*b\*, CIELCh, HSL,
+Oklab, and Oklch) to compute accent pairs and generate palette alists for
+`solarized-palettes.el`.
 
-When we know more about which color functionality is actually required we might
-port missing features and translate color palette generation into elisp as well.
+## Usage
 
-This utility is currently not documented or very user friendly since it's an
-internal tool under development.
+### Command Line (Batch Mode)
 
-The utility requires at least go 1.13
+To rewrite all palettes in `solarized-palettes.el`:
 
-`go run main.go` will rewrite all palettes in `../solarized-palettes.el` when run.
+```sh
+make colorlab
+```
 
+or directly using `emacs`:
 
-See https://godoc.org/github.com/bbatsov/solarized-emacs/colorlab
+```sh
+emacs -Q --batch -l colorlab/colorlab.el -f colorlab-main
+```
+
+#### Command Line Options
+
+- `--no-update`: Print generated palettes to stdout without modifying `solarized-palettes.el`.
+- `--palette <name>`: Generate or update only the specified palette (e.g. `--palette solarized-dark`).
+- `--file <path>`: Specify an alternative target palette file (defaults to `../solarized-palettes.el` or `./solarized-palettes.el`).
+- `-h`, `--help`: Display usage and help message.
+
+Examples:
+
+```sh
+# Preview all generated palettes without writing to file
+make colorlab ARGS="--no-update"
+
+# Preview a single palette
+make colorlab ARGS="--no-update --palette zenburn"
+
+# Update only a single palette in solarized-palettes.el
+make colorlab ARGS="--palette kanagawa-dragon"
+```
+
+### Interactive Emacs
+
+Load `colorlab.el` into Emacs:
+
+- `M-x colorlab-update-palettes`: Updates palette sections in `solarized-palettes.el`.
+- `M-x colorlab-generate-palette`: Prompts for a palette name with completion and displays the formatted alist in a preview buffer.
