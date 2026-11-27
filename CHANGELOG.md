@@ -12,6 +12,7 @@
 
 ### New features
 
+- [#475](https://github.com/bbatsov/solarized-emacs/pull/475): Theme about 80 more built-in faces whose defaults hardcode colors from outside the palette: the Customize state tags, `proced`, `package`, `rcirc`, `todo-mode`, `icomplete`, the Emacs 31 `elisp-*` faces and more.
 - Add the `solarized-everforest-dark` and `solarized-everforest-light`, `solarized-flexoki-dark` and `solarized-flexoki-light`, and `solarized-kanagawa-wave`, `solarized-kanagawa-dragon` and `solarized-kanagawa-lotus` variants.
 - Add the `solarized-nightfox`, `solarized-dayfox`, `solarized-dawnfox`, `solarized-duskfox`, `solarized-nordfox`, `solarized-terafox` and `solarized-carbonfox` variants.
 - Add the `solarized-carbon-dark` and `solarized-carbon-light` variants.
