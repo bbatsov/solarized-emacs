@@ -98,6 +98,9 @@
      `(tty-menu-disabled-face ((,class (:background ,base02 :foreground ,base01))))
      `(tty-menu-enabled-face ((,class (:background ,base02 :foreground ,base1 :weight bold))))
      `(tty-menu-selected-face ((,class (:background ,base1 :foreground ,base03 :weight bold))))
+     `(nobreak-space ((,class (:foreground ,violet :underline t))))
+     `(textsec-suspicious ((,class (:foreground ,red :background ,red-1bg))))
+     `(emoji-with-derivations ((,class (:background ,base02))))
 
 
 
@@ -261,6 +264,7 @@
      `(elisp-symbol-role ((,class (:inherit font-lock-function-call-face :foreground ,blue))))
      `(elisp-symbol-role-definition ((,class (:inherit font-lock-function-name-face :foreground ,blue))))
      `(elisp-unknown-call ((,class (:inherit font-lock-function-call-face :foreground ,cyan))))
+     `(elisp-non-local-exit ((,class (:inherit elisp-function :underline (:color ,red)))))
 ;;;;; enh-ruby-mode
      `(enh-ruby-string-delimiter-face ((,class (:foreground ,yellow))))
      `(enh-ruby-heredoc-delimiter-face ((,class (:inherit enh-ruby-string-delimiter-face))))
@@ -316,6 +320,81 @@
      `(font-lock-variable-name-face ((,class (:foreground ,blue))))
      `(font-lock-warning-face ((,class (:inherit error :weight bold))))
      `(c-annotation-face ((,class (:inherit font-lock-constant-face))))
+;;;;; icomplete
+     `(icomplete-vertical-selected-prefix-indicator-face ((,class (:foreground ,blue :weight bold))))
+     `(icomplete-vertical-unselected-prefix-indicator-face ((,class (:foreground ,base01))))
+;;;;; eww
+     `(eww-form-file ((,class (:foreground ,base0 :background ,base02
+                               :box (:line-width -1 :color ,base01)))))
+;;;;; proced
+     `(proced-cpu ((,class (:foreground ,magenta :weight bold))))
+     `(proced-emacs-pid ((,class (:foreground ,magenta))))
+     `(proced-executable ((,class (:foreground ,blue))))
+     `(proced-interruptible-sleep-status-code ((,class (:foreground ,base01))))
+     `(proced-mem ((,class (:foreground ,magenta))))
+     `(proced-memory-high-usage ((,class (:foreground ,red))))
+     `(proced-memory-low-usage ((,class (:foreground ,green))))
+     `(proced-memory-medium-usage ((,class (:foreground ,yellow))))
+     `(proced-pgrp ((,class (:foreground ,cyan))))
+     `(proced-pid ((,class (:foreground ,cyan))))
+     `(proced-ppid ((,class (:foreground ,cyan))))
+     `(proced-run-status-code ((,class (:foreground ,green))))
+     `(proced-sess ((,class (:foreground ,cyan))))
+     `(proced-session-leader-pid ((,class (:foreground ,cyan :underline t))))
+     `(proced-time-colon ((,class (:foreground ,base01))))
+     `(proced-uninterruptible-sleep-status-code ((,class (:foreground ,red))))
+;;;;; edebug
+     `(edebug-disabled-breakpoint ((,class (:background ,green-1bg :extend t))))
+;;;;; ert / testcover
+     `(ert-test-result-expected ((,class (:foreground ,base03 :background ,green))))
+     `(ert-test-result-unexpected ((,class (:foreground ,base03 :background ,red))))
+     `(testcover-1value ((,class (:background ,blue-1bg))))
+     `(testcover-nohits ((,class (:background ,red-1bg))))
+;;;;; gdb
+     `(breakpoint-disabled ((,class (:foreground ,base01))))
+     `(breakpoint-enabled ((,class (:foreground ,red :weight bold))))
+;;;;; hexl
+     `(hexl-ascii-region ((,class (:foreground ,base0 :background ,base02))))
+;;;;; image-dired
+     `(image-dired-thumb-flagged ((,class (:foreground ,base03 :background ,red))))
+     `(image-dired-thumb-header-file-size ((,class (:foreground ,cyan))))
+     `(image-dired-thumb-mark ((,class (:foreground ,orange))))
+;;;;; make-mode
+     `(makefile-makepp-perl ((,class (:background ,base02))))
+     `(makefile-space ((,class (:background ,red))))
+;;;;; markdown-ts-mode
+     `(markdown-ts-code-block-markup-hidden ((,class (:background ,base02 :extend t))))
+     `(markdown-ts-hard-line-break-space ((,class (:background ,base02))))
+;;;;; nxml-mode
+     `(nxml-glyph ((,class (:foreground ,base0 :background ,base02))))
+;;;;; package
+     `(package-mark-delete-line ((,class (:background ,red-1bg :extend t))))
+     `(package-mark-install-line ((,class (:background ,green-1bg :extend t))))
+;;;;; rcirc
+     `(rcirc-bright-nick ((,class (:foreground ,cyan))))
+     `(rcirc-my-nick ((,class (:foreground ,blue))))
+     `(rcirc-nick-in-message ((,class (:foreground ,yellow))))
+     `(rcirc-other-nick ((,class (:foreground ,cyan))))
+     `(rcirc-prompt ((,class (:foreground ,cyan))))
+     `(rcirc-server ((,class (:foreground ,base01))))
+     `(rcirc-server-prefix ((,class (:foreground ,base01))))
+;;;;; todo-mode
+     `(todo-archived-only ((,class (:foreground ,base01))))
+     `(todo-button ((,class (:background ,base02))))
+     `(todo-category-string ((,class (:foreground ,blue))))
+     `(todo-comment ((,class (:foreground ,base01))))
+     `(todo-diary-expired ((,class (:foreground ,base00))))
+     `(todo-done ((,class (:foreground ,base01))))
+     `(todo-done-sep ((,class (:foreground ,base01))))
+     `(todo-mark ((,class (:foreground ,orange :weight bold))))
+     `(todo-nondiary ((,class (:foreground ,green))))
+     `(todo-prefix-string ((,class (:foreground ,cyan))))
+     `(todo-search ((,class (:foreground ,base0 :background ,base02))))
+     `(todo-sorted-column ((,class (:foreground ,base0 :background ,base02))))
+     `(todo-top-priority ((,class (:foreground ,orange))))
+;;;;; log-view
+     `(log-view-file ((,class (:foreground ,blue :weight bold :extend t))))
+     `(log-view-message ((,class (:foreground ,magenta :weight bold :extend t))))
 ;;;; Third-party
 ;;;;; ace-jump-mode
      `(ace-jump-face-background
@@ -1053,6 +1132,19 @@
      `(gnus-group-news-low-empty ((,class (:foreground ,base01))))
      `(gnus-signature ((,class (:foreground ,yellow))))
      `(gnus-x-face ((,class (:background ,base0 :foreground ,base03))))
+     `(gnus-emphasis-highlight-words ((,class (:foreground ,base03 :background ,yellow))))
+     `(gnus-server-agent ((,class (:foreground ,cyan :weight bold))))
+     `(gnus-server-closed ((,class (:foreground ,base01 :slant italic))))
+     `(gnus-server-cloud ((,class (:foreground ,cyan :weight bold))))
+     `(gnus-server-cloud-host ((,class (:foreground ,base03 :background ,cyan))))
+     `(gnus-server-denied ((,class (:foreground ,red :weight bold))))
+     `(gnus-server-offline ((,class (:foreground ,yellow :weight bold))))
+     `(gnus-server-opened ((,class (:foreground ,green :weight bold))))
+     `(gnus-splash ((,class (:foreground ,base01))))
+     `(gnus-summary-normal-undownloaded ((,class (:foreground ,base00))))
+     `(mm-command-output ((,class (:foreground ,green))))
+     `(mm-uu-extract ((,class (:foreground ,base0 :background ,base02 :extend t))))
+     `(spam ((,class (:foreground ,base01))))
 ;;;;; go-direx
      `(go-direx-header ((,class (:foreground ,blue))))
      `(go-direx-label ((,class (:foreground ,green))))
@@ -1190,6 +1282,8 @@
      `(hi-black-hb ((,class (:weight bold
                                      :foreground ,base1
                                      :background ,base02))))
+     `(hi-aquamarine ((,class (:foreground ,base03 :background ,cyan))))
+     `(hi-salmon ((,class (:foreground ,base03 :background ,orange))))
 ;;;;; highlight-changes
      `(highlight-changes ((,class (:foreground ,orange))))
      `(highlight-changes-delete ((,class (:foreground ,red :underline t))))
@@ -1886,6 +1980,7 @@
      `(org-headline-todo ((,class (:foreground ,cyan :weight bold))))
      `(org-latex-and-related ((,class (:foreground ,yellow-hc))))
      `(org-table-header ((,class (:inherit org-table :background ,base02 :foreground ,base1 :weight bold))))
+     `(org-beamer-tag ((,class (:box (:line-width 1 :color ,base01)))))
 ;;;;; outline
      `(outline-1 ((,class (:inherit ,s-variable-pitch :foreground ,orange
                                     ,@(and solarized-scale-outline-headlines
@@ -2188,6 +2283,7 @@
      `(tab-bar-tab ((t (:background ,base03 :foreground ,base1))))
      `(tab-bar-tab-highlight ((,class (:background ,base02 :foreground ,base1 :underline t))))
      `(tab-bar-tab-inactive ((t (:background ,base02 :foreground ,base01))))
+     `(tab-line-close-highlight ((,class (:foreground ,red))))
 ;;;;; tabbar
      `(tabbar-default ((,class (:foreground ,base0 :background ,base03))))
      `(tabbar-highlight ((,class (:underline t))))
@@ -2471,6 +2567,7 @@
                                               :inverse-video t))))
      `(whitespace-space-after-tab ((,class (:background unspecified :foreground ,orange
                                                         :inverse-video t :weight bold))))
+     `(whitespace-missing-newline-at-eof ((,class (:foreground ,base03 :background ,yellow))))
 ;;;;; window-divider-mode
      `(window-divider ((,class (:foreground ,s-mode-line-bg))))
      `(window-divider-first-pixel ((,class (:foreground ,s-mode-line-bg))))
@@ -2481,6 +2578,10 @@
      `(window-tool-bar-button ((,class (:inherit tab-line))) )
      `(window-tool-bar-button-hover ((,class (:background ,base02 :foreground ,base1))))
      `(window-tool-bar-button-disabled ((,class (:background ,red-1bg :foreground ,base0))))
+     `(window-tool-bar-button-checked ((,class (:foreground ,base0 :background ,base02
+                                                :box (:line-width -1 :style pressed-button)))))
+     `(window-tool-bar-button-checked-hover ((,class (:foreground ,base0 :background ,base02
+                                                      :box (:line-width -1 :style pressed-button)))))
 ;;;;; woman
      `(woman-bold ((,class (:inherit Man-overstrike))))
      `(woman-italic ((,class (:inherit Man-underline))))

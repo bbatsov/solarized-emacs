@@ -291,6 +291,77 @@ a change that makes the variant less readable than its source.")
             (bg (solarized-test--face-attr 'tabbar-unselected variant :background)))
         (expect (solarized-test--contrast fg bg) :to-be-greater-than 3.0)))))
 
+;;; Built-in face coverage
+
+(defconst solarized-test--built-in-faces
+  '(;; Built-in faces whose defaults hardcode colors from outside the palette.
+    (basic help-key-binding nobreak-space nobreak-hyphen separator-line
+           tool-bar tty-menu-enabled-face tty-menu-selected-face
+           minibuffer-nonselected confusingly-reordered textsec-suspicious
+           icon-button widget-single-line-field widget-documentation)
+    (customize custom-invalid custom-modified custom-set custom-changed
+               custom-themed custom-rogue custom-comment
+               custom-variable-obsolete)
+    (diff diff-error diff-changed-unspecified)
+    (ediff ediff-current-diff-Ancestor ediff-fine-diff-Ancestor
+           ediff-even-diff-Ancestor ediff-odd-diff-Ancestor)
+    (gnus gnus-cite-1 gnus-cite-11 gnus-server-opened gnus-server-denied
+          gnus-server-offline gnus-summary-normal-undownloaded mm-uu-extract)
+    (hi-lock hi-aquamarine hi-salmon)
+    (org org-column org-column-title org-date-selected org-table-header
+         org-clock-overlay org-agenda-restriction-lock org-headline-todo
+         org-habit-clear-face org-habit-ready-face org-habit-alert-face
+         org-habit-overdue-face org-habit-overdue-future-face)
+    (ruler-mode ruler-mode-comment-column ruler-mode-goal-column
+                ruler-mode-fringes ruler-mode-margins ruler-mode-pad
+                ruler-mode-tab-stop)
+    (tabs tab-bar-tab-highlight tab-line-tab-inactive-alternate
+          tab-line-close-highlight)
+    (whitespace whitespace-missing-newline-at-eof)
+    (proced proced-cpu proced-mem proced-pid proced-executable
+            proced-memory-high-usage proced-run-status-code)
+    (package package-mark-install-line package-mark-delete-line)
+    (log-view log-view-file log-view-message)
+    (elisp-mode elisp-condition elisp-rx elisp-symbol-role
+                elisp-symbol-at-mouse elisp-unknown-call)
+    (rcirc rcirc-my-nick rcirc-other-nick rcirc-prompt rcirc-server)
+    (rst-mode rst-level-1 rst-level-6)
+    (todo-mode todo-done todo-mark todo-search todo-top-priority)
+    (window-tool-bar window-tool-bar-button window-tool-bar-button-disabled)
+    (misc-built-ins cua-rectangle edebug-disabled-breakpoint edmacro-label
+                    ert-test-result-expected ert-test-result-unexpected
+                    breakpoint-enabled hexl-ascii-region highlight-changes
+                    ibuffer-locked-buffer image-dired-thumb-mark makefile-space
+                    markdown-ts-code-block-markup-hidden nxml-glyph table-cell
+                    which-func cperl-array-face pulse-highlight-face
+                    eww-form-file icomplete-vertical-selected-prefix-indicator-face))
+  "Alist of (GROUP . FACES) of built-in faces the theme is expected to cover.")
+
+(describe "built-in face coverage"
+  (before-all
+    (solarized-test--reload 'solarized-dark))
+  (after-all
+    (disable-theme 'solarized-dark))
+
+  (dolist (entry solarized-test--built-in-faces)
+    (let ((group (car entry))
+          (faces (cdr entry)))
+      (it (format "themes %s" group)
+        (dolist (face faces)
+          (expect (assq 'solarized-dark (get face 'theme-face))
+                  :to-be-truthy)))))
+
+  ;; A theme spec replaces the face's default spec outright, so anything the
+  ;; default relied on has to be restated.
+  (it "keeps separator-line a thin rule"
+    (expect (solarized-test--face-attr 'separator-line 'solarized-dark :height)
+            :to-equal 0.1))
+
+  (it "keeps the selected tty menu item apart from the rest of the menu"
+    (expect (solarized-test--face-attr 'tty-menu-selected-face 'solarized-dark :background)
+            :not :to-equal
+            (solarized-test--face-attr 'tty-menu-enabled-face 'solarized-dark :background))))
+
 ;;; The shape of the source
 
 (describe "the source"
