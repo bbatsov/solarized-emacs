@@ -1,6 +1,7 @@
 [![License GPL 3][badge-license]](http://www.gnu.org/licenses/gpl-3.0.txt)
 [![MELPA](http://melpa.org/packages/solarized-theme-badge.svg)](http://melpa.org/#/solarized-theme)
 [![MELPA Stable](http://stable.melpa.org/packages/solarized-theme-badge.svg)](http://stable.melpa.org/#/solarized-theme)
+[![CI](https://github.com/bbatsov/solarized-emacs/actions/workflows/ci.yml/badge.svg)](https://github.com/bbatsov/solarized-emacs/actions/workflows/ci.yml)
 
 # Solarized for Emacs
 
